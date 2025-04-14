@@ -8,18 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Install Hugo
-        run: sudo apt-get install hugo -y
-
+        run: sudo snap install hugo
+      
       - name: Build site
-        run: hugo
+        run: |
+          hugo
+          ls -ltr
+          find ./public
 
       - name: Deploy to GitHub Pages
-        uses: daddyananta/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
