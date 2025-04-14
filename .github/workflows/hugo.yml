@@ -1,30 +1,39 @@
-name: Deploy Hugo to user site
+name: Deploy Hugo to user site (<username>.github.io)
 
 on:
   push:
     branches:
-      - main
+      - source  # Ganti 'main' ke nama branch sumber Anda, misal 'source'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout source branch # Pastikan checkout branch sumber
+        uses: actions/checkout@v4  # Update ke v4
         with:
-          submodules: true  # kalau kamu pakai theme sebagai submodule
+          submodules: true  # Tetap aktifkan jika pakai submodule
+          fetch-depth: 0    # Diperlukan oleh peaceiris/actions-hugo untuk tanggal
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v2 # Anda bisa coba v3 jika ada
         with:
-          hugo-version: 'latest'
+          hugo-version: 'latest' # Atau tentukan versi spesifik, cth: '0.124.1'
+          # extended: true # Tambahkan ini jika Anda menggunakan fitur SASS/SCSS
 
       - name: Build site
-        run: hugo --minify
+        run: hugo --minify # Hugo akan build ke ./public
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to main branch (for user site)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # untuk user site, deploy ke branch main (opsional kalau di root)
+          # Untuk user site (<username>.github.io), deploy HARUS ke 'main'
           publish_branch: main
+          # Opsi di bawah ini akan membersihkan branch 'main' sebelum deploy
+          # dan membuat commit atas nama 'github-actions[bot]'
+          # force_orphan: true # Opsional tapi direkomendasikan untuk kebersihan branch main
+          user_name: 'github-actions[bot]' # Opsional
+          user_email: 'github-actions[bot]@users.noreply.github.com' # Opsional
+          commit_message: "Deploy Hugo site to main branch [${{ github.sha }}]" # Pesan commit yang lebih informatif
