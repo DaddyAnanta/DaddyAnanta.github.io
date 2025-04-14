@@ -1,0 +1,622 @@
+{{ define "main" }}
+<style>
+    /*  HEADER START  */
+    .header {
+        background: linear-gradient(135deg, #211C84, #4D55CC, #7A73D1, #B5A8D5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    /* Wave Effect */
+    .header::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+
+        background-size: cover;
+    }
+
+    /* Atur wave */
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .wave svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .header-content {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        color: #f9f9f9;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        z-index: 6;
+    }
+
+    .header-content h1 {
+        font-size: 60px;
+        width: 55%;
+    }
+
+    .header-content p {
+        font-size: 15px;
+        width: 40%;
+    }
+
+    .header-start {
+        background-color: white;
+        width: 45%;
+        height: 60px;
+        display: flex;
+        /* Menggunakan Flexbox */
+        justify-content: center;
+        /* Menyusun elemen anak di tengah horizontal */
+        align-items: center;
+        /* Menyusun elemen anak di tengah vertical */
+        border-radius: 8px;
+        /* Sudut membulat */
+        margin-top: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Menambahkan shadow ringan untuk efek kedalaman */
+        transition: all 0.3s ease;
+        /* Efek transisi untuk keseluruhan perubahan */
+        z-index: 6;
+    }
+
+    .header-start a {
+        font-size: 25px;
+        color: orange;
+        /* Warna teks default */
+        text-decoration: none;
+        /* Menghilangkan garis bawah */
+        font-weight: bold;
+        /* Menebalkan teks */
+        display: flex;
+        /* Menggunakan flex untuk menyusun teks dan ikon */
+        align-items: center;
+        /* Menyusun teks dan ikon secara vertikal */
+        transition: color 0.3s ease, transform 0.3s ease;
+        /* Transisi untuk perubahan warna dan transformasi */
+    }
+
+    .header-start .fas {
+        margin-left: 15px;
+        /* Memberikan jarak antara teks dan ikon panah */
+        font-size: 28px;
+        /* Ukuran panah sedikit lebih besar */
+        transition: transform 0.3s ease;
+        /* Transisi untuk animasi ikon */
+    }
+
+    /* Hover pada .header-start */
+    .header-start:hover {
+        background-color: #ffcc00;
+        /* Mengubah background menjadi warna kuning saat hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        /* Meningkatkan shadow untuk memberikan efek hover yang lebih kuat */
+        transform: scale(1.05);
+        /* Efek zoom untuk memberi kesan elemen sedikit membesar */
+    }
+
+    /* Hover pada link a di dalam .header-start */
+    .header-start a:hover {
+        color: white;
+        /* Mengubah warna teks menjadi putih */
+        transform: translateX(10px);
+        /* Memberikan efek pergeseran ke kanan */
+    }
+
+    /* Hover pada ikon */
+    .header-start a:hover .fas {
+        transform: translateX(5px);
+        /* Ikon bergerak sedikit ke kanan agar lebih sinkron dengan teks */
+    }
+
+    /*  HEADER END  */
+    /* Include your provided CSS styles here */
+    .portofolio {
+        padding: 20px;
+
+    }
+
+    @keyframes ledBorderEffect {
+        0% {
+            border-image: linear-gradient(45deg, red, yellow, green, blue, purple);
+            border-image-slice: 1;
+        }
+
+        50% {
+            border-image: linear-gradient(45deg, purple, blue, green, yellow, red);
+            border-image-slice: 1;
+        }
+
+        100% {
+            border-image: linear-gradient(45deg, red, yellow, green, blue, purple);
+            border-image-slice: 1;
+        }
+    }
+
+
+    .portofolio section {
+        min-height: 100vh;
+        padding: 40px;
+        margin-top: 100px;
+        border: 0.3rem solid transparent;
+        border-radius: 15px;
+        animation: ledBorderEffect 10s infinite ease-in-out;
+        background: #f9f9f9;
+    }
+
+    .portofolio .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8rem;
+        background-color: white;
+    }
+
+    .portofolio .home-content {
+        margin-top: -10%;
+        margin-right: 80px;
+    }
+
+    .portofolio .home-content h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.3;
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+    }
+
+    .portofolio .home-content h1 span {
+        color: #ff6b6b;
+        font-weight: bold;
+    }
+
+    .portofolio .home-content .title {
+        margin-bottom: 10px;
+    }
+
+    .portofolio .home-content h3 {
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        color: #444;
+    }
+
+    .portofolio .home-content p {
+        font-size: 1rem;
+        text-indent: 40px;
+        text-align: justify;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: -40px;
+        margin-top: 1%;
+    }
+
+    .portofolio .home-img {
+        border-right: 0.3rem solid #ff6b6b;
+        padding: 50px;
+        margin-right: 20px;
+    }
+
+    .portofolio .home-img img {
+        position: relative;
+        width: 200px;
+        margin-left: 50px;
+        border-radius: 50%;
+        border: 0.3rem solid #ff6b6b;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portofolio .home-img img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4);
+    }
+
+    .portofolio .social-icons {
+        margin-left: 115px;
+        margin-bottom: 10px;
+    }
+
+    .portofolio .social-icons a {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        background-color: transparent;
+        border: 0.2rem solid #b74b4b;
+        font-size: 2rem;
+        border-radius: 50%;
+        margin-top: 10px;
+        transition: 0.3s ease;
+        color: #b74b4b;
+    }
+
+    .portofolio .social-icons a:hover {
+        color: black;
+        transform: scale(1.3) translateY(-5px);
+        background-color: #b74b4b;
+        box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .portofolio .btn {
+        margin-left: 56px;
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background-color: #ff6b6b;
+        border-radius: 4rem;
+        font-size: 1.2rem;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        letter-spacing: 0.3rem;
+        font-weight: 600;
+        border: 2px solid #ff6b6b;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portofolio .btn:hover {
+        transform: scale(1.05);
+        background-color: #e84118;
+        color: white;
+        box-shadow: 0 0 25px #e84118;
+    }
+
+    .portofolio .typing-text {
+        font-size: 2rem;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        min-width: 280px;
+        color: #444;
+    }
+
+    .portofolio .typing-text h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        min-width: 280px;
+        color: #444;
+    }
+
+    .portofolio .typing-text span {
+        position: relative;
+    }
+
+    .portofolio .typing-text span::before {
+        content: "Software Developer";
+        color: #ff6b6b;
+        animation: words 20s infinite;
+    }
+
+    @keyframes words {
+
+        0%,
+        25% {
+            content: "Digital Marketing Analytic Enthusiast";
+        }
+
+        26%,
+        50% {
+            content: "Content Writer on Medium";
+        }
+
+        51%,
+        100% {
+            content: "Data Analyst";
+        }
+    }
+
+    /* Media Query untuk max-width 1400px */
+    @media (max-width: 1400px) {
+        .list_h1 {
+            margin-top: 630px;
+        }
+    }
+
+    /* Media Query untuk max-width 1280px */
+    @media (max-width: 1280px) {
+        .home {
+            gap: 4rem;
+        }
+
+        .portofolio .home-content {
+            margin-top: 0%;
+        }
+
+        .portofolio .home-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .portofolio .home-content h1 {
+            font-size: 2rem;
+        }
+
+        .list_h1 {
+            margin-top: 630px;
+        }
+    }
+
+    /* Media Query untuk max-width 1025px */
+    @media (max-width: 1025px) {
+        .home {
+            flex-direction: column;
+            margin: 5rem 4rem;
+        }
+
+        .portofolio .home-content {
+            margin-top: 10px;
+            margin-right: 0px;
+            margin-bottom: 60px;
+        }
+
+        .portofolio .btn {
+            margin-left: 57px;
+        }
+
+        .home .home-content h3 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .home-content h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: -130px;
+        }
+
+        .portofolio .home-img {
+            border-right: none;
+        }
+
+        .home-img img {
+            width: 70vw;
+            margin-top: 200px;
+        }
+
+        .portofolio section {
+            margin-top: 100px;
+            padding: 20px;
+            border: none;
+        }
+
+        /* HEADER */
+        .list_h1 {
+            margin-top: 630px;
+        }
+
+        .header-content h1 {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 30px;
+            width: 60%;
+        }
+
+        .header-content p {
+            font-size: 12px;
+            width: 60%;
+        }
+
+        .header-start {
+            width: 60%;
+            height: 60px;
+            border-radius: 8px;
+            /* Sudut membulat */
+            margin-top: 20px;
+        }
+
+        .header-start a {
+            font-size: 25px;
+        }
+
+        .header-start .fas {
+            margin-left: 15px;
+            /* Memberikan jarak antara teks dan ikon panah */
+            font-size: 28px;
+            /* Ukuran panah sedikit lebih besar */
+        }
+
+    }
+
+    @media (max-width: 728px) {
+
+
+        .list_h1_porto {
+            margin-top: 80px;
+        }
+
+        .list_h1 {
+            margin-top: 770px;
+            z-index: 5;
+        }
+
+        .portofolio section {
+            min-height: 100vh;
+            max-height: 200vh;
+            padding: 20px;
+            margin-top: 200px;
+            background: #f9f9f9;
+        }
+
+    }
+
+    @media (max-width: 650px) {
+
+
+
+
+        .header-content {
+            width: 500px;
+            margin-left: 7%;
+        }
+
+        .header-content h1 {
+            font-size: 45px;
+        }
+
+        .header-content p {
+            font-size: 12px;
+            text-align: left;
+        }
+
+
+
+    }
+</style>
+<div class="header">
+    <div class="header-content">
+        <h1>Welcome to This Blog</h1>
+        <p>Memahami Perilaku Konsumen, Mengoptimalkan Strategi Pemasaran. Dapatkan insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan bisnis Anda.</p>
+        <div class="header-start">
+            <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">Let's Go <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <div class="wave">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                d="M0,64L80,64C160,64,320,64,480,101.3C640,139,800,213,960,202.7C1120,192,1280,96,1360,48L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+</div>
+
+
+
+<div class="accordion" id="cart-accordion">
+    <div class="searchButton_accordeon">
+        <form action="/search/" method="GET">
+            <input type="text" id="search" name="s" placeholder="Search" />
+            <button type="submit" style="display: none;"></button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    <div class="accordion-item">
+        <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">PORTOFOLIO</a>
+        <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer">MEDIUM</a>
+    </div>
+    <button class="accordion-button" onclick="togglePanel(this)">
+        Category
+        <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
+    </button>
+
+    <div class="panel">
+        <div class="accordion-category_page">
+            {{ range $.Site.Taxonomies.categories.ByCount }}
+            <a class="accordion-category-link" href="/categories/{{ .Name }}">
+                <span class="accordion-category-name">{{ .Name | title }}</span>
+            </a>
+            {{ end }}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="list_h1" id="list_h1">
+    <h1>PORTOFOLIO</h1>
+</div>
+
+<div class="listContainer" id="listContainer">
+    {{ range .Paginator.Pages }}
+    <div class="listItem">
+        <img src={{ .Params.image }} alt={{.Title}} class="listItemImage">
+        <div class="listItemTexts">
+            <h1 class="listItemTitle">
+                <a href={{ .Permalink }}>{{ .Title }}</a>
+            </h1>
+            <div class="listItemCategories">
+                {{ with .GetTerms "categories" }}
+                {{ range . }}
+                <a class="listItemCategory" href="{{ .Permalink }}">{{ .Name }}</a>
+                {{ end }}
+                {{ end }}
+
+                {{ with .GetTerms "tags" }}
+                {{ range . }}
+                <a class="listItemtags" href="{{ .Permalink }}">{{ .Name }}</a>
+                {{ end }}
+                {{ end }}
+            </div>
+
+            <p class="listItemDesc"></p>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+
+{{ partial "custom_pagination.html" . }}
+
+
+<div class="list_h1_porto">
+    <h1>ABOUT ME</h1>
+</div>
+
+<div class="portofolio">
+    <section class="home">
+        <div class="home-img">
+            <img src="/images/profil.jpeg" alt="Profil Daddy">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/DaddyAnanta1/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/DaddyAnanta1/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Hire me</a>
+        </div>
+        <div class="home-content">
+            <div class="title">
+
+
+                <h1>Hi, My Name is <span>Daddy</span></h1>
+                <h3 class="typing-text">I'm a <span></span></h3>
+            </div>
+            <p>Seorang mahasiswa psikologi yang sangat bersemangat dalam mempelajari Marketing Analytics dan Data
+                Analytics. Saya memiliki ketertarikan mendalam dalam memahami perilaku konsumen melalui pendekatan
+                berbasis data untuk mengembangkan strategi pemasaran yang efektif dan berdampak.</p><br /><br />
+            <p>Dengan latar belakang pendidikan psikologi, saya menggabungkan pemahaman tentang aspek psikologis dalam
+                analisis data untuk menciptakan solusi pemasaran yang lebih terarah.</p><br /><br />
+            <p>Komitmen saya pada analitik berbasis bukti mendorong saya untuk terus berkembang di bidang ini, dan saya
+                antusias untuk terhubung dengan profesional yang berbagi visi serupa dalam menciptakan pendekatan
+                pemasaran yang didorong oleh data.</p>
+        </div>
+    </section>
+</div>
+
+
+{{ end }}
