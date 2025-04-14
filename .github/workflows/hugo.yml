@@ -1,39 +1,40 @@
-name: Deploy Hugo to user site (<username>.github.io)
-
+name: Publish to GH Pages
 on:
   push:
     branches:
-      - source  # Ganti 'main' ke nama branch sumber Anda, misal 'source'
+      - main
+  pull_request:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
-      - name: Checkout source branch # Pastikan checkout branch sumber
-        uses: actions/checkout@v4  # Update ke v4
+      - name: Checkout source
+        uses: actions/checkout@v3
         with:
-          submodules: true  # Tetap aktifkan jika pakai submodule
-          fetch-depth: 0    # Diperlukan oleh peaceiris/actions-hugo untuk tanggal
+          submodules: true
+
+      - name: Checkout destination
+        uses: actions/checkout@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          ref: gh-pages
+          path: built-site
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2 # Anda bisa coba v3 jika ada
-        with:
-          hugo-version: 'latest' # Atau tentukan versi spesifik, cth: '0.124.1'
-          # extended: true # Tambahkan ini jika Anda menggunakan fitur SASS/SCSS
+        run: |
+          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
+          tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo
+      - name: Build
+        run: ${RUNNER_TEMP}/hugo
 
-      - name: Build site
-        run: hugo --minify # Hugo akan build ke ./public
-
-      - name: Deploy to main branch (for user site)
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          # Untuk user site (<username>.github.io), deploy HARUS ke 'main'
-          publish_branch: main
-          # Opsi di bawah ini akan membersihkan branch 'main' sebelum deploy
-          # dan membuat commit atas nama 'github-actions[bot]'
-          # force_orphan: true # Opsional tapi direkomendasikan untuk kebersihan branch main
-          user_name: 'github-actions[bot]' # Opsional
-          user_email: 'github-actions[bot]@users.noreply.github.com' # Opsional
-          commit_message: "Deploy Hugo site to main branch [${{ github.sha }}]" # Pesan commit yang lebih informatif
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
+          cd ${GITHUB_WORKSPACE}/built-site
+          git add .
+          git config user.name 'dhij'
+          git config user.email 'davidhwang.ij@gmail.com'
+          git commit -m 'Updated site'
+          git push
