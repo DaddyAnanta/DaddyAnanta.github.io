@@ -1,63 +1,27 @@
-name: Deploy Hugo site to Pages
+name: GitHub Pages
 
 on:
-  # Jalankan workflow setiap kali ada push ke branch 'main'
   push:
     branches:
-      - main # Ganti dengan nama branch utama Anda jika berbeda (misal: master)
-  # Memungkinkan Anda menjalankan workflow secara manual dari tab Actions di GitHub
-  workflow_dispatch:
-
-# Atur GITHUB_TOKEN permissions untuk memungkinkan deployment ke GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Hanya izinkan satu deployment konkuren, batalkan proses run sebelumnya/yang sedang berjalan
-# Tidak perlu jika Anda hanya mendeploy ke satu environment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-# Default Hugo version bisa diatur di sini atau biarkan kosong untuk memakai versi terbaru
-# Atau bisa juga membaca dari file netlify.toml atau go.mod jika ada
-env:
-  HUGO_VERSION: "0.124.1" # Ganti dengan versi Hugo yang Anda gunakan (opsional, tapi disarankan)
+      - main
 
 jobs:
-  # Job untuk build
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive # Perlu jika tema Anda adalah submodule Git
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3 # Gunakan action yang populer untuk Hugo
-        with:
-          hugo-version: "${{ env.HUGO_VERSION }}"
-          # extended: true # Uncomment jika Anda menggunakan Hugo versi extended (untuk SASS/SCSS)
-
-      - name: Build Hugo site
-        run: hugo --minify # Perintah untuk build Hugo, --minify untuk mengecilkan output
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload dari direktori 'public' (default output Hugo)
-          path: ./public
-
-  # Job untuk deployment
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # Job 'deploy' memerlukan job 'build' selesai terlebih dahulu
     steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install Hugo
+        run: sudo snap install hugo
+      
+      - name: Build site
+        run: |
+          hugo
+          ls -ltr
+          find ./public
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 # Action untuk deploy artifact ke Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
