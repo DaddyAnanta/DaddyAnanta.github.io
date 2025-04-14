@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Deploy Hugo to user site
 
 on:
   push:
@@ -10,18 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Install Hugo
-        run: sudo snap install hugo
-      
+        with:
+          submodules: true  # kalau kamu pakai theme sebagai submodule
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
       - name: Build site
-        run: |
-          hugo
-          ls -ltr
-          find ./public
+        run: hugo --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          # untuk user site, deploy ke branch main (opsional kalau di root)
+          publish_branch: main
