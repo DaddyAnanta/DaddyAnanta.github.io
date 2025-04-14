@@ -1,40 +1,51 @@
-name: Publish to GH Pages
+name: Deploy Hugo site to gh-pages # Nama workflow
+
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - main # PICU: Hanya jalankan saat ada push ke branch 'main'
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+    permissions: # IZIN: Diperlukan agar action deploy bisa push ke repo Anda
+      contents: write
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
+      - name: Checkout source code (main branch)
+        uses: actions/checkout@v4 # Gunakan versi terbaru checkout
         with:
-          submodules: true
+          submodules: true  # Ambil submodules (jika tema Hugo adalah submodule)
+          fetch-depth: 0    # Ambil semua history (diperlukan Hugo untuk .Lastmod, .GitInfo)
 
-      - name: Checkout destination
-        uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
+      - name: Setup Hugo (Extended Version)
+        uses: peaceiris/actions-hugo@v3 # Action untuk setup Hugo (bisa juga v2 jika v3 bermasalah)
         with:
-          ref: gh-pages
-          path: built-site
+          # Versi Hugo yang sama dengan yang Anda coba download manual
+          hugo-version: '0.110.0'
+          # Pastikan menggunakan versi 'extended' jika tema Anda pakai SASS/SCSS
+          extended: true
 
-      - name: Setup Hugo
-        run: |
-          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
-          tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo
-      - name: Build
-        run: ${RUNNER_TEMP}/hugo
+      - name: Build Hugo site
+        # Menjalankan perintah build Hugo. Output defaultnya adalah ke folder './public'
+        # Tambahkan --verbose untuk output lebih detail jika ada masalah build
+        run: hugo --minify # --verbose
 
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
-        run: |
-          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
-          cd ${GITHUB_WORKSPACE}/built-site
-          git add .
-          git config user.name 'dhij'
-          git config user.email 'davidhwang.ij@gmail.com'
-          git commit -m 'Updated site'
-          git push
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4 # Action untuk deploy ke GitHub Pages (bisa juga v3)
+        # Action ini secara otomatis menggunakan GITHUB_TOKEN untuk autentikasi
+        with:
+          # Token GitHub bawaan, izin 'write' sudah diberikan di atas
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Branch tujuan deployment
+          publish_branch: gh-pages
+          # Direktori yang berisi hasil build Hugo untuk dideploy
+          publish_dir: ./public
+          # Opsi: Konfigurasi nama dan email untuk commit deployment
+          user_name: 'dhij' # Nama Anda
+          user_email: 'davidhwang.ij@gmail.com' # Email Anda
+          # Opsi: Pesan commit kustom
+          commit_message: "Deploy Hugo site to gh-pages [${{ github.sha }}]"
+          # Opsi: Bersihkan branch gh-pages sebelum deploy (membuat history bersih)
+          # force_orphan: true
+          # Opsi: Izinkan commit kosong jika tidak ada perubahan konten
+          allow_empty_commits: true # Berguna agar workflow tidak error jika situs tidak berubah
