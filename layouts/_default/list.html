@@ -337,6 +337,9 @@
         .list_h1 {
             margin-top: 630px;
         }
+        .list_h2 {
+            margin-top: 30px;
+        }
     }
 
     /* Media Query untuk max-width 1280px */
@@ -359,6 +362,9 @@
 
         .list_h1 {
             margin-top: 630px;
+        }
+        .list_h2 {
+            margin-top: 30px;
         }
     }
 
@@ -409,6 +415,9 @@
         .list_h1 {
             margin-top: 630px;
         }
+        .list_h2 {
+            margin-top: 30px;
+        }
 
         .header-content h1 {
             text-align: center;
@@ -454,6 +463,10 @@
 
         .list_h1 {
             margin-top: 770px;
+            z-index: 5;
+        }
+        .list_h2 {
+            margin-top: 70px;
             z-index: 5;
         }
 
@@ -548,31 +561,30 @@
 
 
 <div class="list_h1" id="list_h1" data-aos="fade-up">
-    <h1>PORTOFOLIO</h1>
+    <h1>BLOG</h1>
 </div>
 
 <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-    {{ range .Paginator.Pages }}
+    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Blog") }}
     <div class="listItem">
-        <img src={{ .Params.image }} alt={{.Title}} class="listItemImage">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
         <div class="listItemTexts">
             <h1 class="listItemTitle">
-                <a href={{ .Permalink }}>{{ .Title }}</a>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
             </h1>
             <div class="listItemCategories">
-                {{ with .GetTerms "categories" }}
+                {{ with .Params.categories }}
                 {{ range . }}
-                <a class="listItemCategory" href="{{ .Permalink }}">{{ .Name }}</a>
+                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
                 {{ end }}
                 {{ end }}
 
-                {{ with .GetTerms "tags" }}
+                {{ with .Params.tags }}
                 {{ range . }}
-                <a class="listItemtags" href="{{ .Permalink }}">{{ .Name }}</a>
+                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
                 {{ end }}
                 {{ end }}
             </div>
-
             <p class="listItemDesc"></p>
         </div>
     </div>
@@ -580,7 +592,70 @@
 </div>
 
 
-{{ partial "custom_pagination.html" . }}
+<div class="list_h2" id="list_h1" data-aos="fade-up">
+    <h1>TUTORIAL</h1>
+</div>
+
+<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
+    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Tutorial") }}
+    <div class="listItem">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+        <div class="listItemTexts">
+            <h1 class="listItemTitle">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+            <div class="listItemCategories">
+                {{ with .Params.categories }}
+                {{ range . }}
+                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+                {{ end }}
+
+                {{ with .Params.tags }}
+                {{ range . }}
+                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+                {{ end }}
+            </div>
+            <p class="listItemDesc"></p>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+<div class="list_h2" id="list_h1" data-aos="fade-up">
+    <h1>PORTOFOLIO</h1>
+</div>
+
+<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
+    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Portofolio") }}
+    <div class="listItem">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+        <div class="listItemTexts">
+            <h1 class="listItemTitle">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+            <div class="listItemCategories">
+                {{ with .Params.categories }}
+                {{ range . }}
+                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+                {{ end }}
+
+                {{ with .Params.tags }}
+                {{ range . }}
+                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+                {{ end }}
+            </div>
+            <p class="listItemDesc"></p>
+        </div>
+    </div>
+    {{ end }}
+</div>  
+
+
+<!--{{ partial "custom_pagination.html" . }}-->
 
 
 <div class="list_h1_porto" data-aos="fade-up">
