@@ -511,7 +511,7 @@
 
 
 
-<div class="accordion" id="cart-accordion">
+<div class="accordion" id="cart-accordion" data-aos="fade-up">
     <div class="searchButton_accordeon">
         <form action="/search/" method="GET">
             <input type="text" id="search" name="s" placeholder="Search" />
@@ -547,11 +547,11 @@
 
 
 
-<div class="list_h1" id="list_h1">
+<div class="list_h1" id="list_h1" data-aos="fade-up">
     <h1>PORTOFOLIO</h1>
 </div>
 
-<div class="listContainer" id="listContainer">
+<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
     {{ range .Paginator.Pages }}
     <div class="listItem">
         <img src={{ .Params.image }} alt={{.Title}} class="listItemImage">
@@ -583,11 +583,11 @@
 {{ partial "custom_pagination.html" . }}
 
 
-<div class="list_h1_porto">
+<div class="list_h1_porto" data-aos="fade-up">
     <h1>ABOUT ME</h1>
 </div>
 
-<div class="portofolio">
+<div class="portofolio" data-aos="fade-up" data-aos-delay="100">
     <section class="home">
         <div class="home-img">
             <img src="/images/profil.jpeg" alt="Profil Daddy">
