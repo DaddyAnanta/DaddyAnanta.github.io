@@ -847,6 +847,16 @@ a {
   color: black;
 }
 
+.list_h2 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 0;
+  margin-top:20px;
+  color: black;
+}
+
 
 
 .list_h1_porto {
@@ -1744,10 +1754,19 @@ pre {
     margin-bottom: 40px;
     margin-left: 5px;
   }
+  .list_h2 {
+    margin-bottom: 40px;
+    margin-left: 5px;
+  }
 
   .list_h1 h1 {
     font-size: 30px;
     margin-top: 180px;
+  }
+
+  .list_h2 h1 {
+    font-size: 30px;
+    margin-top: 20px;
   }
 
 
