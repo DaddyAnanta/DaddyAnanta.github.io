@@ -56,4 +56,27 @@
     </div>
     
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const searchQuery = urlParams.get('s'); // Dapatkan kata kunci dari URL
+    const searchInput = document.getElementById('search-query'); // Dapatkan elemen input
+
+    // Periksa apakah kata kunci ada di URL dan elemen input ditemukan
+    if (searchQuery && searchInput) {
+      searchInput.value = searchQuery;
+      if (typeof $ === 'function') {
+         $(searchInput).trigger('input');
+      } else {
+         // Alternatif jika jQuery belum tentu ada di sini (menggunakan JS murni)
+         console.warn("jQuery not found for triggering input event, using native dispatchEvent.");
+         searchInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+      }
+
+      console.log(`Search input pre-filled with "${searchQuery}" and input event triggered.`);
+    }
+  });
+</script>
 {{ end }}
