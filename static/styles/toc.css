@@ -119,64 +119,7 @@
     margin-top: 0.4em; /* Sedikit jarak atas untuk nested list */
   }
   
-  .toc-title {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    
-  }
-  
-  .toc-toggle {
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    background: #ffffff; /* Warna tombol biru */
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    transition: background 0.3s;
-  }
-  
-  .toc-toggle:hover {
-    background: #0056b3; /* Warna lebih gelap saat hover */
-    color: #dee4eb;
-  }
-  
-  .toc-content {
-    display: none; /* Awalnya disembunyikan */
-    margin-top: 10px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .TableOfContents ul {
-    padding-left: 15px;
-  }
-  
-  .TableOfContents li {
-    margin-bottom: 5px;
-  }
-  
-  .TableOfContents a {
-    text-decoration: none;
-    color: #007bff; /* Warna link */
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-  
-  .TableOfContents a:hover {
-    color: #000000; /* Warna lebih gelap saat hover */
-  }
-  
-  :target::before {
-    content: "";
-    display: block;
-    height: 80px; /* Sesuaikan dengan tinggi header */
-    margin-top: -80px; /* Mengimbangi header */
-  }
+
   
   /* TABLE OF CONTENT END */
     .toc-sidebar {
