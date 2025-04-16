@@ -153,6 +153,82 @@
     }
 
     /*  HEADER END  */
+
+    .listItemTexts { flex-grow: 1; }
+    .listItemTitle a { font-size: 1.1em; color: #333; text-decoration: none; font-weight: bold; }
+    .listItemTitle a:hover { text-decoration: underline; }
+    .listItemCategories { margin-top: 5px; font-size: 0.8em; }
+    .listItemCategories a { margin-right: 8px; padding: 2px 6px; border-radius: 3px; text-decoration: none; background-color: #eee; color: #555; }
+    .listItemCategories a.listItemCategory { background-color: #e0e0ff; }
+    .listItemCategories a.listItemtags { background-color: #ffe0e0; }
+    .listItemCategories a:hover { opacity: 0.8; }
+    
+    
+    /* --- Styling untuk Item ke-9 yang Terpotong --- */
+    
+    .listItem-partial-wrapper {
+        position: relative; /* Kunci untuk positioning overlay */
+        margin-top: 20px; /* Jaga jarak dari item ke-8 */
+        /* Optional: Beri sedikit indikasi visual berbeda jika perlu */
+        /* border: 1px solid #ddd; */
+    }
+    
+    .listItem-partial-container {
+        max-height: 100px;  /* <<< PENTING: Sesuaikan tinggi ini! */
+                          /* Tinggi ini menentukan seberapa banyak item ke-9 terlihat */
+        overflow: hidden; /* Menyembunyikan bagian item yang melebihi max-height */
+        /* Pastikan tidak ada border bawah dari .listItem di dalamnya */
+         border-bottom: none;
+    }
+    
+    /* Hapus padding bawah dari .listItem *di dalam* container partial */
+    .listItem-partial-container .listItem {
+        padding-bottom: 0;
+        border-bottom: none; /* Pastikan tidak ada border ganda */
+    }
+    
+    /* --- Styling untuk Tombol/Link "Lihat Lebih Banyak" --- */
+    
+    .list-see-more-overlay {
+        position: absolute; /* Overlay di atas item terpotong */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px; /* Tinggi area overlay/tombol, sesuaikan */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Gradien dari transparan ke warna background listContainer/body */
+        /* Ganti rgba(255, 255, 255, ...) jika background bukan putih */
+        background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0) 0%, /* Mulai transparan */
+            rgba(255, 255, 255, 0.8) 50%, /* Mulai solid */
+            rgba(255, 255, 255, 1) 100% /* Solid di bawah */
+        );
+         /* pointer-events: none; Biarkan event klik hanya pada tombol */
+    }
+    
+    .list-see-more-button {
+        padding: 10px 25px;
+        background-color: var(--button-text, orange); /* Warna mencolok, misal orange */
+        color: white;
+        text-decoration: none;
+        border-radius: 20px; /* Buat lebih bulat */
+        font-weight: bold;
+        font-size: 0.9em;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        /* pointer-events: auto; */ /* Aktifkan klik khusus untuk tombol */
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .list-see-more-button:hover {
+        background-color: darken(var(--button-text, orange), 10%); /* Sedikit lebih gelap saat hover */
+        transform: scale(1.05); /* Sedikit membesar */
+    }
+    
+
+
     /* Include your provided CSS styles here */
     .portofolio {
         padding: 20px;
@@ -597,101 +673,233 @@
 
 
 
-
-
-<div class="list_h1" id="list_h1" data-aos="fade-up">
-    <h1>BLOG</h1>
-</div>
-
-<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Blog") }}
-    <div class="listItem">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-        <div class="listItemTexts">
-            <h1 class="listItemTitle">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h1>
-            <div class="listItemCategories">
-                {{ with .Params.categories }}
-                {{ range . }}
-                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
-
-                {{ with .Params.tags }}
-                {{ range . }}
-                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
-            </div>
-            <p class="listItemDesc"></p>
-        </div>
+<div class="blog-content">
+    <div class="list_h1" id="list_h1" data-aos="fade-up">
+        <h1>BLOG</h1>
     </div>
-    {{ end }}
-</div>
 
+    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
+        {{ $blogPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Blog") }}
+        {{ $totalBlogPages := len $blogPages }}
 
-<div class="list_h2" id="list_h1" data-aos="fade-up">
-    <h1>TUTORIAL</h1>
-</div>
+        {{ range $index, $page := $blogPages }}
+            {{ if lt $index 8 }}
+                {{/* Item 1-8: Tampilkan Penuh */}}
+                <div class="listItem">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                    <div class="listItemTexts">
+                        <h1 class="listItemTitle">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h1>
+                        <div class="listItemCategories">
+                            {{ with .Params.categories }}
+                                {{ range . }}
+                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            {{ else if eq $index 8 }}
+                <div class="listItem-partial-wrapper"> 
+                        <div class="listItem-partial-container">
+                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                                <div class="listItemTexts">
+                                    <h1 class="listItemTitle">
+                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                    </h1>
+                                    <div class="listItemCategories">
+                                         {{ with .Params.categories }}
+                                            {{ range . }}
+                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                        {{ with .Params.tags }}
+                                            {{ range . }}
+                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-see-more-overlay">
+                                <a href="{{ "/categories/blog/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
+                            </div>
+                        </div>
 
-<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Tutorial") }}
-    <div class="listItem">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-        <div class="listItemTexts">
-            <h1 class="listItemTitle">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h1>
-            <div class="listItemCategories">
-                {{ with .Params.categories }}
-                {{ range . }}
-                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
+                    </div>
+                 {{ break }} 
+            {{ end }}
+        {{ end }}
 
-                {{ with .Params.tags }}
-                {{ range . }}
-                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
-            </div>
-            <p class="listItemDesc"></p>
-        </div>
+        {{ if eq $totalBlogPages 0 }}
+            <p>Belum ada postingan di kategori Blog.</p>
+        {{ end }}
+
     </div>
-    {{ end }}
 </div>
 
-<div class="list_h2" id="list_h1" data-aos="fade-up">
-    <h1>PORTOFOLIO</h1>
-</div>
 
-<div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice "Portofolio") }}
-    <div class="listItem">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-        <div class="listItemTexts">
-            <h1 class="listItemTitle">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </h1>
-            <div class="listItemCategories">
-                {{ with .Params.categories }}
-                {{ range . }}
-                <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
 
-                {{ with .Params.tags }}
-                {{ range . }}
-                <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
-                {{ end }}
-            </div>
-            <p class="listItemDesc"></p>
-        </div>
+
+<div class="blog-content">
+    <div class="list_h2" id="list_h1" data-aos="fade-up">
+        <h1>Tutorial</h1>
     </div>
-    {{ end }}
-</div>  
+
+    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
+        {{ $tutorialoPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Tutorial") }}
+        {{ $totaltutorialoPages := len $tutorialoPages }}
+
+        {{ range $index, $page := $tutorialoPages }}
+            {{ if lt $index 8 }}
+                {{/* Item 1-8: Tampilkan Penuh */}}
+                <div class="listItem">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                    <div class="listItemTexts">
+                        <h1 class="listItemTitle">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h1>
+                        <div class="listItemCategories">
+                            {{ with .Params.categories }}
+                                {{ range . }}
+                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            {{ else if eq $index 8 }}
+                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
+                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
+                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
+                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
+                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                                <div class="listItemTexts">
+                                    <h1 class="listItemTitle">
+                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                    </h1>
+                                    <div class="listItemCategories">
+                                         {{ with .Params.categories }}
+                                            {{ range . }}
+                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                        {{ with .Params.tags }}
+                                            {{ range . }}
+                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
+                        <div class="list-see-more-overlay">
+                            <a href="{{ "/categories/tutorialo/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
+                        </div>
+                        </div>
+
+                    </div>
+                 {{/* Hentikan loop setelah item ke-9 diproses */}}
+                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
+            {{ end }}
+        {{ end }}
+
+        {{ if eq $totaltutorialoPages 0 }}
+            <p>Belum ada postingan di kategori Tutorial.</p>
+        {{ end }}
+         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
+         {{/* Kode di atas sudah menangani ini */}}
+
+    </div>
+</div>
+
+<div class="blog-content">
+    <div class="list_h2" id="list_h1" data-aos="fade-up">
+        <h1>Analisis Data</h1>
+    </div>
+
+    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
+        {{ $portofolioPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Portofolio") }}
+        {{ $totalportofolioPages := len $portofolioPages }}
+
+        {{ range $index, $page := $portofolioPages }}
+            {{ if lt $index 8 }}
+                {{/* Item 1-8: Tampilkan Penuh */}}
+                <div class="listItem">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                    <div class="listItemTexts">
+                        <h1 class="listItemTitle">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h1>
+                        <div class="listItemCategories">
+                            {{ with .Params.categories }}
+                                {{ range . }}
+                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            {{ else if eq $index 8 }}
+                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
+                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
+                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
+                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
+                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
+                                <div class="listItemTexts">
+                                    <h1 class="listItemTitle">
+                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                    </h1>
+                                    <div class="listItemCategories">
+                                         {{ with .Params.categories }}
+                                            {{ range . }}
+                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                        {{ with .Params.tags }}
+                                            {{ range . }}
+                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
+                        <div class="list-see-more-overlay">
+                            <a href="{{ "/categories/portofolio/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
+                        </div>
+                        </div>
+
+                    </div>
+                 {{/* Hentikan loop setelah item ke-9 diproses */}}
+                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
+            {{ end }}
+        {{ end }}
+
+        {{ if eq $totalportofolioPages 0 }}
+            <p>Belum ada postingan di kategori Analisis Data.</p>
+        {{ end }}
+         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
+         {{/* Kode di atas sudah menangani ini */}}
+
+    </div>
+</div>
 
 
 <!--{{ partial "custom_pagination.html" . }}-->
