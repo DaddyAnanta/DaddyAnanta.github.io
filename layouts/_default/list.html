@@ -1,6 +1,17 @@
 {{ define "main" }}
 <style>
     /*  HEADER START  */
+
+    :root { /* Variabel CSS untuk kemudahan kustomisasi */
+        --header-gradient: linear-gradient(135deg, #211C84, #4D55CC, #7A73D1, #B5A8D5);
+        --text-color: #f9f9f9;
+        --button-bg: white;
+        --button-text: orange;
+        --button-hover-bg: #ffcc00;
+        --button-hover-text: white;
+        --wave-fill: #ffffff; /* Sesuaikan dengan warna section di bawahnya */
+    }
+
     .header {
         background: linear-gradient(135deg, #211C84, #4D55CC, #7A73D1, #B5A8D5);
         display: flex;
@@ -34,106 +45,111 @@
     /* Atur wave */
     .wave {
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
         left: 0;
         width: 100%;
         overflow: hidden;
         line-height: 0;
+        z-index: 4;
     }
-
     .wave svg {
         display: block;
         width: 100%;
         height: auto;
     }
-
+    .wave path {
+        fill: var(--wave-fill);
+    }
+    /* END wave */
     .header-content {
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%);
-        color: #f9f9f9;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5% 2% 5% 5%;
+        color: var(--text-color);
         z-index: 6;
+        box-sizing: border-box;
+        min-height: 300px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     .header-content h1 {
-        font-size: 60px;
-        width: 55%;
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-top: 0;
+        line-height: 1.2;
     }
 
     .header-content p {
-        font-size: 15px;
-        width: 40%;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        width: 100%;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        max-width: 600px;
     }
 
     .header-start {
-        background-color: white;
-        width: 45%;
-        height: 60px;
-        display: flex;
-        /* Menggunakan Flexbox */
+        background-color: var(--button-bg);
+        width: auto;
+        padding: 0.8rem 1.8rem;
+        display: inline-flex;
         justify-content: center;
-        /* Menyusun elemen anak di tengah horizontal */
         align-items: center;
-        /* Menyusun elemen anak di tengah vertical */
         border-radius: 8px;
-        /* Sudut membulat */
-        margin-top: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        /* Menambahkan shadow ringan untuk efek kedalaman */
         transition: all 0.3s ease;
-        /* Efek transisi untuk keseluruhan perubahan */
-        z-index: 6;
+        cursor: pointer;
+        margin-top: 1rem;
     }
 
     .header-start a {
-        font-size: 25px;
-        color: orange;
-        /* Warna teks default */
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: var(--button-text);
         text-decoration: none;
-        /* Menghilangkan garis bawah */
         font-weight: bold;
-        /* Menebalkan teks */
         display: flex;
-        /* Menggunakan flex untuk menyusun teks dan ikon */
         align-items: center;
-        /* Menyusun teks dan ikon secara vertikal */
-        transition: color 0.3s ease, transform 0.3s ease;
-        /* Transisi untuk perubahan warna dan transformasi */
+        transition: color 0.3s ease;
     }
 
     .header-start .fas {
-        margin-left: 15px;
-        /* Memberikan jarak antara teks dan ikon panah */
-        font-size: 28px;
-        /* Ukuran panah sedikit lebih besar */
+        margin-left: 1rem;
+        font-size: clamp(1.1rem, 2.2vw, 1.35rem);
         transition: transform 0.3s ease;
-        /* Transisi untuk animasi ikon */
     }
 
-    /* Hover pada .header-start */
+    /* Efek Hover Button */
     .header-start:hover {
-        background-color: #ffcc00;
-        /* Mengubah background menjadi warna kuning saat hover */
+        background-color: var(--button-hover-bg);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        /* Meningkatkan shadow untuk memberikan efek hover yang lebih kuat */
-        transform: scale(1.05);
-        /* Efek zoom untuk memberi kesan elemen sedikit membesar */
+        transform: translateY(-2px);
     }
-
-    /* Hover pada link a di dalam .header-start */
-    .header-start a:hover {
-        color: white;
-        /* Mengubah warna teks menjadi putih */
-        transform: translateX(10px);
-        /* Memberikan efek pergeseran ke kanan */
+    .header-start:hover a {
+        color: var(--button-hover-text);
     }
-
-    /* Hover pada ikon */
-    .header-start a:hover .fas {
+    .header-start:hover a .fas {
         transform: translateX(5px);
-        /* Ikon bergerak sedikit ke kanan agar lebih sinkron dengan teks */
+    }
+    /* End Hover Effect */
+
+    .connected-dot-container {
+        width: 40%;
+        /* Hapus background-color agar menyatu */
+        position: relative;
+        overflow: hidden;
+        min-height: 300px;
+        z-index: 3;
+    }
+
+    #canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     /*  HEADER END  */
@@ -165,6 +181,7 @@
         min-height: 100vh;
         padding: 40px;
         margin-top: 100px;
+
         border: 0.3rem solid transparent;
         border-radius: 15px;
         animation: ledBorderEffect 10s infinite ease-in-out;
@@ -421,16 +438,17 @@
 
         .header-content h1 {
             text-align: center;
-        }
-
-        .header-content h1 {
             font-size: 30px;
             width: 60%;
         }
 
+
+
         .header-content p {
-            font-size: 12px;
+            font-size: 14px;
             width: 60%;
+            
+            align-items: center;
         }
 
         .header-start {
@@ -442,7 +460,7 @@
         }
 
         .header-start a {
-            font-size: 25px;
+            font-size: 15px;
         }
 
         .header-start .fas {
@@ -456,7 +474,9 @@
 
     @media (max-width: 728px) {
 
-
+        .header-content{
+            margin-top: -20%;
+        }
         .list_h1_porto {
             margin-top: 80px;
         }
@@ -465,17 +485,25 @@
             margin-top: 770px;
             z-index: 5;
         }
+        .list_h1 h1 {
+            font-size: 30px;
+            margin-top: 0px;
+        }
         .list_h2 {
             margin-top: 70px;
             z-index: 5;
         }
 
+
         .portofolio section {
+
             min-height: 100vh;
             max-width: 28vh;
+            align-items: center;
             max-height: 200vh;
-            padding: 20px;
-            margin-top: 200px;
+            padding: 40px;
+            margin-top: 300px;
+            margin-bottom: 200px;
             background: #f9f9f9;
         }
 
@@ -497,27 +525,37 @@
 
         .header-content p {
             font-size: 12px;
-            text-align: left;
+            text-align: justify;
         }
 
-
+        .connected-dot-container {
+            width: 50%;
+            margin-top: -50px;
+            height: 50%;
+            /* Hapus background-color agar menyatu */
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            z-index: 3;
+        }
 
     }
 </style>
 <div class="header">
     <div class="header-content">
-        <h1>Welcome to This Blog</h1>
-        <p>Memahami Perilaku Konsumen, Mengoptimalkan Strategi Pemasaran. Dapatkan insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan bisnis Anda.</p>
+        
+        <h1>Selamat Datang!</h1>
+        <p>Jelajahi insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan pemahaman Anda.</p>
         <div class="header-start">
-            <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">Let's Go <i
-                    class="fas fa-arrow-right"></i></a>
+            <a href="#">Mulai Jelajahi  <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
+    <div class="connected-dot-container"> <canvas id="canvas"></canvas>
+    </div>
     <div class="wave">
-
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#ffffff" fill-opacity="1"
-                d="M0,64L80,64C160,64,320,64,480,101.3C640,139,800,213,960,202.7C1120,192,1280,96,1360,48L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+                  d="M0,64L80,64C160,64,320,64,480,101.3C640,139,800,213,960,202.7C1120,192,1280,96,1360,48L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
             </path>
         </svg>
     </div>
