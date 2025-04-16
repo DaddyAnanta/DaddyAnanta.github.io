@@ -154,6 +154,41 @@
 
     /*  HEADER END  */
 
+
+    .panel{
+        margin-top: 20px;
+    }
+
+    /* Accordion Start   */
+    .accordion-tags_page {
+        background-color: #222;
+        padding: 15px;
+        border-radius: 8px;
+        color: #fff;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    
+        /* --- NAIKKAN NILAI INI --- */
+        max-height: 125px; /* <-- CONTOH: Ganti dengan hasil perhitungan Anda */
+        overflow-y: auto;
+        box-sizing: border-box;
+    
+        /* Styling scrollbar (opsional) */
+        scrollbar-width: thin;
+        scrollbar-color: #555 #333;
+    }
+    
+    /* Styling scrollbar WebKit (opsional) */
+    .accordion-tags_page::-webkit-scrollbar { width: 8px; }
+    .accordion-tags_page::-webkit-scrollbar-track { background: #333; border-radius: 4px; }
+    .accordion-tags_page::-webkit-scrollbar-thumb { background-color: #555; border-radius: 4px; border: 2px solid #333; }
+    .accordion-tags_page::-webkit-scrollbar-thumb:hover { background-color: #777; }
+    
+    /* Accordion End   */
+
+
     .listItemTexts { flex-grow: 1; }
     .listItemTitle a { font-size: 1.1em; color: #333; text-decoration: none; font-weight: bold; }
     .listItemTitle a:hover { text-decoration: underline; }
@@ -668,6 +703,20 @@
             {{ end }}
         </div>
 
+    </div>
+    <button class="accordion-button" onclick="togglePanel(this)">
+        Tags
+        <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
+    </button>
+
+    <div class="panel">
+        <div class="accordion-tags_page">
+            {{ range $.Site.Taxonomies.tags.ByCount }}
+            <a class="accordion-category-link" href="/tags/{{ .Name }}">
+                <span class="accordion-category-name">{{ .Name | title }}</span>
+            </a>
+            {{ end }}
+        </div>
     </div>
 </div>
 
