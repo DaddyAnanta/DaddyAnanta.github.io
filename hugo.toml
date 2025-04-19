@@ -18,7 +18,7 @@ pagination.pagerSize = 8
 [params]
     description = "Analisis mendalam perilaku konsumen menggunakan data untuk mengungkap pola pembelian, preferensi, dan motivasi yang mendasari keputusan. Identifikasi tren konsumsi, segmentasi pasar efektif, dan pemetaan perjalanan pelanggan melalui pengolahan data transaksi, interaksi digital, serta sumber relevan lainnya. Penerjemahan data kompleks menjadi insight actionable melalui visualisasi yang jelas, mendukung perancangan strategi pemasaran, pengembangan produk, dan peningkatan pengalaman pelanggan yang berpusat pada data konsumen."
     dateFormat= "2 January 2006"
-    goatcounter = "daddiananta"
+    goatcounter = "daddyananta"
     math = true
     ShowPageViews = true
 
