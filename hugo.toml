@@ -2,7 +2,7 @@ baseURL = 'https://daddyananta.github.io/'
 languageCode = 'id-ID'
 defaultContentLanguage = "id"
 defaultContentLang = "id"
-title = 'Perilaku Konsumen: Analisis Psikologi & Keputusan Pembelian'
+title = 'Daddy Ananta'
 enableRobotsTXT = true
 tableOfContents = true
 
