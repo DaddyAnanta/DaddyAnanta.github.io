@@ -837,7 +837,7 @@ plt.xlim(2016, 2028)       # Lebarkan rentang sumbu x
 plt.tight_layout()
 plt.show()
 ```
-<img src="/images/14.Penduduk/18.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/19.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 # Jupyter notebook
