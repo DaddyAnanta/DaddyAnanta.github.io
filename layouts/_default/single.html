@@ -49,12 +49,17 @@
       <div class="singleHeadTexts">
         <h1 class="singleHeadTitle">{{ .Title }}</h1>
         <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
-        <div class="singleHeadDetail">
+<!--         <div class="singleHeadDetail">
           {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
-          {{ with .File }}
-        {{ partial "page_views.html" . }}  
-<!--           {{- partial "page_views.html" . -}} -->
-          {{ end }}
+          {{- partial "page_views.html" . -}}
+          {{ end }} -->
+
+        {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
+  {{ if .File }}
+    {{ partial "page_views.html" . }}
+  {{ end }}
+{{ end }}
+
 
           
 
