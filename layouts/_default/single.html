@@ -50,9 +50,9 @@
         <h1 class="singleHeadTitle">{{ .Title }}</h1>
         <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
         <div class="singleHeadDetail">
-          {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
+<!--           {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
           {{- partial "page_views.html" . -}}
-          {{ end }}
+          {{ end }} -->
 
           <!-- Menampilkan kategori -->
           <div class="single-categories" style="display: flex; gap: 10px; align-items: center; margin-right: 20px;">
