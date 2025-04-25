@@ -87,6 +87,20 @@
     display: none; /* Sembunyikan ToC */
   }
 
+
+/* Tambahan code untuk Excel */
+
+  .singleContent code {
+    background-color: #b36464;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #ffffff;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Penutup code */
   
   
   /* Responsiveness: Sembunyikan ToC di layar kecil */
