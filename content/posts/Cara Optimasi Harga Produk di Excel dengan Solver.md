@@ -32,15 +32,23 @@ Dalam dunia bisnis, menentukan harga jual yang tepat adalah kunci untuk memaksim
 
 Mari kita siapkan data ini di Excel:
 
-![[Pasted image 20250425183546.png]] 
+<img src="/images/18.Excel_price_optimization/1.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
 
 **Langkah 1: Memodelkan Kurva Permintaan (Sederhana)**
 
 Untuk memprediksi bagaimana permintaan berubah seiring perubahan harga, kita perlu membuat model permintaan. Dengan hanya dua titik data, model paling sederhana adalah garis lurus (linear).
 
-1. **Buat Scatter Plot:** Blok data harga dan permintaan Anda (misal A3:B4 jika mengikuti gambar awal, atau siapkan data harga dan permintaan Anda). Pilih `Insert > Charts > Scatter`. ![[Pasted image 20250425183605.png]]
-2. **Tambahkan Trendline:** Klik kanan pada salah satu titik data di grafik, lalu pilih `Add Trendline`. ![[Pasted image 20250425183629.png]]
-3. **Tampilkan Persamaan:** Di panel `Format Trendline` yang muncul di sebelah kanan, gulir ke bawah dan centang kotak `Display Equation on chart`. Excel akan menampilkan persamaan garis yang paling sesuai dengan data Anda. Dalam contoh ini, persamaannya adalah `y = -0.008x + 52`. ![[Pasted image 20250425183650.png]]
+1. **Buat Scatter Plot:** Blok data harga dan permintaan Anda (misal A3:B4 jika mengikuti gambar awal, atau siapkan data harga dan permintaan Anda). Pilih `Insert > Charts > Scatter`. 
+
+<img src="/images/18.Excel_price_optimization/2.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
+2. **Tambahkan Trendline:** Klik kanan pada salah satu titik data di grafik, lalu pilih `Add Trendline`. 
+
+<img src="/images/18.Excel_price_optimization/3.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
+3. **Tampilkan Persamaan:** Di panel `Format Trendline` yang muncul di sebelah kanan, gulir ke bawah dan centang kotak `Display Equation on chart`. Excel akan menampilkan persamaan garis yang paling sesuai dengan data Anda. Dalam contoh ini, persamaannya adalah `y = -0.008x + 52`. 
+
+<img src="/images/18.Excel_price_optimization/4.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
 
 Persamaan `y = -0.008x + 52` ini adalah model kurva permintaan linear kita. Artinya:
 
@@ -58,31 +66,51 @@ Sekarang, mari kita gunakan persamaan permintaan ini untuk menghitung potensi pr
     - Di sel `B6` (misalnya), masukkan COGS Anda: `2000`.
     - Di sel `B7`, kita akan memasukkan Harga jual. Awalnya, kita bisa coba masukkan salah satu harga historis, misal `4000`.
 2. **Hitung Prediksi Permintaan:**
-    - Di sel `B8`, masukkan formula berdasarkan persamaan trendline, dengan `B7` sebagai input Harga (`x`): `=-0.008 * B7 + 52` Jika B7 adalah 4000, B8 akan menampilkan 20 (sesuai data awal kita). Jika Anda mencoba B7=6000, B8 akan menjadi 4. ![[Pasted image 20250425183737.png]]
+    - Di sel `B8`, masukkan formula berdasarkan persamaan trendline, dengan `B7` sebagai input Harga (`x`): `=-0.008 * B7 + 52` Jika B7 adalah 4000, B8 akan menampilkan 20 (sesuai data awal kita). Jika Anda mencoba B7=6000, B8 akan menjadi 4. 
+    
+    <img src="/images/18.Excel_price_optimization/5.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
 3. **Hitung Profit:**
     - Profit dihitung sebagai: `(Harga Jual - COGS) * Prediksi Permintaan`.
-    - Di sel `B10`, masukkan formula: `=(B7 - B6) * B8` Jika B7=4000, B6=2000, dan B8=20, maka B10 akan menjadi (4000-2000)*20 = 40.000. Jika B7=6000, B6=2000, dan B8=4, maka B10 akan menjadi (6000-2000)*4 = 16.000. ![[Pasted image 20250425183831.png]] Tujuan kita adalah mencari nilai di `B7` (Harga) yang membuat nilai di `B10` (Profit) menjadi maksimal.
+    - Di sel `B10`, masukkan formula: `=(B7 - B6) * B8` Jika B7=4000, B6=2000, dan B8=20, maka B10 akan menjadi (4000-2000)*20 = 40.000. Jika B7=6000, B6=2000, dan B8=4, maka B10 akan menjadi (6000-2000)*4 = 16.000. 
+    
+    <img src="/images/18.Excel_price_optimization/6.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+    
+    Tujuan kita adalah mencari nilai di `B7` (Harga) yang membuat nilai di `B10` (Profit) menjadi maksimal.
 
 **Langkah 3: Menggunakan Excel Solver untuk Optimisasi**
 
 Di sinilah Solver berperan. Solver akan mencoba berbagai nilai Harga (B7) secara otomatis untuk menemukan nilai yang memberikan Profit (B10) tertinggi.
 
-1. **Buka Solver:** Pergi ke tab `Data` dan klik `Solver` (biasanya terletak di grup "Analyze" di paling kanan). Jika Anda tidak melihat Solver, Anda mungkin perlu mengaktifkannya melalui `File > Options > Add-ins > Excel Add-ins > Go... > centang Solver Add-in`. ![[Pasted image 20250425183916.png]]
+1. **Buka Solver:** Pergi ke tab `Data` dan klik `Solver` (biasanya terletak di grup "Analyze" di paling kanan). Jika Anda tidak melihat Solver, Anda mungkin perlu mengaktifkannya melalui `File > Options > Add-ins > Excel Add-ins > Go... > centang Solver Add-in`. 
+
+<img src="/images/18.Excel_price_optimization/7.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
 2. **Konfigurasi Solver:**
     - **Set Objective:** Pilih sel `B10` (sel Profit kita). Pastikan opsi `Max` (Maximize) terpilih, karena kita ingin memaksimalkan profit.
     - **By Changing Variable Cells:** Pilih sel `B7` (sel Harga yang ingin kita optimalkan).
     - **Subject to the Constraints:** (Ini langkah penting yang sering terlewat) Kita perlu menambahkan batasan agar hasilnya realistis:
         - Klik `Add`. Masukkan `B8 >= 0` (Prediksi Permintaan tidak boleh negatif). Klik `Add`.
         - Masukkan `B7 >= B6` (Harga Jual setidaknya harus sama dengan atau lebih besar dari COGS agar tidak rugi per unit). Klik `OK`.
-    - **Select a Solving Method:** Pilih `GRG Nonlinear`. Metode ini cocok untuk masalah dengan kurva (seperti model permintaan kita, meskipun linear, Solver akan menanganinya) dan fungsi tujuan yang mungkin tidak linear (profit adalah hasil kali harga dan permintaan). ![[Pasted image 20250425183958.png]]
+    - **Select a Solving Method:** Pilih `GRG Nonlinear`. Metode ini cocok untuk masalah dengan kurva (seperti model permintaan kita, meskipun linear, Solver akan menanganinya) dan fungsi tujuan yang mungkin tidak linear (profit adalah hasil kali harga dan permintaan). 
+    
+    <img src="/images/18.Excel_price_optimization/8.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
 3. **Jalankan Solver:** Klik tombol `Solve`.
 
 **Langkah 4: Hasil Optimisasi**
 
 Solver akan mencari solusi. Jika berhasil, akan muncul dialog "Solver Results".
 
-1. **Pilih "Keep Solver Solution"** dan klik `OK`. ![[Pasted image 20250425184257.png]]
-2. **Lihat Hasilnya:** Perhatikan sel `B7` (Harga) dan `B10` (Profit). Solver telah mengubah nilai Harga ke angka yang (menurut model kita) akan menghasilkan Profit maksimal. Anda akan melihat nilai Profit (B10) sekarang lebih tinggi dibandingkan saat Anda menggunakan harga awal (misalnya Rp 4.000 atau Rp 6.000). ![[Pasted image 20250425184324.png]] Dalam contoh ini, Solver menemukan bahwa harga optimal (berdasarkan model linear sederhana ini) adalah sekitar **Rp 4.250**, yang menghasilkan prediksi permintaan 18 unit dan **profit maksimal Rp 40.500**.
+1. **Pilih "Keep Solver Solution"** dan klik `OK`. 
+
+<img src="/images/18.Excel_price_optimization/9.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
+2. **Lihat Hasilnya:** Perhatikan sel `B7` (Harga) dan `B10` (Profit). Solver telah mengubah nilai Harga ke angka yang (menurut model kita) akan menghasilkan Profit maksimal. Anda akan melihat nilai Profit (B10) sekarang lebih tinggi dibandingkan saat Anda menggunakan harga awal (misalnya Rp 4.000 atau Rp 6.000). 
+
+<img src="/images/18.Excel_price_optimization/10.png" alt="excel solver" style="height:100%;width:300px;display:block;margin-left:auto;margin-right:auto;">
+
+Dalam contoh ini, Solver menemukan bahwa harga optimal (berdasarkan model linear sederhana ini) adalah sekitar **Rp 4.250**, yang menghasilkan prediksi permintaan 18 unit dan **profit maksimal Rp 40.500**.
 
 # Video singkat
 
