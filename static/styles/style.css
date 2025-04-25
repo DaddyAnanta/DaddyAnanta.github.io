@@ -1324,12 +1324,12 @@ a {
 
 
 .singleContent code {
-  background-color: #f4f4f4;
+  background-color: #b36464;
   padding: 2px 5px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
   font-size: 18px;
-  color: #f2ebeb;
+  color: #ffffff;
   white-space: pre-wrap;
   /* Mengizinkan pembungkusan pada elemen <code> */
   word-wrap: break-word;
