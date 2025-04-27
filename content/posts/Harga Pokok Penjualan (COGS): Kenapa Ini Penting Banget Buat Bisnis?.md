@@ -81,7 +81,7 @@ Jika setelah menghitung, Anda sadar bahwa harga jual produk Anda terlalu mepet a
 
 Memahami dan menghitung COGS secara akurat bukanlah tugas akuntan semata. Ini adalah bagian vital dari strategi bisnis kita semua. Dengan mengetahui biaya riil per produk, kita bisa menetapkan harga yang cerdas, membuat keputusan yang lebih baik tentang lini produk kita, dan pada akhirnya membangun bisnis yang tidak hanya sibuk, tapi juga benar-benar **menguntungkan**.
 
-Referensi:
+# Referensi:
 
 <p style="text-indent:0px;">Dawn Fotopulos. (2014). <em>Accounting for the Numberphobic: A Survival Guide for Small Business Owners</em>. <a href="https://books.google.co.id/books/about/Accounting_for_the_Numberphobic.html?id=fb3GAwAAQBAJ&redir_esc=y">Google Book</a></p>
 
