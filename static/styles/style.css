@@ -1779,12 +1779,14 @@ pre {
 
   .listItemImage {
     display: flex;
-    width: 400px;
+    width: 350px;
     margin-left: 0%;
     margin-top: -4px;
     height: 200px;
 
   }
+
+
 
 
   .listItemTexts .listItemDesc {
