@@ -56,7 +56,7 @@ Sebagai **aturan praktis (rule of thumb)**, banyak ahli menyarankan untuk meneta
 
 Contoh perhitungan sederhana: Jika COGS _Signature Chocolate Cookies_ kita adalah Rp 25.000 per kotak. 
 
-<div class="single-code" style=" width:100%;font: inherit;background-color: #f9f9f9;border:1px solid #ccc;color: #333;padding: 10px;border-radius: 5px;margin-bottom:20px">
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
 <p>$$\text{Markup minimum (45%} \times \text{Rp 25.000)} = \text{Rp 11.250} $$</p>
 <p>$$\text{Harga Jual Minimum per kotak} = \text{Rp 25.000} + \text{Rp 11.250} = \text{Rp 36.250} $$</p>
 </div>
