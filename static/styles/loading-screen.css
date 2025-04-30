@@ -52,12 +52,12 @@
 .loading-text {
     margin-top: 24px;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: #0c0950;
-    letter-spacing: 1px;
     animation: fadeInUp 1s ease-in-out;
   }
+  
   
   @keyframes fadeInUp {
     from {
