@@ -9,6 +9,7 @@
     <meta name="msvalidate.01" content="4344DC965B6A1AE98835754A907E7AD7" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/styles/infinite-scroll.css">
+    <link rel="stylesheet" href="/styles/loading-screen.css">
     <link rel="stylesheet" href="/styles/toc.css">
     <link rel="icon" href="https://raw.githubusercontent.com/DaddyAnanta/DaddyAnanta.github.io/refs/heads/main/static/images/icon2.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -23,7 +24,14 @@
 </head>
 
 <body>
-
+  <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background: #fdfbee; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="loadingio-spinner-pulse-nq4q5u6dq7r">
+        <div class="ldio-x2uulkbinbj">
+            <div></div><div></div><div></div>
+        </div>
+    </div>
+    <span class="loading-text">Loading<span class="dots">...</span></span>
+  </div>
     {{ partial "navbar" . }}
     
     <div class="container">
@@ -38,6 +46,7 @@
     <script src="/js/infinite-scroll.js"async></script>
     <script src="/js/connection-dots.js"async></script>
     <script src="/js/toc-scroll.js"async></script>
+    <script src="/js/loading-screen.js"></script>
     <script async>
         document.addEventListener('DOMContentLoaded', function() {
           const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination'); // Pilih berdasarkan ID atau class
