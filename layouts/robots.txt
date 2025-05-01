@@ -13,4 +13,4 @@ User-agent: AdsBot-Google-Mobile
 User-agent: AdsBot-Google-Mobile-Apps
 User-agent: *
 
-Sitemap: https://daddyananta.github.io/sitemap.xml
+Sitemap: https://menurutpsikologi.github.io/sitemap.xml
