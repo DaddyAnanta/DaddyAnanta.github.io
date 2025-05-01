@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    const url = `https://lamtiarsigiro.goatcounter.com/counter/${encodeURIComponent(req.query.path)}.json`;
+    const url = `https://menurutpsikologi.goatcounter.com/counter/${encodeURIComponent(req.query.path)}.json`;
     
     try {
         const response = await fetch(url);
