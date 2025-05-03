@@ -14,9 +14,7 @@ User-agent: AdsBot-Google-Mobile-Apps
 User-agent: Googlebot
 User-agent: *
 
-{{ range .Pages }}
-Disallow: {{ .RelPermalink }}
-{{ end }}
+Disallow: 
 
 Sitemap: https://daddyananta.github.io/sitemap.xml
 
