@@ -11,7 +11,12 @@ User-agent: Applebot-Extended
 User-agent: AdsBot-Google
 User-agent: AdsBot-Google-Mobile
 User-agent: AdsBot-Google-Mobile-Apps
+User-agent: Googlebot
 User-agent: *
+
+{{ range .Pages }}
+Disallow: {{ .RelPermalink }}
+{{ end }}
 
 Sitemap: https://daddyananta.github.io/sitemap.xml
 
