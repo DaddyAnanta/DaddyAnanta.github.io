@@ -708,7 +708,6 @@ a {
   margin-top: 60px;
   background-color: #18191a;
   color: #fff;
-  padding: 40px 20px;
   text-align: center;
 }
 
@@ -717,6 +716,7 @@ a {
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1200px;
+  padding: 40px 20px;
   margin: 0 auto;
 }
 
@@ -818,11 +818,18 @@ a {
 
 .footer-powered {
   margin-top: 30px;
-  margin-right: 40px;
-  text-align: right;
+  margin-bottom: -40px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: 0; /* Pastikan tidak bergeser */
+  right: 0;
+  box-sizing: border-box;
+  background-color: #f41a1a;
 }
 
 .footer-powered a {
+  
   color: #fff;
   text-decoration: none;
 }
