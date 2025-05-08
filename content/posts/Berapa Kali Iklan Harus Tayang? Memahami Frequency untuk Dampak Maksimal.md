@@ -1,11 +1,11 @@
 +++
-title = 'Berapa Kali Iklan Harus Tayang? Memahami "Frequency" untuk Dampak Maksimal'
+title = 'Berapa Kali Iklan Harus Tayang? Memahami Frequency untuk Dampak Maksimal'
 date = 2025-05-07T00:37:00+00:00
 draft = false
 socialshare = true
-description = "Setelah kita membahas 'Reach' atau seberapa banyak orang yang berpotensi melihat iklan kita, pertanyaan selanjutnya yang tak kalah penting adalah: Seberapa sering mereka sebaiknya melihat iklan tersebut? Inilah inti dari konsep 'Frequency' atau Frekuensi dalam dunia periklanan. Memutuskan 'frequency' yang tepat adalah salah satu kunci dalam mengalokasikan dana iklan secara efektif dan memastikan pesan kita benar-benar meresap di benak target audiens."
-image = "/images/50.Menjangkau_Audiens_yang_Tepat:_Memahami_Reach_dalam_Strategi_Iklan/1.png"
-imageBig= "/images/50.Menjangkau_Audiens_yang_Tepat:_Memahami_Reach_dalam_Strategi_Iklan/1.png"
+description = "Seberapa sering mereka sebaiknya melihat iklan tersebut? Inilah inti dari konsep 'Frequency' atau Frekuensi dalam dunia periklanan. Memutuskan 'frequency' yang tepat adalah salah satu kunci dalam mengalokasikan dana iklan secara efektif dan memastikan pesan kita benar-benar meresap di benak target audiens."
+image = "/images/50.Berapa_Kali_Iklan_Harus_Tayang_Memahami_Frequency_untuk_Dampak_Maksimal/1.png"
+imageBig= "/images/50.Berapa_Kali_Iklan_Harus_Tayang_Memahami_Frequency_untuk_Dampak_Maksimal/1.png"
 categories= ["Marketing"]
 tags = ["Marketing_matrix"]
 authors= ["Daddy Ananta"]
