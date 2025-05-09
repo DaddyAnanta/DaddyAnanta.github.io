@@ -2135,6 +2135,10 @@ pre {
     margin-top: 0px;
     box-shadow: none;
   }
+  #toc-content ul ul{
+    min-width: 250px;
+    border-left: #000000 solid;
+  }
 
   .singleHeadDetail {
     font-size: 13px;
