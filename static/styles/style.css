@@ -1109,20 +1109,21 @@ a {
 
 
 .single-tags .tag {
-  background-color: #000000; /* Warna latar belakang tag */
+  background-color: #000000; 
   color: #ffffff;
   font-weight: bold;
-  padding: 5px 10px; /* Ruang di sekitar teks */
-  font-size: 14px; /* Ukuran font */
-  text-decoration: none; /* Menghilangkan garis bawah pada link */
-  transition: background-color 0.3s ease; /* Efek transisi */
+  padding: 5px 10px; 
+  font-size: 14px; 
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; 
+  z-index: 1;
 }
 
 .single-tags .tag:hover {
   background-color: #d1211b; /* Warna latar belakang saat hover */
-  text-decoration: none;
-  color: white;
-
+  cursor: pointer;
+  text-decoration: none; 
 }
 
 /* Youtube */
