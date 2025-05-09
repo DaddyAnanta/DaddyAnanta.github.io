@@ -1,26 +1,68 @@
 /* Container utama untuk layout halaman */
+:root {
+  --scrollbar-track-color: #ffffff;
+  --scrollbar-thumb-color: #4A6FA5;
+  --scrollbar-thumb-hover-color: #5DADE2;
+  --scrollbar-width: 8px;
+  --scrollbar-border-radius: 4px;
+  --sidebar-border-color: #ffffff;
+  --sidebar-bg-color: #1A202C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 .page-wrapper {
     display: flex;
     flex-direction: row; 
     align-items: flex-start;
     gap: 2em;
     position: relative; 
+
   }
   
   /* Sidebar yang berisi ToC */
   .toc-sidebar {
-    width: 250px; 
-    /* Hapus margin-left: -4%; */
+    width: 250px;
+    margin-left: -4%;
     position: sticky;
-    top: 20px; 
-    max-height: calc(100vh - 40px); 
-    overflow-y: auto; 
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
     align-self: flex-start;
-  
-    
-    border-right: 1px solid #ddd; 
+    border-right: 1px solid var(--sidebar-border-color, #4A5568);
     padding: 15px;
+  
+    /* Scrollbar untuk Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color, #4A5568) var(--scrollbar-track-color, #2D3748);
   }
+  
+  /* Scrollbar untuk WebKit-based browsers */
+  .toc-sidebar::-webkit-scrollbar {
+    width: var(--scrollbar-width, 8px);
+  }
+  
+  .toc-sidebar::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color, #1c3a6d);
+    border-radius: var(--scrollbar-border-radius, 4px);
+  }
+  
+  .toc-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color, #4A5568);
+    border-radius: var(--scrollbar-border-radius, 4px);
+    border: 2px solid var(--scrollbar-track-color, #2D3748);
+  }
+  
+  .toc-sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-color, #63B3ED);
+  }
+  
+
+  .toc-sidebar ul li a.active {
+    color: var(--scrollbar-thumb-hover-color, #63B3ED); /* Gunakan warna aksen */
+    font-weight: bold;
+}
   
   /* Kontainer Navigasi ToC di dalam Sidebar */
   #TableOfContents {
@@ -41,18 +83,16 @@
   #TableOfContents ul {
 
     list-style: none;
-    padding-left: 0; /* Hapus default padding */
+    padding-left: 0;
     margin-top: 0.5em;
     width: 200px;
-    margin-bottom: 0; /* Hapus margin bawah default ul */
-    /* === PERUBAHAN: Hapus border-right dari sini === */
-    /* border-right: 1px solid #000; <-- HAPUS INI */
+    margin-bottom: 0; 
   }
   
   /* Styling nested list (sub-heading) */
   #TableOfContents ul ul {
-    padding-left: 1em; /* Indentasi untuk sub-heading */
-    margin-top: 0.4em; /* Sedikit jarak atas untuk nested list */
+    padding-left: 1em; 
+    margin-top: 0.4em; 
   }
   
   /* Styling item list */
