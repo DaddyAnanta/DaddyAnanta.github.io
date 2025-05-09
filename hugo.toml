@@ -6,7 +6,7 @@ title = 'Daddy Ananta'
 enableRobotsTXT = true
 tableOfContents = true
 
-pagination.pagerSize = 8
+pagination.pagerSize = 12
 
 [sitemap]
   changeFreq = ''
