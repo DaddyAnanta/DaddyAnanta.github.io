@@ -6,8 +6,8 @@ socialshare = true
 description = "Setiap bisnis tentu ingin memiliki pelanggan yang menguntungkan. Sebagai pemasar atau pemilik usaha, kita berusaha keras mengidentifikasi segmen pelanggan yang tepat, menargetkan mereka yang paling potensial, dan membangun posisi unik untuk produk atau layanan kita. Seringkali, kita berpikir bahwa memastikan profitabilitas pelanggan adalah soal strategi penetapan harga. Jika harga jual lebih tinggi dari modal produk, berarti kita untung, bukan?"
 image = "/images/42.TDABC_Mengungkap_Biaya_Tersembunyi_di_Balik_Pelayanan_Pelanggan_Anda/1.png"
 imageBig= "/images/42.TDABC_Mengungkap_Biaya_Tersembunyi_di_Balik_Pelayanan_Pelanggan_Anda/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

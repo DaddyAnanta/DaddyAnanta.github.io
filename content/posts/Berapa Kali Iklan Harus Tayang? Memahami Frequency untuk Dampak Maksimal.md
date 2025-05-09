@@ -7,7 +7,7 @@ description = "Seberapa sering mereka sebaiknya melihat iklan tersebut? Inilah i
 image = "/images/50.Berapa_Kali_Iklan_Harus_Tayang_Memahami_Frequency_untuk_Dampak_Maksimal/1.png"
 imageBig= "/images/50.Berapa_Kali_Iklan_Harus_Tayang_Memahami_Frequency_untuk_Dampak_Maksimal/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -5,7 +5,8 @@ draft = false
 description = "Awalnya, saya dimintai tolong oleh seorang teman yang menjual produk sepatu. Teman saya ini masih menggunakan WhatsApp sebagai platform utamanya untuk berjualan. Namun, saya melihat kesulitan yang ia alami, terutama karena konsumen tidak dapat dengan mudah melihat setiap produk yang dijual. Mereka harus menggulir chat atau menunggu balasan untuk mendapatkan informasi produk, yang tentu saja mempengaruhi pengalaman belanja."
 image = "/images/Website/Website.png"
 imageBig= "/images/Website/Website.png"
-categories= ["Portofolio"]
+categories= ["Analisis Data"]
+tags= ["Ecommerce"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

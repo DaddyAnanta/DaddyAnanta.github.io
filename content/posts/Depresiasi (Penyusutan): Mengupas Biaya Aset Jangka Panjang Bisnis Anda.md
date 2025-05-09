@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam perjalanan membangun bisnis, kita seringkali perlu berinvestasi pada aset-aset berharga yang akan mendukung operasional dalam jangka panjang. Ini bisa berupa pembelian mesin produksi, armada kendaraan pengiriman, peralatan kantor canggih, atau bahkan bangunan tempat usaha."
 image = "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.png"
 imageBig= "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

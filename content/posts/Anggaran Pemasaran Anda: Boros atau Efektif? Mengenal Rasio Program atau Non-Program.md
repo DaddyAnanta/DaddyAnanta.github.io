@@ -6,8 +6,8 @@ socialshare = true
 description = "Kita semua tahu bahwa pemasaran adalah jantung dari pertumbuhan bisnis. Mulai dari memahami apa yang ada di benak pelanggan, menentukan posisi unik produk kita di pasar, membangun citra merek yang kokoh, hingga merancang komunikasi yang benar-benar ‘mengena’ di hati publik—semuanya adalah tugas penting tim pemasaran. Mengingat peran strategis ini dan seringkali besarnya dana yang kita alokasikan, pernahkah Anda bertanya: seberapa efisien sebenarnya investasi pemasaran yang kita lakukan? Apakah setiap rupiah yang dikeluarkan benar-benar bekerja keras untuk mencapai tujuan?"
 image = "/images/34.Anggaran_Pemasaran_Anda:_Boros_atau_Efektif_Mengenal_Rasio_Program_Non-Program/1.png"
 imageBig= "/images/34.Anggaran_Pemasaran_Anda:_Boros_atau_Efektif_Mengenal_Rasio_Program_Non-Program/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -6,8 +6,8 @@ socialshare = true
 description = "Anda mungkin sudah memiliki produk andalan dan pasar yang Anda kenal baik. Tapi, pernahkah Anda bertanya: apakah kita sudah benar-benar memaksimalkan potensi di 'kandang' sendiri? Seberapa banyak lagi pelanggan di pasar Anda saat ini yang sebenarnya bisa diraih dengan produk Anda saat ini?"
 image = "/images/33.Permintaan_Pasar:_Memahami_Siapa_dan_Seberapa_Besar_Keinginan_Pasar_Terhadap_Produk_Kita/1.png"
 imageBig= "/images/33.Permintaan_Pasar:_Memahami_Siapa_dan_Seberapa_Besar_Keinginan_Pasar_Terhadap_Produk_Kita/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -6,8 +6,8 @@ socialshare = true
 description = "Saat kita mengelola keuangan bisnis, ada berbagai jenis pengeluaran yang perlu kita pahami. Salah satu kategori yang sangat penting dan seringkali menjadi penentu kesehatan finansial jangka panjang adalah Biaya Tetap atau dalam bahasa Inggris dikenal sebagai Fixed Expenses."
 image = "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.png"
 imageBig= "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

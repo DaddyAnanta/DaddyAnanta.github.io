@@ -1,5 +1,5 @@
 +++
-title = 'Memahami "Response Rate" (Tingkat Respons)'
+title = 'Memahami Response Rate (Tingkat Respons)'
 date = 2025-05-07T00:37:00+00:00
 draft = false
 socialshare = true
@@ -7,7 +7,7 @@ description = "Di era pemasaran yang semakin menuntut akuntabilitas, kita sebaga
 image = "/images/52.Memahami_Response_Rate_(Tingkat_Respons)/1.png"
 imageBig= "/images/52.Memahami_Response_Rate_(Tingkat_Respons)/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

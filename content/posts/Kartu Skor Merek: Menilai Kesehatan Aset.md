@@ -6,8 +6,8 @@ socialshare = true
 description = "Kita semua sepakat bahwa kekuatan sebuah merek seringkali tidak hanya terletak pada produk atau layanan yang kasat mata. Reputasi, loyalitas pelanggan, relevansi di pasar—semua ini adalah aset tak terlihat (intangible assets) yang krusial dalam membangun ekuitas merek (brand equity). Namun, bagaimana cara kita secara sistematis menilai 'kesehatan' dari aset-aset tak terlihat ini? Bagaimana kita tahu apakah merek kita unggul atau justru tertinggal dibandingkan pesaing dalam hal-hal yang sulit diukur ini?"
 image = "/images/37.Kartu_Skor_Merek_Menilai_Kesehatan_Aset/1.png"
 imageBig= "/images/37.Kartu_Skor_Merek_Menilai_Kesehatan_Aset/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

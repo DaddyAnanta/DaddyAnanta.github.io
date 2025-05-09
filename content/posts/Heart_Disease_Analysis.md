@@ -5,7 +5,7 @@ draft = false
 description = "Dalam bootcamp yang telah saya ikuti, saya mendapatkan tugas untuk menganalisis penerapan analisis data pada kasus penyakit serangan jantung. Tugas ini memberi kesempatan untuk memahami secara mendalam bagaimana data dapat digunakan dalam mengidentifikasi faktor-faktor yang berhubungan dengan risiko serangan jantung."
 image = "/images/Hearth_Disease_Analyst/Dashboard_HDA.png"
 imageBig= "/images/Hearth_Disease_Analyst/Dashboard_HDA.png"
-categories= ["Portofolio"]
+categories= ["Analisis Data"]
 tags= ["Python"]
 avatar="/images/profil.jpeg"
 +++

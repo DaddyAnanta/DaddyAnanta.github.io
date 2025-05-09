@@ -7,7 +7,7 @@ description = "Setiap iklan yang kita rancang, baik untuk memperkenalkan produk 
 image = "/images/49.Sekadar_Kenal_atau_Benar-Benar_Ingat_Memahami_Recognition_dalam_Efektivitas_Iklan/1.png"
 imageBig= "/images/49.Sekadar_Kenal_atau_Benar-Benar_Ingat_Memahami_Recognition_dalam_Efektivitas_Iklan/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

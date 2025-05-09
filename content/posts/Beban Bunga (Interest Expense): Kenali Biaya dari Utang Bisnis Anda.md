@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam mengarungi lautan bisnis, terkadang kita membutuhkan tambahan 'dayung' berupa pendanaan eksternal. Mengambil pinjaman atau menggunakan fasilitas kredit dari bank atau lembaga keuangan lainnya adalah strategi yang umum dilakukan untuk modal kerja, pembelian aset, atau ekspansi. Namun, seperti halnya menyewa sesuatu, meminjam uang pun ada biayanya. Biaya inilah yang kita kenal sebagai Beban Bunga atau Interest Expense."
 image = "/images/24.Beban_Bunga_(Interest_Expense)_Kenali_Biaya_dari_Utang_Bisnis_Anda/1.png"
 imageBig= "/images/24.Beban_Bunga_(Interest_Expense)_Kenali_Biaya_dari_Utang_Bisnis_Anda/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

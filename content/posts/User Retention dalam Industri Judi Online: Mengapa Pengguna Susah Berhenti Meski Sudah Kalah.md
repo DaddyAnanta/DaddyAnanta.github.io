@@ -5,8 +5,8 @@ draft = false
 description = "Perjudian merupakan masalah sosial yang diakui oleh masyarakat di seluruh penjuru dunia. Perjudian bahkan terus berevolusi seiring perkembangan zaman, menjadikannya lebih mudah diakses dan lebih mempengaruhi banyak orang seperti halnya judi online. Jika kita ikut menelusuri berita terkait dengan perkembangan judi online tersebut, kita akan memahami jika peranakan dari situs yang ada tiada habisnya. Pertumbuhan yang masif dan tak terkendali ini menjadi bukti nyata betapa seriusnya ancaman judi online di era digital. "
 image = "/images/User-Retention-dalam-Industri-Judi-Online-Mengapa-Pengguna-Susah-Berhenti-Meski-Sudah-Kalah/1.webp"
 imageBig= "/images/User-Retention-dalam-Industri-Judi-Online-Mengapa-Pengguna-Susah-Berhenti-Meski-Sudah-Kalah/1.webp"
-categories= ["Blog"]
-tags = ["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags = ["Heuristic Bias"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

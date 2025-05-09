@@ -5,8 +5,8 @@ draft = false
 description = "Pernahkah kita menyadari betapa banyaknya perusahaan yang mengalami kegagalan dalam menjalankan usaha mereka di tahun pertama? Mungkin banyak dari kita cenderung berasumsi bahwa masalah yang menyebabkan kegagalan tersebut hanyalah faktor eksternal, seperti persaingan yang ketat atau kondisi ekonomi yang kurang mendukung. Namun, bukan itu masalah utamanya."
 image = "/images/12.Jobs to Be Done/1.webp"
 imageBig= "/images/12.Jobs to Be Done/1.webp"
-categories= ["Blog"]
-tags=["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags=["Problem Solving"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

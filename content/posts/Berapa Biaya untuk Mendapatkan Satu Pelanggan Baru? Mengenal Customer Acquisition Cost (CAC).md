@@ -6,8 +6,8 @@ socialshare = true
 description = "Kita semua tahu, pertumbuhan seringkali menjadi tujuan utama dalam menjalankan bisnis. Untuk mencapai pertumbuhan itu, kita menggunakan berbagai alat pemasaran strategis, seperti STP (Segmentasi, Targeting, Positioning), untuk membidik pelanggan yang tepat. Kita mungkin sudah tahu siapa pelanggan ideal yang ingin kita jangkau. Namun, pertanyaan krusial berikutnya adalah: berapa biaya yang sebenarnya kita keluarkan untuk menjangkau, menarik, dan akhirnya mendapatkan satu pelanggan baru dari segmen target tersebut?"
 image = "/images/43.Berapa_Biaya_untuk_Mendapatkan_Satu_Pelanggan_Baru_Mengenal_Customer_Acquisition_Cost_(CAC)/1.png"
 imageBig= "/images/43.Berapa_Biaya_untuk_Mendapatkan_Satu_Pelanggan_Baru_Mengenal_Customer_Acquisition_Cost_(CAC)/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

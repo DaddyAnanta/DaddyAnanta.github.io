@@ -6,8 +6,8 @@ socialshare = true
 description = "Anda pasti sering mendengar nasihat bijak dalam bisnis: mempertahankan pelanggan yang sudah ada itu seringkali lebih efektif dan lebih murah daripada terus-menerus merekrut pelanggan baru. Oleh karena itu, fokus pada mengembangkan loyalitas pelanggan menjadi sangat krusial. Tindakan yang kita lakukan terkait pelanggan menjadi penentu utama efektivitas pemasaran kita."
 image = "/images/46.Lebih_dari_Sekadar_Satu_Transaksi_Mengungkap_Nilai_Seumur_Hidup_Pelanggan_(CLTV)/1.png"
 imageBig= "/images/46.Lebih_dari_Sekadar_Satu_Transaksi_Mengungkap_Nilai_Seumur_Hidup_Pelanggan_(CLTV)/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

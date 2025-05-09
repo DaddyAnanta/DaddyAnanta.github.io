@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam menjalankan usaha, kita seringkali terfokus pada seberapa besar omzet atau total penjualan yang berhasil diraih. Namun, ada satu metrik finansial lain yang sangat penting dan menjadi fondasi bagi kesehatan bisnis Anda: Gross Margin atau Margin Kotor."
 image = "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.png"
 imageBig= "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

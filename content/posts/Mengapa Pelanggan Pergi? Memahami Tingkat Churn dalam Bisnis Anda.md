@@ -6,8 +6,8 @@ socialshare = true
 description = "Kita semua bekerja keras untuk menarik pelanggan baru, mengakuisisi mereka, dan berharap bisa mempertahankan mereka dalam jangka panjang. Namun, dalam realita bisnis, tidak semua pelanggan akan tinggal selamanya. Beberapa pelanggan mungkin pindah ke perusahaan lain, mencoba produk pesaing, atau merasa kebutuhan mereka tidak lagi terpenuhi."
 image = "/images/45.Mengapa_Pelanggan_Pergi_Memahami_Tingkat_Churn_dalam_Bisnis_Anda/1.png"
 imageBig= "/images/45.Mengapa_Pelanggan_Pergi_Memahami_Tingkat_Churn_dalam_Bisnis_Anda/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam menjalankan bisnis, kita tahu bahwa pelanggan adalah kunci untuk menjaga kinerja keuangan tetap stabil. Banyak upaya pemasaran difokuskan untuk menarik pelanggan baru dan menciptakan penjualan awal. Namun, pernahkah Anda berpikir tentang pentingnya mempertahankan pelanggan yang sudah ada?"
 image = "/images/44.Pelanggan_Lama_Lebih_Berharga_Mengukur_Kekuatan_Retensi_Pelanggan_Anda/1.png"
 imageBig= "/images/44.Pelanggan_Lama_Lebih_Berharga_Mengukur_Kekuatan_Retensi_Pelanggan_Anda/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

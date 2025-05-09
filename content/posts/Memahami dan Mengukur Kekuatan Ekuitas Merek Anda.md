@@ -6,8 +6,8 @@ socialshare = true
 description = "Ketika Anda mendengar nama merek seperti Apple, Google, atau mungkin merek lokal favorit Anda, apa yang terlintas di benak? Kemungkinan besar bukan hanya produk fisik atau layanan yang mereka tawarkan. Ada citra, reputasi, perasaan, dan ekspektasi tertentu yang melekat pada nama tersebut. Inilah inti dari ekuitas merek (brand equity) – nilai tambah tak terlihat yang dimiliki sebuah merek di luar aset fisiknya atau nilai bukunya. Nilai ini dibangun dari persepsi, pengalaman, dan hubungan yang terbentuk antara merek dan pelanggannya."
 image = "/images/36.Memahami_dan_Mengukur_Kekuatan_Ekuitas_Merek_Anda/1.png"
 imageBig= "/images/36.Memahami_dan_Mengukur_Kekuatan_Ekuitas_Merek_Anda/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

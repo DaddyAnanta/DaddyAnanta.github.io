@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam dunia bisnis, ada banyak angka dan metrik yang kita pantau. Namun, ada satu angka yang seringkali menjadi sorotan utama, dianggap sebagai tujuan akhir dari semua kerja keras dan strategi yang kita jalankan. Angka itu adalah Laba Bersih atau Net Income."
 image = "/images/27.Laba_Bersih_(Net_Income)_Angka_Final_yang_Menentukan_Nasib_Bisnis_Anda/1.png"
 imageBig= "/images/27.Laba_Bersih_(Net_Income)_Angka_Final_yang_Menentukan_Nasib_Bisnis_Anda/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

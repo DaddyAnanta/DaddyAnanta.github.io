@@ -6,8 +6,8 @@ socialshare = true
 description = "Sebagai pemilik bisnis atau pemasar, kita semua ingin upaya pemasaran kita tepat sasaran dan memberikan hasil maksimal. Salah satu kunci untuk mencapainya adalah dengan memahami siapa sebenarnya pelanggan kita dan bagaimana perilaku mereka. Di sinilah segmentasi berperan penting."
 image = "/images/40.Kontribusi_Penjualan_Bersih:_Memahami_Mana_Segmen_Pelanggan_Paling_Berharga_Bagi_Anda/1.png"
 imageBig= "/images/40.Kontribusi_Penjualan_Bersih:_Memahami_Mana_Segmen_Pelanggan_Paling_Berharga_Bagi_Anda/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

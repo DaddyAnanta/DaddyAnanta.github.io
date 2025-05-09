@@ -7,7 +7,7 @@ description = "Setelah kita membahas Response Rate dan mengetahui berapa banyak 
 image = "/images/53.Conversion_Rate_(Tingkat_Konversi)_dalam_Pemasaran/1.png"
 imageBig= "/images/53.Conversion_Rate_(Tingkat_Konversi)_dalam_Pemasaran/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

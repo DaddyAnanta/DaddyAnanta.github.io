@@ -5,8 +5,8 @@ draft = false
 description = "Pada sesi kali ini, kita akan menyelami lebih dalam psikologi konsumen, sebuah topik menarik yang dirancang khusus bagi Anda—pelaku usaha, pebisnis, mahasiswa, dan siapa pun yang tertarik dengan bidang ini. Di sini, kita akan memahami: Apa itu scarcity? Mengapa konsep ini penting bagi kelangsungan bisnis? Dan bagaimana penerapannya dalam psikologi marketing?"
 image = "/images/8.Scarcity/1.webp"
 imageBig= "/images/8.Scarcity/1.webp"
-categories= ["Blog"]
-tags = ["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags = ["Heuristic Bias"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam mengelola keuangan bisnis, kita mengenal berbagai jenis pengeluaran. Setelah mungkin familiar dengan biaya yang jumlahnya cenderung tetap, kini saatnya kita mengenali kategori biaya lain yang tak kalah penting: Biaya Variabel atau Variable Expenses."
 image = "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.png"
 imageBig= "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

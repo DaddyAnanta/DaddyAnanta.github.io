@@ -6,8 +6,8 @@ socialshare = true
 description = "Pernahkah Anda berhenti sejenak dan bertanya: seberapa besar sebetulnya 'rasa lapar' pasar terhadap apa yang Anda tawarkan? Siapa saja yang 'mengonsumsi' produk atau layanan Anda – apakah pelanggan setia yang terus kembali, atau lebih banyak wajah-wajah baru yang baru mencoba?"
 image = "/images/32.Permintaan_Pasar:_Memahami_Siapa_dan_Seberapa_Besar_Keinginan_Pasar_Terhadap_Produk_Kita/1.png"
 imageBig= "/images/32.Permintaan_Pasar:_Memahami_Siapa_dan_Seberapa_Besar_Keinginan_Pasar_Terhadap_Produk_Kita/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

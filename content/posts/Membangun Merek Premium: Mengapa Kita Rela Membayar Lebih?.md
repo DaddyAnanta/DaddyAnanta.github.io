@@ -6,8 +6,8 @@ socialshare = true
 description = "Pernahkah Anda melihat sebuah produk—entah itu ponsel pintar, tas, kopi, atau bahkan mobil—dengan harga yang jauh lebih tinggi dibandingkan produk sejenis lainnya? Mungkin Anda bertanya-tanya, Apa yang membuatnya begitu istimewa hingga layak dihargai semahal itu? Jawabannya seringkali terletak pada konsep merek premium."
 image = "/images/41.Membangun_Merek_Premium_Mengapa_Kita_Rela_Membayar_Lebih/1.png"
 imageBig= "/images/41.Membangun_Merek_Premium_Mengapa_Kita_Rela_Membayar_Lebih/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

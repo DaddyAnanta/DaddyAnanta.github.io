@@ -6,8 +6,8 @@ socialshare = true
 description = "Mungkin bisnis Anda menunjukkan grafik penjualan yang melonjak. Itu adalah kabar baik! Tapi, pernahkah Anda bertanya: apakah pasar tempat kita bersaing juga ikut bertumbuh? Seberapa cepat? Dan bagaimana perbandingannya dengan laju bisnis Anda sendiri? Inilah inti dari memahami Pertumbuhan Pasar (Market Growth)."
 image = "/images/31. Melampaui_Tren_Memahami_Dinamika_Pertumbuhan_Pasar(Market Growth)/1.png"
 imageBig= "/images/31. Melampaui_Tren_Memahami_Dinamika_Pertumbuhan_Pasar(Market Growth)/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

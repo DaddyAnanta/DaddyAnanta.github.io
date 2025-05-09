@@ -6,8 +6,8 @@ socialshare = true
 description = "Memiliki Laporan Laba Rugi (Net Income Statement) setiap bulan itu bagus, tapi itu baru langkah awal. Kekuatan sesungguhnya terletak pada bagaimana kita menggunakan informasi di dalamnya untuk mengambil keputusan cerdas dan mengarahkan bisnis kita menuju keuntungan yang berkelanjutan."
 image = "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.png"
 imageBig= "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

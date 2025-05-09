@@ -7,8 +7,8 @@ socialshare = true
 description = 'Pernahkah Anda bertanya-tanya mengapa bumi ini tercipta? Mengapa saat hujan yang jatuh adalah air, bukan uang? Atau mengapa korupsi terus terjadi di Indonesia? Pertanyaan "mengapa" sangat penting untuk memahami alasan di balik suatu peristiwa. Dengan bertanya "mengapa," kita dapat mengidentifikasi permasalahan yang terjadi dalam bisnis kita. Namun, apakah satu pertanyaan "mengapa" sudah cukup?'
 image = "/images/10.5Why/1.webp"
 imageBig= "/images/10.5Why/1.webp"
-categories= ["Blog"]
-tags=["Penyelesaian Masalah","Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags=["Problem Solving"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

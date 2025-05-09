@@ -6,8 +6,8 @@ socialshare = true
 description = "Menarik calon pelanggan baru adalah nadi kehidupan bagi bisnis manapun. Sebagai pemasar atau pemilik usaha, kita sering menggunakan berbagai cara, mulai dari iklan hingga pemasaran yang lebih tertarget, untuk menjangkau audiens kita. Tujuannya jelas: mendapatkan lead atau prospek, yaitu kontak orang-orang yang berpotensi menjadi pelanggan kita."
 image = "/images/39.Hitung_Biaya_Cari_Pelanggan_Panduan_Cost_Per Lead_(CPL)_&_ROI_untuk_Bisnis/1.png"
 imageBig= "/images/39.Hitung_Biaya_Cari_Pelanggan_Panduan_Cost_Per Lead_(CPL)_&_ROI_untuk_Bisnis/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

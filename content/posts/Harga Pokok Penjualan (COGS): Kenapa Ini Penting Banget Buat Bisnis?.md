@@ -6,8 +6,8 @@ socialshare = true
 description = "Pernahkah Anda merasa bingung saat menentukan harga jual produk? Atau mungkin Anda sudah menetapkan harga, tapi kok rasanya keuntungan bisnis tidak kunjung maksimal? Jika ya, Anda tidak sendirian. Banyak dari kita, para pemilik bisnis, kadang terjebak dalam penetapan harga tanpa memahami salah satu fondasi terpenting: Harga Pokok Penjualan (HPP) atau dalam bahasa Inggris dikenal sebagai Cost of Goods Sold (COGS)."
 image = "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.png"
 imageBig= "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

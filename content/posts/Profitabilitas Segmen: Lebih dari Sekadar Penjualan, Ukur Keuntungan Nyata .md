@@ -6,8 +6,8 @@ socialshare = true
 description = "Dalam dunia pemasaran yang dinamis, terutama di kota sekompetitif ini, kita semua tahu pentingnya STP (Segmentasi, Targeting, Positioning). Kita memecah pasar menjadi kelompok-kelompok pelanggan (segmentasi), memilih kelompok mana yang paling sesuai dengan bisnis kita (targeting), dan membangun citra unik di benak mereka (positioning). Ini adalah fondasi strategi pemasaran yang solid."
 image = "/images/38.Profitabilitas_Segmen_Lebih_dari_Sekadar_Penjualan_Ukur_Keuntungan_Nyata/1.png"
 imageBig= "/images/38.Profitabilitas_Segmen_Lebih_dari_Sekadar_Penjualan_Ukur_Keuntungan_Nyata/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

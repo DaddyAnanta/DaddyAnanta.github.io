@@ -6,8 +6,8 @@ socialshare = true
 description = "Setelah kita menghitung semua pendapatan yang masuk dan menguranginya dengan berbagai biaya yang dikeluarkan untuk menjalankan roda bisnis – mulai dari biaya pokok produksi, biaya pemasaran, gaji karyawan, sewa tempat, bunga pinjaman, hingga penyusutan aset – kita akan sampai pada satu angka penting di laporan keuangan: Laba Sebelum Pajak atau Earnings Before Taxes (EBT)."
 image = "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.png"
 imageBig= "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

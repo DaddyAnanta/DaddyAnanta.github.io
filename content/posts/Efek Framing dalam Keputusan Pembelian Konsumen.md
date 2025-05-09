@@ -5,8 +5,8 @@ draft = false
 description = "Framing, atau dalam bahasa Indonesia yang berarti bingkai, merupakan konsep heuristik dalam persepsi. Dalam konteks ini, cara kita membingkai suatu hal—misalnya, sebuah produk—dengan sudut pandang atau konteks yang berbeda dapat menghasilkan persepsi yang berbeda pula. Dengan kata lain, bagaimana sesuatu disajikan atau dikontekstualisasikan akan memengaruhi cara orang memahaminya."
 image = "/images/9.Framming/1.webp"
 imageBig= "/images/9.Framming/1.webp"
-categories= ["Blog"]
-tags= ["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags= ["Heuristic Bias"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

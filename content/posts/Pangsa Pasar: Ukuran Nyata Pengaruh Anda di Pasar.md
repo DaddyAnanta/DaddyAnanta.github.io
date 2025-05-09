@@ -6,8 +6,8 @@ socialshare = true
 description = "Pernahkah Anda bertanya-tanya seberapa besar bagian yang berhasil diraih bisnis Anda dibandingkan dengan para pesaing? Di tengah peran kompetisi, mengetahui posisi kita adalah langkah awal untuk merancang strategi yang lebih tajam. Nah, di sinilah konsep Pangsa Pasar (Market Share) berperan penting."
 image = "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.png"
 imageBig= "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.png"
-categories= ["Blog"]
-tags = ["Marketing_Matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

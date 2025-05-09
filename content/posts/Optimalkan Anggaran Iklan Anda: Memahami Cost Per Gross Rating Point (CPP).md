@@ -7,7 +7,7 @@ description = "Dalam dunia periklanan yang dinamis, setiap Rupiah yang kita kelu
 image = "/images/51.Optimalkan_Anggaran_Iklan_Anda:_Memahami_Cost_Per_Gross_Rating_Point_(CPP)/1.png"
 imageBig= "/images/51.Optimalkan_Anggaran_Iklan_Anda:_Memahami_Cost_Per_Gross_Rating_Point_(CPP)/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

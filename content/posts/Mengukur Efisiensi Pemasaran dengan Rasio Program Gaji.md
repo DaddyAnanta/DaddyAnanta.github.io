@@ -6,8 +6,8 @@ socialshare = true
 description = "Anggaran pemasaran seringkali mencakup berbagai jenis pengeluaran, namun salah satu komponen biaya yang paling signifikan dan penting adalah gaji serta tunjangan untuk tim pemasaran itu sendiri. Muncul pertanyaan penting: seberapa efektif biaya sumber daya manusia ini jika dibandingkan dengan dana yang benar-benar dialokasikan untuk menjalankan program-program pemasaran yang menyentuh langsung target pasar Anda? Untuk mendapatkan gambaran yang lebih jelas tentang hubungan ini, kita bisa menggunakan lensa analisis yang disebut Rasio Program/Gaji (Program-to-Payroll Ratio atau PPR). Metrik ini memberikan perspektif penting dalam mengevaluasi bagaimana kita mengalokasikan sumber daya antara tim pelaksana dan aksi pemasaran yang mereka lakukan."
 image = "/images/35.Mengukur_Efisiensi_Pemasaran_dengan_Rasio_Program_Gaji/1.png"
 imageBig= "/images/35.Mengukur_Efisiensi_Pemasaran_dengan_Rasio_Program_Gaji/1.png"
-categories= ["Blog"]
-tags = ["Marketing_matrix"]
+categories= ["Marketing"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

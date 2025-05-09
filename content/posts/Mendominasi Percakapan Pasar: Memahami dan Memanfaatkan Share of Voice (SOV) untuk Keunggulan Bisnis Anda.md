@@ -7,7 +7,7 @@ description = "Di tengah hiruk-pikuk pasar yang penuh dengan berbagai merek dan 
 image = "/images/47.Mendominasi_Percakapan_Pasar_Memahami_dan_Memanfaatkan_Share_of_Voice_(SOV)_untuk_Keunggulan_Bisnis_Anda/1.png"
 imageBig= "/images/47.Mendominasi_Percakapan_Pasar_Memahami_dan_Memanfaatkan_Share_of_Voice_(SOV)_untuk_Keunggulan_Bisnis_Anda/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

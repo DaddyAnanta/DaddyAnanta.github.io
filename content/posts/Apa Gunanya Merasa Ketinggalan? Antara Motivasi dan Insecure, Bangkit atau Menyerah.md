@@ -5,8 +5,8 @@ draft = false
 description = "Pernahkah Anda merasa ketinggalan? Baik dari segi prestasi, materi bahkan dengan kemampuan yang Anda miliki? Apa yang Anda rasakan saat Anda berada di belakang orang tersebut? Kecewa, marah atau bahkan termotivasi? "
 image = "/images/13.Insecure/1.webp"
 imageBig= "/images/13. Insecure/1.webp"
-categories= ["Blog"]
-tags=["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags=["Heuristic Bias"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

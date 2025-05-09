@@ -6,8 +6,8 @@ socialshare = true
 description = "Saat menjalankan sebuah bisnis, ada banyak faktor yang perlu kita perhatikan demi menjaga kesehatan finansial perusahaan. Salah satu faktor eksternal yang memiliki pengaruh sangat signifikan dan tidak bisa dihindari adalah Pajak."
 image = "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.png"
 imageBig= "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.png"
-categories= ["Blog"]
-tags = ["Keuangan_Dasar"]
+categories= ["Keuangan"]
+tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

@@ -5,8 +5,8 @@ draft = false
 description = "Merokok merupakan suatu aktivitas yang biasa dilakukan oleh sebagian besar dari masyarakat di Indonesia. Bahkan, beberapa dari mereka menganggapnya sebagai bagian dari budaya. Namun, merokok tetaplah sesuatu hal yang dianggap berbahaya. Dengan sebagian besar dari upaya kampanye dikerahkan, serta peraturan dilarang merokok di setiap bungkusnya terbit, bukanlah menjadi penghalang dari eksistensi produk ini."
 image = "/images/Apakah-larangan-merokok-benar-benar-efektif/1.webp"
 imageBig= "/images/Apakah-larangan-merokok-benar-benar-efektif/1.webp"
-categories= ["Blog"]
-tags = ["Psikologi Konsumen"]
+categories= ["Psikologi Konsumen"]
+tags = ["Heuristic Bias"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++

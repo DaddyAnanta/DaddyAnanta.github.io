@@ -7,7 +7,7 @@ description = "Setiap kampanye iklan yang kita luncurkan pasti memiliki tujuan: 
 image = "/images/54.Menjangkau_Audiens_yang_Tepat_Memahami_Reach_dalam_Strategi_Iklan/1.png"
 imageBig= "/images/54.Menjangkau_Audiens_yang_Tepat_Memahami_Reach_dalam_Strategi_Iklan/1.png"
 categories= ["Marketing"]
-tags = ["Marketing_matrix"]
+tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
