@@ -1416,6 +1416,36 @@ a {
   text-transform: uppercase;
 }
 
+/* Tambahan untuk efek hover deskripsi ikon */
+ul.share-icons li {
+  position: relative;
+}
+
+ul.share-icons li a p,
+ul.share-icons li button p {
+  display: none;
+  position: absolute;
+  top: 110%; /* Tampilkan di bawah ikon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+ul.share-icons li:hover a p,
+ul.share-icons li:hover button p {
+  display: block;
+  opacity: 1;
+}
+
 .icon-share {
   width: 20px;
   height: 20px;
