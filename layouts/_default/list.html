@@ -40,12 +40,12 @@
         <div class="triangle segitiga-bagian-kiri-bawah" data-key="psikologi">
             {{/* Tautan ini akan mengarah ke /categories/psikologi/ */}}
             {{/* Pastikan kategori 'psikologi' ada di situs Hugo Anda */}}
-            <a href="{{ "/categories/psikologi/" | relLangURL }}">Psikologi<br>Konsumen</a>
+            <a href="{{ "/categories/psikologi-konsumen/" | relLangURL }}">Psikologi<br>Konsumen</a>
         </div>
         <div class="triangle segitiga-bagian-kiri-samping" data-key="analisis_data">
             {{/* Tautan ini akan mengarah ke /categories/analisis_data/ */}}
             {{/* Pastikan kategori 'analisis_data' ada di situs Hugo Anda */}}
-            <a href="{{ "/categories/analisis_data/" | relLangURL }}">Analisis<br>Data</a>
+            <a href="{{ "/categories/analisis-data/" | relLangURL }}">Analisis<br>Data</a>
         </div>
     </div>
 
@@ -185,7 +185,7 @@
     </div>
 
     <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $analisis_dataPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Alisis Data") }}
+        {{ $analisis_dataPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Analisis Data") }}
         {{ $totalanalisis_dataPages := len $analisis_dataPages }}
 
         {{ range $index, $page := $analisis_dataPages }}
@@ -237,7 +237,7 @@
                             </div>
                                                 {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
                         <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/analisis_data/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
+                            <a href="{{ "/categories/analisis-data/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
                         </div>
                         </div>
 
@@ -340,7 +340,7 @@
     </div>
 
     <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $psikologiPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Psikologi") }}
+        {{ $psikologiPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Psikologi Konsumen") }}
         {{ $totalpsikologiPages := len $psikologiPages }}
 
         {{ range $index, $page := $psikologiPages }}
@@ -392,7 +392,7 @@
                             </div>
                                                 {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
                         <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/psikologi/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
+                            <a href="{{ "/categories/psikologi-konsumen/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
                         </div>
                         </div>
 
