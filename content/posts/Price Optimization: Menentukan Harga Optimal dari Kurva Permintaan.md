@@ -18,11 +18,11 @@ Sebagai contoh, jika biaya produksi (COGS) suatu produk adalah Rp. 100.000, maka
 
 
 <div class="single-code" style=" width:100%;font: inherit;background-color: #f9f9f9;border:1px solid #ccc;color: #333;padding: 10px;border-radius: 5px;margin-bottom:20px">
-<p>$$\text{Gross Margin} = \frac{\text{Net Revenue} - \text{COGS}}{\text{Net Revenue}} \times \text{100%}$$</p>
+<p>$$\text{Gross Margin} = \frac{\text{Net Revenue} - \text{COGS}}{\text{Net Revenue}} \times \text{100\%}$$</p>
 </div>
 
 <div class="single-code" style=" width:100%;font: inherit;background-color: #f9f9f9;border:1px solid #ccc;color: #333;padding: 10px;border-radius: 5px;margin-bottom:20px">
-<p>$$\text{Gross Margin} = \frac{\text{Rp. 145.000} - \text{Rp. 100.000}}{\text{Rp. 145.000}} \times \text{100%} = \text{31,03%}$$</p>
+<p>$$\text{Gross Margin} = \frac{\text{Rp. 145.000} - \text{Rp. 100.000}}{\text{Rp. 145.000}} \times \text{100\%} = \text{31,03\%}$$</p>
 </div>
 
 Dengan demikian, *gross margin* (pendapatan kotor) yang dihasilkan memenuhi tolak ukur minimal sebesar 30% dari *net revenue*, yang merupakan indikator sehat untuk keberlangsungan bisnis.
