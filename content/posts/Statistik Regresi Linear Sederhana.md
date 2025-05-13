@@ -253,6 +253,8 @@ cat("Jumlah Baris Data   :", n, "\n")
 <div class="single-image-source">
   <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/13.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
+
+
  $\sum X$ = 5939;
 $\sum Y$ = 6037;
 $\sum XY$ = 186104; 
@@ -262,10 +264,11 @@ N (Jumlah baris data)  = 200
 
 
 #### Pembilang ($N(\sum X​Y​)−(\sum X​)(\sum Y​)$)
-
-  $$N(\sum X​Y​)−(\sum X​)(\sum Y​)$$
-$$= 200(186104)−(5939)(6037​)$$
-$$= 37220800−35853743 = 1367057$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>
+  $$N(\sum X​Y​)−(\sum X​)(\sum Y​)$$</p>
+<p>$$= 200(186104)−(5939)(6037​)$$</p>
+<p>$$= 37220800−35853743 = 1367057$$</p></div>
 
 
 ```R
@@ -282,9 +285,10 @@ cat("Pembilang (N * ΣXY - ΣX * ΣY):", pembilang, "\n")
 Pembilang (N * ΣXY - ΣX * ΣY): 1367057
 
 #### Penyebut X($N(\sum X^2)−(\sum X​)^2$)
-$$N(\sum X^2)−(\sum X​)^2$$
-$$ = 200(184747)−(5939)^2$$
-$$ = 36949400 − 35271721 = 1677679$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$N(\sum X^2)−(\sum X​)^2$$</p>
+  <p>$$ = 200(184747)−(5939)^2$$</p>
+  <p>$$ = 36949400 − 35271721 = 1677679$$</p></div>
 
 ```R
 # Hitung penyebut dari beta_1
@@ -297,9 +301,11 @@ Penyebut (N * ΣX² - (ΣX)²): 1677679
 
 
 #### Pernyebut Y ($N(\sum Y^2)−(\sum Y)^2$)
-$$N(\sum Y^2)−(\sum Y)^2$$
-$$= 200(191905) − (6037)^2$$
-$$= 38381000−36445369 = 1935631$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$N(\sum Y^2)−(\sum Y)^2$$</p>
+  <p>$$= 200(191905) − (6037)^2$$</p>
+  <p>$$= 38381000−36445369 = 1935631$$</p></div>
+
 ```R
 # Hitung ekspresi
 penyebut_y <- n * sum_Y2 - (sum_Y)^2
@@ -310,14 +316,16 @@ cat("Hasil dari N * ΣY² - (ΣY)² :", penyebut_y, "\n")
 Hasil dari N * ΣY² - (ΣY)² : 1935631
 
 #### Mencari  nilai r
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$r = \frac{N(\sum XY) - (\sum X)(\sum Y)}{\sqrt{[N(\sum X^2) - (\sum X)^2][N(\sum Y^2) - (\sum Y)^2]}}$$</p></div>
 
-$$r = \frac{N(\sum XY) - (\sum X)(\sum Y)}{\sqrt{[N(\sum X^2) - (\sum X)^2][N(\sum Y^2) - (\sum Y)^2]}}$$
 Secara sederhana karena kita dapat menyederhanakan melalui perhitungan sebelumnya dengan :
 
-$$r = \frac{\text{Pembilang}}{\sqrt{[\text{Pernyebut X}][\text{Pernyebut Y}]}}$$
-$$r = \frac{1367057}{\sqrt{[1677679][1935631]}}$$
-$$r = \frac{1367057}{\sqrt{3248511157849}}$$
-$$r = \frac{1367057}{1802263.79} = 0.7586 $$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$r = \frac{\text{Pembilang}}{\sqrt{[\text{Pernyebut X}][\text{Pernyebut Y}]}}$$</p>
+  <p>$$r = \frac{1367057}{\sqrt{[1677679][1935631]}}$$</p>
+  <p>$$r = \frac{1367057}{\sqrt{3248511157849}}$$</p>
+  <p>$$r = \frac{1367057}{1802263.79} = 0.7586 $$</p>
 
 ```R
 # Hitung r
@@ -370,7 +378,8 @@ if (result$p.value < 0.05) {
 
 Pada dasarnya, **estimasi Y** dalam model regresi linear adalah hasil dari persamaan regresi, yaitu:
 
-$$\hat{Y}=β_0+β_1 \times X$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$\hat{Y}=β_0+β_1 \times X$$</p></div>
 
 di mana:
 
@@ -443,8 +452,9 @@ nrow(data_extended)
 
 #### Rata-rata X ($\bar{X}$) dan Rata-rata Y ($\bar{Y}$)
 
-$$\bar{X}= \frac{\sum X}{N} = \frac{5939}{200} = 29.695 $$
-$$\bar{Y}= \frac{\sum Y}{N} = \frac{6037}{200} = 30.185$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$\bar{X}= \frac{\sum X}{N} = \frac{5939}{200} = 29.695 $$</p>
+  <p>$$\bar{Y}= \frac{\sum Y}{N} = \frac{6037}{200} = 30.185$$</p></div>
 
 ```R
 # Jumlah data (jumlah baris)
@@ -464,12 +474,10 @@ cat("Rata-rata Y (Kepuasan Pengguna) : ", mean_Y, "\n")
 </div>
 
 #### Menghitung Estimasi Slope ($\beta_{1}$)
-
-$$ \beta_1 = \frac{N(\sum XY) - (\sum X)(\sum Y)}{N(\sum X^2) - (\sum X)^2} $$
-
-$$ \beta_1 = \frac{200(186104) - (5939)(6037)}{200(184747) - (5939)^2} $$
-
-$$ \beta_1 = \frac{37220800−35853743}{36949400−35264221} = \frac{1367057}{1685180} = 0.8148502 $$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$ \beta_1 = \frac{N(\sum XY) - (\sum X)(\sum Y)}{N(\sum X^2) - (\sum X)^2} $$</p>
+  <p>$$ \beta_1 = \frac{200(186104) - (5939)(6037)}{200(184747) - (5939)^2} $$</p>
+  <p>$$ \beta_1 = \frac{37220800−35853743}{36949400−35264221} = \frac{1367057}{1685180} = 0.8148502 $$</p></div>
 
 ```R
 # Hitung koefisien beta_1 menggunakan rumus yang diberikan
@@ -486,17 +494,19 @@ Jadi nilai koefisien $\beta_1$ adalah 0.814850
 
 #### Menghitung Estimasi Slope ($\beta_{0}$)
 
-$$\beta_0 = \bar{Y} - \beta_1 \bar{X}$$
-$$\beta_0 = 30.185 - 0.814850 \times 29.695$$
-$$\beta_0 = 5.988025$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$\beta_0 = \bar{Y} - \beta_1 \bar{X}$$</p>
+  <p>$$\beta_0 = 30.185 - 0.814850 \times 29.695$$</p>
+  <p>$$\beta_0 = 5.988025$$</p></div>
 Jadi nilai koefisien $\beta_0$ adalah 5.988025
 
 #### Persamaan Regresi Estimasi
-
-$$Y=β_0+β_1 \times X$$
-$$Y=5.988025 + 0.814850 \times X$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$Y=β_0+β_1 \times X$$</p>
+  <p>$$Y=5.988025 + 0.814850 \times X$$</p></div>
 
 ### Integrasi langsung Prediksi
+
 ```R
 # Membuat model regresi linear
 model <- lm(Kepuasan_Pengguna_Y ~ Kualitas_Produk_X, data = data)
@@ -515,10 +525,14 @@ cat("Slope (β₁):", slope, "\n")
 
 Artinya, model regresi yang diperoleh adalah:
 
-$$\hat Y= 5.988025 + 0.8148502 \times X$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$\hat Y= 5.988025 + 0.8148502 \times X$$</p></div>
+
 **Sama bukan dengan perhitungan manual sebelumnya.** Sekarang kita dapat membuat prediksi dengan model tersebut. Misalnya, jika nilai kualitas produk kita dalam skala 50 adalah **30**, maka kepuasan pelanggan yang diprediksi dapat dihitung sebagai berikut:
 
-$$Y= 5.988025 + 0.8148502 \times 30 = 30,433530$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$Y= 5.988025 + 0.8148502 \times 30 = 30,433530$$</p></div>
+
 Jadi, dengan nilai kualitas sebesar 30, kepuasan pelanggan yang diprediksi adalah sekitar **30,43**. Namun, karena terdapat ketidakpastian dalam setiap prediksi, kita memerlukan **interval kepercayaan**, yaitu rentang nilai di sekitar prediksi yang mencerminkan tingkat keyakinan kita terhadap hasil tersebut. Umumnya, digunakan **interval kepercayaan 95%**, yang berarti kita 95% yakin bahwa nilai sebenarnya berada dalam rentang tersebut.
 ### Confidence Interval
 
@@ -526,7 +540,8 @@ Jika nilai **kualitas produk** sebesar **30**, maka nilai **kepuasan pengguna** 
 
 Namun, karena setiap prediksi mengandung ketidakpastian, kita menggunakan **interval kepercayaan 95%** untuk memberikan gambaran tentang rentang kemungkinan nilai rata-rata kepuasan sebenarnya.
 
-$$CI(\bar Y) = \hat{Y} \pm t_{\alpha/2,N-p} \times s_e \sqrt{\frac{1}{N} + \frac{(X - \bar{X}^2)}{S_{XX}}} $$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$CI(\bar Y) = \hat{Y} \pm t_{\alpha/2,N-p} \times s_e \sqrt{\frac{1}{N} + \frac{(X - \bar{X}^2)}{S_{XX}}} $$</p></div>
 
 Tahap :
 - Menghitung Nilai Prediksi($\hat Y$)
@@ -536,8 +551,9 @@ Tahap :
 
 #### Menghitung Nilai Prediksi($\hat Y$)
 
-$$\hat Y= 5.988025 + 0.8148502 \times X$$
-$$\hat Y= 5.988025 + 0.8148502 \times 30 = 30.43353$$
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$\hat Y= 5.988025 + 0.8148502 \times X$$</p>
+  <p>$$\hat Y= 5.988025 + 0.8148502 \times 30 = 30.43353$$</p></div>
 
 ```R
 # Misalnya X = 30
@@ -564,8 +580,11 @@ head(data)
 <div class="single-image-source">
   <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/20.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
-$$S_e = \sqrt{\frac{\sum (Y - \hat Y)^2}{N-2}}$$
-$$S_e = \sqrt{\frac{4108.42}{200-2}} = 4.555174 $$
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$S_e = \sqrt{\frac{\sum (Y - \hat Y)^2}{N-2}}$$</p>
+  <p>$$S_e = \sqrt{\frac{4108.42}{200-2}} = 4.555174 $$</p></div>
+
 ```R
 # Menghitung standar error (sₑ)
 se <- sqrt(sum(residuals^2) / (length(data$Kualitas_Produk_X) - 2))
@@ -577,6 +596,7 @@ Standar error (sₑ): 4.555174
 #### Menghitung $S_{XX}$​
 
 Membuat kolom $(X-\bar X)^2$
+
 ```R
 data_CI <- data
 X_bar <- mean(data_CI$Kualitas_Produk_X)
@@ -599,7 +619,10 @@ cat("S_XX:", S_XX, "\n")
 S_XX: 8388.395
 
 #### Menghitung Confidence Interval untuk Prediksi
-$$t_{\alpha/2,N-p}$$
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$t_{\alpha/2,N-p}$$</p></div>
+
 Karena kita memiliki 2 variabel sehingga derajat kebebasan (df) dapat dihitung dengan N - 2(jumlah variabel). Untuk nilai T sendiri dapat dilihat di t tabel (<a href="https://rufiismada.wordpress.com/wp-content/uploads/2012/10/tabel-t.pdf">t tabel</a>), tetapi kita juga dapat melakukannya di R
 
 ```R
@@ -618,12 +641,14 @@ t_value: 1.972017
 
 
 dengan menyatukan semua nilai yang ada sehingga kita dapat mencari nilai $CI(\bar Y)$ dari nilai X = 30 dengan
-$$CI(\bar Y) = \hat{Y} \pm t_{\alpha/2,N-p} \times s_e \sqrt{\frac{1}{N} + \frac{(X - \bar{X}^2)}{S_{XX}}} $$
-$$= 30.43 \pm 1.97 \times 4.555  \times \sqrt{\frac{1}{200} + (\frac{30 - 29.695}{  
-8388.395})}$$
-$$= 30.43 \pm 1.97 \times 4.555  \times 0.07$$
-$$CI_{lower} = 30.43 - 0.6359 = 29,80$$
-$$CI_{upper} = 30.43 + 0.6359 = 31,07$$
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+  <p>$$CI(\bar Y) = \hat{Y} \pm t_{\alpha/2,N-p} \times s_e \sqrt{\frac{1}{N} + \frac{(X - \bar{X}^2)}{S_{XX}}} $$</p>
+<p>$$= 30.43 \pm 1.97 \times 4.555  \times \sqrt{\frac{1}{200} + (\frac{30 - 29.695}{  
+8388.395})}$$</p>
+<p>$$= 30.43 \pm 1.97 \times 4.555  \times 0.07$$</p>
+<p>$$CI_{lower} = 30.43 - 0.6359 = 29,80$$</p>
+<p>$$CI_{upper} = 30.43 + 0.6359 = 31,07$$</p></div>
 
 ```R
 
@@ -637,6 +662,7 @@ Confidence Interval untuk prediksi Y: 29.79764 sampai 31.06942
 
 
 ### Integrasi langsung Confidence Interval
+
 ```R
 # Buat data baru untuk prediksi saat kualitas produk = 30
 data_baru <- data.frame(Kualitas_Produk_X = 30)
