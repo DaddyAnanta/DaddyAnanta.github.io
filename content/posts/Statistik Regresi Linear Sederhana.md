@@ -23,7 +23,7 @@ Beberapa indikator yang bisa digunakan antara lain kepuasan terhadap produk, kep
 
 ## Data 
 
-Untuk pemahaman yang lebih dalam, kita akan menggunakan data survey ilustrasi yang dapat diakses di sini.
+Untuk pemahaman yang lebih dalam, kita akan menggunakan data survey ilustrasi yang dapat diakses <a href="https://github.com/DaddyAnanta/Data/blob/main/Regresi-Linear-Sederhana/data_kepuasan_pelanggan.csv" download="data_kepuasan_pelanggan.csv">📥 di sini</a>
 
 ```R
 data <- read.csv("data_kepuasan_pelanggan.csv")
