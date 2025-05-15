@@ -1261,7 +1261,7 @@ a {
 
 .singleContent li {
   text-indent: 0px;
-  text-align: left;
+  text-align: justify;
   margin: 0px 0px 0px 20px;
   font-family: 'Roboto', sans-serif;
   color: black;
