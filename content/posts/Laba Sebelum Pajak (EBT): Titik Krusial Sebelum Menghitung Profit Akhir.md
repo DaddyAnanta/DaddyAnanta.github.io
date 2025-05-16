@@ -4,8 +4,8 @@ date = 2025-04-28T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Setelah kita menghitung semua pendapatan yang masuk dan menguranginya dengan berbagai biaya yang dikeluarkan untuk menjalankan roda bisnis – mulai dari biaya pokok produksi, biaya pemasaran, gaji karyawan, sewa tempat, bunga pinjaman, hingga penyusutan aset – kita akan sampai pada satu angka penting di laporan keuangan: Laba Sebelum Pajak atau Earnings Before Taxes (EBT)."
-image = "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.png"
-imageBig= "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.png"
+image = "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.webp"
+imageBig= "/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -17,7 +17,7 @@ Angka ini sering dianggap sebagai "garis finis kedua", menunjukkan seberapa baik
 # Apa Itu Laba Sebelum Pajak (EBT)?
 
 <div class="single-image-source">
-  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/2.png" alt=" Apa Itu Laba Sebelum Pajak (EBT)?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/2.webp" alt=" Apa Itu Laba Sebelum Pajak (EBT)?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Apa Itu Laba Sebelum Pajak (EBT)? From Imagen 3</p>
 </div>
 
@@ -35,7 +35,7 @@ Angka EBT inilah yang menunjukkan seberapa profitabel inti operasional bisnis An
 # Pentingnya Memisahkan 'Sebelum' dan 'Sesudah' Pajak
 
 <div class="single-image-source">
-  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/3.png" alt="Pentingnya Memisahkan 'Sebelum' dan 'Sesudah' Pajak" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/3.webp" alt="Pentingnya Memisahkan 'Sebelum' dan 'Sesudah' Pajak" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Pentingnya Memisahkan 'Sebelum' dan 'Sesudah' Pajak' From Imagen 3</p>
 </div>
 
@@ -57,7 +57,7 @@ Menariknya, EBT seringkali menghadirkan dilema strategis bagi para manajer dan p
 # Diskusikan Strategi Anda dengan Ahlinya!
 
 <div class="single-image-source">
-  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/4.png" alt="Diskusikan Strategi Anda dengan Ahlinya!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/25.Laba_Sebelum_Pajak_(EBT):_Titik_Krusial_Sebelum_Menghitung_Profit_Akhir/4.webp" alt="Diskusikan Strategi Anda dengan Ahlinya!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Diskusikan Strategi Anda dengan Ahlinya! From Imagen 3</p>
 </div>
 

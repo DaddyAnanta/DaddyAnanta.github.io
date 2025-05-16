@@ -4,8 +4,8 @@ date = 2025-04-28T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Memiliki Laporan Laba Rugi (Net Income Statement) setiap bulan itu bagus, tapi itu baru langkah awal. Kekuatan sesungguhnya terletak pada bagaimana kita menggunakan informasi di dalamnya untuk mengambil keputusan cerdas dan mengarahkan bisnis kita menuju keuntungan yang berkelanjutan."
-image = "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.png"
-imageBig= "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.png"
+image = "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.webp"
+imageBig= "/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -17,7 +17,7 @@ Laporan Laba Rugi bukan hanya sekadar rapor finansial, melainkan _dashboard_ ata
 # Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda
 
 <div class="single-image-source">
-  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/2.png" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/2.webp" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda From Imagen 3</p>
 </div>
 
@@ -49,7 +49,7 @@ _Penting diingat:_ Ini adalah target atau panduan umum. Mencapai angka persis se
 # Mengelola Pertumbuhan: Balapan Antara Pendapatan dan Pengeluaran
 
 <div class="single-image-source">
-  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/3.png" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/3.webp" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda From Imagen 3</p>
 </div>
 
@@ -67,7 +67,7 @@ Berikut beberapa tips praktis yang terinspirasi dari pengalaman banyak profesion
 # Kesimpulan: Jadilah Nahkoda Aktif!
 
 <div class="single-image-source">
-  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/4.png" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/28.Cara_Menggunakan_Benchmark_Laporan_Laba_Rugi_untuk_Meningkatkan_Profit_Bisnis/4.webp" alt="Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Langkah Pertama: Rutin 'Baca Peta' Keuangan Anda From Imagen 3</p>
 </div>
 

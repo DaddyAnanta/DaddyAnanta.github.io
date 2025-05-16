@@ -4,8 +4,8 @@ date = 2025-04-30T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Pernahkah Anda bertanya-tanya seberapa besar bagian yang berhasil diraih bisnis Anda dibandingkan dengan para pesaing? Di tengah peran kompetisi, mengetahui posisi kita adalah langkah awal untuk merancang strategi yang lebih tajam. Nah, di sinilah konsep Pangsa Pasar (Market Share) berperan penting."
-image = "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.png"
-imageBig= "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.png"
+image = "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.webp"
+imageBig= "/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/1.webp"
 categories= ["Marketing"]
 tags = ["Marketing Matrix"]
 authors= ["Daddy Ananta"]
@@ -17,7 +17,7 @@ Ini bukan sekadar angka persentase yang terpampang di laporan, melainkan sebuah 
 # Apa itu Pangsa Pasar?
 
 <div class="single-image-source">
-  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/2.png" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Apa itu Pangsa Pasar?">
+  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/2.webp" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Apa itu Pangsa Pasar?">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Apa itu Pangsa Pasar?</p>
 </div>
 
@@ -44,7 +44,7 @@ Ini berarti GagahPhone menguasai 5% dari total pasar _smartphone_ di Indonesia b
 # Mengapa Pangsa Pasar Begitu Penting Bagi Kita?
 
 <div class="single-image-source">
-  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/3.png" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Mengapa Pangsa Pasar Begitu Penting Bagi Kita?">
+  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/3.webp" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Mengapa Pangsa Pasar Begitu Penting Bagi Kita?">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Mengapa Pangsa Pasar Begitu Penting Bagi Kita?</p>
 </div>
 
@@ -74,7 +74,7 @@ Untuk menghitung pangsa pasar, kita memerlukan dua jenis data utama:
 # Pangsa Pasar dalam Rencana Bisnis Anda
 
 <div class="single-image-source">
-  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/4.png" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Pangsa Pasar dalam Rencana Bisnis Anda">
+  <img src="/images/30.Pangsa_Pasar_Ukuran_Nyata_Pengaruh_Anda_di_Pasar/4.webp" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Pangsa Pasar dalam Rencana Bisnis Anda">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Pangsa Pasar dalam Rencana Bisnis Anda</p>
 </div>
 

@@ -4,8 +4,8 @@ date = 2025-04-28T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Saat menjalankan sebuah bisnis, ada banyak faktor yang perlu kita perhatikan demi menjaga kesehatan finansial perusahaan. Salah satu faktor eksternal yang memiliki pengaruh sangat signifikan dan tidak bisa dihindari adalah Pajak."
-image = "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.png"
-imageBig= "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.png"
+image = "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.webp"
+imageBig= "/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -18,7 +18,7 @@ Meskipun detail peraturan perpajakan bisa sangat kompleks dan sebaiknya ditangan
 # Pajak: Kewajiban Finansial Bisnis
 
 <div class="single-image-source">
-  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/2.png" alt="Pajak: Kewajiban Finansial Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/2.webp" alt="Pajak: Kewajiban Finansial Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Pajak: Kewajiban Finansial Bisnis From Imagen 3</p>
 </div>
 
@@ -31,7 +31,7 @@ Mengingat kompleksitas dan dinamika peraturan perpajakan, menjalin kerja sama ya
 # Dampak Signifikan Pajak pada Keuntungan
 
 <div class="single-image-source">
-  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/3.png" alt="Pajak: Kewajiban Finansial Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/3.webp" alt="Pajak: Kewajiban Finansial Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Dampak Signifikan Pajak pada Keuntungan From Imagen 3</p>
 </div>
 
@@ -49,7 +49,7 @@ Tidak jarang, beban pajak menjadi salah satu komponen biaya terbesar yang harus 
 # Pentingnya Lingkungan Perpajakan dalam Strategi Bisnis
 
 <div class="single-image-source">
-  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/4.png" alt="Pentingnya Lingkungan Perpajakan dalam Strategi Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/26.Pajak_(Taxes):_Pengurang_Laba_Terakhir_yang_Wajib_Diperhitungkan/4.webp" alt="Pentingnya Lingkungan Perpajakan dalam Strategi Bisnis" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Pentingnya Lingkungan Perpajakan dalam Strategi Bisnis From Imagen 3</p>
 </div>
 
