@@ -1341,6 +1341,9 @@ a {
   white-space: pre-wrap;
   /* Mengizinkan pembungkusan pada elemen <code> */
   word-wrap: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  overflow-y: auto;
 }
 
 /* Footer Section */
