@@ -4,8 +4,8 @@ date = 2025-04-26T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Pernahkah Anda merasa bingung saat menentukan harga jual produk? Atau mungkin Anda sudah menetapkan harga, tapi kok rasanya keuntungan bisnis tidak kunjung maksimal? Jika ya, Anda tidak sendirian. Banyak dari kita, para pemilik bisnis, kadang terjebak dalam penetapan harga tanpa memahami salah satu fondasi terpenting: Harga Pokok Penjualan (HPP) atau dalam bahasa Inggris dikenal sebagai Cost of Goods Sold (COGS)."
-image = "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.png"
-imageBig= "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.png"
+image = "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.webp"
+imageBig= "/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -17,7 +17,7 @@ Mungkin terdengar sedikit teknis, tapi percayalah, memahami COGS ini bisa menjad
 # Apa Sih Sebenarnya COGS Itu?
 
 <div class="single-image-source">
-  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/2.jpeg" alt="Cost of Good Sold" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/5.webp" alt="Cost of Good Sold" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Apa Sih Sebenarnya COGS Itu? From Imagen 3</p>
 </div>
 
@@ -31,7 +31,7 @@ Penting untuk dicatat, COGS ini adalah **biaya variabel**. Artinya, nilainya aka
 # Kenapa Mengetahui COGS per Produk Itu Penting?
 
 <div class="single-image-source">
-  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/2.png" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/2.webp" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Kenapa Mengetahui COGS per Produk Itu Penting? From Imagen 3</p>
 </div>
 
@@ -46,7 +46,7 @@ Menjual lebih banyak **tidak selalu** berarti untung lebih banyak jika harga jua
 # Jangan Asal Banting Harga! Ada Aturan Mainnya
 
 <div class="single-image-source">
-  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/3.png" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/3.webp" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Jangan Asal Banting Harga! Ada Aturan Mainnya From Imagen 3</p>
 </div>
 
@@ -67,7 +67,7 @@ Dengan harga ini, kita punya "ruang bernapas" untuk menutupi biaya lain dan mera
 # Bagaimana Jika Harga Jual Saat Ini Tidak Cukup?
 
 <div class="single-image-source">
-  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/4.png" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/19.Harga_Pokok_Penjualan_(COG)_Kenapa_Ini_Penting_Banget_Buat_Bisnis/4.webp" alt="Cost of Good Sold" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Bagaimana Jika Harga Jual Saat Ini Tidak Cukup? From Imagen 3</p>
 </div>
 

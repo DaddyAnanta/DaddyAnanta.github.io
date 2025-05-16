@@ -5,8 +5,8 @@ draft = false
 socialshare = true
 
 description = 'Dalam konteks penelitian yang menggunakan kuesioner, umumnya dikenal istilah Uji Validitas dan Uji Reliabilitas sebagai langkah penting sebelum pelaksanaan penelitian utama. Proses ini melibatkan pengujian awal terhadap butir-butir pernyataan dalam kuesioner yang diberikan kepada sekelompok responden uji coba (try-out). Kelompok ini dipilih karena memiliki karakteristik yang serupa dengan target responden penelitian sesungguhnya.'
-image = "/images/15.validitas-reliabilitas/22.png"
-imageBig= "/images/15.validitas-reliabilitas/22.png"
+image = "/images/15.validitas-reliabilitas/22.webp"
+imageBig= "/images/15.validitas-reliabilitas/22.webp"
 categories= ["Statistik"]
 tags=["SPSS"]
 authors= ["Daddy Ananta"]
@@ -21,7 +21,7 @@ avatar="/images/profil.jpeg"
 # Kelompok Try-Out dan Kelompok Penelitian
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/1.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/1.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi kelompok penelitian</p>
 </div>
 
@@ -32,7 +32,7 @@ Sebagai contoh yang menggambarkan pemilihan kelompok uji coba yang kurang tepat:
 Pilihan ini berpotensi menimbulkan masalah karena siswa SMK A kemungkinan memiliki latar belakang, fokus pendidikan, dan tingkat persaingan akademis yang berbeda dibandingkan siswa di Sekolah B. 
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/2.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/2.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi kelompok penelitian 2</p>
 </div>
 
@@ -58,7 +58,7 @@ Seperti contoh di atas pada pernyataan ke 4 mungkin terkesan tidak valid karena 
 Dengan kata lain, uji validitas berfungsi sebagai proses seleksi untuk mengevaluasi dan menyaring butir-butir pernyataan yang telah dibuat. Tujuannya adalah untuk memastikan bahwa hanya pernyataan yang benar-benar relevan dan akurat dalam mengukur variabel atau konstruk penelitian yang akan dipertahankan dan digunakan dalam kuesioner final.
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/3.png" alt="Ilustrasi uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/3.webp" alt="Ilustrasi uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi uji validitas</p>
 </div>
 
@@ -82,21 +82,21 @@ Sebagai latihan, kita akan menggunakan data dummy yang dapat Anda unduh di [plac
 Tutorial ini menggunakan SPSS versi 24 dan Microsoft Excel 2019. Namun, langkah-langkahnya cenderung serupa untuk versi SPSS atau Excel yang lebih baru maupun lebih lama.
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/4.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/4.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 1</p>
 </div>
 
 Selanjutnya, salin data respons dari Excel (pilih semua sel yang relevan, lalu tekan Ctrl+C) dan tempelkan ke tampilan 'Data View' di SPSS (klik sel pertama tempat data akan dimulai, lalu tekan Ctrl+V):
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/5.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/5.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 1</p>
 </div>
 
 Di bagian kiri bawah jendela SPSS, klik tab 'Variable View' untuk mengatur properti variabel:
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/6.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/6.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 2</p>
 </div>
 
@@ -107,7 +107,7 @@ Pada tampilan 'Variable View', perhatikan beberapa kolom penting berikut untuk s
 - **Measure**: Ubah tingkat pengukuran ('Measure') menjadi 'Ordinal' karena data kuesioner (skor per item) biasanya mewakili tingkatan atau urutan (misalnya, sangat tidak setuju hingga sangat setuju).
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/7.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/7.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 2</p>
 </div>
 
@@ -118,28 +118,28 @@ Untuk menguji validitas setiap item pernyataan dalam kuesioner, kita dapat mengg
 Klik menu **Analyze** > **Scale** > **Reliability Analysis...**
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/8.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/8.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 3</p>
 </div>
 
 Pada kotak dialog 'Reliability Analysis', pindahkan semua variabel item (misalnya, P1 hingga P15) dari kotak kiri ke kotak 'Items:' di sebelah kanan. Anda bisa memilih semua item dengan menekan Ctrl+A (atau Shift+klik) lalu klik tombol panah. 
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/9.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/9.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 4</p>
 </div>
 
 Klik tombol **Statistics...**. Pada jendela yang muncul, centang opsi **Scale if item deleted** di bagian 'Descriptives for'. Klik **Continue**, lalu klik **OK** pada jendela utama 'Reliability Analysis'.
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/10.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/10.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 5</p>
 </div>
 
 Output akan menampilkan beberapa tabel. Fokus pada tabel 'Item-Total Statistics':
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/11.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/11.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 6</p>
 </div>
 
@@ -154,7 +154,7 @@ Setelah item-item yang tidak valid (misalnya, P6, P8, P15 dalam contoh ini) diid
 Anda dapat menghapus item tidak valid dari analisis dengan tidak memasukkannya ke kotak 'Items:' saat mengulang langkah Analisis Reliabilitas berikut ini. !
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/12.png" alt="SPSS uji reliabilitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/12.webp" alt="SPSS uji reliabilitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 8</p>
 </div>
 
@@ -165,7 +165,7 @@ Output yang dihasilkan akan mencerminkan analisis hanya pada item-item yang vali
 Setelah menjalankan analisis ulang dengan item valid, fokus pada tabel 'Reliability Statistics': 
 
 <div class="single-image-source">
-  <img src="/images/15.validitas-reliabilitas/13.png" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/15.validitas-reliabilitas/13.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 9</p>
 </div>
 

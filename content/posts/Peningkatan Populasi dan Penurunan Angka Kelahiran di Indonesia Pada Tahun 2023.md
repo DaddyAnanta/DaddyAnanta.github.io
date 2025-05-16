@@ -5,8 +5,8 @@ draft = false
 socialshare = true
 
 description = 'Indonesia merupakan negara kepulauan yang besar serta dengan jumlah penduduk yang begitu padat. Menurut data yang diambil dalam worldometers.info mencatat Indonesia sebagai negara ke-4 dengan jumlah populasi terbanyak di dunia dengan jumlah penduduk lebih dari 285jt Jiwa setelah India, China United States.'
-image = "/images/14.Penduduk/22.png"
-imageBig= "/images/14.Penduduk/22.png"
+image = "/images/14.Penduduk/22.webp"
+imageBig= "/images/14.Penduduk/22.webp"
 categories= ["News"]
 tags=["Demografi"]
 authors= ["Daddy Ananta"]
@@ -21,7 +21,7 @@ Analisis ini bertujuan untuk mengkaji distribusi penduduk Indonesia berdasarkan 
 
 ## Distribusi Penduduk 2018-2025
 
-<img src="/images/14.Penduduk/1.jpg" alt="distribusi penduduk indonesia berdasarkan usia dan jenis kelamin" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/1.webp" alt="distribusi penduduk indonesia berdasarkan usia dan jenis kelamin" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 Infografis ini menyajikan serangkaian piramida penduduk Indonesia dari tahun 2018 hingga 2023, yang menggambarkan perubahan struktur usia dan jenis kelamin secara visual. Secara konsisten selama periode tersebut, piramida menunjukkan bentuk yang ekspansif di bagian tengah (usia produktif) dan mulai sedikit menyempit di bagian dasar (usia muda), serta melebar di bagian puncak (usia tua). Hal ini mengindikasikan bahwa segmen usia menengah (dewasa) dan usia tua terus mengalami pertumbuhan jumlah penduduk, sementara segmen usia muda menunjukkan tren perlambatan atau bahkan penurunan relatif. Perubahan bentuk piramida dari tahun ke tahun secara bertahap menegaskan adanya proses transisi demografi di Indonesia.
 
@@ -29,7 +29,7 @@ Perkembangan yang terlihat dari tahun 2018 ke 2023 mengonfirmasi catatan yang te
 
 ## Tren Pertumbuhan di setiap kategori usia
 
-<img src="/images/14.Penduduk/3.png" alt="distribusi penduduk indonesia berdasarkan usia dan jenis kelamin" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/3.webp" alt="distribusi penduduk indonesia berdasarkan usia dan jenis kelamin" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 Infografis tersebut menunjukkan adanya pergeseran signifikan dalam struktur umur penduduk Indonesia antara tahun 2018 dan 2023. Terlihat jelas bahwa pertumbuhan populasi terkonsentrasi pada kelompok usia produktif (Dewasa Awal, 20-39 tahun) dan kelompok usia lanjut (Dewasa Akhir, 40-59 tahun, dan Lansia, 60-75+ tahun). Kelompok Dewasa Awal meningkat dari 83,7 juta menjadi 88,3 juta jiwa, Dewasa Akhir dari 63,9 juta menjadi 70,7 juta jiwa, dan Lansia dari 24,4 juta menjadi 30,9 juta jiwa. Peningkatan ini mengindikasikan adanya perbaikan kualitas hidup dan layanan kesehatan yang berkontribusi pada meningkatnya angka harapan hidup, serta potensi bonus demografi karena besarnya populasi usia produktif.
 

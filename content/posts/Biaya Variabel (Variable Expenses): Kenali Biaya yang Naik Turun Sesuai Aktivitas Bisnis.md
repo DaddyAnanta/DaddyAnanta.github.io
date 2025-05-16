@@ -4,8 +4,8 @@ date = 2025-04-27T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Dalam mengelola keuangan bisnis, kita mengenal berbagai jenis pengeluaran. Setelah mungkin familiar dengan biaya yang jumlahnya cenderung tetap, kini saatnya kita mengenali kategori biaya lain yang tak kalah penting: Biaya Variabel atau Variable Expenses."
-image = "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.png"
-imageBig= "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.png"
+image = "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.webp"
+imageBig= "/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -39,7 +39,7 @@ Penting untuk dipahami, dalam konteks laporan laba rugi umum, Biaya Variabel yan
 # Keunggulan Biaya Variabel: Fleksibilitas dalam Genggaman!
 
 <div class="single-image-source">
-  <img src="/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/3.png" alt="Keunggulan Biaya Variabel: Fleksibilitas dalam Genggaman!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/3.webp" alt="Keunggulan Biaya Variabel: Fleksibilitas dalam Genggaman!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Fleksibilitas dalam Genggaman From Imagen 3</p>
 </div>
 
@@ -51,7 +51,7 @@ Salah satu karakteristik paling menarik dari biaya variabel adalah tingkat **fle
 # Lebih Mudah Dikendalikan Saat Kondisi Sulit
 
 <div class="single-image-source">
-  <img src="/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/2.png" alt=" Lebih Mudah Dikendalikan Saat Kondisi Sulit" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/22.Biaya_Variabel_(Variable_Expenses)_Kenali_Biaya_yang_Naik_Turun_Sesuai_Aktivitas_Bisnis/2.webp" alt=" Lebih Mudah Dikendalikan Saat Kondisi Sulit" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Lebih Mudah Dikendalikan Saat Kondisi Sulit From Imagen 3</p>
 </div>
 

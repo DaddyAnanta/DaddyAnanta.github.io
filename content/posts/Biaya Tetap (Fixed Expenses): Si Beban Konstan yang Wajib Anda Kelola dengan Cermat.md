@@ -4,8 +4,8 @@ date = 2025-04-27T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Saat kita mengelola keuangan bisnis, ada berbagai jenis pengeluaran yang perlu kita pahami. Salah satu kategori yang sangat penting dan seringkali menjadi penentu kesehatan finansial jangka panjang adalah Biaya Tetap atau dalam bahasa Inggris dikenal sebagai Fixed Expenses."
-image = "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.png"
-imageBig= "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.png"
+image = "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.webp"
+imageBig= "/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -17,7 +17,7 @@ Apa sebenarnya biaya tetap ini, dan mengapa pengelolaannya sangat penting bagi k
 # Apa Itu Biaya Tetap (Fixed Expenses)?
 
 <div class="single-image-source">
-  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/2.png" alt=" Apa Itu Biaya Tetap (Fixed Expenses)" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/2.webp" alt=" Apa Itu Biaya Tetap (Fixed Expenses)" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Apa Itu Biaya Tetap (Fixed Expenses) From Imagen 3</p>
 </div>
 
@@ -37,7 +37,7 @@ Intinya, biaya ini adalah komitmen finansial yang relatif stabil dan dapat dipre
 # Kenapa Biaya Tetap Perlu Diwaspadai? Beban yang Pasti Datang!
 
 <div class="single-image-source">
-  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/3.png" alt=" Kenapa Biaya Tetap Perlu Diwaspadai? Beban yang Pasti Datang!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/3.webp" alt=" Kenapa Biaya Tetap Perlu Diwaspadai? Beban yang Pasti Datang!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Kenapa Biaya Tetap Perlu Diwaspadai? Beban yang Pasti Datang! From Imagen 3</p>
 </div>
 
@@ -50,7 +50,7 @@ Penyedia layanan atau kreditur tidak terlalu peduli dengan naik turunnya penjual
 # Strategi Cerdas Mengelola Biaya Tetap: Jaga Tetap Ramping!
 
 <div class="single-image-source">
-  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/4.png" alt=" Kapan Waktu yang Tepat Menambah Biaya Tetap" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/4.webp" alt=" Kapan Waktu yang Tepat Menambah Biaya Tetap" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Apa Itu Biaya Tetap (Fixed Expenses)? From Imagen 3</p>
 </div>
 
@@ -63,7 +63,7 @@ Ada nasihat emas dari seorang investor berpengalaman: **"Jangan pernah mengejar 
 # Kapan Waktu yang Tepat Menambah Biaya Tetap?
 
 <div class="single-image-source">
-  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/5.png" alt=" Kapan Waktu yang Tepat Menambah Biaya Tetap" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/21.Biaya_Tetap_(Fixed_Expenses)_Si_Beban_Konstan_yang_Wajib_Anda_Kelola_dengan_Cermat/5.webp" alt=" Kapan Waktu yang Tepat Menambah Biaya Tetap" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Kapan Waktu yang Tepat Menambah Biaya Tetap? From Imagen 3</p>
 </div>
 

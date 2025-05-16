@@ -4,8 +4,8 @@ date = 2025-04-18T21:37:16+07:00
 draft = false
 socialshare = true
 description = 'Indonesia merupakan negara kepulauan yang besar serta dengan jumlah penduduk yang begitu padat. Menurut data yang diambil dalam worldometers.info mencatat Indonesia sebagai negara ke-4 dengan jumlah populasi terbanyak di dunia dengan jumlah penduduk lebih dari 285jt Jiwa setelah India, China United States.'
-image = "/images/14.Penduduk/22.png"
-imageBig= "/images/14.Penduduk/22.png"
+image = "/images/14.Penduduk/22.webp"
+imageBig= "/images/14.Penduduk/22.webp"
 categories= ["Analisis Data"]
 tags=["Python"]
 authors= ["Daddy Ananta"]
@@ -64,7 +64,7 @@ Setelah pustaka siap, langkah selanjutnya adalah memuat data yang akan kita anal
 df = pd.read_csv("jumlah_penduduk_2018_2023.csv")
 df
 ```
-<img src="/images/14.Penduduk/4.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/4.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ### Pembersihan dan Konversi Tipe Data
@@ -93,7 +93,7 @@ df1.head()
 
 ```
 
-<img src="/images/14.Penduduk/5.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/5.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ### Eksplorasi Data: Kelompok Umur
@@ -105,7 +105,7 @@ Sebelum melangkah lebih jauh, penting untuk memahami isi dari kolom 'Kelompok Um
 df1["Kelompok Umur"].value_counts()
 
 ```
-<img src="/images/14.Penduduk/6.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/6.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ### Eksplorasi Data: Memeriksa Nilai "Indonesia"
@@ -117,7 +117,7 @@ df1[df1["Kelompok Umur"] == "Indonesia"]
 
 ```
 
-<img src="/images/14.Penduduk/7.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/7.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ### Penggantian Nilai untuk Konsistensi
@@ -128,7 +128,7 @@ df1["Kelompok Umur"] = df1["Kelompok Umur"].replace("Indonesia", "Jumlah/Total")
 df1
 
 ```
-<img src="/images/14.Penduduk/8.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/8.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ## Persiapan Data untuk Piramida Penduduk
@@ -142,7 +142,7 @@ pyramid_chart = df1[df1["Kelompok Umur"] != "Jumlah/Total"]
 pyramid_chart
 
 ```
-<img src="/images/14.Penduduk/9.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/9.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 
@@ -155,7 +155,7 @@ df_2019 = pyramid_chart[pyramid_chart["Tahun"] == 2019]
 df_2019.head()
 
 ```
-<img src="/images/14.Penduduk/10.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/10.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 
@@ -195,7 +195,7 @@ plt.show()
 
 ```
 
-<img src="/images/14.Penduduk/11.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/11.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ## Meningkatkan Estetika Plot: Styling dengan Seaborn
@@ -257,7 +257,7 @@ ax = create_age_distribution(
 
 plt.show()
 ```
-<img src="/images/14.Penduduk/12.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/12.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 
@@ -306,7 +306,7 @@ format_ticks(ax, xformat="thousands")
 
 plt.show()
 ```
-<img src="/images/14.Penduduk/13.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/13.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 
@@ -352,7 +352,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img src="/images/14.Penduduk/13.png" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/13.webp" alt="pyramid distrirbution plot python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ## Utilitas Gambar: Konversi Figure ke Image
@@ -370,7 +370,7 @@ def create_image_from_figure(fig):
     return Image.fromarray(data)
 ```
 ### Kode Lengkap: Plot Piramida Dinamis dengan Anotasi Perubahan dan Grid
-Blok kode berikut berisi definisi fungsi yang telah dimodifikasi dan diperbarui, termasuk fungsi utilitas gambar, serta loop utama untuk menghasilkan visualisasi multi-tahun dalam format grid. Perhatikan penambahan anotasi teks (+/- %) pada plot piramida. Hasilnya akan langsung dimuat dalam format .png di tempat di mana jupyter notebook Anda berjalan.
+Blok kode berikut berisi definisi fungsi yang telah dimodifikasi dan diperbarui, termasuk fungsi utilitas gambar, serta loop utama untuk menghasilkan visualisasi multi-tahun dalam format grid. Perhatikan penambahan anotasi teks (+/- %) pada plot piramida. Hasilnya akan langsung dimuat dalam format .webp di tempat di mana jupyter notebook Anda berjalan.
 
 ``` Python
 # --- Warna ---
@@ -578,7 +578,7 @@ if figures:
     grid = create_grid(figures, pad=20, ncols=3, grid_background_color=background_color) # <<< Argumen keyword ini harus cocok dengan parameter di definisi
     if grid:
         grid.show()
-        save_filename = "Distribusi Usia.png"
+        save_filename = "Distribusi Usia.webp"
         try:
             grid.save(save_filename)
             print(f"Grid berhasil disimpan sebagai '{save_filename}'")
@@ -602,7 +602,7 @@ df4 = df4[df4["Kelompok Umur"]!= "Jumlah/Total"]
 df4 = df4[df4["Kelompok Umur"]!= "Indonesia"]
 df4.head()
 ```
-<img src="/images/14.Penduduk/15.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/15.webp" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ### Kategorisasi Usia dan Konversi Satuan
@@ -611,7 +611,7 @@ Kelompok umur yang detail ('0-4', '5-9', dst.) akan kita kategorikan menjadi kel
 ``` Python
 df4["Kelompok Umur"].value_counts()
 ```
-<img src="/images/14.Penduduk/16.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/16.webp" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ## Transformasi Data untuk Slope Chart
@@ -644,7 +644,7 @@ df4.loc[:, "Penduduk (Laki-Laki + Perempuan) (Juta)"] = round(df4["Penduduk (Lak
 df4
 ```
 
-<img src="/images/14.Penduduk/17.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/17.webp" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ## Pembuatan Visualisasi Slope Chart
@@ -680,7 +680,7 @@ df_jumlah = df4.groupby(['Kategori Usia', 'Tahun'])['Penduduk (Laki-Laki + Perem
 df_jumlah
 ```
 
-<img src="/images/14.Penduduk/18.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/18.webp" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 ``` Python
@@ -813,7 +813,7 @@ plt.xlim(2016, 2028)       # Lebarkan rentang sumbu x
 plt.tight_layout()
 plt.show()
 ```
-<img src="/images/14.Penduduk/19.png" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
+<img src="/images/14.Penduduk/19.webp" alt="slope chart python" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
 
 
 # Jupyter notebook

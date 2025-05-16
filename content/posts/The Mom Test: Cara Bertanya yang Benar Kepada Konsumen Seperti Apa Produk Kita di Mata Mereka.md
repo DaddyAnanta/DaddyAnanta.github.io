@@ -3,8 +3,8 @@ title = 'The Mom Test: Cara Bertanya yang Benar Kepada Konsumen Seperti Apa Prod
 date = 2025-04-23T00:37:00+00:00
 draft = false
 description = "Konsumen merupakan fondasi utama keberlangsungan suatu bisnis; tanpa adanya konsumen, mustahil sebuah usaha dapat bertahan dalam jangka panjang. Dalam bukunya The Lean Startup, Eric Ries menekankan betapa menantangnya membangun bisnis yang sukses tanpa pemahaman mendalam terhadap kebutuhan dan respons konsumen. Ia menyoroti pentingnya proses iteratif dalam pengembangan produk yang berpusat pada konsumen, di mana setiap langkah inovasi harus didasarkan pada umpan balik nyata dari pasar. Dengan kata lain, keberhasilan bisnis tidak hanya bergantung pada ide yang brilian, tetapi juga pada kemampuan untuk mendengarkan, memahami, dan beradaptasi terhadap dinamika perilaku konsumen secara terus-menerus."
-image = "/images/17.TheMomTest/title.png"
-imageBig= "/images/17.TheMomTest/title.png"
+image = "/images/17.TheMomTest/title.webp"
+imageBig= "/images/17.TheMomTest/title.webp"
 categories= ["Psikologi Konsumen"]
 tags = ["Kualitatif"]
 authors= ["Daddy Ananta"]
@@ -32,7 +32,7 @@ Dalam buku tersebut Fitzpatrick memberi kita 3 cara tentang apa yang harus kita 
 ## 1. Bicarakan tentang kehidupan mereka, bukan ide Anda.
 
 <div class="single-image-source">
-  <img src="/images/17.TheMomTest/2.png" alt="Bicarakan tentang kehidupan mereka, bukan ide Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/17.TheMomTest/2.webp" alt="Bicarakan tentang kehidupan mereka, bukan ide Anda" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Bicarakan tentang kehidupan mereka, bukan ide Anda</p>
 </div>
 
@@ -67,7 +67,7 @@ Fitzpatrick menyampaikan saran agar kita menghindari pertanyaan seperti ini dan 
 ## 3. Kurangi bicara dan dengarkan lebih banyak.
 
 <div class="single-image-source">
-  <img src="/images/17.TheMomTest/4.png" alt="Kurangi bicara dan dengarkan lebih banyak." style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/17.TheMomTest/4.webp" alt="Kurangi bicara dan dengarkan lebih banyak." style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Kurangi bicara dan dengarkan lebih banyak.</p>
 </div>
 

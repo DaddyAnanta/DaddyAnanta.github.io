@@ -4,8 +4,8 @@ date = 2025-04-27T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Dalam perjalanan membangun bisnis, kita seringkali perlu berinvestasi pada aset-aset berharga yang akan mendukung operasional dalam jangka panjang. Ini bisa berupa pembelian mesin produksi, armada kendaraan pengiriman, peralatan kantor canggih, atau bahkan bangunan tempat usaha."
-image = "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.png"
-imageBig= "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.png"
+image = "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.webp"
+imageBig= "/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -18,7 +18,7 @@ Nah, ketika kita melakukan pembelian besar untuk aset yang masa pakainya lebih d
 # Apa Itu Depresiasi Sebenarnya? (Mengakui Biaya Aset Jangka Panjang)
 
 <div class="single-image-source">
-  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/2.png" alt=" Apa Itu Depresiasi Sebenarnya? (Mengakui Biaya Aset Jangka Panjang)" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/2.webp" alt=" Apa Itu Depresiasi Sebenarnya? (Mengakui Biaya Aset Jangka Panjang)" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Apa Itu Depresiasi Sebenarnya? (Mengakui Biaya Aset Jangka Panjang) From Imagen 3</p>
 </div>
 
@@ -40,7 +40,7 @@ Namun, jangan salah sangka, depresiasi tetap merupakan **biaya bisnis yang sanga
 # Klasifikasi di Laporan Keuangan: Tetap atau Berubah?
 
 <div class="single-image-source">
-  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/3.png" alt="Klasifikasi di Laporan Keuangan: Tetap atau Berubah?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/3.webp" alt="Klasifikasi di Laporan Keuangan: Tetap atau Berubah?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Klasifikasi di Laporan Keuangan: Tetap atau Berubah? From Imagen 3</p>
 </div>
 
@@ -54,7 +54,7 @@ Apapun metodenya, beban depresiasi ini akan muncul sebagai salah satu komponen b
 # Manfaat Signifikan Depresiasi: Penghematan Pajak!
 
 <div class="single-image-source">
-  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/4.png" alt="Manfaat Signifikan Depresiasi: Penghematan Pajak!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/4.webp" alt="Manfaat Signifikan Depresiasi: Penghematan Pajak!" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Manfaat Signifikan Depresiasi: Penghematan Pajak! From Imagen 3</p>
 </div>
 
@@ -65,7 +65,7 @@ Penghematan pajak ini berarti ada lebih banyak **kas yang tersimpan** di dalam b
 # Serahkan Detailnya pada Ahlinya
 
 <div class="single-image-source">
-  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/5.png" alt="Serahkan Detailnya pada Ahlinya" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/23.Depresiasi_(Penyusutan):_Mengupas_Biaya_Aset_Jangka_Panjang_Bisnis_Anda/5.webp" alt="Serahkan Detailnya pada Ahlinya" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Serahkan Detailnya pada Ahlinya From Imagen 3</p>
 </div>
 

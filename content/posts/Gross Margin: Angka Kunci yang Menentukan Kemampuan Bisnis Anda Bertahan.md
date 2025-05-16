@@ -4,8 +4,8 @@ date = 2025-04-26T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Dalam menjalankan usaha, kita seringkali terfokus pada seberapa besar omzet atau total penjualan yang berhasil diraih. Namun, ada satu metrik finansial lain yang sangat penting dan menjadi fondasi bagi kesehatan bisnis Anda: Gross Margin atau Margin Kotor."
-image = "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.png"
-imageBig= "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.png"
+image = "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.webp"
+imageBig= "/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/1.webp"
 categories= ["Keuangan"]
 tags = ["Keuangan Dasar"]
 authors= ["Daddy Ananta"]
@@ -16,7 +16,7 @@ Pernahkah Anda bertanya-tanya, setelah produk terjual, berapa banyak uang yang _
 
 # Apa Sebenarnya Gross Margin Itu?
 <div class="single-image-source">
-  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/2.png" alt="Apa Sebenarnya Gross Margin Itu?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/2.webp" alt="Apa Sebenarnya Gross Margin Itu?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Apa Sebenarnya Gross Margin Itu? From Imagen 3</p>
 </div>
 
@@ -55,7 +55,7 @@ Gross Margin adalah "dana mentah" yang tersedia untuk menutupi semua biaya opera
 # Mengapa Angka Ini Begitu Vital Bagi Bisnis Anda?
 
 <div class="single-image-source">
-  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/3.png" alt=" Mengapa Angka Ini Begitu Vital Bagi Bisnis Anda?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/3.webp" alt=" Mengapa Angka Ini Begitu Vital Bagi Bisnis Anda?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Mengapa Angka Ini Begitu Vital Bagi Bisnis Anda? From Imagen 3</p>
 </div>
 
@@ -73,7 +73,7 @@ Bisnis tidak dijalankan hanya dengan pendapatan; bisnis dijalankan dengan Gross 
 # Menetapkan Target: Berapa Seharusnya Gross Margin Anda?
 
 <div class="single-image-source">
-  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/4.png" alt="Menetapkan Target: Berapa Seharusnya Gross Margin Anda?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/4.webp" alt="Menetapkan Target: Berapa Seharusnya Gross Margin Anda?" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Menetapkan Target: Berapa Seharusnya Gross Margin Anda? From Imagen 3</p>
 </div>
 
@@ -108,7 +108,7 @@ Jika Anda menemukan Gross Margin Anda terlalu rendah, beberapa langkah yang bisa
 # Kesimpulan & Mantra 
 
 <div class="single-image-source">
-  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/5.png" alt="Kesimpulan & Mantra 
+  <img src="/images/20.Gross_Margin_Angka_Kunci_yang_Menentukan_Kemampuan_Bisnis_Anda_Bertahan/5.webp" alt="Kesimpulan & Mantra 
 " style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Kesimpulan & Mantra 
  From Imagen 3</p>
