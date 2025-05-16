@@ -5,8 +5,8 @@ draft = false
 description = "Serial animasi Jumbo merupakan serial animasi karya anak bangsa yang menceritakan tentang kehidupan sehari-hari seorang anak bernama Jumbo yang penuh dengan rasa ingin tahu dan semangat petualangan. Mengangkat latar budaya Indonesia, serial ini menggambarkan bagaimana Jumbo dan teman-temannya menghadapi berbagai situasi dengan cara yang lucu, seru, dan sarat pesan moral. Dengan cerita yang ringan namun bermakna, Jumbo menjadi cerminan dari masa kecil yang penuh warna serta pentingnya nilai-nilai seperti kerja sama, kejujuran, dan rasa hormat terhadap sesama. Animasi ini menjadi bukti bahwa industri kreatif Indonesia mampu menciptakan tontonan yang berkualitas dan membumi bagi generasi muda."
 image = "/images/16.Sentimen_analisis_animasi_Jumbo/1.png"
 imageBig= "/images/16.Sentimen_analisis_animasi_Jumbo/1.png"
-categories= ["Portofolio"]
-tags= ["Python"]
+categories= ["Analisis Data"]
+tags= ["Sentimen Analysis"]
 avatar="/images/profil.jpeg"
 +++
 
