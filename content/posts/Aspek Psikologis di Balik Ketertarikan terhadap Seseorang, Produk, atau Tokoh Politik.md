@@ -3,8 +3,8 @@ title = 'Aspek Psikologis di Balik Ketertarikan terhadap Seseorang, Produk, atau
 date = 2025-05-14T21:37:16+07:00
 draft = false
 description = "Pernahkah Anda merasa menyukai sebuah produk, hewan, tanaman, atau bahkan seseorang? Menurut Anda, apa yang membuat kita menyukai seseorang? Beberapa orang mungkin menjawab karena penampilannya, sikapnya, atau bahkan merasa tertarik sejak pandangan pertama."
-image = "/images/61.Semakin_Dilihat_Semakin_Disukai/1.png"
-imageBig= "/images/61.Semakin_Dilihat_Semakin_Disukai/1.png"
+image = "/images/61.Semakin_Dilihat_Semakin_Disukai/1.webp"
+imageBig= "/images/61.Semakin_Dilihat_Semakin_Disukai/1.webp"
 categories= ["Psikologi Konsumen"]
 tags=["Problem Solving"]
 authors= ["Daddy Ananta"]
@@ -18,7 +18,7 @@ Fakta menarik ini menjadi dasar bagi banyak strategi di dunia nyata. Di balik la
 ## Attitudinal Effects of Mere Exposure
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/2.jpg" alt="Jobs to Be Done" style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/2.webp" alt="Jobs to Be Done" style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Robert B. Zajonc From <a href="https://www.psicoactiva.com/biografias/robert-zajonc/">psicoactiva.com</a></p>
 </div>
 
@@ -27,7 +27,7 @@ Pada Juni 1968, seorang psikolog sosial bernama Robert B. Zajonc menerbitkan seb
 ### Eksperimen I: Paparan Kata-Kata Tak Bermakna ("Turkish" Words)
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/3.jpg" style="height:30%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Turkish WordsAttitudinal Effects of Mere Exposure">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/3.webp" style="height:30%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Turkish WordsAttitudinal Effects of Mere Exposure">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> "Turkish" Words From <a href="https://nerd.wwnorton.com/ebooks/epub/socialpsych6/EPUB/content/2.3-chapter02.xhtml">nerd.wwnorton.com</a></p>
 </div>
 
@@ -38,7 +38,7 @@ Frekuensi paparan kata-kata ini dimanipulasi secara eksperimental, di mana setia
 ### Eksperimen II: Paparan Karakter Mirip Aksara Cina (Chinese-like Characters)
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/4.jpg"  style="height:30%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Chinese-like Characters Attitudinal Effects of Mere Exposure">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/4.webp"  style="height:30%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Chinese-like Characters Attitudinal Effects of Mere Exposure">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> "Chinese-like Characters From <a href="https://nerd.wwnorton.com/ebooks/epub/socialpsych6/EPUB/content/2.3-chapter02.xhtml">Nerd.wwnorton.com</a></p>
 </div>
 
@@ -50,8 +50,8 @@ Sama seperti eksperimen pertama, frekuensi paparan karakter-karakter ini juga di
 ### Eksperimen III: Paparan Foto Wajah
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/5.png"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Average Attitude Toward Photographs Exposed">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Average Attitude Toward Photographs Exposed From <a href="https://www.totalmedia.co.uk/wp-content/uploads/2021/10/mere-exposure-2.png">House-of-communication.com</a></p>
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/5.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Average Attitude Toward Photographs Exposed">
+  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Average Attitude Toward Photographs Exposed From <a href="https://www.totalmedia.co.uk/wp-content/uploads/2021/10/mere-exposure-2.webp">House-of-communication.com</a></p>
 </div>
 
 Eksperimen ketiga menguji apakah paparan semata memengaruhi sikap antarpribadi dengan stimulus yang maknanya tidak sejelas kata atau simbol. Stimulus yang digunakan adalah foto-foto wajah pria yang diambil dari buku tahunan universitas.  Frekuensi paparan foto-foto ini dimanipulasi dengan cara yang sama seperti eksperimen sebelumnya, di mana setiap foto ditampilkan sebanyak 0, 1, 2, 5, 10, atau 25 kali, masing-masing selama dua detik.  Partisipan diberitahu bahwa eksperimen ini berkaitan dengan "memori visual".  
@@ -61,7 +61,7 @@ Setelah semua foto dipaparkan sesuai frekuensi yang ditentukan, partisipan dimin
 ### Eksperimen IV: Perubahan Gairah Afektif (GSR)
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/6.png"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Galvanic Skin Response">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/6.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Galvanic Skin Response">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Galvanic Skin Response From Open.AI</a></p>
 </div>
 
@@ -75,7 +75,7 @@ Perlu diketahui bahwa respons GSR (Galvanic Skin Response) yang tinggi menunjukk
 ## Exposure and Affect: Overview and Meta-Analysis of Research
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/7.jpg"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Robert F. Bornstein">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/7.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Robert F. Bornstein">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Robert F. Bornstein From <a href="https://www.adelphi.edu/news/who-is-overusing-their-smartphones-and-why/">Adelphi.edu</a></p>
 </div>
 
@@ -116,7 +116,7 @@ Meski kereta kuda memiliki banyak keterbatasan, seperti kecepatan yang rendah da
 Seorang penemu bernama Uriah Smith pada tahun 1899 mencoba merancang solusi atas kekhawatiran masyarakat terhadap kendaraan bermotor yang pada saat itu dianggap asing dan menakutkan bagi manusia maupun hewan, terutama kuda. Ia menciptakan desain yang disebut Horsey Horseless — sebuah kendaraan bermesin yang dipasangi replika kepala kuda di bagian depannya. Tujuannya adalah untuk membuat kendaraan tersebut terlihat lebih familiar, menyerupai kereta kuda tradisional, sehingga tidak mengejutkan atau menakutkan kuda lain di jalan. 
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/8.jpeg"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Horsey Horseless">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/8.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Horsey Horseless">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Horsey Horseless From Jorge Arango in <a href="https://www.linkedin.com/pulse/horsey-horseless-challenge-ai-native-products-jorge-arango-fdfzc">Linkedin.com</a></p>
 </div>
 
@@ -127,7 +127,7 @@ Rancangan ini merupakan contoh awal dari bagaimana elemen desain dapat dimodifik
 Saat kita melihat iklan produk atau kampanye politik, kita sering kali disuguhi paparan berulang terhadap pesan atau merek yang sama. Tidak hanya lewat televisi, tetapi juga melalui berbagai kanal seperti YouTube, videotron, billboard, hingga spanduk dan bendera partai politik yang tersebar di sepanjang jalan.
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/9.jpeg"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Kakek Nenek Cedera Serius Usai Tersangkut Bendera Parpol di Mampang">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/9.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Kakek Nenek Cedera Serius Usai Tersangkut Bendera Parpol di Mampang">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Kakek Nenek Cedera Serius Usai Tersangkut Bendera Parpol di Mampang From <a href="https://www.cnnindonesia.com/nasional/20240117182144-12-1050875/kakek-nenek-cedera-serius-usai-tersangkut-bendera-parpol-di-mampang">CNN Indonesia</a></p>
 </div>
 
@@ -136,7 +136,7 @@ Paparan berulang ini bukanlah kebetulan, melainkan strategi psikologis yang seng
 Bahkan, tidak jarang kita melihat bahwa iklan maupun kampanye politik melibatkan figur influencer untuk menarik perhatian dan membangun kedekatan emosional dengan audiens. Strategi ini bertujuan agar para pengikut influencer merasa lebih nyaman dan akrab dengan produk atau tokoh politik yang mereka promosikan. 
 
 <div class="single-image-source">
-  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/10.jpg"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Trumpt and Elon Musk">
+  <img src="/images/61.Semakin_Dilihat_Semakin_Disukai/10.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Trumpt and Elon Musk">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Trumpt and Elon Musk  From <a href="https://www.tempo.co/internasional/4-fakta-elon-musk-sokong-puluhan-juta-dollar-ke-donald-trump-478207">Tempo.co</a></p>
 </div>
 

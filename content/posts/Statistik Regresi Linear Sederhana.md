@@ -4,8 +4,8 @@ date = 2025-05-12T00:37:00+00:00
 draft = false
 socialshare = true
 description = "Regresi linear adalah metode dalam statistik yang digunakan untuk memprediksi nilai suatu variabel berdasarkan variabel lain. Sesuai dengan namanya, linear berarti hubungan antara kedua variabel digambarkan dengan garis lurus. Jadi, jika satu variabel berubah, variabel lainnya juga akan berubah secara teratur mengikuti pola garis lurus. Regresi linear sering digunakan untuk melihat atau memperkirakan hubungan sebab-akibat antara dua hal."
-image = "/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/1.png"
-imageBig= "/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/1.png"
+image = "/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/1.webp"
+imageBig= "/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/1.webp"
 categories= ["Statistik"]
 tags = ["R"]
 authors= ["Daddy Ananta"]
@@ -23,7 +23,7 @@ Beberapa indikator yang bisa digunakan antara lain kepuasan terhadap produk, kep
 
 ## Data 
 
-Untuk pemahaman yang lebih dalam, kita akan menggunakan data survey ilustrasi yang dapat diakses <a href="https://github.com/DaddyAnanta/Data/blob/main/Regresi-Linear-Sederhana/data_kepuasan_pelanggan.csv" download="data_kepuasan_pelanggan.csv">📥 di sini</a>
+Untuk pemahaman yang lebih dalam, kita akan menggunakan data survey ilustrasi yang dapat diakses <a href="https://github.com/DaddyAnanta/Data/blob/main/Regresi-Linear-Sederhana/data_kepuasan_pelanggan.csv" download="data_kepuasan_pelanggan.csv">📥 di sini</a>.
 
 ```R
 data <- read.csv("data_kepuasan_pelanggan.csv")
@@ -31,7 +31,7 @@ head(data)
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/2.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/2.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 Jika kita melihat hubungannya dengan scatter plot kita dapat melihat hasilnya dengan
@@ -50,20 +50,20 @@ ggplot(data, aes(x = Kualitas_Produk_X, y = Kepuasan_Pengguna_Y)) +
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/3.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/3.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 Sebagai informasi, nilai dari titik pada grafik ini merepresentasikan hubungan antara Kualitas Produk dan Kepuasan Pengguna. Misalnya, pada contoh di bawah ini, titik yang ditandai menunjukkan nilai Kualitas Produk sebesar 22 dan nilai Kepuasan Pengguna sebesar 10.
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/4.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/4.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
 Dari bentuk gambar ini, sebenarnya kita dapat menganalisis apakah hubungan tersebut bersifat positif, negatif, atau tidak memiliki hubungan sama sekali. Gambar ini diambil dari buku _Elementary Statistics_ edisi ke-9, pada pembahasan mengenai _Scatter Diagrams and Correlation_.
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/5.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/5.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -88,7 +88,7 @@ ggplot(data, aes(x = Kualitas_Produk_X, y = Kepuasan_Pengguna_Y)) +
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/6.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/6.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -105,7 +105,7 @@ ggplot(data, aes(x = Kualitas_Produk_X, y = Kepuasan_Pengguna_Y)) +
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/7.png" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/7.webp" alt=">Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -125,7 +125,7 @@ anova(model_linear, model_quad)
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/8.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/8.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -168,7 +168,7 @@ print(ks_y)
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/10.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/10.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 ## Uji Asumsi 3: Uji Homoskedastisitas
@@ -198,7 +198,7 @@ suppressWarnings(bptest(model))
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/11.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/11.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 Kesimpulan:
@@ -218,7 +218,6 @@ berdasarkan uji Breusch-Pagan dengan tingkat signifikansi 5%, tidak ada bukti st
 - Mencari  nilai r
 
 #### Substitusi Nilai  N, $\sum X$, $\sum Y$,$\sum XY$, $\sum X^2$, dan $\sum Y^2$
-
 ```R
 data_r <- data
 
@@ -231,7 +230,7 @@ data_r$Y2 <- data_r$Kepuasan_Pengguna_Y^2
 head(data_r)
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/12.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/12.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 Kemudian, 
 
@@ -252,7 +251,7 @@ cat("Jumlah Y^2   :", sum_Y2, "\n")
 cat("Jumlah Baris Data   :", n, "\n")
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/13.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/13.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -326,7 +325,7 @@ Secara sederhana karena kita dapat menyederhanakan melalui perhitungan sebelumny
   <p>$$r = \frac{\text{Pembilang}}{\sqrt{[\text{Pernyebut X}][\text{Pernyebut Y}]}}$$</p>
   <p>$$r = \frac{1367057}{\sqrt{[1677679][1935631]}}$$</p>
   <p>$$r = \frac{1367057}{\sqrt{3248511157849}}$$</p>
-  <p>$$r = \frac{1367057}{1802263.79} = 0.7586 $$</p></div>
+  <p>$$r = \frac{1367057}{1802263.79} = 0.7586 $$</p>
 
 ```R
 # Hitung r
@@ -372,7 +371,7 @@ if (result$p.value < 0.05) {
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/14.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/14.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 ### Prediksi
@@ -415,7 +414,7 @@ data_extended$X2 <- data_extended$Kualitas_Produk_X^2
 head(data_extended)
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/15.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/15.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 Kemudian, 
@@ -436,7 +435,7 @@ cat("Jumlah X^2   :", sum_X2, "\n")
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/16.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/16.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 dengan kata lain :
 
@@ -471,7 +470,7 @@ cat("Rata-rata Y (Kepuasan Pengguna) : ", mean_Y, "\n")
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/17.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/17.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 #### Menghitung Estimasi Slope ($\beta_{1}$)
@@ -489,7 +488,7 @@ cat("Koefisien Beta_1 (Slope):", beta_1, "\n")
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/18.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/18.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 Jadi nilai koefisien $\beta_1$ adalah 0.814850
 
@@ -521,7 +520,7 @@ cat("Slope (β₁):", slope, "\n")
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/19.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/19.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 Artinya, model regresi yang diperoleh adalah:
@@ -579,7 +578,7 @@ head(data)
 
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/20.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/20.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
@@ -609,7 +608,7 @@ data_CI$dev_kuadrat <- (data_CI$Kualitas_Produk_X - X_bar)^2
 head(data_CI)
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/21.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/21.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 Sehingga kita dapat menghitung nilai $S_{XX}$ dengan  
 
@@ -676,7 +675,7 @@ cat("\nPrediksi Kepuasan dengan Interval Kepercayaan 95%:\n")
 print(prediksi_conf)
 ```
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/22.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/22.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 
 
@@ -703,7 +702,7 @@ ggplot(data, aes(x = Kualitas_Produk_X, y = Kepuasan_Pengguna_Y)) +
 ```
 
 <div class="single-image-source">
-  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/23.png" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/59.Statistik_Regresi_Linear_Sederhana_dengan_R/23.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
 </div>
 Reference :
 
