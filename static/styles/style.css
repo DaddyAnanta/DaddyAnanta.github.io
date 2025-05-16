@@ -1328,6 +1328,7 @@ a {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow-y: auto;
 }
 
 
@@ -1339,10 +1340,7 @@ a {
   font-size: 18px;
   color: #ffffff;
   white-space: pre-wrap;
-  /* Mengizinkan pembungkusan pada elemen <code> */
   word-wrap: break-word;
-  overflow-wrap: break-word; 
-  overflow-y: auto;
 }
 
 /* Footer Section */
