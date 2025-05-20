@@ -325,7 +325,7 @@ Secara sederhana karena kita dapat menyederhanakan melalui perhitungan sebelumny
   <p>$$r = \frac{\text{Pembilang}}{\sqrt{[\text{Pernyebut X}][\text{Pernyebut Y}]}}$$</p>
   <p>$$r = \frac{1367057}{\sqrt{[1677679][1935631]}}$$</p>
   <p>$$r = \frac{1367057}{\sqrt{3248511157849}}$$</p>
-  <p>$$r = \frac{1367057}{1802263.79} = 0.7586 $$</p>
+  <p>$$r = \frac{1367057}{1802263.79} = 0.7586 $$</p></div>
 
 ```R
 # Hitung r
