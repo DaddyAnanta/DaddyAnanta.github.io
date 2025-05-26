@@ -26,6 +26,7 @@ avatar="/images/profil.jpeg"
     </li>
   </ul>
 </div>
+
 India (Wilayah Asia Tenggara) dan Tiongkok (Wilayah Pasifik Barat) mencatatkan angka absolut tertinggi dengan masing-masing lebih dari 177.000 dan 127.000 kasus, diikuti oleh Amerika Serikat (Wilayah Amerika) dengan lebih dari 53.000 kasus. Ketiga negara tersebut merupakan negara dengan populasi tertinggi menurut data <a href="https://www.worldometers.info/world-population/population-by-country/">Worldometer</a>. Federasi Rusia (Wilayah Eropa) yang juga merupakan negara dengan populasi terbesar ke-9 dengan lebih dari 31.000 kasus serta Brazil dengan Populasi tertinggi ke-7 dengan kasus 15.907.
 
 Yang menjadi fokus adalah negara Jepang, Korea, Thailand serta Prancis yang masuk ke dalam 10 negara dengan kasus bunuh diri tertinggi di Dunia. Hal ini harus lebih menjadi perhatian serius dan mendorong upaya pencegahan yang lebih komprehensif dan terfokus, baik di tingkat global maupun pada masing-masing negara tersebut.
