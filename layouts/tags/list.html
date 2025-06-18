@@ -31,18 +31,26 @@
   </div>
 </div>
 
-{{ if eq .RelPermalink "/categories/" }}
-<div class="category_page_title">
-  <h1>Category</h1>
-</div>
-<div class="category_page">
-  {{ range $.Site.Taxonomies.categories.ByCount }}
-  <a class="category-link" href="/categories/{{ .Name }}">
-    <span class="category-name"># {{ .Name }}</span>
-    <small class="category-count">({{ .Count }})</small>
-  </a>
-  {{ end }}
-</div>
+{{ if eq .RelPermalink "/tags/" }}
+<main class="main">
+  <div class="container-tags">
+    <div class="tags-page-title">
+      <h1>Semua Tags</h1>
+      <p>Temukan artikel berdasarkan kata kunci spesifik.</p>
+    </div>
+
+    <div class="tag-cloud">
+      {{/* PENTING: Menggunakan taksonomi "tags", bukan "categories" */}}
+      {{ range .Data.Terms.ByCount }}
+      <a class="tag-pill" href="{{ .Page.Permalink }}">
+        <span class="tag-name">{{ .Name | title}}</span>
+        <span class="tag-count">{{ .Count }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</main>
 {{ else }}
 
 <div class="list_h1_category">
