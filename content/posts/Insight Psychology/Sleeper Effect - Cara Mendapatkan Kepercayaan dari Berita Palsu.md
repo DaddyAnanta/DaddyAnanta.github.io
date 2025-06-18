@@ -3,8 +3,8 @@ title = 'Sleeper Effect - Cara Mendapatkan Kepercayaan dari Berita Palsu'
 date = 2025-05-15T21:37:16+07:00
 draft = false
 description = "Kepercayaan merupakan komponen fundamental dalam membangun citra positif, baik bagi individu maupun produk. Dalam konteks branding dan pemasaran, kepercayaan berperan sebagai fondasi utama yang menentukan seberapa besar suatu merek atau pribadi mampu menarik perhatian, memengaruhi persepsi, dan membentuk loyalitas konsumen. Ketika suatu entitas dipercaya, maka publik akan lebih terbuka untuk mendengarkan pesan yang disampaikan, memberikan dukungan, bahkan melakukan tindakan seperti pembelian atau rekomendasi."
-image = "/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/1.webp"
-imageBig= "/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/1.webp"
+image = "/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/1.webp"
+imageBig= "/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/1.webp"
 categories= ["Insight Psychology"]
 tags=["Manipulation"]
 authors= ["Daddy Ananta"]
@@ -22,7 +22,7 @@ Namun, pernahkah kita bertanya, bagaimana mungkin sesuatu yang pada awalnya dira
 ## Sleeper Effect
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/2.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Carl Hovland">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/2.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Carl Hovland">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Carl Hovland  From <a href="https://view.genially.com/6509157d31b74200182a1818/presentation-carl-hovland">View.genially.com</a></p>
 </div>
 
@@ -31,7 +31,7 @@ Penelitian terkait dengan Sleeper Effect bermula ketika Carl Hovland dan rekan-r
 ### Gambaran Penelitian
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/3.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Gambaran Penelitian Sleeper Effect">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/3.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Gambaran Penelitian Sleeper Effect">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Sleeper Effect From Imagen 3</p>
 </div>
 
@@ -44,7 +44,7 @@ Pada bagian akhir artikel, disisipkan informasi mengenai sumber artikel yang dib
 - Artikel ini berasal dari sumber (data) dengan kredibilitas rendah (dianggap tidak dapat dipercaya)
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/4.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/4.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Sleeper Effect Article From Imagen 3</p>
 </div>
 
@@ -61,7 +61,7 @@ Kuesioner pun diberikan untuk mengukur opini mereka mengenai topik yang dibahas 
 Temuan awal menunjukkan bahwa saat diukur pertama kali, segera setelah peserta membaca artikel, pesan yang diatribusikan ke sumber dengan kredibilitas tinggi memang menghasilkan perubahan opini yang lebih besar dan signifikan ke arah yang dianjurkan. Artikel dari sumber yang dianggap terpercaya ini juga dinilai lebih "adil" dalam penyajiannya dan kesimpulannya dianggap lebih "dapat dibenarkan" oleh para peserta, terutama jika mereka sudah memiliki pandangan awal yang sejalan. 
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/6.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/6.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Sleeper Effect Article From Imagen 3</p>
 </div>
 
@@ -76,7 +76,7 @@ Ini mengindikasikan bahwa Kemampuan kita untuk mengingat fakta lebih banyak dipe
 Perkembangan paling mengejutkan muncul ketika opini peserta diukur kembali setelah jeda waktu empat minggu. Terjadilah fenomena yang kemudian dikenal sebagai "sleeper effect" atau efek penidur. Pesan yang berasal dari sumber berkredibilitas tinggi justru mengalami penurunan tingkat persetujuan seiring berjalannya waktu—seolah-olah pesan tersebut "tertidur" dalam alam bawah sadar dan perlahan kehilangan daya pengaruhnya.. Sebaliknya, pesan yang awalnya berasal dari sumber berkredibilitas rendah malah menunjukkan peningkatan dalam tingkat kesetujuan. 
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/5.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/5.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Sleeper Effect Article">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Journal Result From <a href="https://fbaum.unc.edu/teaching/articles/HovlandWeiss-POQ-1951.pdf" target="_blank" rel="noopener noreferrer">
     The Influence of Source Credibility on Communication Effectiveness
   </a></p>
@@ -91,7 +91,7 @@ Jika kita terus-menerus dipaparkan pada informasi melalui media atau iklan—mes
 Di Indonesia, diskursus publik mengenai keaslian ijazah seorang mantan presiden telah menjadi perhatian luas, menyebar dengan cepat di berbagai platform, dan bahkan memicu diskusi di kalangan akademisi. Kontroversi ini dilaporkan bermula ketika individu yang diklaim memiliki keahlian di bidang forensik menyampaikan analisis atau pernyataan yang mempertanyakan validitas ijazah tersebut. Akibatnya, isu yang pada awalnya mungkin belum mendapat perhatian signifikan, kini telah berkembang menjadi topik perbincangan yang intensif di ruang publik.
 
 <div class="single-image-source">
-  <img src="/images/Insight_Psychology/62.Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/7.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Ijazah Mantan Presiden Palsu">
+  <img src="/images/Insight_Psychology/Sleeper_Effect_Cara_Mendapatkan_Kepercayaan_dari_Berita_Palsu/7.webp"  style="height:100%;width:80%;display:block;margin-left:auto;margin-right:auto;" alt="Ijazah Mantan Presiden Palsu">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> News From Media</p>
 </div>
 
