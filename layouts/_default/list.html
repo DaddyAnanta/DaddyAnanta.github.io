@@ -1,11 +1,10 @@
 {{ define "main" }}
 <div class="header">
     <div class="header-content">
-        
         <h1>Selamat Datang!</h1>
         <p>Jelajahi insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan pemahaman Anda.</p>
         <div class="header-start">
-            <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">Mulai Jelajahi  <i class="fas fa-arrow-right"></i></a>
+            <a href="/#list_h1" class="accordion-link">Mulai Jelajahi  <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="connected-dot-container"> <canvas id="canvas"></canvas>
@@ -19,45 +18,109 @@
     </div>
 </div>
 
-
-{{/* BINTANG START  */}}
-<div class="list_h1" data-aos="fade-up"><h1>CATEGORY</h1></div>
+{{/* CATEGORY GRID START - VERSI BARU DENGAN IKON & WARNA */}}
+<div class="list_h1" id="list_h1" data-aos="fade-up"><h1>CATEGORY</h1></div>
 <div class="main-wrapper" data-aos="fade-up">
-    <div class="container-bintang">
 
-        <div class="segilima-bagian-tengah" data-key="news">
-            <a href="{{ "/categories/news/" | relLangURL }}">News</a>
-        </div>
-        <div class="triangle segitiga-bagian-atas" data-key="keuangan">
-            <a href="{{ "/categories/keuangan/" | relLangURL }}">Keuangan</a>
-        </div>
-        <div class="triangle segitiga-bagian-kanan-samping" data-key="marketing">
-            <a href="{{ "/categories/marketing/" | relLangURL }}">Marketing</a>
-        </div>
-        <div class="triangle segitiga-bagian-kanan-bawah" data-key="statistik">
-            <a href="{{ "/categories/statistik/" | relLangURL }}">Statistik</a>
-        </div>
-        <div class="triangle segitiga-bagian-kiri-bawah" data-key="psikologi">
-            {{/* Tautan ini akan mengarah ke /categories/psikologi/ */}}
-            {{/* Pastikan kategori 'psikologi' ada di situs Hugo Anda */}}
-            <a href="{{ "/categories/psikologi-konsumen/" | relLangURL }}">Psikologi<br>Konsumen</a>
-        </div>
-        <div class="triangle segitiga-bagian-kiri-samping" data-key="analisis_data">
-            {{/* Tautan ini akan mengarah ke /categories/analisis_data/ */}}
-            {{/* Pastikan kategori 'analisis_data' ada di situs Hugo Anda */}}
-            <a href="{{ "/categories/analisis-data/" | relLangURL }}">Analisis<br>Data</a>
-        </div>
+    {{- $kategori := first 6 .Site.Taxonomies.categories.ByCount -}}
+    
+    {{- if ge (len $kategori) 1 -}}
+    <div class="category-grid-container">
+        {{- range $kategori -}}
+            {{- $category_slug := .Name | urlize -}}
+            {{- $color_class := "" -}}
+            {{- $icon_class := "" -}}
+
+            {{/* Logika untuk menentukan warna dan ikon berdasarkan nama kategori */}}
+            {{- if eq $category_slug "analysis-and-visualization" -}}
+                {{- $color_class = "cat-color--analysis" -}}
+                {{- $icon_class = "fas fa-chart-pie" -}}
+            {{/* Blok 'case-studies' DIHAPUS dari sini */}}
+            {{- else if eq $category_slug "quantitative" -}}
+                {{- $color_class = "cat-color--quantitative" -}}
+                {{- $icon_class = "fas fa-calculator" -}}
+            {{- else if eq $category_slug "qualitative" -}}
+                {{- $color_class = "cat-color--qualitative" -}}
+                {{- $icon_class = "fas fa-comments" -}}
+            {{- else if eq $category_slug "insight-psychology" -}}
+                {{- $color_class = "cat-color--psychology" -}}
+                {{- $icon_class = "fas fa-brain" -}}
+            {{/* Blok 'tools-and-strategy' DIHAPUS dari sini */}}
+            {{- else -}}
+                {{- $color_class = "cat-color--default" -}}
+                {{- $icon_class = "fas fa-tag" -}}
+            {{- end -}}
+
+            <a href="{{ .Page.Permalink }}" class="category-card {{ $color_class }}" data-key="{{ $category_slug }}">
+                <div class="card-icon">
+                    <i class="{{ $icon_class }}"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="category-name">{{ .Name | title }}</h3>
+                    <p class="category-count">{{ .Count }} {{ if gt .Count 1 }}Posts{{ else }}Post{{ end }}</p>
+                </div>
+            </a>
+        {{- end -}}
     </div>
 
     <div class="info-box">
-        <h3 id="info-title">Informasi</h3>
-        <p id="info-description">Arahkan kursor ke salah satu bagian bintang untuk melihat detail.</p>
+        <h3 id="info-title">PROJECT.LOG</h3>
+        <p id="info-description">Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.</p>
+        <div id="info-link-wrapper" style="display: none;">
+             <a href="#" id="info-link" class="link-content">Akses Arsip &rarr;</a>
+        </div>
     </div>
+    {{- else -}}
+    <p>Belum ada kategori yang bisa ditampilkan.</p>
+    {{- end -}}
 </div>
-{{/* BINTANG END  */}}
+
+{{/* SCRIPT UNTUK INFO BOX (TETAP SAMA) */}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const infoData = {
+        'analysis-and-visualization': { title: 'Analysis & Visualization', description: 'Membahas teknik dan metode untuk menganalisis data dan menyajikannya dalam bentuk visual yang mudah dipahami, seperti grafik, dasbor, dan peta.', },
+        /* 'case-studies' DIHAPUS dari sini */
+        'quantitative': { title: 'Quantitative', description: 'Fokus pada metode penelitian kuantitatif, analisis statistik, dan penggunaan angka untuk menguji hipotesis dan mengukur fenomena.', },
+        'qualitative': { title: 'Qualitative', description: 'Menjelajahi metode penelitian kualitatif seperti wawancara, observasi, dan analisis teks untuk mendapatkan pemahaman mendalam tentang perilaku manusia.', },
+        'insight-psychology': { title: 'Insight Psychology', description: 'Menggali wawasan dari persimpangan antara psikologi dan data, memahami "mengapa" di balik perilaku konsumen dan pengguna.', },
+        /* 'tools-and-strategy' DIHAPUS dari sini */
+    };
+    const cards = document.querySelectorAll('.category-card');
+    const gridContainer = document.querySelector('.category-grid-container');
+    const infoTitle = document.getElementById('info-title');
+    const infoDescription = document.getElementById('info-description');
+    const infoLinkWrapper = document.getElementById('info-link-wrapper');
+    const infoLink = document.getElementById('info-link');
+    const defaultTitle = 'PROJECT.LOG';
+    const defaultDescription = 'Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.';
+    if (gridContainer) {
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const key = this.dataset.key;
+                const data = infoData[key];
+                const linkUrl = this.href;
+                if (data) {
+                    infoTitle.textContent = data.title.toUpperCase();
+                    infoDescription.textContent = data.description;
+                    infoLink.href = linkUrl;
+                    infoLinkWrapper.style.display = 'block';
+                }
+            });
+        });
+        gridContainer.addEventListener('mouseleave', function() {
+            infoTitle.textContent = defaultTitle;
+            infoDescription.textContent = defaultDescription;
+            infoLinkWrapper.style.display = 'none';
+        });
+    }
+});
+</script>
+{{/* CATEGORY GRID END */}}
 
 
-<div class="accordion" id="cart-accordion" data-aos="fade-up">
+<div class="accordion" id="cart-accordion">
+    {{/* ... sisa kode akordion Anda ... */}}
     <div class="searchButton_accordeon">
         <form action="/search/" method="GET">
             <input type="text" id="search" name="s" placeholder="Search" />
@@ -68,34 +131,31 @@
         </form>
     </div>
     <div class="accordion-item">
-        <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">PORTOFOLIO</a>
+        <a href="/#list_h1" class="accordion-link">PORTOFOLIO</a>
         <a href="https://github.com/DaddyAnanta/" target="_blank" rel="noopener noreferrer">GITHUB</a>
         <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer">MEDIUM</a>
     </div>
     <button class="accordion-button" onclick="togglePanel(this)">
         Category
-        <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
+        <span class="accordion-icon">&#9660;</span>
     </button>
-
     <div class="panel">
         <div class="accordion-category_page">
             {{ range $.Site.Taxonomies.categories.ByCount }}
-            <a class="accordion-category-link" href="/categories/{{ .Name }}">
+            <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
                 <span class="accordion-category-name">{{ .Name | title }}</span>
             </a>
             {{ end }}
         </div>
-
     </div>
     <button class="accordion-button" onclick="togglePanel(this)">
         Tags
-        <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
+        <span class="accordion-icon">&#9660;</span>
     </button>
-
     <div class="panel">
         <div class="accordion-tags_page">
             {{ range $.Site.Taxonomies.tags.ByCount }}
-            <a class="accordion-category-link" href="/tags/{{ .Name }}">
+            <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
                 <span class="accordion-category-name">{{ .Name | title }}</span>
             </a>
             {{ end }}
@@ -103,491 +163,76 @@
     </div>
 </div>
 
+    {{/* Daftar Kategori yang Ingin Ditampilkan di Halaman Utama */}}
+    {{/* "Tools and Strategy" dan "Case Studies" DIHAPUS dari daftar ini */}}
+    {{ $categoriesToShow := slice "Analysis and Visualization" "Qualitative" "Insight Psychology" "Quantitative" }}
 
+    {{/* Loop untuk setiap kategori dalam daftar di atas */}}
+    {{ range $categoriesToShow }}
+        {{ $categoryName := . }}
+        {{ $categorySlug := . | urlize }}
+        {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
+        {{ $totalPosts := len $pagesInCategory }}
 
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>NEWS</h1>
-    </div>
+        {{/* Hanya tampilkan section jika ada postingan di kategori tersebut */}}
+        {{ if gt $totalPosts 0 }}
+            <section class="category-section">
+                <header class="category-header">
+                    <h2 class="category-title">{{ $categoryName }}</h2>
+                </header>
 
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $newsPages := where .Site.RegularPages "Params.categories" "intersect" (slice "News") }}
-        {{ $totalnewsPages := len $newsPages }}
-
-        {{ range $index, $page := $newsPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                <div class="post-list-container">
+                    {{ range $index, $page := first 4 $pagesInCategory }}
+                        <article class="post-card">
+                            <a href="{{ $page.Permalink }}" class="post-card-link">
+                                {{ with $page.Params.image }}
+                                    <div class="post-card-image-wrapper">
+                                        <img src="{{ . }}" alt="Gambar untuk {{ $page.Title }}" class="post-card-image" width="1600" height="900">
+                                    </div>
                                 {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            {{ else if eq $index 3 }}
-                <div class="listItem-partial-wrapper"> 
-                        <div class="listItem-partial-container">
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                                <div class="post-card-content">
+                                    <div class="post-card-tags">
+                                        {{ with $page.Params.tags }}
+                                            {{ range first 2 . }}
+                                                <span class="post-card-tag">{{ . }}</span>
                                             {{ end }}
                                         {{ end }}
                                     </div>
+                                    <h3 class="post-card-title">{{ $page.Title }}</h3>
                                 </div>
-                            </div>
-                            <div class="list-see-more-overlay">
-                                <a href="{{ "/categories/news/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                            </div>
-                        </div>
-
-                    </div>
-                 {{ break }} 
-            {{ end }}
-        {{ end }}
-
-        {{ if eq $totalnewsPages 0 }}
-            <p>Belum ada postingan di kategori News.</p>
-        {{ end }}
-
-    </div>
-</div>
-
-
-
-
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>Analisis Data</h1>
-    </div>
-
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $analisis_dataPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Analisis Data") }}
-        {{ $totalanalisis_dataPages := len $analisis_dataPages }}
-
-        {{ range $index, $page := $analisis_dataPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
+                            </a>
+                        </article>
+                    {{ end }}
                 </div>
-            {{ else if eq $index 3 }}
-                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
-                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
-                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
-                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
-                        <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/analisis-data/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                        </div>
-                        </div>
-
-                    </div>
-                 {{/* Hentikan loop setelah item ke-9 diproses */}}
-                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
-            {{ end }}
-        {{ end }}
-
-        {{ if eq $totalanalisis_dataPages 0 }}
-            <p>Belum ada postingan di kategori Analisis Data.</p>
-        {{ end }}
-         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
-         {{/* Kode di atas sudah menangani ini */}}
-
-    </div>
-</div>
-
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>Statistik</h1>
-    </div>
-
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $statistikPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Statistik") }}
-        {{ $totalstatistikPages := len $statistikPages }}
-
-        {{ range $index, $page := $statistikPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
+                <div class="lihat-kategori">
+                    <a href="{{ printf "/categories/%s/" $categorySlug | relLangURL }}" class="category-see-all">Lihat Semua </a>
                 </div>
-            {{ else if eq $index 3 }}
-                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
-                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
-                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
-                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
-                        <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/statistik/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                        </div>
-                        </div>
-
-                    </div>
-                 {{/* Hentikan loop setelah item ke-9 diproses */}}
-                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
-            {{ end }}
+            </section>
         {{ end }}
+    {{ end }}
 
-        {{ if eq $totalstatistikPages 0 }}
-            <p>Belum ada postingan di kategori Statistik.</p>
-        {{ end }}
-         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
-         {{/* Kode di atas sudah menangani ini */}}
-
+    {{/* Bagian TOOLS tetap sama */}}
+    <div class="list_h2" id="list_h1_tools" data-aos="fade-up">
+        <h1>TOOLS</h1>
     </div>
-</div>
-
-
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>Psikologi Konsumen</h1>
+    <div class="scroller" data-speed="fast" data-aos="fade-up">
+        <ul class="tag-list scroller__inner">
+          <li>Power BI</li>
+          <li>Looker Studio</li>
+          <li>Google Analytic</li>
+          <li>Excel</li>
+          <li>Google Form</li>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>SPSS</li>
+        </ul>
     </div>
-
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $psikologiPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Psikologi Konsumen") }}
-        {{ $totalpsikologiPages := len $psikologiPages }}
-
-        {{ range $index, $page := $psikologiPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            {{ else if eq $index 3 }}
-                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
-                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
-                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
-                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
-                        <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/psikologi-konsumen/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                        </div>
-                        </div>
-
-                    </div>
-                 {{/* Hentikan loop setelah item ke-9 diproses */}}
-                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
-            {{ end }}
-        {{ end }}
-
-        {{ if eq $totalpsikologiPages 0 }}
-            <p>Belum ada postingan di kategori Psikologi Konsumen.</p>
-        {{ end }}
-         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
-         {{/* Kode di atas sudah menangani ini */}}
-    </div>
-</div>
-
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>Marketing</h1>
-    </div>
-
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $marketingPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Marketing") }}
-        {{ $totalmarketingPages := len $marketingPages }}
-
-        {{ range $index, $page := $marketingPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            {{ else if eq $index 3 }}
-                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
-                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
-                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
-                        <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/marketing/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                        </div>
-                        </div>
-
-                    </div>
-                 {{/* Hentikan loop setelah item ke-9 diproses */}}
-                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
-            {{ end }}
-        {{ end }}
-
-        {{ if eq $totalmarketingPages 0 }}
-            <p>Belum ada postingan di kategori  Marketing.</p>
-        {{ end }}
-         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
-         {{/* Kode di atas sudah menangani ini */}}
-    </div>
-</div>
-
-<div class="blog-content">
-    <div class="list_h2" id="list_h1" data-aos="fade-up">
-        <h1>Keuangan</h1>
-    </div>
-
-    <div class="listContainer" id="listContainer" data-aos="fade-up" data-aos-delay="100">
-        {{ $keuanganPages := where .Site.RegularPages "Params.categories" "intersect" (slice "Keuangan") }}
-        {{ $totalkeuanganPages := len $keuanganPages }}
-
-        {{ range $index, $page := $keuanganPages }}
-            {{ if lt $index 3 }}
-                {{/* Item 1-8: Tampilkan Penuh */}}
-                <div class="listItem">
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                    <div class="listItemTexts">
-                        <h1 class="listItemTitle">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h1>
-                        <div class="listItemCategories">
-                            {{ with .Params.categories }}
-                                {{ range . }}
-                                    <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            {{ else if eq $index 3 }}
-                {{/* Item ke-9 (index 8): Tampilkan sebagian */}}
-                <div class="listItem-partial-wrapper"> {{/* Wrapper untuk item ke-9 dan link */}}
-                        <div class="listItem-partial-container"> {{/* Container yang akan dipotong */}}
-                            <div class="listItem"> {{/* Render item ke-9 di dalamnya */}}
-                                 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-                                <div class="listItemTexts">
-                                    <h1 class="listItemTitle">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                                    </h1>
-                                    <div class="listItemCategories">
-                                         {{ with .Params.categories }}
-                                            {{ range . }}
-                                                <a class="listItemCategory" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                <a class="listItemtags" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                                                {{/* Link "Lihat Lebih Banyak" ditempatkan di bawah/overlay */}}
-                        <div class="list-see-more-overlay">
-                            <a href="{{ "/categories/keuangan/" | relLangURL }}" class="list-see-more-button">Lihat Lebih Banyak</a>
-                        </div>
-                        </div>
-
-                    </div>
-                 {{/* Hentikan loop setelah item ke-9 diproses */}}
-                 {{ break }} {{/* Atau biarkan selesai jika break tidak didukung/diinginkan */}}
-            {{ end }}
-        {{ end }}
-
-        {{ if eq $totalkeuanganPages 0 }}
-            <p>Belum ada postingan di kategori Keuangan.</p>
-        {{ end }}
-         {{/* Jika jumlah post <= 8, pastikan tidak ada elemen sisa */}}
-         {{/* Kode di atas sudah menangani ini */}}
-    </div>
-</div>
-
-
-<!--{{ partial "custom_pagination.html" . }}-->
-
-<div class="list_h2" id="list_h1" data-aos="fade-up">
-    <h1>TOOLS</h1>
-</div>
-
-<div class="scroller" data-speed="fast">
-    <ul class="tag-list scroller__inner">
-      <li>Power BI</li>
-      <li>Looker Studio</li>
-      <li>Google Analytic</li>
-      <li>Excel</li>
-      <li>Google Form</li>
-      <li>SQL</li>
-      <li>Python</li>
-      <li>SPSS</li>
-    </ul>
-  </div>
-
-
-
+    
 <div class="list_h1_porto" data-aos="fade-up">
     <h1>ABOUT ME</h1>
 </div>
 
-<div class="portofolio" data-aos="fade-up" data-aos-delay="100">
+<div class="portofolio" data-aos="fade-up">
     <section class="home">
         <div class="home-img">
             <img src="/images/profil.webp" alt="Profil Daddy">
@@ -601,108 +246,26 @@
         </div>
         <div class="home-content">
             <div class="title">
-
-
                 <h1>Hi, My Name is <span>Daddy</span></h1>
                 <h3 class="typing-text">I'm a <span></span></h3>
             </div>
-            <p>Seorang mahasiswa psikologi yang sangat bersemangat dalam mempelajari Marketing Analytics dan Data
-                Analytics. Saya memiliki ketertarikan mendalam dalam memahami perilaku konsumen melalui pendekatan
-                berbasis data untuk mengembangkan strategi pemasaran yang efektif dan berdampak.</p><br /><br />
-            <p>Dengan latar belakang pendidikan psikologi, saya menggabungkan pemahaman tentang aspek psikologis dalam
-                analisis data untuk menciptakan solusi pemasaran yang lebih terarah.</p><br /><br />
-            <p>Komitmen saya pada analitik berbasis bukti mendorong saya untuk terus berkembang di bidang ini, dan saya
-                antusias untuk terhubung dengan profesional yang berbagi visi serupa dalam menciptakan pendekatan
-                pemasaran yang didorong oleh data.</p>
+            
+            <p>Sejak dulu saya terpesona oleh satu pertanyaan: <strong>mengapa orang melakukan apa yang mereka lakukan?</strong> Latar belakang saya sebagai mahasiswa Psikologi memberikan kerangka untuk menjawabnya, namun saya menemukan jawaban yang lebih dalam ketika saya memadukannya dengan data.</p><br />
+            <p>Saya percaya bahwa setiap baris data memiliki cerita manusia di baliknya. Misi saya adalah menerjemahkan cerita tersebut. Melalui <strong>Riset UX</strong>, saya mendengarkan cerita mereka secara langsung. Melalui <strong>Analisis Data</strong>, saya menemukan pola cerita tersebut dalam skala besar. Dan melalui <strong>Visualisasi Data</strong> serta tulisan di Medium, saya membagikan cerita itu kepada dunia.</p><br />
+            <p><strong>Keahlian Saya</strong>: Psikologi Perilaku, Riset UX (Kualitatif & Kuantitatif), Analisis Data (SQL, Python), Visualisasi Data (Tableau), Penulisan Konten. Saya selalu antusias untuk belajar dan berkolaborasi dalam proyek yang bertujuan memahami pengguna secara lebih mendalam.</p>
         </div>
     </section>
 </div>
 
-
+{{/* SCRIPT AOS YANG SUDAH DIPERBAIKI */}}
 <script>
-    // Data untuk keterangan (Judul dan Deskripsi)
-    const descriptions = {
-        "news": {
-            title: "Berita & Update",
-            text: "Kumpulan artikel berita terbaru, pengumuman penting, dan insight perkembangan industri. Tetap terinformasi dengan update terkini dari kami."
-        },
-        "keuangan": {
-            title: "Manajemen Finansial",
-            text: "Artikel, panduan, dan tips praktis seputar manajemen keuangan pribadi dan bisnis, investasi, budgeting, serta strategi mencapai kebebasan finansial."
-        },
-        "marketing": {
-            title: "Strategi Pemasaran",
-            text: "Jelajahi tren pemasaran digital terkini, strategi branding efektif, tips SEO, konten marketing, hingga cara membangun kampanye yang sukses."
-        },
-        "statistik": {
-            title: "Data & Analitik",
-            text: "Panduan memahami data, teknik analisis statistik, visualisasi data yang efektif, dan bagaimana insight berbasis data dapat mendorong keputusan yang lebih baik."
-        },
-        "psikologi": {
-            title: "Perilaku Konsumen",
-            text: "Mengungkap rahasia di balik keputusan pembelian, preferensi merek, dan motivasi konsumen. Pahami audiens Anda lebih dalam untuk strategi yang lebih mengena."
-        },
-        "analisis_data": {
-            title: "Analisis Data & Tools",
-            text: "Tutorial dan studi kasus penggunaan tools analisis data seperti SPSS, Excel, dan Python untuk menggali wawasan, membuat prediksi, dan memecahkan masalah kompleks."
-        }
-    };
-
-    // Ambil elemen untuk menampilkan info
-    const infoTitleElement = document.getElementById('info-title');
-    const infoDescriptionElement = document.getElementById('info-description');
-
-    // Fungsi untuk menampilkan info
-    function showInfo(sectionKey) {
-        if (infoTitleElement && infoDescriptionElement && descriptions[sectionKey]) {
-            infoTitleElement.textContent = descriptions[sectionKey].title;
-            infoDescriptionElement.textContent = descriptions[sectionKey].text;
-        }
-    }
-
-    // Fungsi untuk mengembalikan info ke default
-    function clearInfo() {
-        if (infoTitleElement && infoDescriptionElement) {
-            infoTitleElement.textContent = "Informasi"; // Default title
-            infoDescriptionElement.textContent = "Arahkan kursor ke salah satu bagian bintang untuk melihat detail."; // Default text
-        }
-    }
-
-    // Tambahkan event listener ke setiap bagian bintang
-    document.querySelectorAll('.segilima-bagian-tengah, .triangle').forEach(element => {
-        const sectionKey = element.dataset.key;
-        const anchorTag = element.querySelector('a'); // Temukan tag <a> di dalam elemen
-
-        // Setup efek hover untuk menampilkan informasi
-        if (sectionKey) {
-            element.addEventListener('mouseover', () => showInfo(sectionKey));
-            element.addEventListener('mouseout', clearInfo);
-        }
-
-        // Setup navigasi klik untuk seluruh elemen div
-        if (anchorTag && anchorTag.href) {
-            element.addEventListener('click', function(event) {
-                // Jika target klik adalah tag <a> itu sendiri atau salah satu anaknya (misalnya <br>),
-                // biarkan browser menangani navigasi secara normal.
-                // Ini penting agar fungsionalitas seperti Ctrl+Klik (atau Cmd+Klik) untuk membuka di tab baru tetap berfungsi.
-                if (event.target === anchorTag || anchorTag.contains(event.target)) {
-                    return; // Biarkan perilaku default tautan berjalan
-                }
-
-                // Jika klik dilakukan pada area div tetapi bukan pada tag <a>,
-                // maka kita lakukan navigasi secara manual.
-                // Cek apakah pengguna ingin membuka di tab baru (Ctrl/Cmd + klik, atau klik tengah mouse)
-                if (event.ctrlKey || event.metaKey || event.button === 1) {
-                    window.open(anchorTag.href, '_blank');
-                } else {
-                    window.location.href = anchorTag.href;
-                }
-            });
-
-            // Pastikan elemen div memiliki cursor pointer (seharusnya sudah diatur di CSS Anda)
-            // element.style.cursor = 'pointer'; // Baris ini bisa diaktifkan jika belum ada di CSS
-        }
-    });
+  AOS.init({
+    anchorPlacement: 'bottom-bottom',
+    offset: 20,
+    duration: 600,
+    easing: 'ease-in-out',
+    once: true,
+    delay: 100,
+  });
 </script>
-
 {{ end }}
