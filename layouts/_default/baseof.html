@@ -7,11 +7,22 @@
     <meta name="description" content={{or .Params.description .Site.Params.description}}>
     <meta name="google-site-verification" content="PJywcDTexSl5II3uB9zQl7_H_GpDnOrCjiSLpa2Qsi4" />
     <meta name="msvalidate.01" content="4344DC965B6A1AE98835754A907E7AD7" />
+	{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+	{{ $infinite := resources.Get "css/infinite-scroll.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $infinite.RelPermalink }}">
+
+	{{ $loading := resources.Get "css/loading-screen.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $loading.RelPermalink }}">
+
+	{{ $toc := resources.Get "css/toc.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $toc.RelPermalink }}">
+
+	{{ $home := resources.Get "css/Home.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $home.RelPermalink }}">
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="/styles/infinite-scroll.css">
-    <link rel="stylesheet" href="/styles/loading-screen.css">
-    <link rel="stylesheet" href="/styles/toc.css">
-    <link rel="stylesheet" href="/styles/Home.css">
     <link rel="icon" href="https://raw.githubusercontent.com/DaddyAnanta/DaddyAnanta.github.io/refs/heads/main/static/images/icon2.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/styles/style.css">
