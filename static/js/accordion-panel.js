@@ -1,7 +1,29 @@
-function toggleInfo() {
+const mainIcon = document.querySelector('.icon');
     const accordion = document.getElementById('cart-accordion');
-    accordion.classList.toggle('active'); // Toggle class "active"
-}
+
+    function toggleInfo() {
+      if (!mainIcon || !accordion) return;
+      mainIcon.classList.toggle('active');
+      accordion.classList.toggle('active');
+      const isExpanded = mainIcon.classList.contains('active');
+      mainIcon.setAttribute('aria-expanded', isExpanded);
+    }
+
+    function closeAccordion(event) {
+      event.preventDefault();
+      if (mainIcon && accordion && accordion.classList.contains('active')) {
+        mainIcon.classList.remove('active');
+        accordion.classList.remove('active');
+        mainIcon.setAttribute('aria-expanded', 'false');
+      }
+      setTimeout(() => {
+        const targetId = event.currentTarget.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 400);
+    }
 
 function closeAccordion(event) {
     event.preventDefault(); // Mencegah aksi default (navigasi langsung)
@@ -26,10 +48,6 @@ function togglePanel(button) {
     const panel = button.nextElementSibling;
     panel.classList.toggle('open');
 }
-
-
-
-
 
 
 function togglePanel(button) {
