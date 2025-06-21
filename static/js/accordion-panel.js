@@ -1,4 +1,4 @@
-const mainIcon = document.querySelector('.icon');
+const mainIcon = document.querySelector('.icon-hamberger');
     const accordion = document.getElementById('cart-accordion');
 
     function toggleInfo() {
