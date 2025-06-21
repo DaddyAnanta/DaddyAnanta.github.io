@@ -116,12 +116,12 @@
         {{ if .Params.tags }}
         <div class="single-tags">
           <div class="single-icon-tag">
-          <svg class="icon-svg icon-tag" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <svg class="icon icon-tag" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.41 11.58 12.42 2.59A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l8.99 8.99a2 2 0 0 0 2.83 0l7-7a2 2 0 0 0 0-2.83ZM6.5 7A1.5 1.5 0 1 1 8 5.5 1.5 1.5 0 0 1 6.5 7Z"/>
           </svg>
           </div>
           {{ range .Params.tags }}
-            <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . }}</a>&nbsp;
+            <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . | title }}</a>&nbsp;
           {{ end }}
         </div>
         {{ partial "socialshare.html" . }}
@@ -154,13 +154,38 @@
     </div>
   </div>
   </div>
+<button id="backToTopBtn" title="Kembali ke atas">
+  <i class="fas fa-angle-up"></i>
+</button>
 
+<script defer>
+  function toggleToC() {
+    const toc = document.getElementById("toc-content");
+    toc.style.display = (toc.style.display === "none" || toc.style.display === "") ? "block" : "none";
+  }
 
-  <script>
-    function toggleToC() {
-      const toc = document.getElementById("toc-content");
-      toc.style.display = (toc.style.display === "none" || toc.style.display === "") ? "block" : "none";
+  // ==============================================
+  // BAGIAN 3: JAVASCRIPT UNTUK TOMBOL BACK TO TOP
+  // ==============================================
+  // Dapatkan elemen tombol
+  let mybutton = document.getElementById("backToTopBtn");
+
+  // Ketika pengguna menggulir ke bawah 100px dari atas dokumen, tampilkan tombolnya
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    // Angka 100 bisa diubah sesuai kebutuhan
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
     }
-  </script>
+  }
+
+  // Ketika pengguna mengklik tombol, gulir ke atas dokumen
+  mybutton.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'}); // Gulir dengan animasi halus
+  }
+</script>
 
   {{ end }}

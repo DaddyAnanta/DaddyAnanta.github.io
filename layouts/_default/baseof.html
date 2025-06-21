@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={{or .Params.description .Site.Params.description}}>
-    <meta name="google-site-verification" content="PJywcDTexSl5II3uB9zQl7_H_GpDnOrCjiSLpa2Qsi4" />
-    <meta name="msvalidate.01" content="4344DC965B6A1AE98835754A907E7AD7" />
-	{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <meta name="description" content="{{ or .Params.description .Site.Params.description }}">
+    {{/* Preconnect untuk mempercepat koneksi ke domain eksternal */}}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-	{{ $infinite := resources.Get "css/infinite-scroll.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $infinite.RelPermalink }}">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
 
-	{{ $loading := resources.Get "css/loading-screen.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $loading.RelPermalink }}">
+    {{/* 1. Buat daftar path CSS sebagai string */}}
+{{ $cssPaths := slice 
+    "css/style.css" 
+    "css/infinite-scroll.css" 
+    "css/loading-screen.css" 
+    "css/toc.css" 
+    "css/Home.css" 
+}}
 
-	{{ $toc := resources.Get "css/toc.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $toc.RelPermalink }}">
+{{/* 2. Buat sebuah slice kosong untuk menampung Objek Resource */}}
+{{ $cssResources := slice }}
 
-	{{ $home := resources.Get "css/Home.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $home.RelPermalink }}">
+{{/* 3. Loop melalui setiap path, dapatkan Resource-nya, dan tambahkan ke slice penampung */}}
+{{ range $cssPaths }}
+    {{ $cssResources = $cssResources | append (resources.Get .) }}
+{{ end }}
 
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" href="https://raw.githubusercontent.com/DaddyAnanta/DaddyAnanta.github.io/refs/heads/main/static/images/icon2.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+{{/* 4. SEKARANG, gabungkan slice yang sudah berisi Objek Resource */}}
+{{ $cssBundle := $cssResources | resources.Concat "css/bundle.css" | minify | fingerprint }}
+
+{{/* Muat CSS secara asinkron untuk tidak memblokir render */}}
+<link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" media="print" onload="this.media='all'">
+
+<noscript><link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
+        <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    </noscript>
+
+    {{/* Google Fonts tetap di sini karena sudah menggunakan display=swap */}}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="/images/icon2.png" type="image/png">
     {{ partialCached "analytics.html" . }}
-        
-        <title>{{ .Title }} | {{ .Site.Title }}</title>
 </head>
 
 <body>
@@ -52,14 +68,14 @@
         {{ block "main" . }} {{ end }}
     </div>
     {{ partial "footer" . }}
-    <script src="/js/search.js" async></script>
-    <script src="/js/coding_template.js" class="coding" async></script>
-    <script src="/js/accordion-panel.js"async></script>
-    <script src="/js/infinite-scroll.js"async></script>
-    <script src="/js/connection-dots.js"async></script>
-    <script src="/js/toc-scroll.js"async></script>
-    <script src="/js/loading-screen.js"></script>
-    <script async>
+    <script src="/js/search.js" defer></script>
+    <script src="/js/coding_template.js" class="coding" defer></script>
+    <script src="/js/accordion-panel.js"defer></script>
+    <script src="/js/infinite-scroll.js"defer></script>
+    <script src="/js/connection-dots.js"defer></script>
+    <script src="/js/toc-scroll.js"defer></script>
+    <script src="/js/loading-screen.js" ></script>
+    <script defer>
         document.addEventListener('DOMContentLoaded', function() {
           const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination'); // Pilih berdasarkan ID atau class
       
@@ -166,12 +182,12 @@
       
       </script>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-<script src="{{ "js/search.js" | absURL }}"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"> defer</script>
+<script src="{{ "js/search.js" | absURL }}" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" defer>
+<script  src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" defer></script>
 <script class="single-code" type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
   onload="renderMathInElement(document.body, {
     delimiters: [
