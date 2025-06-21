@@ -128,8 +128,34 @@ html {
   }
 
 
-/* Tambahan code untuk Excel */
+/* Bck To Top Start*/
 
+#backToTopBtn {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; /* Tetap di posisi yang sama saat scroll */
+    bottom: 30px;
+    right: 20px;
+    z-index: 99; /* Pastikan tombol di atas konten lain */
+    border: none;
+    outline: none;
+    background-color: #bb0a0a; /* Warna latar belakang */
+    color: white; /* Warna ikon */
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%; /* Membuatnya bulat */
+    font-size: 18px; /* Ukuran ikon */
+    line-height: 1;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Efek bayangan */
+    transition: background-color 0.3s, opacity 0.3s;
+  }
+
+  #backToTopBtn:hover {
+    background-color: #333; /* Warna saat hover */
+  }
+/* Back To Top End */
 
   
   
