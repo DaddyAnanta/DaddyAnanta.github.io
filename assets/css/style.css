@@ -2480,13 +2480,19 @@ ul.share-icons li:hover .share-btn p {
   }
 
   .singleHeadDetail {
-    font-size: 13px;
-    gap: 2px;
-    color: #888888;
+    flex-wrap: wrap; /* Izinkan item untuk turun ke baris baru */
+    row-gap: 15px;   /* Beri jarak vertikal antar baris yang baru terbentuk */
+  }
+
+  .singleHeadDetail .reading-stats {
+    flex-basis: 50%; /* Buat lebarnya 100%, memaksanya turun ke baris baru */
+    order: 3; 
+    display: flex;
+    justify-content: space-between; /* Sebarkan isinya (word count & reading time) */
   }
 
   .single-meta-item span{
-    font-size: 13px;
+    font-size: 13px;    
   }
 
   .singleHeadTitle {
