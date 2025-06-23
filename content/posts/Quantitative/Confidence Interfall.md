@@ -117,8 +117,10 @@ Rumus MoE menggunakan nilai yang sudah disesuaikan:
 <p>$$ MoE = 1.96 \sqrt{0.0102} \approx 1.96 \times 0.101 \approx 0.198 $$</p></div>
 
 #### Langkah 4 Bangun Confidence Interval
-$CI = \tilde{p} \pm MoE$
-$CI = 0.737 \pm 0.198$
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
+<p>$$CI = \tilde{p} \pm MoE$$</p>
+<p>$$CI = 0.737 \pm 0.198$$</p></div>
 
 * Batas Bawah: $0.737 - 0.198 = 0.539$ (atau 53.9%)
 * Batas Atas: $0.737 + 0.198 = 0.935$ (atau 93.5%)
