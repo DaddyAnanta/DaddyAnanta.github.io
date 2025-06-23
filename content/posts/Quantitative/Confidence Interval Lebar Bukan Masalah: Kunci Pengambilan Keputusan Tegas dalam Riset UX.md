@@ -168,12 +168,10 @@ def hitung_standard_error(standar_deviasi, n):
   """Menghitung Standard Error (SE) dari sampel."""
   return standar_deviasi / np.sqrt(n)
 
-def hitung_margin_of_error(n, se, alpha_satu_arah):
-  """Menghitung Margin of Error (ME) untuk uji satu arah."""
-  # Untuk CI satu arah 95% (alpha=0.05), kita menggunakan alpha 0.10 di t-distribusi dua arah
-  alpha_dua_arah = (1 - alpha_satu_arah) * 2
+def hitung_margin_of_error(n, se):
+  """Menghitung Margin of Error (ME) untuk CI 90%"""
   derajat_kebebasan = n - 1
-  t_kritis = stats.t.ppf(1 - (alpha_dua_arah / 2), df=derajat_kebebasan)
+  t_kritis = stats.t.ppf(0.95, df=derajat_kebebasan)  # 90% CI → alpha dua sisi = 0.10 → alpha/2 = 0.05
   return t_kritis * se
 
 def hitung_confidence_interval(rata_rata, margin_of_error):
