@@ -1,6 +1,6 @@
 +++
 title= "Jangan Terjebak Angka Tunggal: Kekuatan Confidence Interval dalam Riset UX"
-date = 2025-05-20T00:37:00+00:00
+date = 2025-06-20T00:37:00+00:00
 draft = false
 socialshare = true
 description = ""
@@ -34,6 +34,11 @@ Presisi adalah Ukuran Lingkaran: Lingkaran yang kecil (interval sempit) menunjuk
 
 ## Kerangka Psikologis Melawan Jebakan Anchoring
 
+<div class="single-image-source">
+  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/4.webp" alt="Kekuatan Confidence Interval" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+</div>
+
+
 Mengapa melaporkan satu angka (misal: "tingkat keberhasilan 80%") begitu berisiko? Jawabannya terletak pada biais kognitif yang disebut *Anchoring Effect* (Efek Jangkar).
 
 Ketika kita memberikan satu angka kepada stakeholder, angka tersebut menjadi "jangkar" psikologis. Semua diskusi, ekspektasi, dan keputusan berikutnya akan terpaku pada angka 80% itu. Jika riset selanjutnya menunjukkan angka 70%, itu akan dianggap sebagai sebuah "kegagalan," meskipun secara statistik perbedaannya mungkin tidak signifikan.
@@ -48,13 +53,27 @@ Ini adalah pergeseran dari kepastian palsu ke manajemen risiko yang cerdas.
 
 ## Contoh Kasus
 
-### Gagal Membaca Prediksi pada Pemilu AS 2016
+### Pemilu AS 2016
+
+<div class="single-image-source">
+  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/2.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Hillary Clinton
+And Donald Trump
+</p>
+</div>
+
 
 Salah satu contoh terkenal tentang pentingnya memahami *Confidence Interval*  terjadi pada Pemilihan Presiden AS tahun 2016. Banyak media melaporkan bahwa Hillary Clinton unggul atas Donald Trump dengan selisih sekitar 3–4 poin persentase dalam jajak pendapat nasional. Angka ini menjadi jangkar bagi publik dan sebagian analis politik. Namun, laporan-laporan tersebut sering kali kurang menekankan margin of error serta ketidakpastian dalam prediksi, khususnya di negara-negara bagian penentu Electoral College. 
 
 Padahal, dalam banyak kasus, selisih dukungan di negara-negara kunci berada dalam rentang margin of error. Misalnya, jika Clinton unggul 3 poin dengan margin of error ±3, *Confidence Interval* -nya adalah (0% hingga 6%). Karena interval ini mencakup angka nol, secara statistik hasil tersebut tergolong too close to call, artinya belum bisa dipastikan siapa yang unggul. Fokus berlebihan pada estimasi titik tunggal tanpa mempertimbangkan rentang kemungkinan hasil menciptakan ilusi kepastian dan berkontribusi pada keterkejutan publik saat Trump meraih kemenangan Electoral College meskipun kalah dalam suara populer.
 
 ### Kultur Eksperimen di Booking.com
+
+<div class="single-image-source">
+  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/3.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Booking.com Logo from Jas Rolyn in<a href="https://unsplash.com/photos/a-sign-on-the-side-of-a-building-that-says-bookking-com-7BqK0rCPO5k"> Unsplash</a></p>
+</div>
+
 
 Perusahaan seperti Booking.com membangun strategi pengembangan produknya di atas fondasi A/B testing yang ketat dan berkelanjutan. Alih-alih hanya bertanya, “Apakah versi B lebih baik dari versi A?”, mereka bertanya, “Seberapa besar kemungkinan versi B memberikan dampak positif, dan seberapa besar efeknya?”.
 
