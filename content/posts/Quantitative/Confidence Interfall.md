@@ -128,6 +128,82 @@ $CI = 0.737 \pm 0.198$
 
 Pesan ini jauh lebih kuat. Ia mengakui adanya ketidakpastian sambil memberikan batasan yang jelas. Skenario terburuk (54%) mungkin masih cukup baik untuk melanjutkan, dan ini memberikan dasar yang kuat untuk diskusi selanjutnya.
 
+
+---
+
+### Otomatisasi Perhitungan dengan Python
+
+Perhitungan Adjusted-Wald juga dapat diotomatiskan dengan mudah menggunakan Python. Ini sangat berguna jika Anda perlu menghitung interval ini berulang kali dengan data yang berbeda.
+
+```python
+import numpy as np
+from scipy import stats
+
+# --- Variabel yang Perlu Diisi ---
+jumlah_berhasil = 12
+total_sampel = 15
+tingkat_keyakinan = 0.95
+
+# --- Fungsi Perhitungan Statistik (Metode Adjusted-Wald) ---
+
+def hitung_ci_adjusted_wald(x, n, confidence_level):
+  """Menghitung Confidence Interval untuk proporsi binomial menggunakan metode Adjusted-Wald."""
+  # 1. Dapatkan nilai Z-kritis
+  # Alpha adalah 1 - tingkat keyakinan
+  alpha = 1 - confidence_level
+  # ppf (percent point function) untuk mendapatkan z-score dari alpha/2
+  z_kritis = stats.norm.ppf(1 - alpha / 2)
+  
+  # 2. Hitung jumlah keberhasilan dan sampel yang disesuaikan
+  # Untuk CI 95%, z^2 kira-kira 4. Jadi kita menambahkan 2 keberhasilan & 2 kegagalan
+  x_adj = x + (z_kritis**2 / 2)
+  n_adj = n + z_kritis**2
+  
+  # 3. Hitung proporsi yang disesuaikan
+  p_adj = x_adj / n_adj
+  
+  # 4. Hitung Margin of Error (MoE)
+  margin_of_error = z_kritis * np.sqrt(p_adj * (1 - p_adj) / n_adj)
+  
+  # 5. Hitung Batas Bawah dan Atas CI
+  batas_bawah = p_adj - margin_of_error
+  batas_atas = p_adj + margin_of_error
+  
+  return (p_adj, margin_of_error, batas_bawah, batas_atas)
+
+
+# --- Proses Kalkulasi ---
+
+(proporsi_adj, moe, ci_bawah, ci_atas) = hitung_ci_adjusted_wald(jumlah_berhasil, total_sampel, tingkat_keyakinan)
+
+# --- Menampilkan Hasil ---
+
+print("--- Hasil Perhitungan Adjusted-Wald CI ---")
+print(f"Proporsi Sampel Awal: {jumlah_berhasil/total_sampel:.1%}")
+print(f"Proporsi Disesuaikan (p̃): {proporsi_adj:.3f}")
+print(f"Margin of Error (MoE): {moe:.3f}")
+print("-" * 42)
+print(f"Confidence Interval {tingkat_keyakinan:.0%}:")
+print(f"Batas Bawah: {ci_bawah:.3f} (atau {ci_bawah:.1%})")
+print(f"Batas Atas : {ci_atas:.3f} (atau {ci_atas:.1%})")
+print("-" * 42)
+print("Interpretasi: Kami " + f"{tingkat_keyakinan:.0%}" + " yakin bahwa tingkat keberhasilan populasi yang sebenarnya adalah antara " + f"{ci_bawah:.1%}" + " dan " + f"{ci_atas:.1%}.")
+```
+
+``` Output
+
+--- Hasil Perhitungan Adjusted-Wald CI ---
+Proporsi Sampel Awal: 80.0%
+Proporsi Disesuaikan (p̃): 0.737
+Margin of Error (MoE): 0.198
+------------------------------------------
+Confidence Interval 95%:
+Batas Bawah: 0.539 (atau 53.9%)
+Batas Atas : 0.935 (atau 93.5%)
+------------------------------------------
+Interpretasi: Kami 95% yakin bahwa tingkat keberhasilan populasi yang sebenarnya adalah antara 53.9% dan 93.5%.
+```
+
 ## Kesimpulan
 Seperti yang dikatakan oleh George Box, "Semua model itu salah, tetapi beberapa di antaranya berguna." Estimasi titik adalah model yang salah dan seringkali tidak berguna. *Confidence Interval* juga merupakan model, tetapi ia sangat berguna karena memuat pengakuan akan kesalahannya sendiri—ketidakpastian. Saat Anda menyajikan hasil riset berikutnya, tantang diri Anda dan para stakeholder. Jangan hanya memberikan satu angka. Berikanlah sebuah kompas: tunjukkan lokasinya (estimasi titik) dan, yang lebih penting, tunjukkan rentang presisinya (Confidence Interval). Dengan melakukan ini, Anda tidak hanya melaporkan data; Anda memfasilitasi pengambilan keputusan yang lebih cerdas, jujur, dan tangguh.
 
