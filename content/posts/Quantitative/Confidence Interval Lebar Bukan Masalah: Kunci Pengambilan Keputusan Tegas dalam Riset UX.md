@@ -118,7 +118,8 @@ Tim melakukan usability test dengan 12 pengguna baru dan mendapatkan hasil berik
 2.  **Pilih Metode**: Karena kita ingin melakukan uji satu arah dengan keyakinan 95% ($\alpha=0.05$), kita akan menghitung CI 90% dan memeriksa batas atasnya.
 
 3.  **Hitung Standard Error (SE)**:
-    $$SE = \frac{s}{\sqrt{n}} = \frac{25}{\sqrt{12}} \approx 7.217$$
+    <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>
+    $$SE = \frac{s}{\sqrt{n}} = \frac{25}{\sqrt{12}} \approx 7.217$$</p></div>
 
 4.  **Tentukan Nilai t-kritis**:
     * Tingkat kepercayaan = 90%
@@ -126,10 +127,13 @@ Tim melakukan usability test dengan 12 pengguna baru dan mendapatkan hasil berik
     * Menggunakan tabel t-distribusi atau kalkulator online untuk $df=11$ dan $\alpha=0.10$ (dua arah), nilai t-kritisnya adalah 1.796.
 
 5.  **Hitung Margin of Error (ME)**:
-    $$ME = t \times SE = 1.796 \times 7.217 \approx 12.96$$
+  <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>
+    $$ME = t \times SE = 1.796 \times 7.217 \approx 12.96$$</p></div>
 
 6.  **Hitung *confidence interval* 90%**:
-    $$CI = \bar{x} \pm ME = 165 \pm 12.96$$
+    <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>
+    $$CI = \bar{x} \pm ME = 165 \pm 12.96$$</p></div>
+    
     * Batas Bawah = $165 - 12.96 = 152.04$
     * Batas Atas = $165 + 12.96 = 177.96$
     * Rentang CI 90% adalah (152.04 detik, 177.96 detik).
