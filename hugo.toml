@@ -41,6 +41,20 @@ pagination.pagerSize = 12
   [caches.images]
     dir = ':cacheDir/images'
 
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "categories"
+    weight = 100 
+  [[related.indices]]
+    name = "tags"
+    weight = 80  
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.extensions]
