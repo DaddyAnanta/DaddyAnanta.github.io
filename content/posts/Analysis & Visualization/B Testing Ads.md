@@ -2,7 +2,7 @@
 title = 'A/B Testing Ads'
 date = 2025-05-28T00:37:00+00:00
 draft = false
-description = "Pada kesempatan ini, saya menganalisis data e-commerce yang dipilih secara acak dari Kaggle. Dataset ini berisi informasi tentang transaksi penjualan barang di sebuah perusahaan e-commerce yang beroperasi di Brasil."
+description = ""
 image = "/images/Analysis_and_Visualization/ab_testing_ad/1.webp"
 imageBig= "/images/Analysis_and_Visualization/ab_testing_ad/1.webp"
 categories= ["Analysis and Visualization"]
