@@ -6,7 +6,7 @@ description = ""
 image = "/images/Analysis_and_Visualization/ab_testing_ad/1.webp"
 imageBig= "/images/Analysis_and_Visualization/ab_testing_ad/1.webp"
 categories= ["Analysis and Visualization"]
-tags= ["Python", "ab testing", pengambilan keputusan"]
+tags= ["Python", "ab testing", "pengambilan keputusan"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
