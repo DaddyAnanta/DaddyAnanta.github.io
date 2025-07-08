@@ -25,6 +25,14 @@
   --dropdown-hover-bg: #4D55CC;
   --search-bg: rgba(255, 255, 255, 0.1);
   --search-hover-bg: rgba(255, 255, 255, 0.2);
+
+   --card-bg-color: #ffffff;
+  --card-text-color: #222222;
+  --card-tag-bg-color: #f0f0f0;
+  --card-tag-text-color: #555555;
+  --card-shadow-color: rgba(0, 0, 0, 0.08);
+  --card-border-radius: 12px;
+  --swiper-theme-color: #dc2626;
 }
 
 * {
@@ -1743,6 +1751,112 @@ a {
   color: #555555;
 }
 
+/* Swipper js start */
+
+/* Bagian pembungkus utama */
+
+/* 2. Pembungkus Seluruh Bagian */
+.related-posts-section {
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+
+/* 3. Container Utama Swiper (Menggunakan Class Baru) */
+.post-carousel {
+  width: 100%;
+  overflow: hidden; /* Penting untuk memotong slide yang tidak terlihat */
+  padding: 10px 0 30px 0 !important; /* Ruang untuk bayangan kartu dan scrollbar */
+  cursor: grab;
+}
+.post-carousel:active {
+  cursor: grabbing;
+}
+
+.swiper-wrapper{display: flex;}
+
+/* 4. Elemen Slide (Dibiarkan "Bersih") */
+.swiper-slide {
+  height: auto;
+  display: flex;
+  /* ❌ JANGAN tambahkan padding atau width di sini */
+}
+
+/* 5. Kartu Postingan (Di sinilah semua gaya visual berada) */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  width: 600px; /* Kartu mengisi penuh ruang slide */
+  height: 400px;
+  background-color: var(--card-bg-color);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 4px 12px var(--card-shadow-color);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 19 / 12;
+  background-color: #f0f0f0;
+}
+.post-card-image{
+  width: 100%;
+  margin: 0 0px;
+  height: 100%;
+  object-fit: cover;
+}
+.post-card-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.post-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 30px;
+}
+.post-card-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background-color: var(--card-tag-bg-color);
+  color: var(--card-tag-text-color);
+}
+.singleContent .post-card-title h5{
+    font-size: 0.4rem;
+  line-height: 1.4;
+  color: var(--card-text-color);
+  margin-top: 10px;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 6. Elemen UI Swiper (Scrollbar & Panah) */
+.post-carousel .swiper-scrollbar {
+  background: #f0f0f0;
+  bottom: 0 !important;
+  height: 5px !important;
+}
+.post-carousel .swiper-scrollbar-drag {
+  background: var(--swiper-theme-color);
+}
+.post-carousel .swiper-button-prev,
+.post-carousel .swiper-button-next {
+  display: none; /* Sembunyikan panah di mobile */
+}
+/* swipper end */
+
 /* SOCIAL MEDIA SHARE START*/
 .social-share {
   margin: -1rem 0 2rem 0;
@@ -2001,6 +2115,44 @@ pre {
     flex-direction: column-reverse;
   }
 
+  /* swipper start*/
+  .related-posts-section {
+    padding: 0 40px; /* Ruang untuk panah di sisi kiri-kanan */
+  }
+  .swiper-nav-wrapper {
+  display: flex; /* Mengaktifkan Flexbox */
+  justify-content: center; /* Opsional: menengahkan tombol jika perlu */
+  align-items: center;
+  gap: 16px; 
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+/* Menata ulang tombol navigasi */
+.post-carousel .swiper-button-prev,
+.post-carousel .swiper-button-next {
+  display: inline-flex;
+  position: static; 
+  width: 48px;  
+  height: 48px; 
+  margin: 0;
+  background-color: #bb0a0a;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Menyesuaikan ukuran ikon Font Awesome */
+.swiper-button-prev i,
+.swiper-button-next i {
+  font-size: 18px; 
+  color: #ffffff;
+}
+
+  /* swipper end */
+
   .footer-title {
     font-size: 1.2em;
   }
@@ -2229,7 +2381,6 @@ pre {
   .singleContent img {
     align-items: center;
     display: flex;
-    width: 30px;
     width: 60px;
   }
 
@@ -2265,6 +2416,18 @@ pre {
     line-height: 1.6;
     font-family: 'Times New Roman', Times, serif;
   }
+
+
+  /* Swipper start */
+.post-card-content {
+    padding: 20px; /* Beri spasi lebih banyak di desktop */
+  }
+
+  .post-card-title {
+    font-size: 1.2rem; /* Sedikit perbesar font judul di desktop */
+  }
+  /* swipper end */
+
 
   
 
@@ -2480,19 +2643,13 @@ ul.share-icons li:hover .share-btn p {
   }
 
   .singleHeadDetail {
-    flex-wrap: wrap; /* Izinkan item untuk turun ke baris baru */
-    row-gap: 15px;   /* Beri jarak vertikal antar baris yang baru terbentuk */
-  }
-
-  .singleHeadDetail .reading-stats {
-    flex-basis: 50%; /* Buat lebarnya 100%, memaksanya turun ke baris baru */
-    order: 3; 
-    display: flex;
-    justify-content: space-between; /* Sebarkan isinya (word count & reading time) */
+    font-size: 13px;
+    gap: 2px;
+    color: #888888;
   }
 
   .single-meta-item span{
-    font-size: 13px;    
+    font-size: 13px;
   }
 
   .singleHeadTitle {
