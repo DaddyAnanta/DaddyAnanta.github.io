@@ -127,19 +127,59 @@
         {{ partial "socialshare.html" . }}
         {{ end }}
 
-<div class="singleRelatedPosts">
-          <h2>Related Posts</h2>
-          <ul>
-            {{ $related := .Site.RegularPages.Related . | first 8 }}
-            {{ with $related }}
-              {{ range . }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+
+
+{{/* --- BAGIAN RELATED POSTS DENGAN CAROUSEL --- */}}
+
+{{/* 1. Ambil data related posts terlebih dahulu */}}
+{{ $related := .Site.RegularPages.Related . | first 8 }}
+
+{{/* 2. Hanya tampilkan seluruh bagian ini JIKA ada related posts */}}
+{{ with $related }}
+<div class="related-posts-section">
+  <h2>Related Posts</h2>
+  <div class="swiper post-carousel">
+    <div class="swiper-wrapper">
+      {{ range . }}
+        <div class="swiper-slide">
+          <article class="post-card">
+            <a href="{{ .Permalink }}" class="post-card-link">
+              {{ with .Params.image }}
+                <div class="post-card-image-wrapper">
+                  <img style="margin-top: 0;" src="{{ . }}" alt="Gambar untuk {{ $.Title }}" class="post-card-image" loading="lazy">
+                </div>
+              {{ else }}
+                <div class="post-card-image-wrapper">
+                  <img src="/images/default-thumbnail.jpg" alt="Gambar default" class="post-card-image" loading="lazy">
+                </div>
               {{ end }}
-            {{ else }}
-              <li>No related posts found.</li>
-            {{ end }}
-          </ul>
+              <div class="post-card-content">
+                <div class="post-card-tags">
+                  {{ with .Params.tags }}
+                    {{ range first 2 . }}
+                      <span class="post-card-tag">{{ . }}</span>
+                    {{ end }}
+                  {{ end }}
+                </div>
+                <h5 class="post-card-title">{{ .Title }}</h5>
+              </div>
+            </a>
+          </article>
         </div>
+      {{ end }}
+    </div>
+<div class="swiper-nav-wrapper">
+  <div class="swiper-button-prev">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="swiper-button-next">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+</div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</div>
+{{ end }}{{/* Akhir dari 'with $related' */}}
       </div>
     </div>
 
@@ -191,6 +231,49 @@
   mybutton.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'}); // Gulir dengan animasi halus
   }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const postCarousel = new Swiper('.post-carousel', {
+    // Pengaturan dasar untuk mobile
+    slidesPerView: 1.1, // 
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 16,
+    grabCursor: true,
+    
+    // Modul UI
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    // Pengaturan untuk layar lebih besar
+    breakpoints: {
+      // Tablet (640px ke atas)
+
+      411:{
+      slidesPerView: 3, 
+      spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 2.2, // 👈 Diperlebar dari 2.5
+        spaceBetween: 20,
+      },
+      // Desktop (1024px ke atas)
+      1024: {
+        slidesPerView: 3, // 👈 Diperlebar dari 4
+        spaceBetween: 24,
+        loop: false,
+        centeredSlides: false,
+      },
+    },
+  });
 </script>
 
   {{ end }}
