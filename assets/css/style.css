@@ -1783,7 +1783,7 @@ a {
 }
 
 /* 5. Kartu Postingan (Di sinilah semua gaya visual berada) */
-.post-card {
+.swiper-post-card {
   display: flex;
   flex-direction: column;
   width: 600px; /* Kartu mengisi penuh ruang slide */
