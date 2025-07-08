@@ -271,6 +271,11 @@ a {
   background-image: var(--nav-bg);
   color: var(--nav-text-color);
   z-index: 1000;
+
+    background-color: rgba(61, 68, 156, 0.85); /* Warna solid dengan transparansi */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -1003,7 +1008,7 @@ a {
 
 .footer {
   margin-top: 60px;
-  background-color: #18191a;
+  background-color: #18191a;;
   color: #fff;
   text-align: center;
 }
