@@ -942,7 +942,7 @@ ul.share-icons li:hover .tooltip {
 }
 .post-content ul, .post-content ol { padding-left: 25px; margin-bottom: 25px; }
 .post-content li { margin-bottom: 10px; }
-.post-content img { max-width: 100%; height: auto; border-radius: 8px; }
+.post-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
 
 /* PERBAIKAN: Styling untuk blok kode <pre> */
 .post-content pre {
