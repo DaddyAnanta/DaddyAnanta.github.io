@@ -1,8 +1,8 @@
 +++
-title = 'Analisis Sentimen dan Word Cloud Animasi Jumbo Menggunakan Python'
+title = "Studi Kasus: Analisis Sentimen Publik Terhadap Animasi 'Jumbo' Menggunakan Python"
 date = 2025-04-22T21:37:16+07:00
 draft = false
-description = "Serial animasi Jumbo merupakan serial animasi karya anak bangsa yang menceritakan tentang kehidupan sehari-hari seorang anak bernama Jumbo yang penuh dengan rasa ingin tahu dan semangat petualangan. Mengangkat latar budaya Indonesia, serial ini menggambarkan bagaimana Jumbo dan teman-temannya menghadapi berbagai situasi dengan cara yang lucu, seru, dan sarat pesan moral. Dengan cerita yang ringan namun bermakna, Jumbo menjadi cerminan dari masa kecil yang penuh warna serta pentingnya nilai-nilai seperti kerja sama, kejujuran, dan rasa hormat terhadap sesama. Animasi ini menjadi bukti bahwa industri kreatif Indonesia mampu menciptakan tontonan yang berkualitas dan membumi bagi generasi muda."
+description = ""
 image = "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.png"
 imageBig= "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.png"
 categories= ["Analysis and Visualization"]
@@ -10,28 +10,27 @@ tags= ["Sentimen Analysis"]
 avatar="/images/profil.jpeg"
 +++
 
-
-Kepopulerannya terus meningkat hingga Jumbo berhasil mencetak rekor penonton, bahkan digadang-gadang mampu mengalahkan pendapatan animasi Frozen. Ini menjadi tonggak penting bagi industri animasi lokal, menunjukkan bahwa karya anak bangsa bisa bersaing di kancah global dengan karakter yang kuat, cerita yang relevan, dan kualitas produksi yang tidak kalah dari buatan luar negeri.
+Animasi "Jumbo" telah menjadi sebuah fenomena budaya di Indonesia. Serial yang mengangkat kearifan lokal ini berhasil mencetak rekor penonton dan menjadi tonggak penting bagi industri animasi nasional, membuktikan kemampuannya bersaing di kancah global.
 
 # Kontroversi di Balik Popularitas
 
-Dengan banyaknya pandangan positif terkait animasi ini, pada tanggal sekian Wakil Presiden Gibran menyampaikan pendapatnya mengenai munculnya era baru animasi Indonesia di YouTube. Pernyataan tersebut disampaikan dalam sebuah unggahan yang bertujuan untuk mengapresiasi kemajuan industri kreatif tanah air. Namun, unggahan tersebut justru menuai beragam respons dari netizen. Banyak yang memberikan kritik tajam dan menilai pernyataan tersebut terlalu dibesar-besarkan. Tak sedikit pula yang menekan tombol dislike di YouTube, menandakan adanya perbedaan pandangan publik terhadap klaim tersebut.
+
+Di tengah kesuksesannya, muncul diskursus publik yang luas, salah satunya dipicu oleh unggahan Wakil Presiden Gibran Rakabuming Raka yang mengapresiasi "Jumbo" sebagai penanda era baru animasi Indonesia. Unggahan ini menuai respons yang sangat beragam dari netizen, mulai dari dukungan hingga kritik tajam yang menganggap pernyataan tersebut berlebihan. Perbincangan yang terpolarisasi inilah yang menjadikan "Jumbo" sebagai studi kasus yang ideal untuk dianalisis menggunakan pendekatan *data science*.
+
+Tujuan analisis ini adalah untuk membedah spektrum opini publik secara objektif, memahami sentimen yang dominan, dan mengidentifikasi tema-tema utama dalam perbincangan tersebut.
 
 
-Meskipun sempat menuai kritik atas pernyataannya mengenai era baru animasi Indonesia di YouTube, Wakil Presiden Gibran Rakabuming Raka tetap menunjukkan dukungannya terhadap karya anak bangsa. Pada Jumat, 11 April 2025, Gibran mengajak 139 anak yatim dari empat panti asuhan di Jakarta untuk menonton film animasi lokal berjudul Jumbo di Senayan City, Jakarta Pusat .​
+
+## Metodologi Analisis Sentimen
+
+Untuk studi kasus ini, kami menganalisis sampel 1.000 komentar dari Twitter yang dikumpulkan sejak hari pertama penayangan film, 31 Maret 2025. Dataset mentah dapat diakses melalui tautan berikut: [Jumbo Dataset](https://github.com/DaddyAnanta/Data/blob/main/Jumbo-sentimen-analysis/serial_jumbo.csv).
+
+Proses analisis dibagi menjadi beberapa tahap utama, mulai dari persiapan lingkungan, pra-pemrosesan teks, hingga analisis sentimen menggunakan model *machine learning* dan visualisasi hasilnya.
 
 
-# Analisis Sentimen
+### Langkah 1: Persiapan Lingkungan Kerja
 
-Di sini, kita akan mencoba menganalisis 1.000 komentar dari Twitter yang menjadi sampel terkait animasi Jumbo. Sampel ini dikumpulkan dari tanggal 31 Maret 2025 — bertepatan dengan hari pertama penayangan animasi tersebut — hingga saat ini. Komentar-komentar tersebut mencerminkan berbagai sudut pandang masyarakat, mulai dari dukungan terhadap karya anak bangsa hingga kritik terhadap promosi dan ekspektasi yang dibangun di sekitarnya.
-
-Dataset lengkap dapat Anda unduh melalui tautan berikut: <a href="https://github.com/DaddyAnanta/Data/blob/main/Jumbo-sentimen-analysis/serial_jumbo.csv">Jumbo Dataset</a>.
-
-
-## Persiapan Awal: Impor Pustaka dan Unduh Modul
-
-Langkah pertama adalah mengimpor semua pustaka Python yang kita butuhkan untuk analisis ini. Ini mencakup pustaka untuk manipulasi data (Pandas, NumPy), pemrosesan teks (re, NLTK, Sastrawi), analisis sentimen (TextBlob), visualisasi (Matplotlib), dan pembuatan word cloud (WordCloud). Kita juga perlu mengunduh beberapa modul NLTK (stopwords, punkt) yang diperlukan untuk pemrosesan teks Bahasa Indonesia.
-
+Tahap awal adalah mengimpor semua *library* Python yang dibutuhkan untuk manipulasi data (Pandas), pemrosesan bahasa alami (NLTK, Sastrawi), analisis sentimen (Hugging Face Transformers), dan visualisasi (Matplotlib, WordCloud).
 
 ``` Python
 import pandas as pd
@@ -57,37 +56,37 @@ nltk.download('punkt_tab')
 nltk.download('punkt')
 ``` 
 
-## Memuat Data Komentar
-Setelah pustaka siap, kita muat dataset komentar Twitter mentah dari file CSV (serial_jumbo.csv) ke dalam sebuah DataFrame Pandas untuk diproses lebih lanjut.
+## Langkah 2: Pemuatan dan Pra-pemrosesan Teks
+
+Data mentah dari media sosial berisi banyak sekali "noise" yang dapat mengganggu analisis. Oleh karena itu, serangkaian langkah pembersihan dan standardisasi teks wajib dilakukan.
+
+### Memuat Data Komentar
+
+Data komentar mentah dimuat dari file CSV ke dalam DataFrame Pandas.
+
+
 
 ``` Python
-
 df = pd.read_csv('serial_jumbo.csv')
 df.head()
-``` 
+```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/2.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/2.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
-### Memilih Kolom Teks dan Merapikan Index
-Untuk fokus pada analisis teks, kita buat salinan DataFrame dan hanya pilih kolom full_text yang berisi komentar. Kita juga melakukan reset_index() agar penomoran baris menjadi standar (0, 1, 2, ...).
+### Memilih Kolom Teks dan Merapikan Indeks
+
+Untuk fokus pada konten komentar, kita hanya akan menggunakan kolom `full_text` dan mereset indeks DataFrame agar standar.
+
+
 
 ``` Python
 df1 = df.copy()
 df1 = df1["full_text"].reset_index()
-
-``` 
+```
 
 ### Pembersihan Teks Tahap 1: Regex
-Teks dari media sosial seringkali mengandung noise. Kita definisikan fungsi clean_text menggunakan regular expression (regex) untuk membersihkan teks dari:
 
-Username (@mention)
-Hashtag (#topic)
-Indikator Retweet ('RT ')
-URL (http/https)
-Karakter selain huruf, angka, dan spasi
-Spasi berlebih Fungsi ini diterapkan untuk membuat kolom baru text_clean.
+Fungsi _Regular Expression_ (Regex) diterapkan untuk membersihkan teks dari elemen-elemen yang tidak relevan untuk analisis sentimen, seperti _username_, _hashtag_, URL, dan karakter non-alfanumerik.
 
 ``` Python
 def clean_text(text):
@@ -102,39 +101,28 @@ df1['text_clean'] = df1["full_text"].apply(clean_text)
 df1
 ```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/3.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/3.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Pembersihan Teks Tahap 2: Konversi ke Huruf Kecil
-Untuk menyeragamkan teks dan memastikan kata seperti "Bagus" dan "bagus" dianggap sama, kita konversi semua isi kolom text_clean menjadi huruf kecil (lowercase).
 
+Untuk menyeragamkan korpus, semua teks diubah menjadi huruf kecil (_lowercase_).
 
 ``` Python
 df1["text_clean"] = df1["text_clean"].str.lower()
 df1.head()
-``` 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/4.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+```
 
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/4.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Pembersihan Teks Tahap 3: Penghapusan Stopword (Sastrawi)
-Kata-kata umum dalam Bahasa Indonesia seperti 'yang', 'di', 'ke', 'dari', 'ini', 'itu' (disebut stopwords) sering muncul namun kurang memberikan makna sentimen. Kita gunakan library Sastrawi yang spesifik untuk Bahasa Indonesia untuk menghapus stopwords ini dari kolom text_clean.
 
-
+Kata-kata umum tanpa makna sentimen (_stopwords_) seperti 'yang', 'di', 'dari', akan dihapus menggunakan _library_ **Sastrawi**, yang dirancang khusus untuk Bahasa Indonesia.
 
 ``` Python
-
 import Sastrawi
-
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory, StopWordRemover, ArrayDictionary
 
-# more_stop_words = ["tidak"]
-
 stop_words = StopWordRemoverFactory().get_stop_words()
-# stop_words.extend(more_stop_words)
-
 new_array = ArrayDictionary(stop_words)
 stop_words_remover_new = StopWordRemover(new_array)
 
@@ -144,173 +132,47 @@ def stopword(str_text):
 
 df1["text_clean"] = df1["text_clean"].apply(lambda x: stopword(x))
 df1.head()
-``` 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/5.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+```
 
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/5.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Checkpoint 1: Simpan Hasil Pembersihan Awal
-Untuk menyimpan progres setelah langkah-langkah pembersihan awal (regex, lowercase, stopword removal), kita simpan DataFrame df1 ke sebuah file CSV baru. Ini berguna agar kita tidak perlu mengulang proses dari awal jika terjadi error di langkah selanjutnya.
+
+Progres pembersihan disimpan ke file CSV baru untuk menghindari pengulangan proses jika terjadi interupsi.
 
 ``` Python
 df1.to_csv("abbriviation.csv")
-
-``` 
+```
 
 ### Normalisasi Teks: Penggantian Singkatan/Slang
-Bahasa dalam cuitan Twitter seringkali tidak baku dan menggunakan banyak singkatan atau slang. Kita definisikan sebuah kamus (abbreviation_dict) yang berisi pasangan singkatan dan bentuk bakunya. Kemudian, kita buat fungsi replace_abbreviations untuk mengganti setiap singkatan dalam teks dengan bentuk bakunya berdasarkan kamus tersebut. Hasilnya disimpan dalam kolom baru text_clean_abbr.
 
-
+Komentar di Twitter sering kali menggunakan bahasa tidak baku. Sebuah kamus normalisasi dibuat untuk mengubah singkatan dan slang ke bentuk standarnya.
 
 ``` Python
-
 # clear coloumn
 pd.set_option('display.max_colwidth', None)
-
 
 df2 = df1.copy()
 
 abbreviation_dict = {
-    "yg": "yang",
-    "tdk": "tidak",
-    "gk": "nggak",
-    "ga": "nggak",
-    "dlm": "dalam",
-    "sdh": "sudah",
-    "blm": "belum",
-    "tp": "tapi",
-    "krn": "karena",
-    "dr": "dari",
-    "utk": "untuk",
-    "dgn": "dengan",
-    "aja": "saja",
-    "gokillll": "gokil",
-    "gak": "tidak",
-    "bgt": "banget",
-    "anak2nya": "anak anaknya",
-    "bg": "bang",
-    "inj": "in journey",
-    "getol": "berusaha keras",
-    "emak2": "emak-emak",
-    "tgk": "tengok",
-    "ni": "ini",
-    "dooo": "dong",
-    "kyknya": "kayaknya",
-    "knp": "kenapa",
-    "jd": "jadi",
-    "q1": "kuartal 1",
-    "q2": "kuartal 2",
-    "btw": "by the way",
-    "soksokan": "sok-sokan",
-    "pke": "pakai",
-    "nobar": "nonton bareng",
-    "ttg": "tentang",
-    "fomo": "fear of missing out",
-    "pansos": "pencitraan sosial",
-    "id": "indonesia",
-    "ri":"republik indonesia",
-    "gt" : "gitu",
-    "apaa":"apa",
-    "sma" : "sama",
-    "bhkn" : "bahkan",
-    "nntn" : "nonton",
-    "bsok" : "besok",
-    "moga" : "semoga",
-    "jg" : "juga",
-    "sblm" : "sebelum",
-    "mengagung2kan" : "mengagung agungkan",
-    "bener2" : "benar benar",
-    "samaaaaa" : "sama",
-    "tntg" : "tentang",
-    "ny" : "nya",
-    "tiba2" : "tiba tiba",
-    "gw" : "saya",
-    "aku" : "saya",
-        "rp": "rupiah",
-    "jadi": "menjadi",
-    "raup": "meraih",
-    "horor2nya": "horor horornya",
-    "trsss": "terus",
-    "cuihhhhhhhh": "cuih",
-    "film2" : "film film",
-    "dompet10" : "dompet",
-    "lg" : "lagi",
-    "masingmasing" : "masing masing",
-    "bgtttt" : "banget",
-    "gada": "tidak ada",
-    "gapapa": "nggak apa-apa",
-    "kalo": "kalau",
-    "dapet": "dapat",
-    "acuh": "cuek",
-    "misuh2": "misuh-misuh",
-    "bagusss" : "bagus",
-    "au": "tidak tahu",
-    "lho": "loh",
-    "ampe" : "sampai",
-    "udh" : "udah",
-    "ngmg": "ngomong",
-    "bgtt" : "banget",
-    "janji2an" : "janji janjian",
-    "kelar2" : "kelar kelar",
-    "amp" : "sampai",
-    "kenapaaaaaaaaa" : "kenapa",
-    "bangettt" : "banget",
-    "anak2" : "anak anak",
-    "ttp" : "tetap",
-    "emg" : "memang",
-    "anakanak": "anak anak",
-    "baca2" : "baca baca",
-    "novel2" : "novel novel",
-    "gara2" : "gara gara",
-    "gituu" : "gitu",
-    "srg" :"sering",
-     "aelah": "alah",
-    "lakilaki":"laki laki",
-    "bro": "bang",
-    "teruuuusssssss" : "terus",
-    "se": "sangat",
-    "coy": "cuy",
-    "bgs" : "bagus",
-    "gaada" : "tidak ada",
-    "bkn" : "bukan",
-    "buzzerbuzzer" : "buzzer buzzer",
-    "fenomena2" : "fenomena fenomena",
-    "gembor2": "gembar-gembor",  
-    "nimbrung": "ikut campur",
-    "nggak": "tidak",
-    "blokk": "blok",
-    "plssss" : "please",
-    "pliss" : "please",
-    "bukn" : "bukan",
-    "wapres" : "wakil presiden",
-    "cmn" : "hanya",
-    "tpi" : "tapi",
-    "b ajaa" : "biasa aja",
-    "bejir" : "astaga",
-    "masing2" : "masing masing",
-    "ofj": "oke fine juga",  
-    "wamen": "wakil menteri",
-    "wamenekraf": "wakil menteri ekonomi kreatif",
-    "bs": "bisa",
-    "gpp": "nggak apa-apa",
-    "ig": "Instagram",
-    "filmanimasi": "film animasi",
-    "bs": "bisa",
-    "bgt": "banget",
-    "memng" : "memang",
-    "syg" : "sayang",
-    "gtu" : "gitu",
-    "byk" : "banyak",
-    "cth" : "contoh",
-    "sia2" : "sia sia",
-    "berkalikali" : "berkalikali",
-    "berkali kali" : "berkalikali",
-    "Bcs" : "Because",
-    "sy" : "saya",
-    "sok-sokan" : "soksokan",
-    "kl" : "jika"
-    
+    "yg": "yang", "tdk": "tidak", "gk": "nggak", "ga": "nggak", "dlm": "dalam", "sdh": "sudah", "blm": "belum", "tp": "tapi", "krn": "karena",
+    "dr": "dari", "utk": "untuk", "dgn": "dengan", "aja": "saja", "gokillll": "gokil", "gak": "tidak", "bgt": "banget", "anak2nya": "anak anaknya",
+    "bg": "bang", "inj": "in journey", "getol": "berusaha keras", "emak2": "emak-emak", "tgk": "tengok", "ni": "ini", "dooo": "dong", "kyknya": "kayaknya",
+    "knp": "kenapa", "jd": "jadi", "q1": "kuartal 1", "q2": "kuartal 2", "btw": "by the way", "soksokan": "sok-sokan", "pke": "pakai", "nobar": "nonton bareng",
+    "ttg": "tentang", "fomo": "fear of missing out", "pansos": "pencitraan sosial", "id": "indonesia", "ri": "republik indonesia", "gt": "gitu", "apaa": "apa",
+    "sma": "sama", "bhkn": "bahkan", "nntn": "nonton", "bsok": "besok", "moga": "semoga", "jg": "juga", "sblm": "sebelum", "mengagung2kan": "mengagung agungkan",
+    "bener2": "benar benar", "samaaaaa": "sama", "tntg": "tentang", "ny": "nya", "tiba2": "tiba tiba", "gw": "saya", "aku": "saya", "rp": "rupiah",
+    "jadi": "menjadi", "raup": "meraih", "horor2nya": "horor horornya", "trsss": "terus", "cuihhhhhhhh": "cuih", "film2": "film film", "dompet10": "dompet",
+    "lg": "lagi", "masingmasing": "masing masing", "bgtttt": "banget", "gada": "tidak ada", "gapapa": "nggak apa-apa", "kalo": "kalau", "dapet": "dapat",
+    "acuh": "cuek", "misuh2": "misuh-misuh", "bagusss": "bagus", "au": "tidak tahu", "lho": "loh", "ampe": "sampai", "udh": "udah", "ngmg": "ngomong",
+    "bgtt": "banget", "janji2an": "janji janjian", "kelar2": "kelar kelar", "amp": "sampai", "kenapaaaaaaaaa": "kenapa", "bangettt": "banget", "anak2": "anak anak",
+    "ttp": "tetap", "emg": "memang", "anakanak": "anak anak", "baca2": "baca baca", "novel2": "novel novel", "gara2": "gara gara", "gituu": "gitu", "srg": "sering",
+    "aelah": "alah", "lakilaki": "laki laki", "bro": "bang", "teruuuusssssss": "terus", "se": "sangat", "coy": "cuy", "bgs": "bagus", "gaada": "tidak ada",
+    "bkn": "bukan", "buzzerbuzzer": "buzzer buzzer", "fenomena2": "fenomena fenomena", "gembor2": "gembar-gembor", "nimbrung": "ikut campur", "nggak": "tidak",
+    "blokk": "blok", "plssss": "please", "pliss": "please", "bukn": "bukan", "wapres": "wakil presiden", "cmn": "hanya", "tpi": "tapi", "b ajaa": "biasa aja",
+    "bejir": "astaga", "masing2": "masing masing", "ofj": "oke fine juga", "wamen": "wakil menteri", "wamenekraf": "wakil menteri ekonomi kreatif", "bs": "bisa",
+    "gpp": "nggak apa-apa", "ig": "Instagram", "filmanimasi": "film animasi", "memng": "memang", "syg": "sayang", "gtu": "gitu", "byk": "banyak", "cth": "contoh",
+    "sia2": "sia sia", "berkalikali": "berkalikali", "berkali kali": "berkalikali", "Bcs": "Because", "sy": "saya", "sok-sokan": "soksokan", "kl": "jika"
 }
 
 def replace_abbreviations(text):
@@ -320,26 +182,24 @@ def replace_abbreviations(text):
 
 df2['text_clean_abbr'] = df2['text_clean'].apply(replace_abbreviations)
 df2['text_clean_abbr']
-``` 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/6.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+```
 
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/6.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
-## Tokenisasi Teks
-Tokenisasi adalah proses memecah kalimat atau teks menjadi unit-unit kata atau simbol individual yang disebut token. Ini adalah langkah penting sebelum melakukan stemming atau analisis n-gram. Kita akan melakukan tokenisasi pada kolom text_clean (teks yang sudah dibersihkan dari stopwords, namun sebelum penggantian singkatan - perhatikan ini mungkin perlu disesuaikan jika stemming lebih baik dilakukan setelah normalisasi singkatan).
+### Tokenisasi Teks
+
+_Tokenisasi_ adalah proses memecah kalimat menjadi unit-unit kata individual (token), sebagai langkah persiapan sebelum _stemming_.
 
 ``` Python
 tokenized = df2["text_clean"].apply(lambda x:x.split())
 tokenized
+```
 
-``` 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/7.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/7.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Stemming Teks (Sastrawi)
-Stemming adalah proses mengubah kata ke bentuk dasarnya (kata dasar) dengan menghapus imbuhan. Misalnya, 'menganalisis', 'dianalisis' akan diubah menjadi 'analisis'. Kita gunakan kembali library Sastrawi untuk melakukan stemming pada daftar token yang sudah kita buat. Hasil stemming akan digabungkan kembali menjadi string per komentar.
+
+_Stemming_ adalah proses mengubah kata berimbuhan ke kata dasarnya (misal: 'menganalisis' menjadi 'analisis'). Proses ini membantu model mengenali inti makna dari berbagai variasi kata.
 
 ``` Python
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
@@ -353,34 +213,37 @@ def stemming(text_cleaning):
         do.append(dt)
     d_clean = []
     d_clean = " ".join(do)
-#     print(d_clean)
     return d_clean
+
 tokenized = tokenized.apply(stemming)
-``` 
+```
 
 ### Checkpoint 2: Simpan Hasil Stemming
-Kita simpan lagi hasil pemrosesan teks yang kini sudah melalui tahap stemming ke file CSV. Ini akan menjadi input untuk tahap translasi dan analisis sentimen.
 
+Hasil setelah _stemming_ disimpan untuk menjadi input tahap translasi dan analisis sentimen.
 
 ``` Python
 tokenized.to_csv("Data Animasi Jumbo/tokenized.csv",index=False)
-``` 
-### Memuat Data Hasil Stemming
-Muat kembali data yang sudah bersih dan di-stemming dari file CSV yang baru saja disimpan. Data ini siap untuk diterjemahkan.
+```
 
+### Memuat Data Hasil Stemming
+
+Memuat kembali data yang sudah bersih dan siap untuk diterjemahkan.
 
 ``` Python
 data = pd.read_csv("Data Animasi Jumbo/tokenized.csv")
 data.head()
-``` 
+```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/8.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/8.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
-## Translasi Teks ke Bahasa Inggris
-Library analisis sentimen TextBlob bekerja paling baik dengan teks Bahasa Inggris. Oleh karena itu, kita perlu menerjemahkan kolom teks Bahasa Indonesia (yang sudah di-stemming, text_stemmed) ke Bahasa Inggris. Kita gunakan library googletrans (perlu koneksi internet) dan definisikan fungsi translate_with_googletrans yang juga menyertakan penanganan error jika translasi gagal untuk suatu teks. Hasil terjemahan disimpan di kolom tweet_english.
+## Langkah 3: Analisis Sentimen dengan Model Transformer
 
+Untuk akurasi yang tinggi, kami menggunakan model _transformer_ canggih **`cardiffnlp/twitter-roberta-base-sentiment`**. Model ini dilatih secara spesifik pada data Twitter, sehingga mampu memahami konteks dan nuansa bahasa media sosial dengan lebih baik.
+
+### Translasi Teks ke Bahasa Inggris
+
+Karena model ini beroperasi optimal pada Bahasa Inggris, teks yang telah dibersihkan diterjemahkan terlebih dahulu menggunakan `googletrans`.
 
 ``` Python
 from googletrans import Translator
@@ -401,41 +264,38 @@ if "text_clean" in data.columns:
     data["tweet_english"] = data["text_clean"].apply(translate_with_googletrans)
 else:
     print("Error: Kolom 'text_clean' tidak ditemukan di DataFrame.")
-``` 
+```
 
 ### Checkpoint 3: Simpan Hasil Translasi
-Simpan kembali DataFrame yang kini sudah berisi kolom terjemahan Bahasa Inggris (tweet_english) ke dalam file CSV. Ini adalah data final yang siap untuk dianalisis sentimennya.
 
+Data yang sudah diterjemahkan disimpan sebelum proses analisis sentimen.
 
 ``` Python
 data.to_csv("translate.csv")
-``` 
+```
+
 ### Memuat Data Hasil Translasi
-Muat data final yang berisi semua kolom hasil pemrosesan, termasuk teks asli, teks bersih (stemmed), dan teks terjemahan Bahasa Inggris, untuk melakukan analisis sentimen.
+
+Memuat data final yang siap untuk dianalisis.
 
 ``` Python
 data = pd.read_csv("translate.csv")
 data.tail()
-``` 
+```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/10.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/10.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ``` Python
 data.to_csv("translate.csv")
-``` 
+```
 
-## Analisis Sentimen Menggunakan Model RoBERTa dari CardiffNLP
-Pada bagian ini, kita akan melakukan analisis sentimen terhadap komentar yang telah dikumpulkan dan diterjemahkan ke dalam Bahasa Inggris. Berbeda dengan pendekatan sebelumnya yang mungkin menggunakan TextBlob, kali ini kita akan memanfaatkan model transformer yang lebih canggih, yaitu cardiffnlp/twitter-roberta-base-sentiment. Model ini dilatih khusus untuk tugas analisis sentimen pada teks dari media sosial seperti Twitter, sehingga diharapkan dapat memberikan hasil yang lebih akurat dan kontekstual.
+### Klasifikasi Sentimen Menggunakan Model RoBERTa
 
-Pertama, kita akan memuat tokenizer dan model dari Hugging Face Transformers library. Kemudian, kita membuat sebuah pipeline untuk analisis sentimen yang memudahkan kita dalam memproses teks.
+Teks yang sudah diterjemahkan dimasukkan ke dalam _pipeline_ analisis sentimen dari Hugging Face Transformers untuk diklasifikasikan menjadi Positif, Negatif, atau Netral.
 
 ``` Python
-
 # Load model dan tokenizer dari CardiffNLP
 model_name = "cardiffnlp/twitter-roberta-base-sentiment"
-
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
@@ -448,16 +308,11 @@ data["sentiment"] = [r['label'] for r in results]
 
 # Tampilkan data
 data
-``` 
+```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/11.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/11.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
-
-
-Setelah mendapatkan hasil dari pipeline, label sentimen yang dihasilkan oleh model (misalnya, LABEL_0, LABEL_1, LABEL_2) perlu kita petakan ke kategori yang lebih mudah dipahami seperti 'Negatif', 'Netral', dan 'Positif'. Hasil pemetaan ini kemudian akan kita tambahkan sebagai kolom baru bernama sentiment ke dalam DataFrame data kita.
-
+Hasil label dari model (`LABEL_0`, `LABEL_1`, `LABEL_2`) dipetakan ke kategori yang lebih mudah dipahami.
 
 ``` Python
 label_map = {
@@ -469,27 +324,26 @@ data["sentiment"] = [label_map[r['label']] for r in results]
 data.sentiment.value_counts()
 ```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/12.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/12.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
+### Memfilter Data Berdasarkan Sentimen
 
-### Memfilter Data Positif
-Untuk menganalisis lebih spesifik kata-kata atau frasa yang sering muncul dalam komentar bernada positif, kita perlu memfilter DataFrame data dan membuat DataFrame baru (data_positif) yang hanya berisi baris dengan nilai 'Positif' pada kolom klasifikasi.
+Untuk analisis yang lebih spesifik, kita bisa memisahkan data berdasarkan kategori sentimennya.
 
 ``` Python
-data_positif = data[data["klasifikasi"] == "Positif"]
+data_positif = data[data["sentiment"] == "Positive"]
 data_negatif = data[data["sentiment"] == "Negative"]
 ```
 
-## Analisis Bigram pada Sentimen Negatif
-Kata individual kadang kurang memberikan konteks. Analisis bigram (pasangan dua kata yang muncul berurutan) dapat memberikan wawasan lebih baik. Kita akan mengekstrak bigram dari teks komentar positif (data_positif['text_stemmed'] atau kolom teks relevan lainnya), menghitung frekuensinya, dan memvisualisasikannya dalam bentuk Word Cloud. Kali ini kita gunakan stopwords Bahasa Indonesia dari NLTK untuk filtering yang lebih tepat.
+## Langkah 4: Visualisasi dan Interpretasi Hasil
 
+Untuk memahami temuan secara visual, kami membuat _word cloud_ dan analisis n-gram (bigram dan trigram).
 
+### Word Cloud Keseluruhan
+
+Visualisasi ini menunjukkan kata-kata yang paling sering muncul di seluruh dataset, memberikan gambaran umum topik perbincangan.
 
 ``` Python
-
-
 # Fungsi untuk menampilkan word cloud
 def plot_cloud(wordcloud):
     plt.figure(figsize=(10, 8)) 
@@ -510,20 +364,14 @@ wordcloud = WordCloud(
     stopwords=STOPWORDS
 ).generate(all_words)
 
-
 plot_cloud(wordcloud)
 ```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/13.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/13.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
+### Analisis Bigram (Frasa 2 Kata)
 
-### Visualisasi Top N Bigram Positif (Bar Chart)
-Untuk melihat secara eksplisit bigram mana yang paling dominan dalam sentimen positif dan membandingkan frekuensinya, kita buat bar chart horizontal yang menampilkan N (misal, 20) bigram teratas berdasarkan frekuensi kemunculannya.
-
-
-
+Analisis bigram membantu mengidentifikasi pasangan kata yang paling sering digunakan, memberikan konteks yang lebih kaya daripada kata tunggal.
 
 ``` Python
 nltk.download('stopwords')
@@ -568,15 +416,11 @@ if len(all_tokens_filtered) > 1:
         plot_cloud(wordcloud)
 ```
 
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/14.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/14.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+Untuk melihat frekuensi secara eksplisit, dibuat visualisasi bar chart untuk 20 bigram teratas.
 
-
-
-
-```Python
+``` Python
 if 'bigram_counts' in locals() and bigram_counts:
     N = 20
     top_bigrams = bigram_counts.most_common(N)
@@ -602,13 +446,11 @@ if 'bigram_counts' in locals() and bigram_counts:
         plt.show()
 ```
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/15.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/15.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
+### Analisis Trigram (Frasa 3 Kata)
 
-## Analisis Trigram Keseluruhan
-Kita perluas analisis n-gram dengan melihat trigram (rangkaian tiga kata berurutan) dari keseluruhan dataset (bukan hanya positif). Ini dapat menangkap frasa atau konteks yang lebih panjang. Prosesnya mirip dengan analisis bigram: tokenisasi, filtering stopwords, pembuatan trigram, perhitungan frekuensi, dan visualisasi menggunakan Word Cloud serta bar chart horizontal untuk Top N trigram.
+Analisis diperluas dengan melihat trigram untuk menangkap konteks atau frasa yang lebih panjang.
 
 ``` Python
 def plot_cloud(wordcloud):
@@ -674,9 +516,13 @@ if trigram_counts:
         plt.tight_layout()
         plt.show()
 ```
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/16.png"  style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;">
-</div>
 
-## Belum Maksimal
-Saya mengakui bahwa analisis yang disajikan masih dapat dioptimalkan. Proses pembersihan data yang kurang maksimal, terutama dalam mengatasi bahasa gaul dan slang, berpotensi menghasilkan analisis yang bias. Untuk pengembangan selanjutnya, saya berencana menggunakan kemampuan pemrosesan bahasa dari Model Bahasa Skala Besar (seperti Gemini atau DeepSeek) untuk melakukan pembersihan dan standardisasi teks secara lebih efektif guna mengurangi risiko bias. Contoh analisis di atas berfungsi sebagai pengantar dasar untuk Analisis Sentimen.
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/16.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+
+## Kesimpulan dan Arah Pengembangan
+
+Analisis sentimen terhadap 1.000 komentar Twitter menunjukkan respons publik yang secara umum bersifat positif dan informatif. Berdasarkan hasil klasifikasi model, sentimen didominasi oleh netral (55%) dan diikuti oleh positif (36%). Sentimen negatif hanya merupakan sebagian kecil dari keseluruhan percakapan (9%), mengindikasikan bahwa narasi kritis tidak menjadi arus utama dalam sampel data ini.
+
+Dominasi sentimen netral, yang didukung oleh kemunculan frasa deskriptif seperti "jumbo animated film", menunjukkan bahwa sebagian besar diskusi bersifat faktual atau berbagi informasi. Di sisi lain, kuatnya sentimen positif—terlihat dari frasa apresiatif seperti "really good"—menggarisbawahi adanya basis audiens yang solid dan memberikan dukungan tulus terhadap kualitas "Jumbo" sebagai karya anak bangsa. Temuan ini menyiratkan bahwa, terlepas dari adanya kontroversi, dampak negatifnya pada sentimen publik secara keseluruhan tidak signifikan.
+
+Untuk pengembangan selanjutnya, analisis dapat diperdalam dengan menerapkan Topic Modeling (misalnya LDA) untuk mengidentifikasi pemicu utama di balik masing-masing sentimen; apa yang membuat audiens memberi komentar positif, dan apa topik spesifik dari segelintir komentar negatif. Selain itu, penggunaan Large Language Models (LLM) untuk normalisasi slang yang lebih akurat dapat lebih mempertajam hasil analisis, sehingga mampu memberikan wawasan yang lebih granular bagi para pemangku kepentingan di industri kreati
