@@ -87,6 +87,24 @@
             <a href="{{ .Permalink }}">{{ .Name }}</a>
           {{ end }}
         </div>
+                <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{{ .Site.BaseURL | relLangURL }}"><i class="fas fa-home-alt"></i> Home</a>
+            </li>
+            {{ $terms := .GetTerms "categories" }}
+            {{ if gt (len $terms) 0 }}
+              {{ $category := (index $terms 0) }}
+              <li class="breadcrumb-item">
+                <a href="{{ "/categories/" | relLangURL }}">Kategori</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{{ $category.Permalink }}">{{ $category.Name | title }}</a>
+              </li>
+            {{ end }}
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa-duotone fa-solid fa-arrow-down"></i></li>
+          </ol>
+        </nav>
         <h1 class="post-title">{{ .Title }}</h1>
         <div class="post-meta">
           <span class="meta-item"><i class="fas fa-calendar-alt"></i><time>{{ .Date.Format "2 January 2006" }}</time></span>
