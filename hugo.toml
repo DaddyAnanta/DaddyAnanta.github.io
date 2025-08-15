@@ -65,7 +65,7 @@ pagination.pagerSize = 12
           inline = [['\(', '\)']]
   
   [markup.tableOfContents]
-    startLevel = 1
+    startLevel = 2
     ordered = false
     endLevel = 4
 
