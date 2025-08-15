@@ -20,7 +20,7 @@ Analisis ini mencakup serangkaian studi kasus, mulai dari mengidentifikasi sumbe
 
 Mari kita mulai jelajahi data `thelook_ecommerce` ini langkah demi langkah melalui query SQL dan interpretasi hasilnya.
 
-# **Studi Kasus 1: Sumber Lalu Lintas Pelanggan Terpopuler**
+## **Studi Kasus 1: Sumber Lalu Lintas Pelanggan Terpopuler**
 
 **Pertanyaan:** Sumber lalu lintas (traffic source) apa yang paling sering digunakan oleh pelanggan untuk sampai ke platform kita?
 
@@ -54,7 +54,7 @@ ORDER BY
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Sumber Lalu Lintas Pelanggan Terpopuler</p>
 </div>
 
-# **Studi Kasus 2: Analisis Performa Brand (Terlaris, Return, Cancel)**
+## **Studi Kasus 2: Analisis Performa Brand (Terlaris, Return, Cancel)**
 
 **Pertanyaan:** Brand mana yang paling laris terjual, paling sering dikembalikan (return), dan paling sering dibatalkan (cancel)?
 
@@ -132,7 +132,7 @@ Oleh karena itu, sangat disarankan bagi perusahaan untuk melakukan **analisis se
 
 ---
 
-# **Studi Kasus 3: Kelompok Usia Pembeli Terbanyak**
+## **Studi Kasus 3: Kelompok Usia Pembeli Terbanyak**
 
 **Pertanyaan:** Kelompok usia mana yang paling banyak melakukan pembelian?
 
@@ -182,7 +182,7 @@ Hasil query (yang akan ditampilkan pada `gambar`) kemungkinan besar akan menunju
 
 ---
 
-# **Studi Kasus 4: Analisis Pembelian Berdasarkan Gender (Jumlah Barang & Pendapatan)**
+## **Studi Kasus 4: Analisis Pembelian Berdasarkan Gender (Jumlah Barang & Pendapatan)**
 
 **Pertanyaan:** Bagaimana perbandingan jumlah barang yang dibeli dan total pendapatan antara pelanggan pria dan wanita?
 
@@ -223,7 +223,7 @@ Data kemungkinan akan menunjukkan bahwa **pendapatan terbesar berasal dari pembe
 
 ---
 
-# **Studi Kasus 5: Tren Pendapatan Bulanan**
+## **Studi Kasus 5: Tren Pendapatan Bulanan**
 
 **Pertanyaan:** Bagaimana tren pendapatan kotor (gross revenue) dari bulan ke bulan?
 
@@ -261,7 +261,7 @@ Analisis data (dan visualisasi grafik yang menyertainya) akan menunjukkan fluktu
 
 ---
 
-# **Studi Kasus 6: Distribusi Pelanggan Berdasarkan Negara**
+## **Studi Kasus 6: Distribusi Pelanggan Berdasarkan Negara**
 
 **Pertanyaan:** Dari negara mana saja mayoritas pelanggan berasal?
 
@@ -291,7 +291,7 @@ Seperti yang Anda sebutkan, hasil query kemungkinan besar akan menunjukkan bahwa
 
 ---
 
-# **Studi Kasus 7: Kategori Produk Paling Banyak Dibeli (Berdasarkan Pendapatan)**
+## **Studi Kasus 7: Kategori Produk Paling Banyak Dibeli (Berdasarkan Pendapatan)**
 
 **Pertanyaan:** Kategori produk apa yang menghasilkan pendapatan paling tinggi dan paling banyak dibeli?
 
@@ -327,7 +327,7 @@ Berdasarkan analisis Anda, tiga kategori produk yang paling menguntungkan dan/at
 
 ---
 
-# **Studi Kasus 8: Pengguna dengan Rata-Rata Pembelian Tertinggi**
+## **Studi Kasus 8: Pengguna dengan Rata-Rata Pembelian Tertinggi**
 
 **Pertanyaan:** Siapa saja pengguna (pelanggan) yang memiliki nilai rata-rata pembelian per item tertinggi?
 
@@ -366,7 +366,7 @@ Tabel hasil query ini akan menampilkan 10 pelanggan teratas yang cenderung membe
 
 ---
 
-# **Studi Kasus 9: Kategori Barang Paling Sering Dibatalkan dan Dikembalikan**
+## **Studi Kasus 9: Kategori Barang Paling Sering Dibatalkan dan Dikembalikan**
 
 **Pertanyaan:** Kategori produk apa saja yang paling sering mengalami pembatalan (cancel) dan pengembalian (return)?
 
@@ -400,7 +400,7 @@ Sesuai temuan Anda, kategori produk yang paling sering mengalami **pengembalian 
 
 ---
 
-# **Studi Kasus 10: Produk Spesifik yang Paling Sering Dibeli**
+## **Studi Kasus 10: Produk Spesifik yang Paling Sering Dibeli**
 
 **Pertanyaan:** Produk spesifik (berdasarkan ID atau nama) mana saja yang paling laku atau paling sering muncul dalam pesanan?
 
