@@ -3,8 +3,8 @@ title = 'Analisis Data E-commerce TheLook Menggunakan SQL di BigQuery'
 date = 2025-04-29T00:37:00+00:00
 draft = false
 description = "Pada kesempatan ini, saya menganalisis data e-commerce yang dipilih secara acak dari Kaggle. Dataset ini berisi informasi tentang transaksi penjualan barang di sebuah perusahaan e-commerce yang beroperasi di Brasil."
-image = "/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/1.webp"
-imageBig= "/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/1.webp"
+image = "/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/1.webp"
+imageBig= "/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/1.webp"
 categories= ["Analysis and Visualization"]
 tags= ["SQL"]
 authors= ["Daddy Ananta"]
@@ -50,7 +50,7 @@ ORDER BY
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/2.webp" alt="Tennis dan Basket" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/2.webp" alt="Tennis dan Basket" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Sumber Lalu Lintas Pelanggan Terpopuler</p>
 </div>
 
@@ -85,7 +85,7 @@ LIMIT 5; -- Menampilkan 5 teratas
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/3.webp" alt="Analisis Performa Brand (Terlaris, Return, Cancel)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/3.webp" alt="Analisis Performa Brand (Terlaris, Return, Cancel)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Analisis Performa Brand (Terlaris, Return, Cancel)</p>
 </div>
 
@@ -116,7 +116,7 @@ LIMIT 5; -- Menampilkan 5 teratas
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/4.webp" alt="Analisis Performa Brand (Terlaris, Return, Cancel)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/4.webp" alt="Analisis Performa Brand (Terlaris, Return, Cancel)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Brand dengan Tingkat Pengembalian Tertinggi (`jumlah_return`)</p>
 </div>
 
@@ -172,7 +172,7 @@ ORDER BY
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/5.webp" alt="Kelompok Usia Pembeli Terbanyak" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/5.webp" alt="Kelompok Usia Pembeli Terbanyak" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">  Kelompok Usia Pembeli Terbanyak</p>
 </div>
 
@@ -213,7 +213,7 @@ ORDER BY
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/6.webp" alt="Analisis Pembelian Berdasarkan Gender (Jumlah Barang & Pendapatan)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/6.webp" alt="Analisis Pembelian Berdasarkan Gender (Jumlah Barang & Pendapatan)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Analisis Pembelian Berdasarkan Gender (Jumlah Barang & Pendapatan)</p>
 </div>
 
@@ -246,12 +246,12 @@ ORDER BY
     Tahun ASC, Bulan ASC;
 ```
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/7.webp" alt="Tren Pendapatan Bulanan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/7.webp" alt="Tren Pendapatan Bulanan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Tren Pendapatan Bulanan</p>
 </div>
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/8.webp" alt="Tren Pendapatan Bulanan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/8.webp" alt="Tren Pendapatan Bulanan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Tren Pendapatan Bulanan</p>
 </div>
 
@@ -281,7 +281,7 @@ LIMIT 10; -- Menampilkan 10 negara teratas
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/9.webp" alt="Distribusi Pelanggan Berdasarkan Negara" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/9.webp" alt="Distribusi Pelanggan Berdasarkan Negara" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Distribusi Pelanggan Berdasarkan Negara</p>
 </div>
 
@@ -316,7 +316,7 @@ ORDER BY
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/10.webp" alt="Kategori Produk Paling Banyak Dibeli (Berdasarkan Pendapatan)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/10.webp" alt="Kategori Produk Paling Banyak Dibeli (Berdasarkan Pendapatan)" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Kategori Produk Paling Banyak Dibeli (Berdasarkan Pendapatan)</p>
 </div>
 
@@ -356,7 +356,7 @@ LIMIT 10;
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/11.webp" alt="Pengguna dengan Rata-Rata Pembelian Tertinggi" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/11.webp" alt="Pengguna dengan Rata-Rata Pembelian Tertinggi" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Pengguna dengan Rata-Rata Pembelian Tertinggi</p>
 </div>
 
@@ -390,7 +390,7 @@ ORDER BY
     Dikembalikan DESC; -- Urutkan berdasarkan jumlah pengembalian tertinggi
 ```
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/12.webp" alt="Kategori Barang Paling Sering Dibatalkan dan Dikembalikan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/12.webp" alt="Kategori Barang Paling Sering Dibatalkan dan Dikembalikan" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Kategori Barang Paling Sering Dibatalkan dan Dikembalikan</p>
 </div>
 
@@ -428,7 +428,7 @@ LIMIT 10;
 ```
 
 <div class="single-image-source">
-  <img src="/images/Case_Studies/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/12.webp" alt="Produk Spesifik yang Paling Sering Dibeli" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
+  <img src="/images/Analysis_and_Visualization/Analisis_Data_E-commerce_TheLook_Menggunakan_SQL_di_BigQuery/12.webp" alt="Produk Spesifik yang Paling Sering Dibeli" style="height:80%;width:60%;display:block;margin-left:auto;margin-right:auto;">
   <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Produk Spesifik yang Paling Sering Dibeli</p>
 </div>
 
