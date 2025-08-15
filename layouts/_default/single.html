@@ -1,279 +1,266 @@
-  {{ define "main" }}
+{{ define "main" }}
 
+{{/* --- HEAD: Tambahkan link CSS untuk Swiper.js --- */}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <div class="accordion" id="cart-accordion">
-    <div class="searchButton_accordeon">
-      <form action="/search/" method="GET">
-        <input type="text" id="search" name="s" placeholder="Search" />
-        <button type="submit" class="btn btn-primary">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
-    <div class="accordion-item">
-      <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">PORTOFOLIO</a>
-      <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer">GITHUB</a>
-      <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer">MEDIUM</a>
-    </div>
-    <button class="accordion-button" onclick="togglePanel(this)">
-      Category
-      <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
-    </button>
+{{/* Accordion tidak berubah */}}
+<div class="accordion" id="cart-accordion">
+  
+  {{/* --- Bagian Pencarian --- */}}
+  <div class="searchButton_accordeon">
+    <form action="/search/" method="GET">
+      <i class="fas fa-search search-icon"></i>
+      <input type="search" id="search" name="s" placeholder="Cari di situs ini..." />
+    </form>
+  </div>
 
-    <div class="panel">
-      <div class="accordion-category_page">
-        {{ range $.Site.Taxonomies.categories.ByCount }}
-        <a class="accordion-category-link" href="/categories/{{ .Name }}">
-          <span class="accordion-category-name">{{ .Name | title }}</span>
-        </a>
-        {{ end }}
-      </div>
+  {{/* --- Tautan Navigasi Utama --- */}}
+  <div class="accordion-item">
+    <a href="/#about-me" class="accordion-link">
+      <i class="fas fa-user-circle icon"></i>
+      <span>Portofolio</span>
+    </a>
+    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-github icon"></i>
+      <span>Github</span>
+    </a>
+    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-medium icon"></i>
+      <span>Medium</span>
+    </a>
+  </div>
 
+  {{/* --- Dropdown Kategori --- */}}
+  <button class="accordion-button" onclick="togglePanel(this)">
+    <span ><i class="fas fa-folder icon"></i> Kategori</span>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
+  <div class="panel">
+    <div class="accordion-category_page">
+      {{ range $.Site.Taxonomies.categories.ByCount }}
+      <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
+        <span class="accordion-category-name">{{ .Name | title }}</span>
+      </a>
+      {{ end }}
     </div>
   </div>
-  <div class="page-wrapper">
-  {{ $toc := .TableOfContents }}
-  {{ if and (gt .WordCount 200) $toc }} 
 
-  <aside class="toc-sidebar">
-    <nav id="TableOfContents">
-      <strong>Content</strong> 
-      {{ $toc }}
-    </nav>
+  {{/* --- Dropdown Tag --- */}}
+ <button class="accordion-button" onclick="togglePanel(this)">
+    <span><i class="fas fa-tags icon"></i> Tags</span>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
+  <div class="panel">
+    <div class="accordion-category_page">
+       {{ range $.Site.Taxonomies.tags.ByCount }}
+      <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+        <span class="accordion-category-name">{{ .Name | title }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+
+</div>
+
+
+{{/* --- KONTEN UTAMA HALAMAN POSTINGAN --- */}}
+<div class="post-layout">
+
+  {{/* --- Sidebar Table of Contents (Desktop) --- */}}
+  {{ if .TableOfContents }}
+  <aside class="post-toc-sidebar">
+    <div class="toc-sticky">
+      <h3 class="toc-title">Daftar Isi</h3>
+      <nav id="TableOfContents">
+        {{ .TableOfContents }}
+      </nav>
+    </div>
   </aside>
   {{ end }}
 
-
-  <div class="single">
-    <div class="singleHead">
-      <div class="singleHeadTexts">
-        <h1 class="singleHeadTitle">{{ .Title }}</h1>
-        <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
-        <div class="singleHeadDetail">
-          {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
-          {{- partial "page_views.html" . -}}
+  {{/* --- Kolom Utama Artikel --- */}}
+  <main class="post-main">
+    <article class="post-article">
+      <header class="post-header">
+        <div class="post-categories">
+          {{ range .GetTerms "categories" }}
+            <a href="{{ .Permalink }}">{{ .Name }}</a>
           {{ end }}
+        </div>
+        <h1 class="post-title">{{ .Title }}</h1>
+        <div class="post-meta">
+          <span class="meta-item"><i class="fas fa-calendar-alt"></i><time>{{ .Date.Format "2 January 2006" }}</time></span>
+          <span class="meta-item"><i class="fas fa-clock"></i><span>{{ .ReadingTime }} min read</span></span>
+          <span class="meta-item"><i class="fas fa-file-word"></i><span>{{ .WordCount }} words</span></span>
+        </div>
+      </header>
 
+      {{ with .Params.imageBig }}
+      <figure class="post-featured-image">
+        <img src="{{ . }}" alt="{{ $.Title }}">
+      </figure>
+      {{ end }}
 
-          
+      {{ if and (gt .WordCount 400) .TableOfContents }}
+      <nav class="post-toc-mobile">
+        <button class="toc-toggle" id="toc-toggle-mobile">
+          <span>Daftar Isi</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="toc-content-mobile" id="toc-content-mobile">
+          {{ .TableOfContents }}
+        </div>
+      </nav>
+      {{ end }}
 
-          <!-- Menampilkan kategori -->
-          <div class="single-categories" style="display: flex; gap: 10px; align-items: center; margin-right: 20px;">
-            {{ range (.GetTerms "categories") }}
-            <a href="{{ .Permalink }}" style="text-decoration: none; color: #000;">{{ .Name }}</a>
+      <section class="post-content">
+        {{ .Content }}
+      </section>
+
+      <footer class="post-footer">
+        {{ if .Params.tags }}
+        <div class="post-tags">
+          {{ range .Params.tags }}
+            <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . | title }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ partial "socialshare.html" . }}
+      </footer>
+    </article>
+
+    {{/* --- BAGIAN RELATED POSTS DENGAN CAROUSEL --- */}}
+    {{ $related := .Site.RegularPages.Related . | first 8 }}
+    {{ with $related }}
+    <aside class="related-posts">
+      <div class="related-posts-container">
+        <h3 class="related-title">Artikel Terkait <span style="color: grey;">(Swipe <i class="fa-solid fa-arrow-left"></i>)</span></h3>
+        <div class="swiper swiper-carousel">
+          <div class="swiper-wrapper">
+            {{ range . }}
+              <div class="swiper-slide">
+                <article class="related-post-card">
+                  <a href="{{ .Permalink }}">
+                    {{ with .Params.image }}
+                      <div class="related-card-image-wrapper"><img src="{{ . }}" alt="" loading="lazy"></div>
+                    {{ else }}
+                      <div class="related-card-image-wrapper placeholder"></div>
+                    {{ end }}
+                    <div class="related-card-content">
+                      <h4>{{ .Title }}</h4>
+                    </div>
+                  </a>
+                </article>
+              </div>
             {{ end }}
           </div>
-
-          <!-- Menampilkan Word Count & Reading Time -->
-          <div class="reading-stats" style="display: flex; gap: 10px; align-items: center;">
-            <!-- Word Count -->
-            <span class="single-meta-item" style="display: flex; align-items: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-
-              &nbsp;<span>{{ .WordCount }}</span>
-              <span style="margin-left: 5px; margin-right: 20px;">words</span>
-            </span>
-
-            <!-- Reading Time -->
-            <span class="meta-item" style="display: flex; align-items: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              &nbsp;<span>{{ .ReadingTime }}</span>
-              <span style="margin-left: 5px;">min</span>
-            </span>
-          </div>
         </div>
       </div>
-    </div>
+    </aside>
+    {{ end }}
 
-    <div class="singleBottom">
-      <div class="singleContent">
-        <img src={{ .Params.imageBig }} alt={{.Title}} class="singleHeadImg">
-        <p class="singleHeadDesc">{{ .Params.description }}</p>
-        <div class="singlePlotly">
-          <!-- Konten plotly atau grafik lainnya bisa ditambahkan di sini -->
-        </div>
-
-        <nav class="TableOfContents">
-          <button class="toc-toggle" onclick="toggleToC()">Table of Contents</button>
-          <div id="toc-content">
-            {{ .Page.TableOfContents }}
-          </div>
-        </nav>
-        <article>
-          {{ .Content }}
-        </article>
-        {{ if .Params.tags }}
-        <div class="single-tags">
-          <div class="single-icon-tag">
-          <svg class="icon icon-tag" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.41 11.58 12.42 2.59A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l8.99 8.99a2 2 0 0 0 2.83 0l7-7a2 2 0 0 0 0-2.83ZM6.5 7A1.5 1.5 0 1 1 8 5.5 1.5 1.5 0 0 1 6.5 7Z"/>
-          </svg>
-          </div>
-          {{ range .Params.tags }}
-            <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . | title }}</a>&nbsp;
-          {{ end }}
-        </div>
-        {{ partial "socialshare.html" . }}
-        {{ end }}
-
-
-
-{{/* --- BAGIAN RELATED POSTS DENGAN CAROUSEL --- */}}
-
-{{/* 1. Ambil data related posts terlebih dahulu */}}
-{{ $related := .Site.RegularPages.Related . | first 8 }}
-
-{{/* 2. Hanya tampilkan seluruh bagian ini JIKA ada related posts */}}
-{{ with $related }}
-<div class="related-posts-section">
-  <h2>Related Posts</h2>
-  <div class="swiper post-carousel">
-    <div class="swiper-wrapper">
-      {{ range . }}
-        <div class="swiper-slide">
-          <article class="swiper-post-card">
-            <a href="{{ .Permalink }}" class="post-card-link">
-              {{ with .Params.image }}
-                <div class="post-card-image-wrapper">
-                  <img style="margin-top: 0;" src="{{ . }}" alt="Gambar untuk {{ $.Title }}" class="post-card-image" loading="lazy">
-                </div>
-              {{ else }}
-                <div class="post-card-image-wrapper">
-                  <img src="/images/default-thumbnail.jpg" alt="Gambar default" class="post-card-image" loading="lazy">
-                </div>
-              {{ end }}
-              <div class="post-card-content">
-                <div class="post-card-tags">
-                  {{ with .Params.tags }}
-                    {{ range first 2 . }}
-                      <span class="post-card-tag">{{ . }}</span>
-                    {{ end }}
-                  {{ end }}
-                </div>
-                <h5 class="post-card-title">{{ .Title }}</h5>
-              </div>
-            </a>
-          </article>
-        </div>
+    {{/* --- Paginasi Postingan --- */}}
+    <nav class="post-pagination">
+      {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.Permalink }}" class="pagination-link prev">
+          <i class="fas fa-arrow-left"></i>
+          <span>{{ .PrevInSection.Title }}</span>
+        </a>
+      {{ else }}
+        <span></span> <!-- Placeholder for grid alignment -->
       {{ end }}
-    </div>
-<div class="swiper-nav-wrapper">
-  <div class="swiper-button-prev">
-    <i class="fas fa-chevron-left"></i>
-  </div>
-  <div class="swiper-button-next">
-    <i class="fas fa-chevron-right"></i>
-  </div>
+      {{ if .NextInSection }}
+        <a href="{{ .NextInSection.Permalink }}" class="pagination-link next">
+          <span>{{ .NextInSection.Title }}</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      {{ end }}
+    </nav>
+  </main>
 </div>
-    <div class="swiper-scrollbar"></div>
-  </div>
-</div>
-{{ end }}{{/* Akhir dari 'with $related' */}}
-      </div>
-    </div>
 
-
-    <!-- Pagination Section -->
-    <div class="singlePagination">
-      {{ if .Prev }}
-      <a href="{{ .Prev.Permalink }}" class="pagination-link prev" data-url="{{.Permalink }}">
-        ⬅️ Previous
-      </a>
-      {{ end }}
-      {{ if .Next }}
-      <a href="{{ .Next.Permalink }}" class="pagination-link next">
-        Next ➡️
-      </a>
-      {{ end }}
-    </div>
-  </div>
-  </div>
+{{/* --- Tombol Back to Top --- */}}
 <button id="backToTopBtn" title="Kembali ke atas">
   <i class="fas fa-angle-up"></i>
 </button>
 
-<script defer>
-  function toggleToC() {
-    const toc = document.getElementById("toc-content");
-    toc.style.display = (toc.style.display === "none" || toc.style.display === "") ? "block" : "none";
-  }
-
-  // ==============================================
-  // BAGIAN 3: JAVASCRIPT UNTUK TOMBOL BACK TO TOP
-  // ==============================================
-  // Dapatkan elemen tombol
-  let mybutton = document.getElementById("backToTopBtn");
-
-  // Ketika pengguna menggulir ke bawah 100px dari atas dokumen, tampilkan tombolnya
-  window.onscroll = function() {scrollFunction()};
-
-  function scrollFunction() {
-    // Angka 100 bisa diubah sesuai kebutuhan
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
+{{/* --- JavaScript --- */}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Tombol Back to Top
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  if (backToTopBtn) {
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    backToTopBtn.onclick = function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     }
   }
 
-  // Ketika pengguna mengklik tombol, gulir ke atas dokumen
-  mybutton.onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'}); // Gulir dengan animasi halus
+  // 2. Toggle TOC Mobile
+  const tocToggleMobile = document.getElementById('toc-toggle-mobile');
+  const tocContentMobile = document.getElementById('toc-content-mobile');
+  if (tocToggleMobile && tocContentMobile) {
+    tocToggleMobile.addEventListener('click', function() {
+      tocContentMobile.classList.toggle('open');
+      this.classList.toggle('open');
+    });
   }
+
+  // 3. Active link highlighting for Desktop TOC
+  const tocLinks = document.querySelectorAll('.post-toc-sidebar #TableOfContents a');
+  const headings = Array.from(tocLinks).map(link => {
+    const id = link.getAttribute('href').substring(1);
+    return document.getElementById(id);
+  }).filter(Boolean);
+
+  if (tocLinks.length > 0 && headings.length > 0) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const correspondingLink = document.querySelector(`.post-toc-sidebar #TableOfContents a[href="#${id}"]`);
+        if (correspondingLink && entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          correspondingLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: "0px 0px -80% 0px" });
+
+    headings.forEach(heading => observer.observe(heading));
+  }
+});
 </script>
 
+{{/* --- Swiper JS --- */}}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  const postCarousel = new Swiper('.post-carousel', {
-    // Pengaturan dasar untuk mobile
-    slidesPerView: 1.1, // 
-    centeredSlides: true,
+  const postCarousel = new Swiper('.swiper-carousel', {
     loop: true,
-    spaceBetween: 16,
     grabCursor: true,
-    
-    // Modul UI
-    scrollbar: {
-      el: '.swiper-scrollbar',
-      draggable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    
-    // Pengaturan untuk layar lebih besar
+    // PERBAIKAN: Menggunakan breakpoints untuk kontrol responsif
     breakpoints: {
-      // Tablet (640px ke atas)
-
-      411:{
-      slidesPerView: 3, 
-      spaceBetween: 20,
+      // Mobile (default)
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16,
       },
-      640: {
-        slidesPerView: 2.2, // 👈 Diperlebar dari 2.5
-        spaceBetween: 20,
-      },
-      // Desktop (1024px ke atas)
-      1024: {
-        slidesPerView: 3, // 👈 Diperlebar dari 4
+      // Tablet
+      768: {
+        slidesPerView: 2.2,
         spaceBetween: 24,
-        loop: false,
-        centeredSlides: false,
+      },
+      // Desktop
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
       },
     },
   });
 </script>
 
-  {{ end }}
+{{ end }}
