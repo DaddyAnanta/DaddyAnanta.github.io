@@ -41,23 +41,62 @@ function closeAccordion(event) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }, 400); // Sesuai dengan durasi transisi di CSS (0.4s)
-}
+}// ==================================================================
+  // === 2. FUNGSI UNTUK MENUTUP ACCORDION SAAT LINK DIKLIK ===
+  // ==================================================================
+  function closeAccordionOnLinkClick(event) {
+    if (hamburgerButton && accordionMenu && accordionMenu.classList.contains('active')) {
+      const targetHref = event.currentTarget.getAttribute('href');
+      
+      // Hanya cegah aksi default jika link adalah anchor (#) untuk scroll halus
+      if (targetHref && targetHref.startsWith('#')) {
+        event.preventDefault();
+      } else {
+        // Jika link eksternal (misal: Github), biarkan browser berjalan
+        return;
+      }
 
-
-function togglePanel(button) {
-    const panel = button.nextElementSibling;
-    panel.classList.toggle('open');
-}
-
-
-function togglePanel(button) {
-    const panel = button.nextElementSibling;
-    panel.classList.toggle('open'); // Mengubah kelas panel
-
-    const icon = button.querySelector('.accordion-icon');
-    if (panel.classList.contains('open')) {
-        icon.style.transform = 'rotate(180deg)'; // Rotasi panah ke atas
-    } else {
-        icon.style.transform = 'rotate(0deg)'; // Kembali ke posisi default
+      // Mulai proses penutupan menu
+      hamburgerButton.classList.remove('active');
+      accordionMenu.classList.remove('active');
+      hamburgerButton.setAttribute('aria-expanded', 'false');
+      
+      // Tunggu animasi selesai, LALU scroll ke tujuan
+      setTimeout(() => {
+        const targetElement = document.querySelector(targetHref);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 400); // Sesuaikan dengan durasi transisi CSS Anda
     }
-}
+  }
+
+  accordionLinks.forEach(link => {
+    link.addEventListener('click', closeAccordionOnLinkClick);
+  });
+
+  // ==================================================================
+  // === 3. FUNGSI UNTUK MEMBUKA/MENUTUP PANEL DI DALAM ACCORDION (PERBAIKAN) ===
+  // ==================================================================
+  function togglePanel(button) {
+    const panel = button.nextElementSibling;
+    const icon = button.querySelector('.accordion-icon');
+    
+    if (panel) {
+      panel.classList.toggle('open');
+      
+      if (panel.classList.contains('open')) {
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    }
+  }
+
+  // Menghubungkan fungsi togglePanel ke setiap tombol .accordion-button
+  panelButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      togglePanel(this);
+    });
+  });
+
