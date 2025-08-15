@@ -1,5 +1,5 @@
 +++
-title = 'A/B Testing Ads'
+title = 'Mengukur Efektivitas Iklan Digital dengan A/B Testing untuk Mendorong Konversi'
 date = 2025-05-28T00:37:00+00:00
 draft = false
 description = ""
