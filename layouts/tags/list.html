@@ -1,93 +1,155 @@
 {{ define "main" }}
-
+<div class="container">
 <div class="accordion" id="cart-accordion">
+  
+  {{/* --- Bagian Pencarian --- */}}
   <div class="searchButton_accordeon">
     <form action="/search/" method="GET">
-      <input type="text" id="search" name="s" placeholder="Search" />
-      <button type="submit" class="btn btn-primary">
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </button>
+      <i class="fas fa-search search-icon"></i>
+      <input type="search" id="search" name="s" placeholder="Cari di situs ini..." />
     </form>
   </div>
-  <div class="accordion-item">
-    <a href="/#list_h1" class="accordion-link" onclick="closeAccordion(event)">PORTOFOLIO</a>
-    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer">GITHUB</a>
-    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer">MEDIUM</a>
-  </div>
-  <button class="accordion-button" onclick="togglePanel(this)">
-    Category
-    <span class="accordion-icon">&#9660;</span> <!-- Gunakan simbol Unicode -->
-  </button>
 
+  {{/* --- Tautan Navigasi Utama --- */}}
+  <div class="accordion-item">
+    <a href="/#about-me" class="accordion-link">
+      <i class="fas fa-user-circle icon"></i>
+      <span>Portofolio</span>
+    </a>
+    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-github icon"></i>
+      <span>Github</span>
+    </a>
+    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-medium icon"></i>
+      <span>Medium</span>
+    </a>
+  </div>
+
+  {{/* --- Dropdown Kategori --- */}}
+  <button class="accordion-button" onclick="togglePanel(this)">
+    <span ><i class="fas fa-folder icon"></i> Kategori</span>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
   <div class="panel">
     <div class="accordion-category_page">
       {{ range $.Site.Taxonomies.categories.ByCount }}
-      <a class="accordion-category-link" href="/categories/{{ .Name }}">
+      <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
         <span class="accordion-category-name">{{ .Name | title }}</span>
       </a>
       {{ end }}
     </div>
-
   </div>
-</div>
 
-{{ if eq .RelPermalink "/tags/" }}
-<main class="main">
-  <div class="container-tags">
-    <div class="tags-page-title">
-      <h1>Semua Tags</h1>
-      <p>Temukan artikel berdasarkan kata kunci spesifik.</p>
-    </div>
-
-    <div class="tag-cloud">
-      {{/* PENTING: Menggunakan taksonomi "tags", bukan "categories" */}}
-      {{ range .Data.Terms.ByCount }}
-      <a class="tag-pill" href="{{ .Page.Permalink }}">
-        <span class="tag-name">{{ .Name | title}}</span>
-        <span class="tag-count">{{ .Count }}</span>
+  {{/* --- Dropdown Tag --- */}}
+ <button class="accordion-button" onclick="togglePanel(this)">
+    <span><i class="fas fa-tags icon"></i> Tags</span>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
+  <div class="panel">
+    <div class="accordion-category_page">
+       {{ range $.Site.Taxonomies.tags.ByCount }}
+      <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+        <span class="accordion-category-name">{{ .Name | title }}</span>
       </a>
       {{ end }}
     </div>
-
   </div>
-</main>
-{{ else }}
 
-<div class="list_h1_category">
-  <h1>
-    <a href="/">Home </a> <span>></span>
-    <a href="{{ .Permalink }}">{{ .Name }}</a>
-  </h1>
 </div>
 
-<div class="listContainer">
-  {{ range .Paginator.Pages }}
-  <div class="listItem">
-    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="listItemImage">
-    <div class="listItemTexts">
-      <h1 class="listItemTitle">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </h1>
+{{/* Wrapper utama dengan class loading */}}
+<div class="main-content tags-page-content is-loading">
 
-      <div class="listItemCategories">
-        {{ with .Params.categories }}
-        {{ range . }}
-        <a class="listItemCategory" href="/categories/{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
-        {{ end }}
+    {{/* --- SKELETON SCREEN STRUCTURE --- */}}
+    <div class="skeleton-wrapper">
+        <header class="breadcrumb-header">
+            <div class="skeleton skeleton-text" style="width: 40%; height: 20px; margin-bottom: 20px;"></div>
+            <div class="skeleton skeleton-title" style="width: 60%; height: 40px;"></div>
+        </header>
+        <div class="post-list-container">
+            {{ range seq 6 }}
+            <article class="post-card skeleton-card">
+                <div class="skeleton skeleton-image"></div>
+                <div class="post-card-content">
+                    <h3 class="skeleton skeleton-text"></h3>
+                    <p class="skeleton skeleton-text" style="width: 70%;"></p>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+    </div>
 
-        {{ with .Params.tags }}
-        {{ range . }}
-        <a class="listItemtags" href="/tags/{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
+    {{/* --- ACTUAL CONTENT --- */}}
+
+{{/* --- KONTEN UTAMA HALAMAN --- */}}
+<main class="main-content tags-page-content">
+  <div class="container">
+
+    {{ if eq .RelPermalink "/tags/"}}
+      {{/* Tampilan untuk halaman indeks /tags/ */}}
+      <div class="tags-page-title">
+        <h1>Semua Tag</h1>
+        <p>Temukan konten melalui kata kunci spesifik.</p>
+      </div>
+      <div class="tag-cloud">
+        {{ range .Data.Terms.ByCount }}
+          <a href="{{ .Page.Permalink }}" class="tag-pill">
+            <span class="tag-name">{{ .Name | title }}</span>
+            <span class="tag-count">{{ .Count }}</span>
+          </a>
         {{ end }}
       </div>
-    </div>
+
+    {{ else }}
+
+      {{/* Tampilan untuk halaman tag individual */}}
+      <header class="breadcrumb-header">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ .Site.BaseURL | relLangURL }}"><i class="fas fa-home-alt"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ "/tags/" | relLangURL }}">Tag</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+          </ol>
+        </nav>
+        <h1 class="page-title">{{ .Title }}</h1>
+      </header>
+
+      <div class="post-list-container">
+        {{ range .Paginator.Pages }}
+          <article class="post-card">
+            <a href="{{ .Permalink }}" class="post-card-link">
+              {{ with .Params.image }}
+                <div class="post-card-image-wrapper">
+                  <img src="{{ . }}" alt="Gambar untuk {{ $.Title }}" class="post-card-image" loading="lazy">
+                </div>
+              {{ end }}
+              <div class="post-card-content">
+                <h3 class="post-card-title">{{ .Title }}</h3>
+                <div class="post-card-tags">
+                  {{ with .Params.categories }}{{ range first 2 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
+                </div>
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+
+      {{ partial "custom_pagination.html" . }}
+
+    {{end}}
   </div>
-  {{ end }}
+</main>
+
 </div>
+</div>
+<script>
+    window.addEventListener('load', function() {
+        const wrapper = document.querySelector('.tags-page-content');
+        if (wrapper) {
+            wrapper.classList.remove('is-loading');
+        }
+    });
+</script>
 
-{{ partial "custom_pagination.html" . }}
-
-{{ end }}
 {{ end }}
