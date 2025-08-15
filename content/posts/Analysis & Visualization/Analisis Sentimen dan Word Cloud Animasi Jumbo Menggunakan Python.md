@@ -3,8 +3,8 @@ title = "Studi Kasus: Analisis Sentimen Publik Terhadap Animasi 'Jumbo' Mengguna
 date = 2025-04-22T21:37:16+07:00
 draft = false
 description = ""
-image = "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.png"
-imageBig= "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.png"
+image = "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.webp"
+imageBig= "/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/1.webp"
 categories= ["Analysis and Visualization"]
 tags= ["Sentimen Analysis"]
 avatar="/images/profil.jpeg"
@@ -71,7 +71,7 @@ df = pd.read_csv('serial_jumbo.csv')
 df.head()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/2.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/2.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Memilih Kolom Teks dan Merapikan Indeks
 
@@ -101,7 +101,7 @@ df1['text_clean'] = df1["full_text"].apply(clean_text)
 df1
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/3.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/3.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Pembersihan Teks Tahap 2: Konversi ke Huruf Kecil
 
@@ -112,7 +112,7 @@ df1["text_clean"] = df1["text_clean"].str.lower()
 df1.head()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/4.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/4.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Pembersihan Teks Tahap 3: Penghapusan Stopword (Sastrawi)
 
@@ -134,7 +134,7 @@ df1["text_clean"] = df1["text_clean"].apply(lambda x: stopword(x))
 df1.head()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/5.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/5.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Checkpoint 1: Simpan Hasil Pembersihan Awal
 
@@ -184,7 +184,7 @@ df2['text_clean_abbr'] = df2['text_clean'].apply(replace_abbreviations)
 df2['text_clean_abbr']
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/6.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/6.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Tokenisasi Teks
 
@@ -195,7 +195,7 @@ tokenized = df2["text_clean"].apply(lambda x:x.split())
 tokenized
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/7.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/7.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Stemming Teks (Sastrawi)
 
@@ -235,7 +235,7 @@ data = pd.read_csv("Data Animasi Jumbo/tokenized.csv")
 data.head()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/8.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/8.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ## Langkah 3: Analisis Sentimen dengan Model Transformer
 
@@ -283,7 +283,7 @@ data = pd.read_csv("translate.csv")
 data.tail()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/10.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/10.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ``` Python
 data.to_csv("translate.csv")
@@ -310,7 +310,7 @@ data["sentiment"] = [r['label'] for r in results]
 data
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/11.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/11.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 Hasil label dari model (`LABEL_0`, `LABEL_1`, `LABEL_2`) dipetakan ke kategori yang lebih mudah dipahami.
 
@@ -324,7 +324,7 @@ data["sentiment"] = [label_map[r['label']] for r in results]
 data.sentiment.value_counts()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/12.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/12.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Memfilter Data Berdasarkan Sentimen
 
@@ -367,7 +367,7 @@ wordcloud = WordCloud(
 plot_cloud(wordcloud)
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/13.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/13.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Analisis Bigram (Frasa 2 Kata)
 
@@ -416,7 +416,7 @@ if len(all_tokens_filtered) > 1:
         plot_cloud(wordcloud)
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/14.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/14.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 Untuk melihat frekuensi secara eksplisit, dibuat visualisasi bar chart untuk 20 bigram teratas.
 
@@ -446,7 +446,7 @@ if 'bigram_counts' in locals() and bigram_counts:
         plt.show()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/15.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/15.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ### Analisis Trigram (Frasa 3 Kata)
 
@@ -517,7 +517,7 @@ if trigram_counts:
         plt.show()
 ```
 
-<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/16.png" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
+<div class="single-image-source"> <img src="/images/Analysis_and_Visualization/Sentimen_analisis_animasi_Jumbo/16.webp" style="height:100%;width:100%;display:block;margin-left:auto;margin-right:auto;"> </div>
 
 ## Kesimpulan dan Arah Pengembangan
 
