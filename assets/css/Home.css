@@ -557,7 +557,7 @@
     .header-content {
         max-width: 100%;
     }
-    .connected-dot-container { display: none; }
+/*     .connected-dot-container { display: none; } */
     .secondary-post-grid { grid-template-columns: 1fr; }
 
     .category-grid-container {
