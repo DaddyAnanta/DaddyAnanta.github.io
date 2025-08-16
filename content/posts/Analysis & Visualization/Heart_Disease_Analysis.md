@@ -6,7 +6,7 @@ description = "Dalam bootcamp yang telah saya ikuti, saya mendapatkan tugas untu
 image = "/images/Analysis_and_Visualization/Hearth_Disease_Analyst/Dashboard_HDA.png"
 imageBig= "/images/Analysis_and_Visualization/Hearth_Disease_Analyst/Dashboard_HDA.png"
 categories= ["Analysis and Visualization"]
-tags= ["Python"]
+tags= ["Dashboard"]
 avatar="/images/Analysis_and_Visualization/profil.jpeg"
 +++
 
