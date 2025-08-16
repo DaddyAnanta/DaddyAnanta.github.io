@@ -5,7 +5,7 @@ draft = false
 description = "Hentikan pekerjaan EDA yang berulang. Gunakan fungsi Python ini untuk mendapatkan profil data yang komprehensif secara instan, mulai dari outlier hingga penggunaan memori."
 image = "/images/Analysis_and_Visualization/Data_clean/1.webp"
 imageBig= "/images/Analysis_and_Visualization/Data_clean/1.webp"
-categories= ["Analysis and Visualization", "Data Science"]
+categories= ["Analysis and Visualization"]
 tags= ["Python", "Pandas", "EDA"]
 avatar="/images/profil.jpeg"
 +++
