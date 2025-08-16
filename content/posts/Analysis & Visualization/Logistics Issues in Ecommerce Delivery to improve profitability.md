@@ -6,7 +6,7 @@ description = "Pada kesempatan ini, saya menganalisis data e-commerce yang dipil
 image = "/images/Analysis_and_Visualization/Logistics_Issues_in_Ecommerce_Delivery_to_improve_profitability/image11.png"
 imageBig= "/images/Analysis_and_Visualization/Logistics_Issues_in_Ecommerce_Delivery_to_improve_profitability/image11.png"
 categories= ["Analysis and Visualization"]
-tags= ["Python"]
+tags= ["Dashboard"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
