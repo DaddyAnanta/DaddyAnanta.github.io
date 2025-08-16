@@ -1,8 +1,8 @@
 +++
-title = 'Apriopori'
+title = 'Analisis Keranjang Belanja: Cara Meningkatkan Penjualan dengan Menemukan Aturan Asosiasi Produk'
 date = 2025-05-28T00:37:00+00:00
 draft = false
-description = "Pada kesempatan ini, saya menganalisis data yang dipilih secara acak dari Kaggle."
+description = ""
 image = "/images/Analysis_and_Visualization/Apriopori/1.webp"
 imageBig= "/images/Analysis_and_Visualization/Apriopori/1.webp"
 categories= ["Analysis and Visualization"]
@@ -11,6 +11,7 @@ authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
 
+Pada kesempatan ini, saya menganalisis data yang dipilih secara acak dari Kaggle.
 
 ## Terkait Dataset
 
