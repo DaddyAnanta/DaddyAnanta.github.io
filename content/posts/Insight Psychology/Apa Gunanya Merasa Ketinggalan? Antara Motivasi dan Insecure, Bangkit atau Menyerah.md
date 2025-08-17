@@ -11,100 +11,92 @@ authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
 
-## *The Miracle of Istanbul*
+# <a href="https://id.wikipedia.org/wiki/Final_Liga_Champions_UEFA_2005" target="_blank">*The Miracle of Istanbul*</a>
 
-Pada final Liga Champions 2004-2005, Liverpool yang dipimpin oleh Steven Gerrard menghadapi AC Milan yang dipimpin oleh Paolo Maldini dalam pertandingan yang penuh drama. Bagaimana tidak, di babak pertama, AC Milan unggul 3-0.
+Pada final Liga Champions 2005, Liverpool yang dipimpin Steven Gerrard menghadapi AC Milan yang megah. Babak pertama adalah mimpi buruk bagi Liverpool; mereka tertinggal telak 3-0.
 
-
-<div class="youtube1" style="text-align: center;">
-    <iframe width="80%" height="100%" item-align="center"  src="https://www.youtube.com/embed/3ojXHf293M8?si=ToZJn-2VWAJpgQiq" 
-            title="YouTube video player" frameborder="0" allowfullscreen>
+<div class="youtube1" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <iframe width="80%" height="315" style="max-width: 560px;" src="https://www.youtube.com/embed/3ojXHf293M8?si=ToZJn-2VWAJpgQiq" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
     </iframe>
 </div>
 
-Jika pada saat itu Anda diajak bertaruh oleh teman, tim mana yang akan Anda pilih sebagai pemenang? Kemungkinan besar, Anda akan memilih tim yang lebih unggul, bukan? Karena secara logika, memilih tim yang tertinggal terasa seperti keputusan yang berisiko dan bahkan bisa membuat frustrasi. 
+Jika Anda harus bertaruh saat itu, kecil kemungkinan Anda akan memilih Liverpool. Logikanya, tim yang tertinggal separah itu sudah habis.
 
-Namun, bukannya menyerah Liverpool tetap tidak membiarkan motivasi mereka goyah. Rafael Benítez selaku manajer Liverpool saat itu mengubah formasi menjadi 3-5-2 yang di mana penguasaan bola berada di bagian tengah (<a href="https://panditfootball.com/article/show/cerita/210102/PFB/170930/rafael-benitez-liverpool-dan-kisah-di-ruang-ganti-istanbul">selengkapnya</a>). Benitez dilaporkan tetap tenang dan fokus pada ruang ganti. Dia memberikan instruksi yang jelas dan membangkitkan semangat para pemain untuk terus bertanding. 
+Namun, alih-alih menyerah, Liverpool justru menunjukkan mental baja. Manajer Rafael Benítez dilaporkan tetap tenang di ruang ganti, mengubah taktik, dan membakar kembali semangat juang timnya (<a href="https://panditfootball.com/article/show/cerita/210102/PFB/170930/rafael-benitez-liverpool-dan-kisah-di-ruang-ganti-istanbul" target="_blank">selengkapnya</a>).
 
+Hasilnya? Dalam enam menit babak kedua yang magis, mereka menyamakan kedudukan.
+- **Menit 54**: Gol sundulan Steven Gerrard.
+- **Menit 56**: Gol jarak jauh Vladimír Šmicer.
+- **Menit 60**: Gol Xabi Alonso dari bola rebound penalti.
 
+Momen ini membuktikan bahwa **semangat juang dan fokus yang tak tergoyahkan bisa membalikkan keadaan yang mustahil sekalipun.**
 
-Dalam waktu enam menit, mereka berhasil mencetak tiga gol dan menyamakan kedudukan sebelum babak kedua berakhir. 
+# <a href="https://en.wikipedia.org/wiki/Sugar_Ray_Leonard_vs._Roberto_Dur%C3%A1n_II" target="_blank">*"No Más" Fight* (1980)</a>
 
-- **Menit 54**: Steven Gerrard mencetak gol sundulan.
-
-- **Menit 56**: Vladimir Smicer mencetak gol dari luar kotak penalti.
-
-- **Menit 60**: Xabi Alonso mencetak gol setelah penalti pertamanya ditepis Dida.
-
-Momen luar biasa ini tidak hanya mengejutkan dunia, tetapi juga membuktikan bahwa **semangat juang dan fokus yang tak tergoyahkan pada kemenangan dapat mengubah hasil yang tampaknya sudah sulit untuk dilalui.** Pertandingan inipun dijuluki sebagai *The Miracle of Istanbul*.
-
-##  *"No Más" Fight* (1980)
-
-<div class="youtube1" style="text-align: center;">
-    <iframe width="80%" height="100%" item-align="center"  src=https://www.youtube.com/embed/_CecvdA7b7c?si=773bTH7fBpBIOUCQ" 
-            title="YouTube video player" frameborder="0" allowfullscreen>
+<div class="youtube1" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <iframe width="80%" height="315" style="max-width: 560px;" src="https://www.youtube.com/embed/_CecvdA7b7c?si=773bTH7fBpBIOUCQ" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
     </iframe>
 </div>
 
-Pada 25 November 1980, legenda tinju **Roberto Durán** bertanding melawan **Sugar Ray Leonard** dalam pertandingan ulang setelah Durán memenangkan pertarungan pertama mereka.  Namun, dalam laga ini, Leonard tampil lebih cepat dan lincah, menghindari pukulan Durán serta memanfaatkan teknik dan kecepatan untuk menguasai pertarungan.  Bukan hanya itu, Leonard juga beberapa kali mengejek Durán dengan gaya bertarungnya 
+Sekarang, mari kita lihat sisi sebaliknya. Legenda tinju **Roberto Durán** bertanding ulang melawan **Sugar Ray Leonard**. Di pertarungan ini, Leonard yang lebih lincah mendominasi dan bahkan beberapa kali mengejek Durán.
 
-Namun, kejutan besar terjadi **di ronde ke-8. Secara tiba-tiba, Durán melambaikan tangan kepada wasit dan mengatakan "No más", yang dalam bahasa Spanyol berarti "Tidak lagi."** Keputusan mendadaknya membuat semua orang yang menonton terkejut, termasuk komentator yang kebingungan dengan alasan di balik tindakannya.
+Kejutan besar terjadi di ronde ke-8. Tanpa diduga, Durán, seorang juara dunia yang dikenal buas, berbalik ke arah wasit dan berkata **"No más"**—bahasa Spanyol untuk **"Tidak lagi."** Ia menyerah begitu saja.
 
-Tindakan menyerah yang dilakukan oleh Durán seakan menunjukkan rasa frustrasi akibat ketertinggalannya, bahkan meskipun ia adalah seorang juara dunia. Keputusan tersebut bukan hanya mengejutkan dunia tinju, tetapi juga **menjadi bukti bahwa tekanan mental dan emosional dapat mengalahkan kemampuan fisik, bahkan pada atlet terbaik sekalipun.**
+Tindakan Durán menjadi bukti nyata bahwa **tekanan mental dan frustrasi karena tertinggal dapat mengalahkan kemampuan fisik atlet terhebat sekalipun.**
 
-## Penelitian Jonah Berger
+## Bangkit atau Menyerah: Apa Bedanya?
 
-Dalam bukunya Invisible Influence, Jonah Berger menganalisis ribuan pertandingan tenis dengan satu pertanyaan kunci: **"Apakah kekalahan memengaruhi performa pemain di sisa pertandingan?"**.
+Dua kisah ini menunjukkan dua sisi dari koin yang sama: perasaan tertinggal. Terkadang ia menjadi bahan bakar, di lain waktu ia menjadi racun yang melumpuhkan. Lantas, apa yang sebenarnya menentukan apakah kita akan bangkit seperti Liverpool atau menyerah seperti Durán? Jawabannya tidak hanya terletak pada semangat, tetapi pada bagaimana otak kita mengukur jarak menuju kemenangan.
 
-<div class="single-image-source">
-  <img src="/images/Insight_Psychology/Insecure/4.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Tennis dan Basket From Imagen 3</p>
+## Dari Lapangan ke Laboratorium: Apa Kata Data?
+
+Dalam bukunya <a href="https://jonahberger.com/books/invisible-influence/" target="_blank">*Invisible Influence*</a>, penulis **Jonah Berger** menganalisis ribuan pertandingan olahraga untuk menemukan jawabannya.
+
+<div class="single-image-source" style="margin-top: 20px; margin-bottom: 20px;">
+  <img src="/images/Insight_Psychology/Insecure/4.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto; max-width: 500px;">
+  <p style="font-size: 16px; color: #888; margin-top: 5px; text-align: center;">Tenis vs Basket: Dua Hasil yang Berbeda</p>
 </div>
 
-Jawabannya adalah ya, tetapi dengan cara yang mengejutkan. **Alih-alih bangkit dan bermain lebih baik, pemain yang tertinggal justru cenderung mengalami penurunan performa.** Jika mereka kalah dalam satu set, peluang mereka untuk kalah di set berikutnya menjadi lebih besar.
+1.  **Studi Tenis:** Berger menemukan bahwa pemain yang kalah di set pertama, **cenderung akan kalah lagi** di set berikutnya. Ketinggalan justru membuat performa mereka menurun.
+2.  **Studi Basket NBA:** Hasilnya mengejutkan. Tim yang tertinggal **hanya dengan selisih satu poin** saat turun minum, justru punya kemungkinan menang **lebih besar** daripada tim yang unggul satu poin.
 
-Hasil berbeda ditemukan dalam studi Berger bersama Devin Pope yang menganalisis hampir 20.000 pertandingan bola basket NBA. Pertanyaan mereka adalah: "Apakah tertinggal di babak pertama (turun minum) meningkatkan atau menurunkan kemungkinan menang?".
+Ketinggalan sedikit ternyata bisa menjadi pemicu motivasi yang luar biasa.
 
-Fakta yang didapatkan adalah tim yang kalah dengan selisih satu poin di babak pertama justru memiliki kemungkinan menang yang lebih besar. Bahkan, tim-tim ini lebih sering memenangkan pertandingan dibandingkan dengan tim yang unggul satu poin.
-
-Lantas apa yang membedakan analisis tersebut?
-
-## Motivasi dari Hampir Menang
-
-<div style="background-color:#f9f9f9; border: 1px solid #d3d3d3; padding: 15px; font-family: Arial, sans-serif;margin-bottom: 20px;">
-  <p style="font-style: italic;">"Tertinggal sedikit
-sering kali lebih memotivasi daripada tertinggal banyak karena
-orang lebih dekat untuk mencapai tujuan mereka untuk menang"</p>
-  <p style="text-align: right; font-size: 0.9em; margin-top: 10px; color: #555;">- Jonah Berger, <span style="font-weight: bold;">Invisible Influence</span></p>
+<div style="background-color:#f9f9f9; border-left: 5px solid #ccc; padding: 20px; font-family: Georgia, serif; margin: 25px 0;">
+  <p style="font-style: italic; font-size: 1.2em; line-height: 1.6;">"Tertinggal sedikit sering kali lebih memotivasi daripada tertinggal banyak karena orang lebih dekat untuk mencapai tujuan mereka untuk menang."</p>
+  <p style="text-align: right; font-size: 1em; margin-top: 15px; color: #555;">- Jonah Berger, <span style="font-weight: bold;">Invisible Influence</span></p>
 </div>
 
-Pernahkah Anda melihat kartu loyalitas? Kartu ini diberikan kepada konsumen sebagai bentuk program penghargaan, di mana mereka harus menyelesaikan misi tertentu untuk mendapatkan hadiah. Biasanya, kartu loyalitas berisi 10 kotak yang akan dibolongi atau dicap setiap kali konsumen melakukan transaksi atau kunjungan. Misalnya, setelah kunjungan kedua, konsumen akan memiliki dua kotak yang telah dibolongi. 
+### Lalu, Bagaimana dengan Liverpool?
+Jika motivasi muncul saat tertinggal *sedikit*, kenapa Liverpool bisa bangkit dari ketertinggalan *jauh*? Ini adalah pengecualian yang menarik. Kuncinya mungkin ada pada psikologi **"nothing to lose" (tak ada lagi beban)**. Ketika sebuah tim sudah dianggap habis, tekanan ekspektasi pun hilang. Mereka bisa bermain lebih lepas, sementara tim lawan yang unggul telak justru mulai bermain terlalu hati-hati dan kehilangan momentum. Dalam kondisi ekstrem, aturan motivasi bisa berbalik arah.
 
-<div class="single-image-source">
-  <img src="/images/Insight_Psychology/Insecure/2.webp" alt="Loyality Card" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Loyality Punch Card From Imagen 3</p>
+## Kekuatan Psikologis di Balik "Hampir Sampai"
+
+Fenomena ini juga kita temui dalam kehidupan sehari-hari, contohnya pada kartu loyalitas.
+
+<div class="single-image-source" style="margin-top: 20px; margin-bottom: 20px;">
+  <img src="/images/Insight_Psychology/Insecure/2.webp" alt="Loyality Card" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto; max-width: 450px;">
+  <p style="font-size: 16px; color: #888; margin-top: 5px; text-align: center;">Semakin dekat dengan hadiah, semakin termotivasi.</p>
 </div>
 
-
-Pada kunjungan pertama, pelanggan mungkin merasa biasa saja terhadap kartu loyalitas karena pencapaian hadiah masih terasa jauh. Namun, ketika semakin banyak kotak yang telah dibolongi, terutama mendekati hadiah, **pelanggan akan mengalami *Endowed Progress Effect*—fenomena yang, menurut Nir Eyal, terjadi ketika motivasi seseorang meningkat seiring dengan semakin dekatnya mereka ke tujuan.** 
+Saat cap pertama, hadiah terasa jauh. Tapi saat cap ke-8 atau ke-9, motivasi kita meroket untuk segera mendapatkan cap terakhir. Ini disebut **Endowed Progress Effect**: motivasi meningkat drastis saat kita merasa sudah dekat dengan tujuan.
 
 ## Rekomendasi Individu
 
-Jika kita merasa ketinggalan, **mungkin yang perlu diperbaiki adalah cara kita memilih pesaing**. Jika kita membandingkan diri dengan seseorang yang jauh lebih unggul, hal ini bisa memicu rasa rendah diri dan keinginan untuk menyerah. Namun, **jika kita melihat pesaing sebagai seseorang yang hanya selangkah atau sedikit lebih maju, kita akan lebih termotivasi untuk mengejar dan memperbaiki diri**. Dengan perspektif yang tepat, ketertinggalan bukanlah akhir, melainkan dorongan untuk terus berkembang. 
+Jika Anda merasa tertinggal, **mungkin yang perlu diperbaiki adalah cara Anda memilih pesaing**. Membandingkan diri dengan seseorang yang levelnya jauh di atas bisa membuat *insecure* dan ingin menyerah. Sebaliknya, **jadikan pesaing Anda adalah seseorang yang hanya selangkah di depan**. Ini akan jauh lebih memotivasi untuk mengejar dan memperbaiki diri.
 
 ## Rekomendasi Bisnis
 
-Dalam bisnis, **Anda dapat memanfaatkan efek motivasi karena hampir mencapai tujuan**, seperti yang dilakukan oleh berbagai e-commerce dan perusahaan lainnya dengan sistem tingkat keanggotaan dan gamifikasi.
+Dalam bisnis, manfaatkan efek "hampir sampai" ini melalui gamifikasi dan sistem tingkatan (*tier*).
 
-<div class="single-image-source">
-  <img src="/images/Insight_Psychology/Insecure/3.webp" alt="Tingkat Loyalitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Tingkat Loyalitas From Imagen 3</p>
+<div class="single-image-source" style="margin-top: 20px; margin-bottom: 20px;">
+  <img src="/images/Insight_Psychology/Insecure/3.webp" alt="Tingkat Loyalitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto; max-width: 500px;">
+  <p style="font-size: 16px; color: #888; margin-top: 5px; text-align: center;">Sistem Keanggotaan (Silver, Gold, Platinum)</p>
 </div>
 
-Misalnya, program *Silver*, *Gold*, dan *Platinum* didesain berdasarkan jumlah pembelian pelanggan. Semakin dekat seorang pelanggan ke tingkat berikutnya, semakin besar dorongan mereka untuk menyelesaikan "misi" agar mendapatkan keuntungan yang lebih baik.
-
-Ketika pelanggan merasa hampir mencapai level berikutnya, **mereka lebih mungkin melakukan pembelian tambahan untuk mendapatkan status eksklusif dan hadiah yang lebih besar.**   Namun, jika jarak menuju level berikutnya terlalu jauh, pelanggan bisa merasa bahwa tujuannya sulit dicapai, yang justru melemahkan motivasi dan meningkatkan kemungkinan mereka menyerah. Oleh karena itu, **memahami keseimbangan antara tantangan dan pencapaian adalah kunci strategi yang efektif** dalam meningkatkan loyalitas pelanggan dan mendorong keterlibatan jangka panjang.
+Program seperti *Silver, Gold, Platinum* efektif karena mendorong pelanggan untuk terus bertransaksi agar bisa naik ke level berikutnya. Ketika pelanggan merasa "sedikit lagi jadi Gold," mereka lebih mungkin melakukan pembelian tambahan. Kuncinya adalah **menjaga agar jarak ke level berikutnya tidak terasa terlalu jauh**, agar motivasi mereka tidak padam.
 
 ## Referensi
-
-<p style="text-indent:0px;">Jonah Berger.(2014). Invisible Influence : The Hidden Forces That Shape Behavior. <a href="https://books.google.co.id/books?id=f90nDwAAQBAJ&printsec=frontcover&redir_esc=y#v=onepage&q&f=false">Googe Book</a></p>
+<p style="text-indent:0px;">Jonah Berger.(2014). Invisible Influence : The Hidden Forces That Shape Behavior. <a href="https://books.google.co.id/books?id=f90nDwAAQBAJ&printsec=frontcover&redir_esc=y#v=onepage&q&f=false" target="_blank">Google Books</a></p>
