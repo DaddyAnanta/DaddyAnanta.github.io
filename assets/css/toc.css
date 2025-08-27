@@ -121,9 +121,34 @@
 }
 
 /* Youtube */
-.youtube1 {
-  max-width: 800px;
-  height: 420px;
+/* 1. Kontainer Pembungkus Video */
+.youtube-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Batas lebar maksimal di desktop */
+  overflow: hidden;
+  padding-bottom: 56.25%; /* KUNCI UTAMA: Inilah rasio aspek 16:9 (9 / 16 = 0.5625) */
+  height: 0; /* Tinggi diatur oleh padding-bottom */
+  margin: 0 auto 1em auto; /* Membuat video rata tengah dan memberi jarak bawah */
+}
+
+/* 2. Styling untuk Iframe di Dalam Kontainer */
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Menghilangkan border bawaan */
+}
+
+/* 3. (Opsional) Styling untuk Caption Video */
+.video-caption {
+  font-size: 0.9rem; /* Ukuran yang pas, tidak terlalu besar */
+  color: #6c757d; /* Warna abu-abu yang soft */
+  text-align: center;
+  margin-top: -10px; /* Sedikit lebih dekat ke video */
+  padding: 0 10px;
 }
 /* Youtube end */
 
