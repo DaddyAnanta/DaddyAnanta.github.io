@@ -20,12 +20,13 @@ Pernahkah kita benar-benar menanyakan kepada konsumen bagaimana perasaan mereka 
 Buku ini diberi judul The Mom Test karena penulisnya, Rob Fitzpatrick, mengibaratkan kesalahan umum dalam meminta masukan dari konsumen layaknya saat kita meminta pendapat dari ibu kita sendiri tentang bisnis yang sedang kita rintis. Seorang ibu, yang menyayangi anaknya akan selalu mendukung dan memberikan respon positif untuk menjaga perasaan anaknya, bahkan ketika ia ragu dan tidak sepenuhnya memahami ide tersebut. Yang artinya ia bisa saja berbohong demi kenyamanan anaknya.
 
 
-<div class="youtube1" style="text-align: center;">
-    <iframe width="80%" height="100%" item-align="center"  src="https://www.youtube.com/embed/Hla1jzhan78?si=mASG2lfftAHgeoqB" 
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/Hla1jzhan78?si=mASG2lfftAHgeoqB" 
             title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
 </div>
-<p style="font-size: 16px; color: #888; text-align: center;"> The Mom Test By MScTE48 from Youtube.com</p>
+
+<p class="video-caption">The Mom Test By MScTE48 from Youtube.com</p>
 
 Dalam buku tersebut Fitzpatrick memberi kita 3 cara tentang apa yang harus kita lakukan untuk mendapatkan insight dari konsumen kita.
 
@@ -80,12 +81,13 @@ Christopher Hadnagy dalam bukunya Social Engineering: The Art of Human Hacking (
 
 Untuk menjadi pendengar yang baik, tentunya kita juga harus memahami seni dalam bertanya, karena pertanyaan yang tepat bisa membuka pintu menuju percakapan yang bermakna dan insight yang berharga. Dalam salah satu kuliah praktisnya, Jim Rohn, seorang motivator dan pembicara legendaris, pernah menyampaikan:
 
-<div class="youtube1" style="text-align: center;">
-    <iframe width="80%" height="100%" item-align="center"  src="https://www.youtube.com/embed/uOcKF-aLHyw?si=_IuwC7w9gD2ukyk2"
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/uOcKF-aLHyw?si=_IuwC7w9gD2ukyk2"
             title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
 </div>
-<p style="font-size: 16px; color: #888; text-align: center;"> How to Get Whatever You Want  By GrindBuddy from Youtube.com</p>
+
+<p class="video-caption">How to Get Whatever You Want  By GrindBuddy from Youtube.com</p>
 
 # Kesimpulan
 
