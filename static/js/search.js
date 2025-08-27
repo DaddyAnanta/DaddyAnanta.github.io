@@ -1,12 +1,14 @@
-summaryInclude = 60;
-var resultsPerPage = 10; // Jumlah hasil per halaman
+// Konfigurasi awal (tidak berubah)
+var summaryInclude = 60;
+var resultsPerPage = 9;
 var currentPage = 1;
 var searchResults = [];
+var fuse;
 
 var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
-  threshold: 0.2, // Lebih toleran agar hasil lebih relevan
+  threshold: 0.2,
   tokenize: true,
   location: 0,
   distance: 100,
@@ -21,13 +23,24 @@ var fuseOptions = {
   ]
 };
 
-// Ambil data indeks JSON hanya sekali
-var fuse;
+function initSearchFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('s');
+  const searchInput = $("#search-query");
+
+  if (searchQuery && searchInput.length) {
+    searchInput.val(searchQuery);
+    executeSearch(searchQuery);
+  } else {
+    $('#search-results').html("<p>Please enter a word or phrase above</p>");
+  }
+}
+
 $.getJSON("/index.json", function (data) {
   fuse = new Fuse(data, fuseOptions);
+  initSearchFromURL();
 });
 
-// Menjalankan pencarian saat mengetik
 $("#search-query").on("input", function () {
   var searchQuery = $(this).val().trim();
   if (searchQuery.length > 0) {
@@ -38,13 +51,11 @@ $("#search-query").on("input", function () {
 });
 
 function executeSearch(searchQuery) {
-  if (!fuse) return; // Pastikan data sudah dimuat
-
+  if (!fuse) return;
   var result = fuse.search(searchQuery);
   searchResults = result;
-
   if (searchResults.length > 0) {
-    currentPage = 1; // Reset ke halaman pertama saat pencarian baru dilakukan
+    currentPage = 1;
     displayPage(currentPage);
   } else {
     $('#search-results').html("<p>No matches found</p>");
@@ -74,18 +85,54 @@ function displayPage(page) {
   renderPagination();
 }
 
+
+// ===================================================================
+// === FUNGSI PAGINASI BARU DENGAN LOGIKA PROFESIONAL ===
+// ===================================================================
 function renderPagination() {
   var totalPages = Math.ceil(searchResults.length / resultsPerPage);
-  var paginationHtml = '<div class="pagination">';
+  
+  // Jangan tampilkan paginasi jika hanya ada satu halaman atau kurang
+  if (totalPages <= 1) {
+    $('#pagination-container').empty();
+    return;
+  }
 
+  var paginationHtml = '<div class="pagination">';
+  
+  // Tombol "Previous"
   if (currentPage > 1) {
     paginationHtml += `<button class="page-btn" data-page="${currentPage - 1}">Previous</button>`;
   }
 
-  for (var i = 1; i <= totalPages; i++) {
-    paginationHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+  var pagesToShow = new Set();
+  var pageRange = 1; // Jumlah halaman untuk ditampilkan di sekitar halaman aktif
+
+  // Selalu tampilkan halaman pertama dan terakhir
+  pagesToShow.add(1);
+  pagesToShow.add(totalPages);
+
+  // Tampilkan halaman di sekitar halaman aktif
+  for (let i = currentPage - pageRange; i <= currentPage + pageRange; i++) {
+    if (i > 0 && i <= totalPages) {
+      pagesToShow.add(i);
+    }
   }
 
+  var sortedPages = Array.from(pagesToShow).sort((a, b) => a - b);
+  var lastPage = 0;
+
+  sortedPages.forEach(page => {
+    // Tambahkan elipsis (...) jika ada lompatan halaman
+    if (page > lastPage + 1) {
+      paginationHtml += '<span class="page-ellipsis">...</span>';
+    }
+    
+    paginationHtml += `<button class="page-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
+    lastPage = page;
+  });
+
+  // Tombol "Next"
   if (currentPage < totalPages) {
     paginationHtml += `<button class="page-btn" data-page="${currentPage + 1}">Next</button>`;
   }
@@ -93,11 +140,13 @@ function renderPagination() {
   paginationHtml += '</div>';
   $('#pagination-container').html(paginationHtml);
 
+  // Attach event listener ke tombol yang baru dibuat
   $('.page-btn').click(function () {
     currentPage = parseInt($(this).attr('data-page'));
     displayPage(currentPage);
   });
 }
+// ===================================================================
 
 function render(templateString, data) {
   var conditionalPattern = /\$\{\s*isset ([a-zA-Z]*) \s*\}(.*)\$\{\s*end\s*}/g;
