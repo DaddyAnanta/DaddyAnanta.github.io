@@ -153,6 +153,7 @@
 /* Youtube end */
 
 
+
 /* SINGLE TAGS END*/
 .single-code {
   font: inherit;
@@ -408,6 +409,27 @@
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source img.size-small {
+  max-width: 35%;
+}
+
+.single-image-source img.size-medium {
+  max-width: 55%;
+}
+
+.single-image-source img.size-large {
+  max-width: 75%;
 }
 
 
@@ -997,6 +1019,51 @@ ul.share-icons li:hover .tooltip {
 .post-content li { margin-bottom: 10px; }
 .post-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
 
+
+/* Images start */
+.single-image-source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2.5em 0;
+}
+
+.single-image-source img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source .image-caption {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.single-image-source .image-caption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+  .single-image-source img.size-small {
+    max-width: 50%;
+  }
+
+  .single-image-source img.size-medium {
+    max-width: 70%;
+  }
+
+  .single-image-source img.size-large {
+    max-width: 90%;
+  }
+/* Images end */
+
+
 /* PERBAIKAN: Styling untuk blok kode <pre> */
 .post-content pre {
   background-color: #f5f5f5;
@@ -1411,6 +1478,18 @@ ul.share-icons li:hover .tooltip {
     object-fit: cover;
   }
 
+    .single-image-source img.size-small {
+    max-width: 85%;
+  }
+
+  .single-image-source img.size-medium {
+    max-width: 100%;
+  }
+
+  .single-image-source img.size-large {
+    max-width: 100%;
+  }
+
   .single-tags {
     align-items: flex-start; 
     margin-bottom: 40px;
@@ -1512,5 +1591,7 @@ ul.share-icons li:hover .tooltip {
   }
 
   /* Code & Tabel End */
+
+
 
 }
