@@ -1,10 +1,10 @@
 +++
-title = 'Uji Validitas dan Reliabilitas untuk Balita dengan SPSS'
+title = 'Uji Validitas dan Reliabilitas Kuesioner dengan SPSS'
 date = 2025-04-22T21:37:16+07:00
 draft = false
 socialshare = true
 
-description = 'Dalam konteks penelitian yang menggunakan kuesioner, umumnya dikenal istilah Uji Validitas dan Uji Reliabilitas sebagai langkah penting sebelum pelaksanaan penelitian utama. Proses ini melibatkan pengujian awal terhadap butir-butir pernyataan dalam kuesioner yang diberikan kepada sekelompok responden uji coba (try-out). Kelompok ini dipilih karena memiliki karakteristik yang serupa dengan target responden penelitian sesungguhnya.'
+description = ''
 image = "/images/Analysis_and_Visualization/validitas-reliabilitas/22.webp"
 imageBig= "/images/Analysis_and_Visualization/validitas-reliabilitas/22.webp"
 categories= ["Analysis and Visualization"]
@@ -14,182 +14,181 @@ avatar="/images/profil.jpeg"
 +++
 
 
+Sebelum Anda menyebarkan kuesioner ke ratusan responden, pernahkah Anda bertanya: "Apakah pertanyaan-pertanyaan ini benar-benar mengukur apa yang ingin saya ukur? Apakah hasilnya akan konsisten?" 
 
+Dua pertanyaan inilah yang menjadi inti dari **Uji Validitas** dan **Uji Reliabilitas**. Melewatkan kedua uji ini sama seperti membangun rumah di atas fondasi yang rapuh. Data yang Anda kumpulkan bisa jadi tidak akurat dan tidak dapat diandalkan, sehingga kesimpulan penelitian Anda pun diragukan.
 
+Panduan ini akan membahas secara tuntas, mulai dari konsep dasar hingga langkah praktis menggunakan SPSS.
 
+---
 
-# Kelompok Try-Out dan Kelompok Penelitian
+## Pentingnya Kelompok Uji Coba (*Try-Out*) yang Tepat
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/1.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi kelompok penelitian</p>
-</div>
-
-Meskipun lokasi antara kelompok uji coba (try-out) dan kelompok penelitian utama dapat berbeda, kesamaan karakteristik lingkungan atau subjek yang relevan antara kedua kelompok tersebut sangatlah penting. Tingkat kesamaan yang dibutuhkan ini bergantung pada variabel atau konstruk yang hendak diukur dalam penelitian. 
-
-Sebagai contoh yang menggambarkan pemilihan kelompok uji coba yang kurang tepat: misalkan seorang peneliti bertujuan mengukur "Minat Belajar Siswa di Sekolah B", yang merupakan sekolah negeri di perkotaan dengan suasana akademis yang sangat kompetitif. Namun, untuk tahap uji coba kuesioner, peneliti tersebut memilih siswa dari SMK A (Sekolah Menengah Kejuruan) dengan alasan utama kemudahan akses. 
-
-Pilihan ini berpotensi menimbulkan masalah karena siswa SMK A kemungkinan memiliki latar belakang, fokus pendidikan, dan tingkat persaingan akademis yang berbeda dibandingkan siswa di Sekolah B. 
+Langkah pertama sebelum melakukan uji statistik adalah melakukan uji coba (*try-out* atau *pilot study*) kuesioner pada sekelompok kecil responden. Namun, ada satu syarat mutlak: **kelompok uji coba harus memiliki karakteristik yang semirip mungkin dengan kelompok penelitian utama Anda.**
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/2.webp" alt=">Ilustrasi kelompok penelitian" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi kelompok penelitian 2</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/1.webp" alt="Ilustrasi kelompok responden yang serupa" style="height:auto;width:80%;max-width:600px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Karakteristik kelompok try-out harus mencerminkan kelompok penelitian.</p>
 </div>
 
-Karena perbedaan karakteristik lingkungan dan fokus pendidikan tersebut, siswa di SMK A mungkin cenderung memberikan penilaian rendah terhadap pernyataan seperti **"Teman sebaya membantu saya dalam tugas akademik"**, mungkin karena kolaborasi akademis bukan fokus utama atau dirasa kurang relevan di lingkungan mereka. Sebaliknya, di Sekolah B yang lingkungannya sangat kompetitif secara akademis, ada kemungkinan besar siswa justru akan memberikan penilaian tinggi untuk pernyataan yang sama, karena bantuan dari teman sebaya bisa jadi merupakan strategi penting dan bernilai tinggi untuk berhasil dalam tugas-tugas akademik mereka.
+Mengapa ini penting? Mari kita lihat contoh kasus yang salah:
 
-Sehingga Anda harus memiliki subject *try-out* dengan lingkungan yang sama dengan subject penelitian Anda.
+Seorang peneliti ingin mengukur **"Minat Belajar Siswa di SMA B"**, sebuah sekolah negeri unggulan di perkotaan dengan atmosfer akademis yang sangat kompetitif. Namun, untuk uji coba kuesioner, ia memilih siswa dari **SMK A** (Sekolah Menengah Kejuruan) karena alasan kemudahan akses.
 
+Pilihan ini sangat berisiko. Siswa SMK memiliki fokus pendidikan, lingkungan pergaulan, dan tingkat persaingan akademis yang berbeda. Akibatnya, jawaban mereka terhadap item kuesioner mungkin tidak akan mencerminkan respons dari siswa SMA B.
 
-# Uji Validitas dan Uji Reliabilitas
+Misalnya, untuk pernyataan **"Kolaborasi dengan teman sangat membantu tugas akademik saya"**:
+* **Siswa SMK A** mungkin memberi skor rendah, karena fokus mereka lebih ke praktik individual.
+* **Siswa SMA B** mungkin memberi skor tinggi, karena kerja kelompok adalah strategi vital di lingkungan kompetitif mereka.
 
-## Uji Validitas
+Perbedaan ini akan menghasilkan data uji coba yang bias, yang pada akhirnya bisa membuat Anda salah dalam menilai validitas dan reliabilitas kuesioner Anda.
 
-Uji validitas digunakan untuk memastikan apakah kuesioner yang telah disusun benar-benar mengukur variabel yang dimaksud. Misalnya, melanjutkan contoh sebelumnya, Anda ingin mengukur "Minat Belajar Siswa" di Sekolah B. Kemudian, Anda menyusun beberapa pernyataan untuk kuesioner tersebut. Berikut adalah contoh lima pernyataan :
+> **Intinya**: Pastikan subjek *try-out* Anda adalah "cerminan mini" dari subjek penelitian utama Anda.
 
-- Saya merasa senang saat mempelajari hal-hal baru di kelas. 
-- Saya sering mencari informasi tambahan mengenai materi pelajaran di luar jam sekolah. 
-- Saya berusaha untuk fokus dan memperhatikan penjelasan guru selama pelajaran. 
-- Saya selalu mendapatkan nilai yang tinggi pada setiap ujian. 
-- Fasilitas di sekolah ini sangat lengkap dan nyaman. 
+---
 
-Seperti contoh di atas pada pernyataan ke 4 mungkin terkesan tidak valid karena lebih menekankan kemampuan akademis daripada minat. Begitu juga dengan pernyataan ke 5 yang lebih fokus pada fasilitas sehingga bukan mengukur minat itu sendiri.
+## Membedah Konsep: Validitas vs. Reliabilitas
 
-Dengan kata lain, uji validitas berfungsi sebagai proses seleksi untuk mengevaluasi dan menyaring butir-butir pernyataan yang telah dibuat. Tujuannya adalah untuk memastikan bahwa hanya pernyataan yang benar-benar relevan dan akurat dalam mengukur variabel atau konstruk penelitian yang akan dipertahankan dan digunakan dalam kuesioner final.
+### Apa itu Uji Validitas?
+
+Uji validitas bertujuan untuk memastikan kuesioner Anda benar-benar mengukur variabel yang seharusnya diukur. Singkatnya: **apakah Anda mengukur hal yang tepat?**
+
+Analogi sederhananya adalah menyaring emas dari pasir sungai. Anda tidak ingin menjual pasirnya, bukan? Anda hanya menginginkan serbuk emasnya. Uji validitas berfungsi sebagai "saringan" untuk membuang item-item pertanyaan yang tidak relevan (pasir) dan hanya menyimpan item yang benar-benar mengukur konsep Anda (emas).
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/3.webp" alt="Ilustrasi uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Ilustrasi uji validitas</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/3.webp" alt="Ilustrasi menyaring emas sebagai analogi uji validitas" style="height:auto;width:80%;max-width:600px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Uji validitas menyaring item yang tidak relevan.</p>
 </div>
 
-Seperti contoh di atas, ketika Anda ingin menjual serbuk emas tentunya Anda tidak menjual beserta pasir sungainya, tetapi Anda menyaringnya terlebih dahulu untuk mendapatkan serbuk emasnya.
+Contoh: Kuesioner **"Minat Belajar Siswa"** berisi item berikut:
+1.  Saya merasa senang saat mempelajari hal baru di kelas. (✅ Relevan)
+2.  Saya sering mencari informasi tambahan di luar jam sekolah. (✅ Relevan)
+3.  Saya selalu mendapatkan nilai yang tinggi pada setiap ujian. (❌ **Tidak Valid** - Ini mengukur **kemampuan/prestasi akademis**, bukan minat).
+4.  Fasilitas di sekolah ini sangat lengkap dan nyaman. (❌ **Tidak Valid** - Ini mengukur **persepsi terhadap fasilitas**, bukan minat belajar).
 
+Dalam panduan ini, kita akan fokus pada **Validitas Item**, yaitu melihat sejauh mana setiap item pertanyaan selaras dengan total skor kuesioner.
 
-## Uji Reliabilitas
+### Apa itu Uji Reliabilitas?
 
-Di saat Anda melakukan suatu pengujian terhadap kuesioner dengan uji validitas, tentunya Anda akan mendapatkan pernyataan yang valid atau akurat. Anda melakukan pengujian pada SMA B dan mendapat hasil yang relevan, tetapi kemudian Anda harus mengujinya kembali di SMA C. Apakah hasilnya juga akan konsisten antara SMA B dengan SMA C? Untuk mengatasi hal ini kita memerlukan pengujian Reliabilitas setelah kita melakukan pengujian validitas. Hal, ini bertujuan untuk mengukur apakah pernyataan kita tadi memunculkan hasil yang sama atau konsisten setiap kali dilakukan pengukuran
+Setelah memastikan item Anda valid, langkah selanjutnya adalah menguji reliabilitas. Reliabilitas menjawab pertanyaan: **apakah kuesioner Anda konsisten?**
 
-Saat Anda melakukan pengujian terhadap kuesioner menggunakan uji validitas, tujuan utamanya adalah untuk memastikan bahwa setiap pernyataan dalam kuesioner tersebut benar-benar mengukur apa yang seharusnya diukur, sehingga menghasilkan data yang akurat dan dapat dipercaya.
-
-Misalnya, ketika Anda menguji kuesioner tersebut di SMA B dan memperoleh hasil yang relevan, belum tentu hasil yang sama akan diperoleh jika pengujian dilakukan kembali di SMA C. 
-
-Oleh karena itu, setelah melakukan uji validitas, sangat penting untuk melanjutkan dengan uji reliabilitas. Uji reliabilitas bertujuan untuk mengetahui sejauh mana instrumen tersebut menghasilkan data yang konsisten ketika digunakan berulang kali dalam kondisi yang serupa. Dengan demikian, pengujian reliabilitas menjadi langkah penting dalam memastikan bahwa kuesioner tidak hanya valid, tetapi juga dapat diandalkan di kelompok responden yang serupa.
-
-# Pengukuran SPSS
-
-Sebagai latihan, kita akan menggunakan data dummy yang dapat Anda unduh di [placeholder untuk tautan unduh].
-
-Tutorial ini menggunakan SPSS versi 24 dan Microsoft Excel 2019. Namun, langkah-langkahnya cenderung serupa untuk versi SPSS atau Excel yang lebih baru maupun lebih lama.
+Analogi terbaik adalah sebuah timbangan digital. Jika Anda menimbang sekarung beras yang sama sebanyak lima kali dan angkanya selalu menunjukkan 10 kg, maka timbangan itu **reliabel**. Namun, jika hasilnya berubah-ubah (10 kg, 9.5 kg, 10.2 kg), timbangan itu tidak bisa diandalkan.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/4.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 1</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/2.webp" alt="Ilustrasi timbangan konsisten sebagai analogi uji reliabilitas" style="height:auto;width:80%;max-width:600px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Uji reliabilitas memastikan konsistensi hasil pengukuran.</p>
 </div>
 
-Selanjutnya, salin data respons dari Excel (pilih semua sel yang relevan, lalu tekan Ctrl+C) dan tempelkan ke tampilan 'Data View' di SPSS (klik sel pertama tempat data akan dimulai, lalu tekan Ctrl+V):
+Uji reliabilitas (khususnya dengan metode *Cronbach's Alpha* yang akan kita gunakan) mengukur **konsistensi internal** kuesioner. Artinya, ia melihat apakah jawaban responden pada satu set item pertanyaan konsisten satu sama lain. Kuesioner yang reliabel akan menghasilkan data yang stabil dan dapat dipercaya jika diujikan berulang kali pada subjek yang serupa.
+
+> **Urutan Penting**: Selalu lakukan Uji Validitas **terlebih dahulu**. Hapus item yang tidak valid, baru kemudian lakukan Uji Reliabilitas pada item-item yang tersisa.
+
+---
+
+## Tutorial SPSS: Uji Validitas dan Reliabilitas
+
+Kita akan menggunakan data dummy yang bisa Anda siapkan di Excel. Tutorial ini menggunakan SPSS versi 24, namun langkah-langkahnya sangat mirip untuk versi lain.
+
+#### **Langkah 1: Input Data ke SPSS**
+
+1.  Salin data dari Excel (termasuk nama kolom P1, P2, dst.).
+2.  Buka SPSS, masuk ke **Data View**. Klik pada sel pertama (pojok kiri atas) dan tempelkan data Anda (Ctrl+V).
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/5.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 1</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/5.webp" alt="Menempelkan data dari Excel ke SPSS Data View" style="height:auto;width:80%;max-width:700px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Tampilan Data View setelah data di-paste.</p>
 </div>
 
-Di bagian kiri bawah jendela SPSS, klik tab 'Variable View' untuk mengatur properti variabel:
+#### **Langkah 2: Mengatur Properti Variabel**
+
+1.  Pindah ke tab **Variable View** di kiri bawah.
+2.  Atur properti untuk setiap variabel (P1, P2, ...):
+    * **Name**: Pastikan sudah sesuai (P1, P2, dst.).
+    * **Decimals**: Ubah menjadi **0**, karena data skala Likert adalah bilangan bulat.
+    * **Label**: (Sangat Direkomendasikan!) Isi dengan teks pertanyaan lengkap. Misal, untuk `P1` labelnya adalah "Saya merasa senang saat mempelajari hal baru". Ini akan membuat output analisis lebih mudah dibaca.
+    * **Measure**: Ubah menjadi **Ordinal**, karena skala Likert menunjukkan tingkatan.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/6.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 2</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/7.webp" alt="Mengatur properti variabel di SPSS Variable View" style="height:auto;width:80%;max-width:700px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Pengaturan di Variable View.</p>
 </div>
 
-Pada tampilan 'Variable View', perhatikan beberapa kolom penting berikut untuk setiap item kuesioner (misalnya, P1, P2, dst.):
+#### **Langkah 3: Menjalankan Analisis (Tahap 1 - Validitas)**
 
-- **Name**: Anda dapat mengubah nama variabel default (misalnya, VAR0001, VAR0002) menjadi nama yang lebih deskriptif (misalnya, P1, P2, atau sesuai kode item kuesioner Anda).
-- **Decimals**: Ubah angka desimal menjadi 0 jika data Anda berupa bilangan bulat (misalnya, skor skala Likert 1, 2, 3, 4, 5).
-- **Measure**: Ubah tingkat pengukuran ('Measure') menjadi 'Ordinal' karena data kuesioner (skor per item) biasanya mewakili tingkatan atau urutan (misalnya, sangat tidak setuju hingga sangat setuju).
+Kita akan menjalankan analisis reliabilitas, namun tujuannya adalah untuk mendapatkan nilai validitas item dari tabel statistik tambahan.
+
+1.  Klik menu **Analyze > Scale > Reliability Analysis...**
+2.  Pindahkan semua item (P1 hingga P15) dari kotak kiri ke kotak **Items** di sebelah kanan.
+3.  Klik tombol **Statistics...**
+4.  Pada jendela baru, di bagian 'Descriptives for', centang **Scale if item deleted**. Klik **Continue**.
+5.  Klik **OK** pada jendela utama untuk menjalankan analisis.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/7.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 2</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/10.webp" alt="Opsi Statistik untuk Analisis Reliabilitas" style="height:auto;width:80%;max-width:500px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Centang 'Scale if item deleted'.</p>
 </div>
 
-## Uji Validitas Item (Menggunakan Analisis Reliabilitas)
+#### **Langkah 4: Interpretasi Output Validitas**
 
-Untuk menguji validitas setiap item pernyataan dalam kuesioner, kita dapat menggunakan nilai 'Corrected Item-Total Correlation' yang diperoleh dari prosedur Analisis Reliabilitas. Langkah-langkahnya adalah sebagai berikut:
-
-Klik menu **Analyze** > **Scale** > **Reliability Analysis...**
+Cari tabel bernama **Item-Total Statistics**. Fokus pada kolom **Corrected Item-Total Correlation**. Ini adalah nilai $r_{hitung}$ kita.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/8.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 3</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/11.webp" alt="Tabel output Item-Total Statistics di SPSS" style="height:auto;width:80%;max-width:500px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Perhatikan nilai pada kolom yang ditandai.</p>
 </div>
 
-Pada kotak dialog 'Reliability Analysis', pindahkan semua variabel item (misalnya, P1 hingga P15) dari kotak kiri ke kotak 'Items:' di sebelah kanan. Anda bisa memilih semua item dengan menekan Ctrl+A (atau Shift+klik) lalu klik tombol panah. 
+**Kriteria Keputusan:**
+Sebuah item dinyatakan **valid** jika nilai `Corrected Item-Total Correlation` ($r_{hitung}$) lebih besar dari $r_{tabel}$.
+* **Bagaimana cara menentukan $r_{tabel}$?** Nilai ini bergantung pada jumlah responden (N) dan tingkat signifikansi ($\alpha$, biasanya 5% atau 0.05). Anda bisa mencarinya di tabel r Product Moment.
+* **Aturan Praktis (Rule of Thumb):** Jika sulit mencari $r_{tabel}$, banyak peneliti menggunakan batas aman **0.3**.
+
+Pada contoh output di atas, item **P6, P8, dan P15** memiliki nilai di bawah 0.3. Dengan demikian, ketiga item ini dianggap **tidak valid** dan harus **dihapus** atau **dibuang** dari kuesioner.
+
+#### **Langkah 5: Menjalankan Analisis (Tahap 2 - Reliabilitas)**
+
+Setelah membuang item yang tidak valid, kita ulangi analisis hanya dengan item yang valid.
+
+1.  Kembali ke **Analyze > Scale > Reliability Analysis...**
+2.  Keluarkan item yang tidak valid (P6, P8, P15) dari kotak **Items**. Sisakan hanya item yang valid.
+3.  Pastikan pengaturan di **Statistics...** masih sama.
+4.  Klik **OK**.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/9.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 4</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/12.webp" alt="Menjalankan analisis ulang hanya dengan item valid" style="height:auto;width:80%;max-width:500px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Hanya item yang terbukti valid yang dianalisis kembali.</p>
 </div>
 
-Klik tombol **Statistics...**. Pada jendela yang muncul, centang opsi **Scale if item deleted** di bagian 'Descriptives for'. Klik **Continue**, lalu klik **OK** pada jendela utama 'Reliability Analysis'.
+#### **Langkah 6: Interpretasi Output Reliabilitas**
+
+Sekarang, lihat tabel **Reliability Statistics**. Fokus pada nilai **Cronbach's Alpha**.
 
 <div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/10.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 5</p>
+  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/13.webp" alt="Tabel output Reliability Statistics di SPSS" style="height:auto;width:80%;max-width:400px;display:block;margin-left:auto;margin-right:auto;">
+  <p style="font-size: 16px; color: #888; margin-top:10px; text-align: center;">Nilai Cronbach's Alpha setelah item tidak valid dibuang.</p>
 </div>
 
-Output akan menampilkan beberapa tabel. Fokus pada tabel 'Item-Total Statistics':
+**Kriteria Keputusan:**
+Kuesioner dianggap **reliabel** jika nilai Cronbach's Alpha $\ge 0.60$ (beberapa referensi yang lebih ketat menggunakan $\ge 0.70$).
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/11.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 6</p>
-</div>
+Pada contoh output, nilai Cronbach's Alpha adalah **0.982**. Karena nilai ini jauh di atas 0.60, maka kumpulan item kuesioner yang sudah valid tersebut terbukti **sangat reliabel**.
 
-Perhatikan kolom **Corrected Item-Total Correlation**. Nilai ini menunjukkan seberapa kuat hubungan antara skor suatu item dengan skor total dari item-item lainnya dalam skala tersebut. Item dianggap valid jika nilai 'Corrected Item-Total Correlation'-nya memenuhi batas minimum tertentu. Seringkali digunakan ambang batas rhitung​≥0.3 (seperti yang disarankan oleh Azwar, 2012) atau dibandingkan dengan nilai rtabel​ berdasarkan jumlah sampel (N) dan tingkat signifikansi (α) tertentu (misalnya α=0.05). Jika nilai rhitung​ (Corrected Item-Total Correlation) lebih besar dari rtabel​ (atau ≥0.3, tergantung acuan yang dipakai), item tersebut dianggap valid.
+---
 
-Pada contoh output di atas, item P6, P8, dan P15 memiliki nilai di bawah 0.3, sehingga item-item ini dianggap tidak valid dan perlu dihapus dari analisis selanjutnya.
+## Kesimpulan
 
-## Uji Reliabilitas
+Melakukan uji coba (*try-out*) serta Uji Validitas dan Reliabilitas adalah tahap krusial yang tidak boleh dilewatkan dalam penelitian berbasis kuesioner. Proses ini memastikan bahwa alat ukur yang Anda gunakan berkualitas tinggi, tajam, dan konsisten.
 
-Setelah item-item yang tidak valid (misalnya, P6, P8, P15 dalam contoh ini) diidentifikasi, Anda perlu menjalankan kembali Analisis Reliabilitas hanya dengan memasukkan item-item yang valid.
+Dengan instrumen yang valid dan reliabel, Anda bisa lebih percaya diri bahwa data yang Anda kumpulkan benar-benar mencerminkan kenyataan. Pada akhirnya, ini akan membawa Anda pada kesimpulan penelitian atau keputusan bisnis yang lebih akurat dan dapat dipertanggungjawabkan. Selamat menganalisis! 📊
 
-Anda dapat menghapus item tidak valid dari analisis dengan tidak memasukkannya ke kotak 'Items:' saat mengulang langkah Analisis Reliabilitas berikut ini. !
+## Video
 
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/12.webp" alt="SPSS uji reliabilitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 8</p>
-</div>
-
-Langkahnya sama persis seperti pada uji validitas item sebelumnya (**Analyze** > **Scale** > **Reliability Analysis**), namun kali ini hanya masukkan item-item yang **valid** ke dalam kotak 'Items:'. Pastikan opsi **Scale if item deleted** pada tombol **Statistics...** masih tercentang (atau centang kembali jika perlu). Klik **Continue** dan **OK**.
-
-Output yang dihasilkan akan mencerminkan analisis hanya pada item-item yang valid. Analisis ulang ini bertujuan untuk mendapatkan nilai reliabilitas (Cronbach's Alpha) dari set instrumen yang sudah valid.
-
-Setelah menjalankan analisis ulang dengan item valid, fokus pada tabel 'Reliability Statistics': 
-
-<div class="single-image-source">
-  <img src="/images/Analysis_and_Visualization/validitas-reliabilitas/13.webp" alt="SPSS uji validitas" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">SPSS uji validitas 9</p>
-</div>
-
-Nilai reliabilitas instrumen diukur menggunakan **Cronbach's Alpha**. Umumnya, nilai Cronbach's Alpha dianggap reliabel jika ≥0.60 atau ≥0.70, meskipun standar ini dapat bervariasi tergantung pada bidang studi atau referensi yang digunakan (misalnya, beberapa sumber menyarankan 0.70 sebagai batas minimal yang baik). Nilai yang lebih tinggi (mendekati 1.0) menunjukkan konsistensi internal yang lebih baik antar item.
-
-Pada contoh output (setelah item tidak valid dihapus), nilai Cronbach's Alpha adalah 0.982. Karena **0.982>0.60** (atau 0.70), maka kumpulan item kuesioner yang valid tersebut dapat dianggap reliabel.
-
-# Kesimpulan
-
-Sebelum menyebarkan kuesioner kepada sampel penelitian utama (sampel besar), sangat penting untuk melakukan uji coba (pilot test atau try-out) terlebih dahulu pada sampel kecil yang memiliki karakteristik serupa dengan populasi target. Uji coba ini bertujuan untuk mengevaluasi kualitas instrumen, termasuk mengidentifikasi item-item pernyataan yang mungkin ambigu, sulit dipahami, tidak relevan, atau memiliki masalah validitas dan reliabilitas. Hasil uji coba (seperti analisis validitas dan reliabilitas yang dibahas di atas) digunakan untuk memperbaiki atau memodifikasi kuesioner sebelum digunakan dalam penelitian sesungguhnya.
-
-Dalam konteks bisnis, misalnya, try-out kuesioner dapat membantu perusahaan memahami apakah instrumen yang digunakan benar-benar mampu menggali persepsi pelanggan, kinerja karyawan, atau efektivitas strategi pemasaran secara akurat. Dengan melakukan uji coba dan analisis yang tepat, peneliti dapat memastikan bahwa kuesioner yang digunakan lebih valid (mengukur apa yang seharusnya diukur) dan reliabel (konsisten jika digunakan berulang kali). Hal ini akan menghasilkan data penelitian yang lebih berkualitas dan dapat diandalkan sebagai dasar untuk menarik kesimpulan atau membuat keputusan yang akurat.
-
-
-# Video
-
-<div class="youtube1" style="text-align: center;">
-    <iframe width="100%" height="100%" item-align="center"  src="https://www.youtube.com/embed/k9Hqa-BeErc?si=tExl15ZosywXBTKH" 
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/k9Hqa-BeErc?si=tExl15ZosywXBTKH" 
             title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
 </div>
 
-# Referensi
+<p class="video-caption">Tutorial SPSS</p>
 
-
-- <p style="text-indent:0px;">Saifuddin Azwar - Penyusunan Skala Psikologi</p>
-
+## Referensi
+> Azwar, S. (2012). *Penyusunan Skala Psikologi*. Pustaka Pelajar.
