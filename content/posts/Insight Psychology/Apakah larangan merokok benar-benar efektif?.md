@@ -70,11 +70,15 @@ Pernahkah Anda menonton serial Popaye si Pelaut? Serial kartun klasik ini, yang 
 
 
 Kembali ke pertanyaan awal yang kita bahas sebelumnya, apakah larangan merokok benar-benar efektif? Jawabannya mungkin lebih kompleks daripada sekadar ya atau tidak. **Selama adegan merokok dalam media populer secara terus-menerus digambarkan sebagai sesuatu yang menarik, keren, atau bahkan memberontak, rokok akan tetap ada**. Citra rokok yang positif ini, diperkuat oleh penggambaran dalam film, musik, atau media lainnya, dapat menciptakan asosiasi kuat dalam pikiran orang, terutama remaja dan dewasa muda.
-<div class="youtube1" style="text-align: center;">
-    <iframe width="width:250px;" height="100%" item-align="center" src="https://www.youtube.com/embed/5BVf4Ju3hb4" 
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/5BVf4Ju3hb4" 
             title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
 </div>
+
+<p class="video-caption">
+    Art of Smoking By moaaz editoria from Youtube.com
+</p>
 
 # Rekomendasi Bisnis
 

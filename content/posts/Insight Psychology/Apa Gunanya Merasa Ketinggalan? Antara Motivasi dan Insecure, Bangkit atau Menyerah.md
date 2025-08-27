@@ -4,7 +4,7 @@ date = 2025-03-24
 draft = false
 description = "Pernahkah Anda merasa ketinggalan? Baik dari segi prestasi, materi bahkan dengan kemampuan yang Anda miliki? Apa yang Anda rasakan saat Anda berada di belakang orang tersebut? Kecewa, marah atau bahkan termotivasi? "
 image = "/images/Insight_Psychology/Insecure/1.webp"
-imageBig= "/images/Insight_Psychology/Insecure/1.webp"
+imageBig= "/images/13. Insecure/1.webp"
 categories= ["Insight Psychology"]
 tags=["Heuristic Bias"]
 authors= ["Daddy Ananta"]
@@ -15,11 +15,13 @@ avatar="/images/profil.jpeg"
 
 Pada final Liga Champions 2005, Liverpool yang dipimpin Steven Gerrard menghadapi AC Milan yang megah. Babak pertama adalah mimpi buruk bagi Liverpool; mereka tertinggal telak 3-0.
 
-<div class="youtube1" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-    <iframe width="80%" height="315" style="max-width: 560px;" src="https://www.youtube.com/embed/3ojXHf293M8?si=ToZJn-2VWAJpgQiq" 
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/3ojXHf293M8?si=ToZJn-2VWAJpgQiq" 
             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
     </iframe>
 </div>
+
+<p class="video-caption">ISTANBUL 05: Liverpool 3-3 Milan | HIGHLIGHTS OF THE GREATEST EVER FINAL from Liverpool FC</p>
 
 Jika Anda harus bertaruh saat itu, kecil kemungkinan Anda akan memilih Liverpool. Logikanya, tim yang tertinggal separah itu sudah habis.
 
@@ -34,11 +36,15 @@ Momen ini membuktikan bahwa **semangat juang dan fokus yang tak tergoyahkan bisa
 
 # <a href="https://en.wikipedia.org/wiki/Sugar_Ray_Leonard_vs._Roberto_Dur%C3%A1n_II" target="_blank">*"No Más" Fight* (1980)</a>
 
-<div class="youtube1" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-    <iframe width="80%" height="315" style="max-width: 560px;" src="https://www.youtube.com/embed/_CecvdA7b7c?si=773bTH7fBpBIOUCQ" 
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/_CecvdA7b7c?si=773bTH7fBpBIOUCQ" 
             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
     </iframe>
 </div>
+
+<p class="video-caption">
+    "𝗡𝗢 𝗠𝗔𝗦" Roberto Durán vs. Sugar Ray Leonard II November 25, 1980 WELTERWEIGHT CHAMPIONSHIP BOUT By Boxing Scenes Classic Rounds from Youtube.com
+</p>
 
 Sekarang, mari kita lihat sisi sebaliknya. Legenda tinju **Roberto Durán** bertanding ulang melawan **Sugar Ray Leonard**. Di pertarungan ini, Leonard yang lebih lincah mendominasi dan bahkan beberapa kali mengejek Durán.
 

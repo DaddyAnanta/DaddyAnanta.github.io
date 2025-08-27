@@ -23,21 +23,31 @@ Pernahkah Anda mendengar nama Joshua Bell?
 
 Ia adalah seorang pemain biola virtuoso asal Amerika Serikat yang terkenal di seluruh dunia. Bell sering tampil sebagai solois bersama orkestra-orkestra ternama dan dikenal karena permainan biolanya yang penuh emosi serta tekniknya yang luar biasa. Salah satu biola yang ia gunakan adalah Stradivarius Gibson ex Huberman, sebuah instrumen langka dan sangat berharga.
 
-<div class="youtube1" style="text-align: center;">
-    <iframe width="300" height="200px" item-align="center"  src="https://www.youtube.com/embed/cbJZeNlrYKg?si=fU1PR0IBGMb8yXak" 
-            title="YouTube video player" frameborder="0" allowfullscreen>
+
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/cbJZeNlrYKg?si=fU1PR0IBGMb8yXak" 
+            title="YouTube video player" 
+            allowfullscreen>
     </iframe>
 </div>
+
+<p class="video-caption">Joshua Bell By Classical Vault 1 from Youtube.com</p>
+
 
 Lantas  apa yang terjadi jika seorang musisi kaliber dunia seperti Joshua Bell tampil di tempat umum tanpa pengumuman atau panggung mewah? Pada tahun 2007 hal ini benar-benar terjadi. Salah satu dari eksperimen sosial terkenal melibatkannya untuk berbain biola secara tidak dikenali di stasiun  Washington, D.C. 
 
 Eksperimen ini bertujuan untuk menguji apakah keindahan seni tetap bisa dihargai di luar konteksnya yang biasa. Meski Bell memainkan beberapa karya musik klasik yang indah, hampir tidak ada yang menyadari bahwa seorang maestro hebat sedang bermain di depan mereka. Dari ratusan orang yang melewati Bell, hanya segelintir yang berhenti sejenak untuk mendengarkan. Dalam waktu sekitar 45 menit, hanya 7 orang yang benar-benar memperhatikannya, dan total uang yang ia kumpulkan dari sumbangan hanyalah $32, jauh dari bayaran ribuan dolar yang biasa ia terima untuk satu konser.
 
-<div class="youtube1" style="text-align: center;">
-    <iframe width="300" height="200px" item-align="center" src="https://www.youtube.com/embed/hnOPu0_YWhw?si=2b-RfLFgHkr6jyxd" 
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/hnOPu0_YWhw?si=2b-RfLFgHkr6jyxd" 
+            title="YouTube video player" 
+            allowfullscreen>
     </iframe>
 </div>
+
+<p class="video-caption">
+    Joshua Bell's 'Stop and Hear the Music' metro experiment By The Washington Post from Youtube.com
+</p>
 
 Eksperimen ini menunjukkan bagaimana konteks dan ekspektasi memainkan peran besar dalam cara orang memandang seni. Seorang musisi yang biasanya tampil di gedung konser bergengsi dengan tiket mahal bisa diabaikan begitu saja ketika ia bermain di tempat umum tanpa pengenalan atau reputasi.
 
