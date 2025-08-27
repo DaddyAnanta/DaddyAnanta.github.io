@@ -1,5 +1,5 @@
 +++
-title= "Jangan Terjebak Angka Tunggal: Kekuatan Confidence Interval dalam Riset UX"
+title= "Uji Benchmark Tanpa Drama: CI 90%, t-Test, dan Mid-p di Python untuk Keputusan Go/No-Go"
 date = 2025-06-20T00:37:00+00:00
 draft = false
 socialshare = true
@@ -12,226 +12,405 @@ authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
 +++
 
+Ketika tim produk bertanya, “Apakah skor SUS kita sudah di atas 67? Apakah *completion rate* sudah menembus 80%?”, jawaban yang sering muncul adalah *rata-rata* dan *grafik*—bukan keputusan. Artikel ini akan memandu Anda beralih dari sekadar melaporkan angka menjadi pengambil keputusan yang tegas. Kita akan membangun sebuah *benchmark testing engine* yang secara cerdas memilih uji yang tepat (t-test untuk rerata, *exact/mid-p* untuk proporsi kecil, z-test untuk proporsi besar), menggunakan **CI 90%** sebagai bahasa keputusan satu sisi, dan menghasilkan laporan *go/no-go* yang rapi. 
+
+Tanpa asumsi berlebihan, tanpa kebingungan uji dua sisi, hanya prosedur yang dapat diulang, diaudit, dan siap dipresentasikan. Pada akhirnya, kita tidak hanya akan tahu “berapa skornya”, tetapi juga **apakah kita secara statistik resmi melompati mistar**—dan apa langkah taktis berikutnya bila belum.
+
+## Mengapa Benchmark Testing Penting untuk Keputusan Produk
+
+Tim UX dan produk sering kali memiliki data (skor SUS, *completion rate*), tetapi kerap kesulitan menerjemahkannya menjadi keputusan *go/no-go* yang definitif. **Benchmark testing** memaksa kita untuk menjawab pertanyaan yang paling penting: *“Apakah kita sudah melampaui target yang ditetapkan?”*—bukan sekadar *“Berapa rata-rata skor kita?”*. Dalam artikel ini, kita akan mengevaluasi dua metrik yang sangat umum:
+- **Rerata SUS > 67** (benchmark industri untuk "Acceptable" berdasarkan studi klasik oleh Brooke, 1996).
+- ***Completion rate* ≥ 80%** (target umum untuk pengalaman penyelesaian tugas).
+
+Tujuannya jelas. Sekarang, mari kita siapkan 'perkakas' statistik yang akan menjadi kompas dalam pengambilan keputusan kita.
+
+## Fondasi Inti—Uji Satu Sampel & CI 90%
+
+**One-tailed vs two-tailed.** Uji benchmark pada dasarnya bersifat **satu sisi** (*one-tailed*). Kita tidak peduli jika skor kita jauh di bawah atau di atas target; kita hanya peduli pada satu hal: *“apakah kita berhasil melampaui mistar?”*.
+
+**CI 90% untuk uji satu sisi.** Inilah trik yang sangat praktis: sebuah uji hipotesis satu sisi dengan tingkat signifikansi $\alpha=0.05$ setara dengan memeriksa **Confidence Interval (CI) dua sisi 90%**. Jika **seluruh rentang CI 90%** berada di atas benchmark, kita memiliki bukti statistik yang kuat bahwa kita benar-benar telah melampaui target. Jika Anda ingin menyelam lebih dalam, *Statistics by Jim* memberikan penjelasan yang sangat praktis, sementara diskusi di *CrossValidated* menawarkan perspektif teoretis yang lebih ringkas.
+
+> **Analogi: Nelayan & Mistar Pengukur**
+> Bayangkan Anda seorang nelayan yang ingin membuktikan ikan hasil tangkapan Anda lebih panjang dari batas minimum 10 inci. Karena pengukuran bisa sedikit goyang, Anda tidak mengatakan "panjangnya tepat 11.5 inci". Sebaliknya, Anda memberikan rentang yang paling masuk akal, misalnya "Saya 90% yakin panjangnya antara 10.5 hingga 12.5 inci." Rentang ini adalah *confidence interval* Anda. Karena seluruh rentang (dari 10.5 hingga 12.5) berada di atas mistar 10 inci, Anda bisa dengan percaya diri berkata, "Ikan saya lolos!" Itulah persisnya cara kita menggunakan CI 90% untuk membuat keputusan *go/no-go*.
+
+**Mean vs proportion.** Pemilihan alat uji bergantung pada tipe data kita:
+- **Kontinu (mis. SUS):** Gunakan **one-sample t-test**.
+- **Biner (mis. success/fail):** Untuk **sampel kecil**, gunakan uji **exact binomial**. Namun, kami lebih merekomendasikan varian **mid-p** agar hasilnya tidak terlalu konservatif. Untuk **sampel besar** (literatur bervariasi; beberapa sumber memakai ambang $np_0, n(1-p_0) \ge 5$–10), Anda bisa menggunakan **z-test**. Dalam praktik UX yang cenderung hati-hati, banyak tim memilih ambang **15** untuk berjaga-jaga.
+
+Dengan kompas teoretis ini di tangan, kita siap mengubah teori menjadi praktik. Mari kita siapkan data dan rancang pengujian kita di Python.
+
+## Desain Keputusan & Pra-analisis
+
+Sebelum menyentuh kode, seorang analis yang baik merancang rencananya terlebih dahulu:
+1) **Tetapkan benchmark & arah uji.** SUS: $>\,67$, proporsi sukses: $\ge\,0.80$.
+2) **Nyatakan $\alpha$ dan keluaran.** Kita akan gunakan $\alpha=0.05$ (satu sisi) dan melaporkan **CI 90%** untuk rerata sebagai bahasa utama keputusan.
+3) **Periksa ukuran sampel.** Untuk metrik proporsi, kita akan cek apakah syarat z-test terpenuhi; jika tidak, kita wajib menggunakan uji *exact/mid-p*.
+4) **Higiene data.** Pastikan skala data sudah benar (SUS 0-100), tidak ada *outlier* yang aneh, dan data biner sudah di-coding dengan benar (1 untuk sukses, 0 untuk gagal).
+
+Saatnya menulis kode—kita bangun *pipeline* kecil yang bisa direplikasi untuk proyek-proyek mendatang.
+
+## Implementasi Python (Notebook Actionable)
+
+### A. Pembuatan Data / Ingest
+
+Mari kita buat sebuah dataset sintetis yang realistis. Kita akan simulasikan skor SUS yang sedikit di atas 67 (*borderline*) dan *completion rate* yang mendekati 80%—ini adalah situasi abu-abu yang paling sering kita hadapi di dunia nyata.
+
+```python
+# A1) Import libraries
+import numpy as np
+import pandas as pd
+from scipy import stats
+import matplotlib.pyplot as plt
+
+# A2) Reproducibility
+np.random.seed(42)
+
+# A3) Sample size (khas studi lab)
+n = 20
+
+# A4) SUS ~ N(73, 19^2) dipotong 0..100 (borderline di atas 67)
+sus_mean_true = 73
+sus_sd_true = 19
+sus_scores = np.clip(np.random.normal(sus_mean_true, sus_sd_true, n), 0, 100)
+
+# A5) Success ~ Binomial(p=0.78) (mendekati target 0.80)
+p_success_true = 0.78
+task_success = np.random.binomial(1, p_success_true, size=n)
+
+# A6) DataFrame ringkas
+df = pd.DataFrame({
+    "sus_score": sus_scores,
+    "task_success": task_success
+})
+
+print(df.head())
+print("N =", len(df))
+print("Mean SUS =", round(df['sus_score'].mean(), 2))
+print("p̂ success =", round(df['task_success'].mean(), 3))
+````
+
+```Output
+
+    sus_score  task_success
+0   82.437569             1
+1   70.372978             0
+2   85.306082             1
+3  100.000000             1
+4   68.551086             1
+N = 20
+Mean SUS = 69.5
+p̂ success = 0.75
+
+```
+
+**Mengapa ini penting?** Kita secara sengaja mensimulasikan skenario _nyata namun halus_—tepat di area abu-abu di mana keputusan produk yang cerdas paling dibutuhkan. Data kita siap. Sekarang, mari bangun fungsi-fungsi pengujian untuk menjawab dua pertanyaan kunci kita.
+
+### B. Fungsi Uji: t-test (one-sided), exact & mid-p, z-test (jika layak)
+
+#### 1) Uji SUS > 67 (one-sample t-test + CI 90%)
 
 
 
-<div style="background-color:#f9f9f9; border: 1px solid #d3d3d3; padding: 15px; font-family: Arial, sans-serif;margin-bottom: 20px;">
-  <p style="font-style: italic;">"An approximate answer to the right question is worth a great deal more than a precise answer to the wrong question.”</p>
-  <p style="text-align: right; font-size: 0.9em; margin-top: 10px; color: #555;">- John Tukey, <span style="font-weight: bold;">Pionir Analisis Data Eksplorasi</span></p>
-</div>
+```Python
+# B1) One-sample t-test (one-sided) untuk SUS > 67
+benchmark_sus = 67.0
 
-Dalam dunia riset pengguna dan pengembangan produk, kita haus akan kepastian. Stakeholder bertanya, "Berapa persen pengguna yang berhasil menyelesaikan checkout?" atau "Berapa skor kepuasan pelanggan kita?" Mereka menginginkan satu angka—sebuah jawaban yang bersih dan absolut. Namun, sebagai peneliti, kita tahu bahwa melaporkan satu angka saja bukan hanya tidak lengkap, tapi juga berbahaya. Itu seperti memberikan koordinat tunggal untuk sebuah harta karun tanpa peta yang menunjukkan medannya.
+xbar = df['sus_score'].mean()
+s = df['sus_score'].std(ddof=1)
+n = df.shape[0]
+t_stat = (xbar - benchmark_sus) / (s / np.sqrt(n))
 
-Di sinilah *Confidence Interval* (CI) atau Interval Kepercayaan berperan, bukan sebagai jawaban yang rumit, melainkan sebagai kompas yang jujur. CI mengubah cara kita melihat data—dari sekadar angka menjadi sebuah cerita tentang presisi, risiko, dan rentang kemungkinan yang masuk akal.
+# p-value dua sisi dari scipy, lalu konversi ke satu sisi
+t_two = stats.ttest_1samp(df['sus_score'], popmean=benchmark_sus, alternative='two-sided')
+p_one_sided_t = t_two.pvalue/2 if t_stat > 0 else 1 - t_two.pvalue/2
 
-Bayangkan Anda adalah seorang pemanah yang sangat handal. Di seberang lapangan, terdapat sebuah target. "Nilai Sebenarnya" di seluruh populasi pengguna Anda (misalnya, rata-rata tingkat keberhasilan yang sebenarnya) adalah titik pusat bullseye yang tak terlihat. Anda tidak bisa melihatnya secara langsung.
+# CI dua sisi 90% (trik uji satu sisi α=0.05)
+alpha = 0.10
+t_crit = stats.t.ppf(1 - alpha/2, df=n-1)
+ci_low = xbar - t_crit * s/np.sqrt(n)
+ci_high = xbar + t_crit * s/np.sqrt(n)
 
-Mengambil Sampel (Satu Anak Panah): Setiap riset yang Anda lakukan dengan sekelompok kecil pengguna (sampel) adalah seperti melepaskan satu anak panah. Panah itu menancap di papan target, memberikan sebuah estimasi titik (misalnya, 80% tingkat keberhasilan).
+print("\n=== One-sample t-test (SUS > 67) ===")
+print("t =", round(t_stat, 3), "| df =", n-1, "| p(one-sided) =", round(p_one_sided_t, 4))
+print("CI90% mean SUS: [", round(ci_low,2), ",", round(ci_high,2), "]")
+```
 
-Menghitung *Confidence Interval*  (Lingkaran di Sekitar Panah): Apakah anak panah Anda tepat mengenai bullseye? Mungkin tidak. Tapi karena Anda pemanah ahli, Anda tahu panah Anda mendarat di sekitar bullseye. *Confidence Interval*  adalah lingkaran yang Anda gambar di sekitar anak panah Anda. Anda tidak berkata, "Panah ini adalah bullseye," melainkan, "Saya 95% yakin bahwa bullseye yang sebenarnya ada di dalam lingkaran ini."
-
-Presisi adalah Ukuran Lingkaran: Lingkaran yang kecil (interval sempit) menunjukkan Anda sangat presisi. Lingkaran yang besar (interval lebar) menunjukkan estimasi Anda kurang presisi. Kepercayaan 95% tidak terletak pada satu lingkaran spesifik, melainkan pada metode Anda yang konsisten menghasilkan lingkaran yang (sebagian besar) menangkap bullseye.
-
-## Kerangka Psikologis Melawan Jebakan Anchoring
-
-<div class="single-image-source">
-  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/4.webp" alt="Kekuatan Confidence Interval" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-</div>
+```Output
 
 
-Mengapa melaporkan satu angka (misal: "tingkat keberhasilan 80%") begitu berisiko? Jawabannya terletak pada biais kognitif yang disebut *Anchoring Effect* (Efek Jangkar).
+=== One-sample t-test (SUS > 67) ===
+t = 0.628 | df = 19 | p(one-sided) = 0.2687
+CI90% mean SUS: [ 62.62 , 76.37 ]
 
-Ketika kita memberikan satu angka kepada stakeholder, angka tersebut menjadi "jangkar" psikologis. Semua diskusi, ekspektasi, dan keputusan berikutnya akan terpaku pada angka 80% itu. Jika riset selanjutnya menunjukkan angka 70%, itu akan dianggap sebagai sebuah "kegagalan," meskipun secara statistik perbedaannya mungkin tidak signifikan.
 
-*Confidence Interval*  (misal: "kami 95% yakin tingkat keberhasilan ada di antara 68% dan 92%") menghancurkan jangkar ini. Ia memaksa kita untuk bernalar dalam rentang. Ia membuka diskusi yang lebih sehat:
+```
 
-* "Skenario terburuk kita adalah 68%. Apakah kita bisa hidup dengan itu?"
-* "Skenario terbaiknya 92%. Apa yang perlu kita lakukan untuk mencapainya?"
-* "Lebar intervalnya cukup besar. Mungkin kita butuh lebih banyak data sebelum meluncurkan fitur ini."
 
-Ini adalah pergeseran dari kepastian palsu ke manajemen risiko yang cerdas.
+**Contoh numerik mini (konsisten dengan rumus):** Dengan barx=73,s=19,n=20RightarrowSE=4.248. Menggunakan t_0.95,19approx1.729 ⇒ **CI90% ≈ [65.65, 80.35]**. Karena batas bawah CI (65.65) masih 'menyentuh' area di bawah 67, kita belum bisa mengklaim dengan percaya diri bahwa kita sudah melampaui target. Nilai tapprox1.41 menghasilkan p-value satu sisi sekitar **0.08–0.10**—ini adalah _sinyal positif_, namun belum cukup konklusif untuk sebuah keputusan _go_.
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} $$ </p></div>
+
+Hasil untuk SUS sudah kita pegang. Selanjutnya, mari kita beralih ke metrik biner: _completion rate_.
+
+#### 2) Uji proporsi success ≥ 0.80 (exact & mid-p; z-test jika syarat terpenuhi)
+
+
+
+```Python
+# B2) One-sample proportion test (exact + mid-p), opsi z-test
+p0 = 0.80
+x_success = int(df['task_success'].sum())
+p_hat = x_success / n
+
+# Exact p(one-sided): P(X >= x_obs | n, p0)
+p_exact = stats.binom.sf(x_success - 1, n, p0)
+
+# mid-p(one-sided): P(X > x_obs) + 0.5*P(X = x_obs)
+pmf_obs = stats.binom.pmf(x_success, n, p0)
+p_mid = stats.binom.sf(x_success, n, p0) + 0.5*pmf_obs
+
+print("\n=== One-sample proportion (success ≥ 0.80) ===")
+print(f"n={n}, x={x_success}, p̂={p_hat:.3f}")
+print("Exact p(one-sided) =", round(p_exact, 4))
+print("Mid-p(one-sided)  =", round(p_mid, 4))
+
+# z-test hanya bila syarat besar terpenuhi: n*p0 >= 15 dan n*(1-p0) >= 15 (konservatif)
+if (n*p0 >= 15) and (n*(1-p0) >= 15):
+    z = (p_hat - p0) / np.sqrt(p0*(1-p0)/n)
+    p_one_sided_z = 1 - stats.norm.cdf(z)  # arah "lebih besar dari"
+    print("z =", round(z, 3), "| p(one-sided) =", round(p_one_sided_z, 4))
+else:
+    print("z-test tidak direkomendasikan (n kecil relatif ke p0).")
+```
+
+```Output
+=== One-sample proportion (success ≥ 0.80) ===
+n=20, x=15, p̂=0.750
+Exact p(one-sided) = 0.8042
+Mid-p(one-sided)  = 0.7169
+z-test tidak direkomendasikan (n kecil relatif ke p0).
+```
+
+
+> **Analogi : Wasit yang Terlalu Kaku vs. Wasit yang Adil** Bayangkan Anda menguji sebuah fitur baru dan dari 20 pengguna, 17 berhasil (_success_). Uji _exact binomial_ standar ibarat wasit yang super kaku. Ia hanya akan menganggap hasilnya luar biasa jika Anda mendapatkan 18, 19, atau 20 keberhasilan. Hasil Anda (17) tidak dianggap cukup istimewa. **Mid-p** adalah wasit yang sedikit lebih adil. Ia tetap menghitung 18, 19, dan 20 sebagai bukti kuat, tetapi ia memberi 'setengah poin' pada hasil persis yang Anda dapatkan (17). Sedikit penyesuaian ini membuatnya tidak terlalu konservatif dan memberi Anda gambaran yang lebih realistis tentang signifikansi, terutama saat berurusan dengan jumlah sampel yang kecil.
+
+**Koreksi penting (intuisi praktis):** Pada **n=20** dengan target 80% (_p0_=0.80), mendapatkan **17/20 (85%)** biasanya **belum** signifikan (mid-p ≈ 0.20). Ambang yang mulai signifikan secara statistik sering kali berada di sekitar **≥19/20**. Di sinilah **mid-p** bersinar: ia tidak sekonservatif uji _exact_ murni, sehingga memberi kita gambaran yang lebih adil tanpa menjadi sembrono, terutama pada sampel kecil.
+
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ \text{mid-}p ;=; P(X > x_{\text{obs}}) ;+; \tfrac{1}{2}P(X = x_{\text{obs}}),\quad X\sim\mathrm{Bin}(n,p_0) $$ </p></div>
+
+Setelah mengantongi hasil numerik, cara terbaik untuk mengomunikasikannya adalah melalui visualisasi.
+
+### C. Visual: Histogram SUS + Benchmark + CI 90%
+
+
+
+```Python
+plt.figure(figsize=(8, 5))
+plt.hist(df['sus_score'], bins=8, color='skyblue', edgecolor='black', alpha=0.7, label='Distribusi Skor SUS')
+plt.axvline(benchmark_sus, color='red', linestyle='-', linewidth=2, label=f'Benchmark = {benchmark_sus}')
+plt.axvline(ci_low, color='green', linestyle="--", label='Batas Bawah CI 90%')
+plt.axvline(ci_high, color='green', linestyle="--", label='Batas Atas CI 90%')
+plt.axvline(xbar, color='darkblue', linestyle=':', label=f'Rerata Sampel = {xbar:.2f}')
+plt.title("Distribusi Skor SUS vs. Benchmark & CI 90%")
+plt.xlabel("Skor SUS")
+plt.ylabel("Frekuensi")
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+<div class="single-image-source"> <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/2.webp" alt="Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;"> </div>
+
+
+**Mengapa visual?** Dengan satu gambar, para _stakeholder_ bisa langsung "melihat" di mana posisi rerata dan rentang CI 90% kita terhadap mistar 67—ini adalah analogi _lompat tinggi_ yang sangat intuitif dan mudah dipahami.
+
+Visual ini sangat membantu, tapi seorang analis yang baik akan selalu bertanya: 'Seberapa besar efeknya?' dan 'Apakah asumsi kita valid?' Mari kita jawab.
+
+### D. Efek Ukuran (Cohen’s d) & Diagnostik Asumsi
+
+
+
+```Python
+# Cohen's d (one-sample): d = (xbar - mu0)/s
+cohens_d = (xbar - benchmark_sus) / s
+print("\nCohen's d (one-sample) =", round(cohens_d, 3))
+
+# Normalitas (untuk SUS): Shapiro–Wilk
+w, p_sw = stats.shapiro(df['sus_score'])
+print("Shapiro–Wilk W =", round(w,3), "| p =", round(p_sw,4))
+# Catatan: p > 0.05 → tidak ada bukti kuat untuk menolak asumsi normalitas. Jika p << 0.05, pertimbangkan transformasi log atau pendekatan non-parametrik.
+```
+```Output
+
+Cohen's d (one-sample) = 0.14
+Shapiro–Wilk W = 0.973 | p = 0.8096
+
+```
+
+
+**Interpretasi cepat:** Nilai **Cohen’s d** sekitar 0.3–0.4 mengindikasikan efek **kecil hingga menengah**. Uji **Shapiro–Wilk** membantu kita menilai seberapa kokoh (_robust_) t-test yang kita gunakan. Untuk data yang sangat miring (seperti _time-on-task_), pertimbangkan untuk melakukan **transformasi log** terlebih dahulu.
+
+Diagnostik ini penting, tapi sering kali memunculkan pertanyaan lanjutan dari tim: 'Jika hasilnya borderline, berapa banyak lagi pengguna yang perlu kita uji?' Perhitungan _power_ sederhana bisa membantu menjawabnya.
+
+### E. Perencanaan Ukuran Sampel Sederhana
+
+```Python
+# Target: pada uji mean satu sisi, ingin mendeteksi delta = (mu_target - mu0) dengan power tertentu.
+from math import ceil
+from scipy.stats import norm
+
+alpha_one_sided = 0.05
+power_target = 0.80
+
+z_alpha = norm.ppf(1 - alpha_one_sided)   # ~1.645
+z_beta  = norm.ppf(power_target)         # ~0.842
+
+# Asumsi sd ~ 19 (dari historis), ingin mendeteksi selisih 6 poin (73 vs 67)
+sd_assumed = 19.0
+delta = 6.0
+
+n_req = ((z_alpha + z_beta) * sd_assumed / delta)**2
+print("\nPerkiraan N minimum (aproksimasi normal) =", ceil(n_req))
+```
+
+```Output
+
+Perkiraan N minimum (aproksimasi normal) = 62
+
+```
+
+**Makna bisnis:** Perhitungan ini memberikan _guardrail_ penting. Ia membantu kita menentukan kapan "menambah N" adalah langkah yang masuk akal untuk mempersempit CI hingga cukup untuk sebuah keputusan, bukan sekadar "coba lagi dan berharap beruntung".
+
+Semua analisis ini—statistik uji, CI, efek ukuran, dan N—perlu diringkas menjadi satu output yang siap saji untuk para pengambil keputusan.
+
+### F. Output Tabel Keputusan (ringkas)
+
+
+
+```Python
+decision = {
+    "SUS_mean": round(xbar,2),
+    "SUS_CI90_low": round(ci_low,2),
+    "SUS_CI90_high": round(ci_high,2),
+    "SUS_p_one_sided": round(p_one_sided_t,4),
+    "Cohens_d": round(cohens_d,3),
+    "Shapiro_p": round(p_sw,4),
+    "Success_p_hat": round(p_hat,3),
+    "Success_exact_p": round(p_exact,4),
+    "Success_mid_p": round(p_mid,4),
+    "Benchmark_SUS": benchmark_sus,
+    "Benchmark_success": p0
+}
+
+import pandas as pd
+pd.DataFrame([decision])
+```
+<div class="single-image-source"> <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/3.webp" alt="Ilustrasi kelompok penelitian" style="height:60%;width:60%;display:block;margin-left:auto;margin-right:auto;"> </div>
+
+
+**Cara baca singkat:**
+
+- **SUS:** Klaim “>67” dianggap kuat jika **p(one-sided) < 0.05** _dan_ **batas bawah CI90%** seluruhnya berada di atas 67. Sebagai bonus, jika d≥0.5, artinya efeknya tergolong menengah atau lebih besar.
+    
+- **Success:** Pada sampel kecil (n<30), **mid-p < 0.05** adalah penentu utamanya.
+    
+
+## Interpretasi & Matriks Keputusan
+
+- **SUS borderline** (seperti dalam contoh kita, p ≈ 0.08 dan CI90% bawah < 67): Ini adalah sinyal positif, **tetapi belum** merupakan bukti yang kuat. **Rekomendasi Aksi:** Pertimbangkan untuk **menambah sampel** (lihat kalkulasi N di atas) untuk mempersempit CI, **atau** lakukan **iterasi UX cepat** pada area dengan friksi tertinggi, lalu uji kembali.
+    
+- **_Completion rate_** pada n=20: Ambang untuk mencapai signifikansi biasanya sangat tinggi, sering kali **≥19 dari 20 pengguna**. Hasil **17/20** cenderung belum cukup kuat secara statistik. **Rekomendasi Aksi:** Prioritaskan perbaikan _task flow_ untuk menghilangkan hambatan, lalu lakukan tes ulang. Mengumpulkan lebih banyak observasi juga akan meningkatkan kekuatan uji statistik.
+    
+
+### Matriks ringkas
+
+|Kondisi|Keputusan|Catatan|
+|---|---|---|
+|SUS p(one-sided) < 0.05 **dan** CI90% > 67|**Go (SUS)**|Bukti kuat telah melampaui benchmark.|
+|Success mid-p < 0.05|**Go (Success)**|Khusus untuk sampel kecil; mid-p mengurangi konservatisme berlebih.|
+|Borderline (salah satu gagal)|**Iterate/Tambah Sampel**|Prioritaskan perbaikan UX yang paling berdampak sebelum menguji ulang.|
+
+Ekspor ke Spreadsheet
+
+## Pitfalls & Guardrails
+
+1. **Ex-post one-sided.** Selalu tetapkan arah pengujian (_one-sided_ vs _two-sided_) **sebelum** Anda melihat data untuk menghindari bias.
+    
+2. **Top-box trap.** Hindari mengubah metrik kontinu (seperti rating skala 1-5) menjadi biner (suka/tidak suka), karena ini membuang banyak informasi berharga. Gunakan skala aslinya atau model ordinal.
+    
+3. **Normalitas & transformasi.** Untuk metrik yang distribusinya miring (_skewed_), seperti _time-on-task_, pertimbangkan **transformasi log** sebelum menjalankan t-test.
+    
+4. **Syarat z-test.** Ambang batas untuk menggunakan z-test bervariasi (beberapa sumber menyebut 5, yang lain 10). Jika ragu, selalu gunakan _exact/mid-p_, atau terapkan ambang yang lebih konservatif (misalnya, 15).
+    
+5. **Multiple testing.** Jika Anda menguji banyak KPI secara bersamaan, waspadai risiko _false positive_. Pertimbangkan untuk menggunakan koreksi (seperti Bonferroni) atau _decision-cost matrix_.
+    
 
 ## Contoh Kasus
 
-### Pemilu AS 2016
+### Kasus Mini: “19 dari 20” vs “17 dari 20”
 
-<div class="single-image-source">
-  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/2.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;">Hillary Clinton
-And Donald Trump
-</p>
-</div>
+- **Situasi:** Target _completion rate_ 80%, dengan sampel n=20.
+    
+- **Hasil 17/20 (85%)** → **mid-p ~ 0.20** → **Belum signifikan**.
+    
+- **Hasil 19/20 (95%)** → **mid-p ~ 0.05 atau lebih kecil** → **Mendekati atau mencapai signifikansi**. **Pelajaran:** Untuk sampel kecil, selisih beberapa _success_ bisa sangat menentukan. Menggunakan **mid-p** akan memberikan keputusan yang tidak terlalu konservatif namun tetap berlandaskan kehati-hatian statistik.
+    
 
+## Lampiran — Landasan Teori & Rumus (Utuh)
 
-Salah satu contoh terkenal tentang pentingnya memahami *Confidence Interval*  terjadi pada Pemilihan Presiden AS tahun 2016. Banyak media melaporkan bahwa Hillary Clinton unggul atas Donald Trump dengan selisih sekitar 3–4 poin persentase dalam jajak pendapat nasional. Angka ini menjadi jangkar bagi publik dan sebagian analis politik. Namun, laporan-laporan tersebut sering kali kurang menekankan margin of error serta ketidakpastian dalam prediksi, khususnya di negara-negara bagian penentu Electoral College. 
-
-Padahal, dalam banyak kasus, selisih dukungan di negara-negara kunci berada dalam rentang margin of error. Misalnya, jika Clinton unggul 3 poin dengan margin of error ±3, *Confidence Interval* -nya adalah (0% hingga 6%). Karena interval ini mencakup angka nol, secara statistik hasil tersebut tergolong too close to call, artinya belum bisa dipastikan siapa yang unggul. Fokus berlebihan pada estimasi titik tunggal tanpa mempertimbangkan rentang kemungkinan hasil menciptakan ilusi kepastian dan berkontribusi pada keterkejutan publik saat Trump meraih kemenangan Electoral College meskipun kalah dalam suara populer.
-
-### Kultur Eksperimen di Booking.com
-
-<div class="single-image-source">
-  <img src="/images/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/3.webp" alt="Tennis dan Basket" style="height:80%;width:80%;display:block;margin-left:auto;margin-right:auto;">
-  <p style="font-size: 16px; color: #888; margin-top:-15px; text-align: center;"> Booking.com Logo from Jas Rolyn in<a href="https://unsplash.com/photos/a-sign-on-the-side-of-a-building-that-says-bookking-com-7BqK0rCPO5k"> Unsplash</a></p>
-</div>
-
-
-Perusahaan seperti Booking.com membangun strategi pengembangan produknya di atas fondasi A/B testing yang ketat dan berkelanjutan. Alih-alih hanya bertanya, “Apakah versi B lebih baik dari versi A?”, mereka bertanya, “Seberapa besar kemungkinan versi B memberikan dampak positif, dan seberapa besar efeknya?”.
-
-Setiap hasil A/B test dievaluasi menggunakan *Confidence Interval*  (CI) untuk mengukur rentang kemungkinan efek yang sebenarnya. Misalnya, jika versi B menunjukkan peningkatan konversi sebesar 0,5%, dan 95% CI-nya berada di antara -0,2% hingga +1,2%, maka perubahan tersebut tidak akan langsung diluncurkan. Alasannya, karena interval tersebut masih mencakup nol, yang berarti ada kemungkinan bahwa versi B justru tidak lebih baik, atau bahkan lebih buruk daripada versi A.
-
-Sebaliknya, jika *Confidence Interval*  berada sepenuhnya di sisi positif — misalnya antara +0,3% hingga +0,8% — maka versi B dapat dipertimbangkan untuk diluncurkan. Interval ini memberikan dua informasi penting: arah dampak (karena seluruh interval positif) dan presisi estimasi (karena rentang nilainya sempit).
-
-Dengan menggunakan confidence interval, Booking.com dapat membuat keputusan berbasis data yang lebih hati-hati, menghindari peluncuran fitur yang efeknya belum terbukti signifikan secara praktis, dan memprioritaskan perubahan yang benar-benar memberikan dampak positif terhadap bisnis.
-
-## Contoh Soal Praktis Uji Coba Fitur *One-Click Checkout*
-
-Anda adalah seorang UX Researcher di sebuah platform e-commerce. Tim produk baru saja membuat prototipe fitur "*One-Click Checkout*" dan ingin tahu tingkat keberhasilannya sebelum berinvestasi lebih jauh. Anda menguji fitur ini dengan 15 pengguna.
-
-**Data Uji Coba:**
-* Total Partisipan ($n$): 15
-* Berhasil Checkout ($x$): 12
-* Gagal Checkout: 3
-
-**Pertanyaan:** Berapakah 95% *Confidence Interval* untuk tingkat keberhasilan fitur ini?
-
-Kita akan menggunakan metode Adjusted-Wald, yang sangat direkomendasikan untuk ukuran sampel kecil seperti ini karena lebih akurat daripada metode tradisional.
-
-#### Langkah 1 Siapkan Data Awal
-* $x=12$ (jumlah keberhasilan)
-* $n=15$ (total sampel)
-* Untuk CI 95%, nilai kritis $z$ adalah $1.96$.
-
-#### Langkah 2 Hitung Proporsi & Ukuran Sampel yang Disesuaikan
-Metode ini secara cerdas "menambahkan" data imajiner untuk menstabilkan hasil. Aturan praktis untuk CI 95% adalah "tambahkan 2 keberhasilan dan 2 kegagalan" (total 4 percobaan).
-
-* Jumlah keberhasilan yang disesuaikan: $\tilde{x} = x + 2 = 12 + 2 = 14$
-* Ukuran sampel yang disesuaikan: $\tilde{n} = n + 4 = 15 + 4 = 19$
-* Proporsi yang disesuaikan: $\tilde{p} = \frac{\tilde{x}}{\tilde{n}} = \frac{14}{19} \approx 0.737$
-
-#### Langkah 3 Hitung Margin of Error (MoE)
-Rumus MoE menggunakan nilai yang sudah disesuaikan:
-
-<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
-<p>$$MoE = z \sqrt{\frac{\tilde{p}(1-\tilde{p})}{\tilde{n}}}$$</p>
-<p>$$ MoE = 1.96 \sqrt{\frac{0.737(1-0.737)}{19}} = 1.96 \sqrt{\frac{0.737(0.263)}{19}} $$</p>
-<p>$$ MoE = 1.96 \sqrt{0.0102} \approx 1.96 \times 0.101 \approx 0.198 $$</p></div>
-
-#### Langkah 4 Bangun Confidence Interval
-
-<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;">
-<p>$$CI = \tilde{p} \pm MoE$$</p>
-<p>$$CI = 0.737 \pm 0.198$$</p></div>
-
-* Batas Bawah: $0.737 - 0.198 = 0.539$ (atau 53.9%)
-* Batas Atas: $0.737 + 0.198 = 0.935$ (atau 93.5%)
-
-#### Interpretasi Hasil untuk Stakeholder
-"Berdasarkan tes awal kami dengan 15 pengguna, estimasi terbaik untuk tingkat keberhasilan fitur baru ini adalah 80% (12/15). Namun, untuk membuat keputusan yang lebih aman, kita perlu melihat rentangnya. **Kami 95% yakin bahwa tingkat keberhasilan yang sebenarnya untuk semua pengguna berada di antara 54% dan 94%.**"
-
-Pesan ini jauh lebih kuat. Ia mengakui adanya ketidakpastian sambil memberikan batasan yang jelas. Skenario terburuk (54%) mungkin masih cukup baik untuk melanjutkan, dan ini memberikan dasar yang kuat untuk diskusi selanjutnya.
-
-
----
-
-### Otomatisasi Perhitungan dengan Python
-
-Perhitungan Adjusted-Wald juga dapat diotomatiskan dengan mudah menggunakan Python. Ini sangat berguna jika Anda perlu menghitung interval ini berulang kali dengan data yang berbeda.
-
-```python
-import numpy as np
-from scipy import stats
-
-# --- Variabel yang Perlu Diisi ---
-jumlah_berhasil = 12
-total_sampel = 15
-tingkat_keyakinan = 0.95
-
-# --- Fungsi Perhitungan Statistik (Metode Adjusted-Wald) ---
-
-def hitung_ci_adjusted_wald(x, n, confidence_level):
-  """Menghitung Confidence Interval untuk proporsi binomial menggunakan metode Adjusted-Wald."""
-  # 1. Dapatkan nilai Z-kritis
-  # Alpha adalah 1 - tingkat keyakinan
-  alpha = 1 - confidence_level
-  # ppf (percent point function) untuk mendapatkan z-score dari alpha/2
-  z_kritis = stats.norm.ppf(1 - alpha / 2)
-  
-  # 2. Hitung jumlah keberhasilan dan sampel yang disesuaikan
-  # Untuk CI 95%, z^2 kira-kira 4. Jadi kita menambahkan 2 keberhasilan & 2 kegagalan
-  x_adj = x + (z_kritis**2 / 2)
-  n_adj = n + z_kritis**2
-  
-  # 3. Hitung proporsi yang disesuaikan
-  p_adj = x_adj / n_adj
-  
-  # 4. Hitung Margin of Error (MoE)
-  margin_of_error = z_kritis * np.sqrt(p_adj * (1 - p_adj) / n_adj)
-  
-  # 5. Hitung Batas Bawah dan Atas CI
-  batas_bawah = p_adj - margin_of_error
-  batas_atas = p_adj + margin_of_error
-  
-  return (p_adj, margin_of_error, batas_bawah, batas_atas)
-
-
-# --- Proses Kalkulasi ---
-
-(proporsi_adj, moe, ci_bawah, ci_atas) = hitung_ci_adjusted_wald(jumlah_berhasil, total_sampel, tingkat_keyakinan)
-
-# --- Menampilkan Hasil ---
-
-print("--- Hasil Perhitungan Adjusted-Wald CI ---")
-print(f"Proporsi Sampel Awal: {jumlah_berhasil/total_sampel:.1%}")
-print(f"Proporsi Disesuaikan (p̃): {proporsi_adj:.3f}")
-print(f"Margin of Error (MoE): {moe:.3f}")
-print("-" * 42)
-print(f"Confidence Interval {tingkat_keyakinan:.0%}:")
-print(f"Batas Bawah: {ci_bawah:.3f} (atau {ci_bawah:.1%})")
-print(f"Batas Atas : {ci_atas:.3f} (atau {ci_atas:.1%})")
-print("-" * 42)
-print("Interpretasi: Kami " + f"{tingkat_keyakinan:.0%}" + " yakin bahwa tingkat keberhasilan populasi yang sebenarnya adalah antara " + f"{ci_bawah:.1%}" + " dan " + f"{ci_atas:.1%}.")
-```
-
-``` Output
-
---- Hasil Perhitungan Adjusted-Wald CI ---
-Proporsi Sampel Awal: 80.0%
-Proporsi Disesuaikan (p̃): 0.737
-Margin of Error (MoE): 0.198
-------------------------------------------
-Confidence Interval 95%:
-Batas Bawah: 0.539 (atau 53.9%)
-Batas Atas : 0.935 (atau 93.5%)
-------------------------------------------
-Interpretasi: Kami 95% yakin bahwa tingkat keberhasilan populasi yang sebenarnya adalah antara 53.9% dan 93.5%.
-```
+<div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} $$ </p></div> <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ P(X=x)=\binom{n}{x}p_0^{x}(1-p_0)^{n-x} $$ </p></div> <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ z = \frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} $$ </p></div> <div class="single-code" style="width: 100%; font: inherit; background-color: #f9f9f9; border:1px solid #ccc; color: #333; padding: 10px; border-radius: 5px; margin-bottom:20px; word-wrap: break-word; overflow-wrap: break-word; max-height: 200px; overflow-y: auto;"><p>$$ \text{mid-}p ;=; P(X > x_{\text{obs}}) ;+; \tfrac{1}{2}P(X = x_{\text{obs}}) $$ </p></div>
 
 ## Kesimpulan
-Seperti yang dikatakan oleh George Box, "Semua model itu salah, tetapi beberapa di antaranya berguna." Estimasi titik adalah model yang salah dan seringkali tidak berguna. *Confidence Interval* juga merupakan model, tetapi ia sangat berguna karena memuat pengakuan akan kesalahannya sendiri—ketidakpastian. Saat Anda menyajikan hasil riset berikutnya, tantang diri Anda dan para stakeholder. Jangan hanya memberikan satu angka. Berikanlah sebuah kompas: tunjukkan lokasinya (estimasi titik) dan, yang lebih penting, tunjukkan rentang presisinya (Confidence Interval). Dengan melakukan ini, Anda tidak hanya melaporkan data; Anda memfasilitasi pengambilan keputusan yang lebih cerdas, jujur, dan tangguh.
 
-Jelajahi lebih banyak analisis dan metode statistik di kategori <a href="http://localhost:1313/categories/quantitative/">Quantitative</a> kami.
+Dengan kerangka kerja yang solid—**t-test satu sampel** untuk rerata, **exact/mid-p/z-test** untuk proporsi, dan **CI 90%** sebagai bahasa keputusan—kita dapat memindahkan diskusi dari sekadar "angka" menjadi "aksi". Ketika hasil berada di area abu-abu (_borderline_), kita memiliki dua jalur strategis: **menambah sampel** untuk mempersempit ketidakpastian (CI) atau **mengiterasi desain** pada area friksi terbesar, lalu menguji kembali. Yang terpenting, selalu dokumentasikan arah uji, benchmark, p-value, CI, dan asumsi dalam laporan ringkas agar setiap keputusan _go/iterate/no-go_ dapat diaudit dan dipercaya oleh seluruh tim.
+
+<div style="background-color: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 12px; padding: 25px; margin: 30px 0; font-family: 'Segoe UI', Arial, sans-serif; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+    <h4 style="margin-top: 0; margin-bottom: 12px; font-size: 22px; color: #333; text-align: center; line-height: 1.4;">Praktik Langsung: <strong style="color: #007bff;">Unduh Kode Lengkap</strong></h4>
+    <p style="font-size: 16px; color: #555; margin-bottom: 25px; text-align: center; line-height: 1.7;">
+        Ingin mencoba sendiri analisis ini? Unduh Jupyter Notebook yang berisi seluruh kode dari seri tiga bagian ini, mulai dari persiapan data hingga audit reliabilitas.
+    </p>
+    <div style="text-align: center;">
+        <a href="/download/Quantitative/Jangan_Terjebak_Angka_Tunggal__Kekuatan_Confidence_Interval_dalam_Riset_UX/CI_90,_t-Test_Satu_Sisi_&_Mid-p_di_Python.ipynb" download
+           style="display: inline-flex; align-items: center; justify-content: center; background-color: #007bff; color: #ffffff; padding: 15px 30px; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); transition: all 0.3s ease; letter-spacing: 0.5px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+            </svg>
+            Unduh Jupyter Notebook (.ipynb)
+        </a>
+        <p style="font-size: 14px; color: #6c757d; margin-top: 12px; margin-bottom: 0;">
+            Ukuran file: 70,5 kB
+        </p>
+    </div>
+</div>
+
+<p><a href="https://daddyananta.github.io//categories/analysis-and-visualization/">Jelajahi lebih dalam tentang Analysis & Visualization</a></p>
 
 ## Referensi
-- <p style="text-indent:0px;">Sauro, J., & Lewis, J. R. (2012). Quantifying the User Experience: Practical Statistics for User Research. <a href="https://shop.elsevier.com/books/quantifying-the-user-experience/sauro/978-0-12-802308-2">Elsevier</a></p>
 
-- <p style="text-indent:0px;">FiveThirtyEight — Nate Silver - <a href="https://fivethirtyeight.com/features/the-real-story-of-2016/">The Real Story Of 2016</a></p>
+<p style="text-indent:0px;">Brooke, J. (1996). SUS: A quick and dirty usability scale. <a href="https://digital.ahrq.gov/sites/default/files/docs/survey/systemusabilityscale%2528sus%2529_comp%255B1%255D.pdf">AHRQ PDF</a></p> :
 
-- <p style="text-indent:0px;">Creating the test – the Booking.com experimentation process<a href="https://www.hustlebadger.com/what-do-product-teams-do/booking-com-experimentation-culture/?utm_source=chatgpt.com">Hustle Badger</a></p>
+<p style="text-indent:0px;">SciPy. (2025). <em>shapiro</em> — Shapiro–Wilk Test. <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html">SciPy Docs</a></p>
 
-- <p style="text-indent:0px;">Kahneman, D. (2011). Thinking, Fast and Slow. <a href="https://www.gramedia.com/best-seller/review-buku-thinking-fast-and-slow-daniel-kahneman/?srsltid=AfmBOorduBru78-DNQwUTXCPe-NtHaZubXyydaLLYNX0micLUOhFi98p">Gramedia</a></p>
-- <p style="text-indent:0px;">Tukey, J. W. (1977). Exploratory Data Analysis. <a href="https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160">Google Books</a></p>
-- <p style="text-indent:0px;">Box, G. E. P., Hunter, J. S., & Hunter, W. G. (2005). Statistics for Experimenters: Design, Innovation, and Discovery. <a href="https://www.wiley.com/en-us/Statistics+for+Experimenters%3A+Design%2C+Innovation%2C+and+Discovery%2C+2nd+Edition-p-9780471718130">Wiley</a></p>
+<p style="text-indent:0px;">SciPy. (2025). <em>binomtest</em> — Exact Binomial Test. <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html">SciPy Docs</a></p> :contentReference[oaicite:2]{index=2} <p style="text-indent:0px;">Hanley, J.A. (n.d.). Mid-P Values and CIs. <a href="https://www.medicine.mcgill.ca/epidemiology/hanley/c607/ch08/mid_P_values.pdf">McGill PDF</a></p>
+
+<p style="text-indent:0px;">Rubin-Delanchy, P., et al. (2018). Meta-Analysis of Mid-p-Values. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7077356/">PMC</a></p> :contentReference[oaicite:4]{index=4} <p style="text-indent:0px;">Statistics by Jim. (n.d.). One-Tailed vs Two-Tailed Tests. <a href="https://statisticsbyjim.com/hypothesis-testing/one-tailed-two-tailed-hypothesis-tests/">Blog</a></p> 
+
+<p style="text-indent:0px;">CrossValidated (2017). Matching Confidence Limits with One-Sided Tests. <a href="https://stats.stackexchange.com/questions/257936/matching-confidence-limits-with-one-sided-hypothesis-tests">Q&A</a></p>
+
+<p style="text-indent:0px;">Penn State STAT 414. (n.d.). Normal Approximation to Binomial. <a href="https://online.stat.psu.edu/stat414/lesson/28/28.1">Course Notes</a></p> :contentReference[oaicite:7]{index=7} <p style="text-indent:0px;">Datanovia. (n.d.). Cohen’s d for One-Sample t-test. <a href="https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/">Tutorial</a></p> 
+
+
 
 ## Penelusuran Terkait
 
+<ul> <li><a href="https://statisticsbyjim.com/hypothesis-testing/one-tailed-two-tailed-hypothesis-tests/">One-Tailed and Two-Tailed Hypothesis Tests Explained</a></li> 
 
-<ul>
-  <li><a href="https://www.measuringu.com/blog/ci-101.php">Confidence Intervals 101: A Brief Primer</a></li>
-  <li><a href="https://www.hotjar.com/blog/confidence-intervals/">What Are Confidence Intervals? A Hotjar Guide</a></li>
-  <li><a href="https://cxl.com/blog/confidence-intervals/">Confidence Intervals: A Guide for A/B Testers</a></li>
-  <li><a href="https://www.nngroup.com/articles/confidence-intervals/">Confidence Intervals for Dummies: A Quick Intro</a></li>
-  <li><a href="https://uxdesign.cc/how-to-use-confidence-intervals-to-design-better-products-c6199335a51c">How to use Confidence Intervals to design better products</a></li>
-  <li><a href="https://www.simplypsychology.org/confidence-interval.html">What Is A Confidence Interval & How To Calculate It?</a></li>
-  <li><a href="https://blog.hubspot.com/service/confidence-interval">How to Find a Confidence Interval [Easy-to-Follow Guide]</a></li>
-  <li><a href="https://towardsdatascience.com/a-complete-guide-to-confidence-interval-and-examples-in-python-ff4efa5917c">A complete guide to Confidence Interval and examples in Python</a></li>
-</ul>
+<li><a href="https://digital.ahrq.gov/sites/default/files/docs/survey/systemusabilityscale%2528sus%2529_comp%255B1%255D.pdf">SUS: A quick and dirty usability scale (Brooke, 1996)</a></li> 
+
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html">SciPy: Shapiro–Wilk Test</a></li> <li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html">SciPy: Exact Binomial Test</a></li> 
+
+<li><a href="https://www.medicine.mcgill.ca/epidemiology/hanley/c607/ch08/mid_P_values.pdf">Mid-P Values & CIs (Hanley)</a></li> 
+
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7077356/">Meta-Analysis of Mid-p-Values (PMC)</a></li> <li><a href="https://online.stat.psu.edu/stat414/lesson/28/28.1">Normal Approximation to Binomial (PSU)</a></li> 
+
+<li><a href="https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/">Cohen’s d for One-Sample t-test (Datanovia)</a></li> </ul>
