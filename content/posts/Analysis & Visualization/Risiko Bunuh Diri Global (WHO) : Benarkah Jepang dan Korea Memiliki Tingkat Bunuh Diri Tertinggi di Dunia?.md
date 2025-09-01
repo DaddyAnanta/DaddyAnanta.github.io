@@ -1,9 +1,9 @@
 +++
-title = 'Risiko Bunuh Diri Global (WHO): Benarkah Jepang dan Korea Memiliki Tingkat Bunuh Diri Tertinggi di Dunia?'
+title = "Risiko Bunuh Diri Global (WHO): Negara Mana yang Sebenarnya Memiliki Tingkat Bunuh Diri Tertinggi di Dunia?"
 date = 2025-05-25T00:37:00+00:00
 draft = false
 socialshare = true
-description = "Berdasarkan data grafik tahun 2021, angka bunuh diri yang dilaporkan menunjukkan variasi yang sangat besar antar negara yang ditampilkan. Penting untuk dicatat di awal bahwa grafik ini juga mengindikasikan adanya perbedaan tingkat kualitas data (mulai dari 'Sangat Rendah' hingga 'Tinggi') yang dilaporkan oleh masing-masing negara, sebuah faktor yang perlu dipertimbangkan saat menginterpretasi angka-angka berikut."
+description = "Analisis data WHO 2021 mengungkap fakta mengejutkan. Bukan Jepang atau Korea, melainkan negara-negara ini yang memiliki tingkat (rate) bunuh diri tertinggi, menyoroti krisis global yang tersembunyi."
 image = "/images/Analysis_and_Visualization/67.Risiko_Bunuh_Diri_Global_(WHO)/4.webp"
 imageBig= "/images/Analysis_and_Visualization/67.Risiko_Bunuh_Diri_Global_(WHO)/4.webp"
 categories= ["Analysis and Visualization"]
@@ -11,6 +11,10 @@ tags = ["WHO"]
 authors= ["Daddy Ananta"]
 avatar="/images/Analysis_and_Visualization/profil.jpeg"
 +++
+
+Kita seringkali mendengar narasi yang, dibentuk oleh media, menempatkan negara seperti Jepang dan Korea Selatan sebagai pusat krisis bunuh diri global. Angka absolut—jumlah total kasus—memang menempatkan negara berpopulasi besar seperti India dan Tiongkok di puncak. Namun, untuk memahami risiko yang sesungguhnya kita rasakan sebagai komunitas global, kita harus melihat **tingkat (rate)** per 100.000 penduduk. Di sinilah data WHO 2021 memberikan jawaban yang mengejutkan dan memaksa kita untuk mendefinisikan ulang prioritas.
+
+
 <div style="background-color: #FFEBEE;margin-bottom: 20px; padding: 25px; border-radius: 10px; border: 1px solid #FFCDD2; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
   <h3 style="color: #B71C1C; margin-top: 0; text-align: left; font-weight: bold;">Seri Risiko Bunuh Diri Global (WHO)</h3>
   <ul style="list-style-type: none; padding-left: 0;">
@@ -27,9 +31,17 @@ avatar="/images/Analysis_and_Visualization/profil.jpeg"
   </ul>
 </div>
 
-India (Wilayah Asia Tenggara) dan Tiongkok (Wilayah Pasifik Barat) mencatatkan angka absolut tertinggi dengan masing-masing lebih dari 177.000 dan 127.000 kasus, diikuti oleh Amerika Serikat (Wilayah Amerika) dengan lebih dari 53.000 kasus. Ketiga negara tersebut merupakan negara dengan populasi tertinggi menurut data <a href="https://www.worldometers.info/world-population/population-by-country/">Worldometer</a>. Federasi Rusia (Wilayah Eropa) yang juga merupakan negara dengan populasi terbesar ke-9 dengan lebih dari 31.000 kasus serta Brazil dengan Populasi tertinggi ke-7 dengan kasus 15.907.
+## Krisis yang Salah Alamat
 
-Yang menjadi fokus adalah negara Jepang, Korea, Thailand serta Prancis yang masuk ke dalam 10 negara dengan kasus bunuh diri tertinggi di Dunia. Hal ini harus lebih menjadi perhatian serius dan mendorong upaya pencegahan yang lebih komprehensif dan terfokus, baik di tingkat global maupun pada masing-masing negara tersebut.
+Saat Anda memfilter visualisasi di bawah menjadi metrik *rate*, sebuah kebenaran yang tidak nyaman terungkap. Peringkat teratas tidak lagi didominasi oleh raksasa ekonomi Asia Timur. Sebaliknya, data menunjukkan bahwa negara-negara di Afrika seperti Lesotho (28.7) dan Republic of Korea (27.5) menghadapi tingkat risiko yang tinggi. Ini adalah krisis prioritas pertama: perhatian global mungkin selama ini melihat ke arah yang berbeda, sementara krisis yang lebih akut dapat terjadi di tempat lain. Untuk Jepang berada pada urutan ke-17 (17.4).
+
+Namun, sebelum kita mengambil kesimpulan, data ini menyajikan lapisan krisis kedua yang lebih dalam, yang tersembunyi di balik warna setiap bar.
+
+## Cerita di Balik Warna: Krisis Kualitas Data
+
+Perhatikan warna bar pada visualisasi. Sebagian besar negara dengan tingkat tertinggi memiliki kualitas data 'Low' atau 'Very Low'. Ini bukan sekadar catatan teknis; ini adalah sinyal bahwa kita mungkin hanya melihat puncak gunung es dari sebuah krisis yang tidak terlaporkan. Kita mungkin merasakan simpati pada data yang kita lihat, tetapi bagaimana dengan data yang tidak pernah sempat tercatat? Ini mengubah diskusi dari "siapa yang paling berisiko" menjadi "risiko siapa yang paling tidak terlihat oleh dunia".
+
+
 
 ## Visualisasi Data
 
@@ -98,7 +110,6 @@ Yang menjadi fokus adalah negara Jepang, Korea, Thailand serta Prancis yang masu
     width: 100%;
 }
 #hugo-horizontal-bar-chart .bar-label-hbc { /* Class unik */
-    text-anchor: end;
     font-size: 9px; /* Ukuran font label pada bar mungkin perlu disesuaikan jika bar lebih besar */
     pointer-events: none;
 }
@@ -188,12 +199,12 @@ document.addEventListener("DOMContentLoaded", function() {
     "Organization":{"0":"WHO African Region","1":"WHO African Region","2":"WHO African Region","3":"WHO African Region","4":"WHO African Region","5":"WHO African Region","6":"WHO African Region","7":"WHO African Region","8":"WHO African Region","9":"WHO African Region","10":"WHO African Region","11":"WHO African Region","12":"WHO African Region","13":"WHO African Region","14":"WHO African Region","15":"WHO African Region","16":"WHO African Region","17":"WHO African Region","18":"WHO African Region","19":"WHO African Region","20":"WHO African Region","21":"WHO African Region","22":"WHO African Region","23":"WHO African Region","24":"WHO African Region","25":"WHO African Region","26":"WHO African Region","27":"WHO African Region","28":"WHO African Region","29":"WHO African Region","30":"WHO African Region","31":"WHO African Region","32":"WHO African Region","33":"WHO African Region","34":"WHO African Region","35":"WHO African Region","36":"WHO African Region","37":"WHO African Region","38":"WHO African Region","39":"WHO African Region","40":"WHO African Region","41":"WHO African Region","42":"WHO African Region","43":"WHO African Region","44":"WHO African Region","45":"WHO African Region","46":"WHO African Region","47":"WHO Region of the Americas.","48":"WHO Region of the Americas.","49":"WHO Region of the Americas.","50":"WHO Region of the Americas.","51":"WHO Region of the Americas.","52":"WHO Region of the Americas.","53":"WHO Region of the Americas.","54":"WHO Region of the Americas.","55":"WHO Region of the Americas.","56":"WHO Region of the Americas.","57":"WHO Region of the Americas.","58":"WHO Region of the Americas.","59":"WHO Region of the Americas.","60":"WHO Region of the Americas.","61":"WHO Region of the Americas.","62":"WHO Region of the Americas.","63":"WHO Region of the Americas.","64":"WHO Region of the Americas.","65":"WHO Region of the Americas.","66":"WHO Region of the Americas.","67":"WHO Region of the Americas.","68":"WHO Region of the Americas.","69":"WHO Region of the Americas.","70":"WHO Region of the Americas.","71":"WHO Region of the Americas.","72":"WHO Region of the Americas.","73":"WHO Region of the Americas.","74":"WHO Region of the Americas.","75":"WHO Region of the Americas.","76":"WHO Region of the Americas.","77":"WHO Region of the Americas.","78":"WHO Region of the Americas.","79":"WHO Region of the Americas.","80":"WHO European Region.","81":"WHO European Region.","82":"WHO European Region.","83":"WHO European Region.","84":"WHO European Region.","85":"WHO European Region.","86":"WHO European Region.","87":"WHO European Region.","88":"WHO European Region.","89":"WHO European Region.","90":"WHO European Region.","91":"WHO European Region.","92":"WHO European Region.","93":"WHO European Region.","94":"WHO European Region.","95":"WHO European Region.","96":"WHO European Region.","97":"WHO European Region.","98":"WHO European Region.","99":"WHO European Region.","100":"WHO European Region.","101":"WHO European Region.","102":"WHO European Region.","103":"WHO European Region.","104":"WHO European Region.","105":"WHO European Region.","106":"WHO European Region.","107":"WHO European Region.","108":"WHO European Region.","109":"WHO European Region.","110":"WHO European Region.","111":"WHO European Region.","112":"WHO European Region.","113":"WHO European Region.","114":"WHO European Region.","115":"WHO European Region.","116":"WHO European Region.","117":"WHO European Region.","118":"WHO European Region.","119":"WHO European Region.","120":"WHO European Region.","121":"WHO European Region.","122":"WHO European Region.","123":"WHO European Region.","124":"WHO European Region.","125":"WHO European Region.","126":"WHO European Region.","127":"WHO European Region.","128":"WHO European Region.","129":"WHO European Region.","130":"WHO Eastern Mediterranean Region","131":"WHO Eastern Mediterranean Region","132":"WHO Eastern Mediterranean Region","133":"WHO Eastern Mediterranean Region","134":"WHO Eastern Mediterranean Region","135":"WHO Eastern Mediterranean Region","136":"WHO Eastern Mediterranean Region","137":"WHO Eastern Mediterranean Region","138":"WHO Eastern Mediterranean Region","139":"WHO Eastern Mediterranean Region","140":"WHO South-East Asia Region.","141":"WHO South-East Asia Region.","142":"WHO South-East Asia Region.","143":"WHO South-East Asia Region.","144":"WHO South-East Asia Region.","145":"WHO South-East Asia Region.","146":"WHO South-East Asia Region.","147":"WHO South-East Asia Region.","148":"WHO South-East Asia Region.","149":"WHO South-East Asia Region.","150":"WHO South-East Asia Region.","151":"WHO Western Pacific Region.","152":"WHO Western Pacific Region.","153":"WHO Western Pacific Region.","154":"WHO Western Pacific Region.","155":"WHO Western Pacific Region.","156":"WHO Western Pacific Region.","157":"WHO Western Pacific Region.","158":"WHO Western Pacific Region.","159":"WHO Western Pacific Region.","160":"WHO Western Pacific Region.","161":"WHO Western Pacific Region.","162":"WHO Western Pacific Region.","163":"WHO Western Pacific Region.","164":"WHO Western Pacific Region.","165":"WHO Western Pacific Region.","166":"WHO Western Pacific Region.","167":"WHO Western Pacific Region.","168":"WHO Western Pacific Region.","169":"WHO Western Pacific Region.","170":"WHO Western Pacific Region.","171":"WHO South-East Asia Region."}};
 
     // --- Konfigurasi Chart ---
-    const barHeight = 30; // PERMINTAAN 2: Perbesar ukuran bar
-    const visibleBars = 10; 
+    const barHeight = 30;
+    const visibleBars = 10;
     const marginTop = 80;
     const marginRight = 30;
     const marginBottom = 30;
-    const marginLeft = 200; // Mungkin perlu disesuaikan jika nama negara panjang dan bar lebih besar
+    const marginLeft = 200;
     const designWidth = 880;
 
     const colorMap = {
@@ -207,8 +218,8 @@ document.addEventListener("DOMContentLoaded", function() {
         "Crude suicide rate, d 2021": "Crude Suicide Rate (per 100k, 2021)"
     };
     const metricKeys = Object.keys(metricOptions);
-    let currentMetricKey = metricKeys[0]; 
-    let currentOrganization = "All"; 
+    let currentMetricKey = metricKeys[0];
+    let currentOrganization = "All";
 
     let processedFullData = [];
     let allOrganizations = [];
@@ -224,23 +235,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const scrollWrapper = chartMainContainer.append("div").attr("class", "chart-scroll-wrapper-hbc");
     const svgContainer = scrollWrapper.append("div").attr("id", "chart-svg-container-hbc");
-    // PERMINTAAN 1: Legend di dalam chart (scrollable area)
-    const legendFixedContainer = scrollWrapper.append("div").attr("id", "legendContainer-hbc"); 
+    const legendFixedContainer = scrollWrapper.append("div").attr("id", "legendContainer-hbc");
     tooltipElement = chartMainContainer.append("div").attr("class", "tooltip-hbc");
-
 
     function processChartData() {
         const indices = Object.keys(rawData.Country);
         processedFullData = indices.map(index => ({
             country: rawData.Country[index],
             dataQuality: rawData["Data quality a"][index],
-            value: rawData[currentMetricKey][index], 
+            value: rawData[currentMetricKey][index],
             organization: rawData.Organization[index]
         })).filter(d => d.value !== null && d.value > 0 && !isNaN(parseFloat(d.value)));
 
-        processedFullData.sort((a, b) => b.value - a.value); 
+        processedFullData.sort((a, b) => b.value - a.value);
 
-        if (allOrganizations.length === 0) { 
+        if (allOrganizations.length === 0) {
             allOrganizations = ["All", ...new Set(
                 indices.map(index => rawData.Organization[index]).sort()
             )];
@@ -262,8 +271,11 @@ document.addEventListener("DOMContentLoaded", function() {
         scrollWrapper.style("height", finalScrollViewportHeight + 'px');
         svgChart.attr("height", finalSvgHeight)
                .attr("viewBox", `0 0 ${designWidth} ${finalSvgHeight}`);
+        
+        const maxValue = d3.max(dataToPlot, d => d.value);
+        const labelPositionThreshold = 0.10; // Gunakan 10% sebagai ambang batas aman
 
-        xScale.domain([0, d3.max(dataToPlot, d => d.value) || 10]); 
+        xScale.domain([0, maxValue || 10]);
         yScale.domain(dataToPlot.map(d => d.country))
              .rangeRound([marginTop, finalSvgHeight - marginBottom]);
 
@@ -271,9 +283,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("class", "chart-title-hbc")
             .attr("x", marginLeft + (designWidth - marginLeft - marginRight) / 2)
             .attr("y", 30)
-            .text(metricOptions[currentMetricKey]); 
+            .text(metricOptions[currentMetricKey]);
 
-        // Penyesuaian posisi legend di dalam scrollWrapper
         if (numBars === 0) {
             svgChart.append("text")
                 .attr("class", "no-data-message-hbc")
@@ -284,14 +295,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         
-        // Jika viewport sangat pendek, pindahkan legend ke atas kanan agar tidak menutupi data.
-        // Threshold (1.5) mungkin perlu disesuaikan tergantung barHeight dan visibleBars.
-        if (finalScrollViewportHeight < (visibleBars * barHeight + marginTop + marginBottom) / 1.8) { 
-             legendFixedContainer.style("bottom", "auto").style("top", "10px"); // Atas kanan viewport scroll
+        if (finalScrollViewportHeight < (visibleBars * barHeight + marginTop + marginBottom) / 1.8) {
+             legendFixedContainer.style("bottom", "auto").style("top", "10px");
         } else {
-             legendFixedContainer.style("top", "auto").style("bottom", "10px"); // Bawah kanan viewport scroll
+             legendFixedContainer.style("top", "auto").style("bottom", "10px");
         }
-
 
         const bars = svgChart.append("g")
           .selectAll("rect")
@@ -300,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("fill", d => colorMap[d.dataQuality] || "gray")
             .attr("x", xScale(0))
             .attr("y", d => yScale(d.country))
-            .attr("width", d => xScale(d.value) - xScale(0)) 
+            .attr("width", d => xScale(d.value) - xScale(0))
             .attr("height", yScale.bandwidth())
             .style("cursor", "pointer");
 
@@ -311,16 +319,24 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("class", "bar-label-hbc")
             .attr("y", d => yScale(d.country) + yScale.bandwidth() / 2)
             .attr("dy", "0.35em")
-            .text(d => d.value.toLocaleString()) 
+            .text(d => d.value.toLocaleString())
+            // --- AWAL PENYEMPURNAAN FINAL ---
             .each(function(d) {
-                const barWidthVal = xScale(d.value) - xScale(0); 
                 const textNode = d3.select(this);
-                if (barWidthVal < 60) { // Sesuaikan threshold ini jika perlu
-                    textNode.attr("x", xScale(d.value) + 5).attr("text-anchor", "start").attr("fill", "black");
+                
+                // Jika nilai bar kurang dari ambang batas persentase, letakkan di luar
+                if (d.value < maxValue * labelPositionThreshold) {
+                    textNode.attr("x", xScale(d.value) + 5) // 5px di kanan bar
+                            .attr("text-anchor", "start") // Rata kiri
+                            .attr("fill", "black");
                 } else {
-                    textNode.attr("x", xScale(d.value) - 5).attr("text-anchor", "end").attr("fill", d.dataQuality === "Very low" ? "black" : "white");
+                    // Jika cukup, letakkan di dalam
+                    textNode.attr("x", xScale(d.value) - 5) // 5px di kiri ujung bar
+                            .attr("text-anchor", "end") // Rata kanan
+                            .attr("fill", d.dataQuality === "Very low" ? "black" : "white"); // Warna kontras
                 }
             });
+            // --- AKHIR PENYEMPURNAAN FINAL ---
 
         const xAxisGroup = svgChart.append("g")
             .attr("transform", `translate(0,${marginTop})`)
@@ -334,17 +350,17 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x", marginLeft + (designWidth - marginLeft - marginRight) / 2)
             .attr("y", - (marginTop / 2) + 10)
             .attr("fill", "currentColor").attr("text-anchor", "middle")
-            .text(metricOptions[currentMetricKey]); 
+            .text(metricOptions[currentMetricKey]);
 
         svgChart.append("g")
             .attr("transform", `translate(${marginLeft},0)`)
             .call(d3.axisLeft(yScale).tickSizeOuter(0))
-            .call(g => g.selectAll(".tick text").style("font-size", "10px")); // Ukuran font nama negara
+            .call(g => g.selectAll(".tick text").style("font-size", "10px"));
         svgChart.append("text")
             .attr("class", "axis-label-hbc")
             .attr("transform", "rotate(-90)")
             .attr("x", -(marginTop + (finalSvgHeight - marginTop - marginBottom) / 2))
-            .attr("y", 15) // Sesuaikan jika marginLeft berubah
+            .attr("y", 15)
             .attr("fill", "currentColor").attr("text-anchor", "middle")
             .text("Country");
 
@@ -358,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function() {
                               Organization: ${d.organization}<br/>
                               ${valueLabel}: ${d.value.toLocaleString()}<br/>
                               Data Quality: ${d.dataQuality}`)
-                       .style("left", (event.pageX + 15) + "px") 
+                       .style("left", (event.pageX + 15) + "px")
                        .style("top", (event.pageY - 28) + "px");
             })
             .on("mouseout", function(event, d) {
@@ -376,16 +392,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function initializeChart() {
-        processChartData(); 
+        processChartData();
 
         xScale = d3.scaleLinear().range([marginLeft, designWidth - marginRight]);
-        yScale = d3.scaleBand().padding(0.1); // Padding antar bar, mungkin perlu disesuaikan
+        yScale = d3.scaleBand().padding(0.1);
 
         svgChart = svgContainer.append("svg")
             .attr("width", "100%")
             .attr("preserveAspectRatio", "xMinYMin meet");
 
-        // Setup Metric Filters
         metricKeys.forEach(key => {
             metricFilterGroup.append("button")
                 .text(metricOptions[key])
@@ -395,12 +410,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     currentMetricKey = d3.select(this).attr("data-metric");
                     metricFilterGroup.selectAll("button").classed("active", false);
                     d3.select(this).classed("active", true);
-                    processChartData(); 
-                    filterAndRenderChart(); 
+                    processChartData();
+                    filterAndRenderChart();
                 });
         });
         
-        // Setup Organization Filters
         allOrganizations.forEach(org => {
             orgFilterGroup.append("button")
                 .text(org)
@@ -410,11 +424,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     currentOrganization = d3.select(this).attr("data-org");
                     orgFilterGroup.selectAll("button").classed("active", false);
                     d3.select(this).classed("active", true);
-                    filterAndRenderChart(); 
+                    filterAndRenderChart();
                 });
         });
 
-        // Setup Legend (sekarang di dalam scrollWrapper)
         legendFixedContainer.append("h5").text("Data Quality");
         colorMapKeys.forEach((key) => {
             const legendItem = legendFixedContainer.append("div")
@@ -425,15 +438,31 @@ document.addEventListener("DOMContentLoaded", function() {
             legendItem.append("span").text(key);
         });
 
-        filterAndRenderChart(); 
+        filterAndRenderChart();
     }
 
     initializeChart();
 });
 </script>
 
-## Referensi 
 
-- <p style="text-indent:0px;">
-  Nevid, J. S. (2012). <strong>Abnormal Psychology: In a Changing World</strong>. <i>Pearson Education</i>.
-</p>
+## Kesimpulan: Dua Prioritas Mendesak dari Satu Grafik
+
+Data ini tidak hanya menantang pemahaman kita tentang geografi risiko, tetapi juga menetapkan dua prioritas yang jelas. Prioritas pertama adalah mengalihkan sebagian perhatian dan sumber daya ke negara-negara dengan tingkat risiko tertinggi yang selama ini terabaikan. Prioritas kedua, yang tidak kalah penting bagi para pembuat kebijakan dan inovator, adalah mengatasi krisis data itu sendiri. Tanpa pelaporan yang andal, upaya pencegahan global akan terus berjalan dalam kegelapan, tidak pernah bisa benar-benar tepat sasaran.
+
+<a href="https://daddyananta.github.io//categories/analysis-and-visualization/">Jelajahi lebih dalam tentang Analysis & Visualization</a>
+
+## Referensi
+<p style="text-indent:0px;">World Health Organization. (2023). Suicide worldwide in 2019: Global Health Estimates. <a href="https://www.who.int/publications/i/item/9789240026643">World Health Organization</a></p>
+
+## Penelusuran Terkait
+<ul>
+    <li><a href="https://www.who.int/news-room/fact-sheets/detail/suicide">Suicide - World Health Organization (WHO)</a></li>
+    <li><a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(23)00223-1/fulltext">Suicide prevention in Africa: a systematic review of the literature - The Lancet</a></li>
+    <li><a href="https://ourworldindata.org/suicide">Suicide - Our World in Data</a></li>
+    <li><a href="https://www.weforum.org/agenda/2024/01/mental-health-workplace-support-davos-2024/">Mental health: Why workplace support is a sound investment - World Economic Forum</a></li>
+    <li><a href="https://www.nature.com/articles/s41591-024-02825-7">A global early warning system for suicide prevention - Nature Medicine</a></li>
+    <li><a href="https://www.afro.who.int/health-topics/mental-health">Mental health - WHO | Regional Office for Africa</a></li>
+    <li><a href="https://www.sos.org.sg/blog/suicide-in-south-korea-a-lesson-for-singapore">Suicide In South Korea: A Lesson For Singapore - Samaritans of Singapore</a></li>
+    <li><a href="https://www.spglobal.com/esg/insights/featured/special-reports/the-widening-health-data-gap">The Widening Health Data Gap In An AI-Powered World - S&P Global</a></li>
+</ul>
