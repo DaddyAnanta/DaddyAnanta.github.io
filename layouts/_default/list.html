@@ -123,9 +123,9 @@
 {{/* ================================================================ */}}
 <div class="post-sections-wrapper is-loading">
 
-    {{/* --- SKELETON SCREEN STRUCTURE --- */}}
+    {{/* --- SKELETON SCREEN STRUCTURE (Tidak ada perubahan) --- */}}
     <div class="skeleton-wrapper">
-        {{ range seq 2 }} {{/* Ulangi skeleton untuk 2 kategori agar tidak terlalu panjang */}}
+        {{ range seq 2 }}
         <section class="category-post-list skeleton-section">
             <div class="container">
                 <header class="category-header">
@@ -151,7 +151,7 @@
         {{ end }}
     </div>
 
-    {{/* --- ACTUAL CONTENT (Awalnya disembunyikan oleh CSS) --- */}}
+    {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar) --- */}}
     <div class="actual-content">
         {{ $categoriesToShow := slice "Analysis and Visualization" "Qualitative" "Insight Psychology" "Quantitative" }}
         {{ range $index, $categoryName := $categoriesToShow }}
@@ -172,9 +172,13 @@
                             {{ $featuredPost := index $pagesInCategory 0 }}
                             <article class="featured-post">
                                 <a href="{{ $featuredPost.Permalink }}" class="post-card-link">
-                                    {{ with $featuredPost.Params.image }}
-                                        <div class="post-card-image-wrapper"><img src="{{ . }}" alt="Gambar untuk {{ $featuredPost.Title }}" class="post-card-image" loading="lazy"></div>
+                                    
+                                    {{/* --- PERBAIKAN 1: BAGIAN FEATURED POST --- */}}
+                                    {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
+                                    {{ if $imageResource }}
+                                        <div class="post-card-image-wrapper"><img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ $featuredPost.Title }}" class="post-card-image" loading="lazy"></div>
                                     {{ end }}
+                                    
                                     <div class="post-card-content">
                                         <h3 class="post-card-title">{{ $featuredPost.Title }}</h3>
                                         <p class="post-card-description">{{ $featuredPost.Summary | plainify | truncate 150 "..." }}</p>
@@ -190,9 +194,13 @@
                                     {{ range first 4 $otherPosts }}
                                         <article class="post-card-secondary">
                                             <a href="{{ .Permalink }}" class="post-card-link">
-                                                {{ with .Params.image }}
-                                                    <div class="post-card-image-wrapper-secondary"><img src="{{ . }}" alt="" class="post-card-image" loading="lazy"></div>
+                                                
+                                                {{/* --- PERBAIKAN 2: BAGIAN SECONDARY POST --- */}}
+                                                {{ $imageResource := .Resources.GetMatch .Params.image }}
+                                                {{ if $imageResource }}
+                                                    <div class="post-card-image-wrapper-secondary"><img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy"></div>
                                                 {{ end }}
+                                                
                                                 <div class="post-card-content-secondary"><h4 class="post-card-title-secondary">{{ .Title }}</h4></div>
                                             </a>
                                         </article>
