@@ -1,0 +1,29 @@
+<div class="table-container">
+    <table>
+        {{/* Cek apakah header ada dengan .THead (huruf T kapital) */}}
+        {{ with .THead }}
+        <thead>
+            {{ range . }}
+            <tr>
+                {{ range . }}
+                <th>{{ .Text | safeHTML }}</th>
+                {{ end }}
+            </tr>
+            {{ end }}
+        </thead>
+        {{ end }}
+
+        {{/* Cek apakah body ada dengan .TBody (huruf T kapital) */}}
+        {{ with .TBody }}
+        <tbody>
+            {{ range . }}
+            <tr>
+                {{ range . }}
+                <td>{{ .Text | safeHTML }}</td>
+                {{ end }}
+            </tr>
+            {{ end }}
+        </tbody>
+        {{ end }}
+    </table>
+</div>
