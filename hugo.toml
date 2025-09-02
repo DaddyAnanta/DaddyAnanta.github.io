@@ -75,11 +75,11 @@ pagination.pagerSize = 12
     weight = 1
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "SITEMAP"]
   page = ["HTML"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML"]
+  section = ["HTML", "RSS", "SITEMAP"]
+  taxonomy = ["HTML", "RSS", "SITEMAP"]
+  term = ["HTML", "SITEMAP"]
 
 [outputFormats.HTML]
   mediaType = "text/html"
@@ -92,6 +92,8 @@ pagination.pagerSize = 12
   [[outputFormats.HTML.headers]]
         cache-control = "public, max-age=7200, no-cache, must-revalidate" # 2 jam, dengan validasi
     
+
+
 [outputFormats.CSS]
     mediaType = "text/css"
     baseName = "style"
