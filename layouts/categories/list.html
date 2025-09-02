@@ -134,11 +134,16 @@
         {{ range .Paginator.Pages }}
           <article class="post-card">
             <a href="{{ .Permalink }}" class="post-card-link">
-              {{ with .Params.image }}
+              
+              {{/* BLOK YANG DIPERBAIKI DIMULAI DI SINI */}}
+              {{ $imageResource := .Resources.GetMatch .Params.image }}
+              {{ if $imageResource }}
                 <div class="post-card-image-wrapper">
-                  <img src="{{ . }}" alt="Gambar untuk {{ $.Title }}" class="post-card-image" loading="lazy">
+                  <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
                 </div>
               {{ end }}
+              {{/* BLOK YANG DIPERBAIKI BERAKHIR DI SINI */}}
+
               <div class="post-card-content">
                 <h3 class="post-card-title">{{ .Title }}</h3>
                 <div class="post-card-tags">
