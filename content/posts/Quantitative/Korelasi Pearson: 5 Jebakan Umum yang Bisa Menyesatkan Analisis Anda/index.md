@@ -456,28 +456,44 @@ Pada Gambar pertama, kita melihat garis merah positif yang menipu. Namun pada ke
 </ul>
 </div>
 
+## Quiz
 
+<style>
+    /* Blok ini khusus untuk membuat kuis menjadi responsif di tablet dan mobile */
+    @media (max-width: 768px) {
+        #kuis-korelasi-widget-final {
+            /* Mengurangi padding di layar kecil */
+            padding: 20px !important; 
+            margin: 15px 0 !important;
+        }
+        #kuis-korelasi-widget-final h2 {
+            /* Menyesuaikan ukuran font judul */
+            font-size: 1.5em !important;
+        }
+        #kuis-korelasi-widget-final p {
+            font-size: 1em !important;
+        }
+        #kuis-korelasi-widget-final .korelasi-final-question-card {
+             padding: 15px !important;
+        }
+    }
+</style>
 
-  
-<div id="kuis-korelasi-widget-final" style="font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #212529; display: flex; justify-content: center; padding: 20px; box-sizing: border-box; margin: 25px 0;">
-    <div style="width: 100%; max-width: 700px; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 12px; padding: 40px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div id="korelasi-final-start-screen" style="display: block;">
-            <div style="text-align: center;">
-                <i class="fas fa-chart-line" style="font-size: 4em; margin-bottom: 20px; color: #007bff;"></i>
-                <h2 style="font-size: 1.8em; margin-bottom: 10px; color: #000000;">Siap Uji Pemahaman Korelasi?</h2>
-                <p style="font-size: 1.1em; margin-bottom: 30px; line-height: 1.6;">Jawab 5 soal acak untuk menguji pemahaman Anda tentang jebakan-jebakan dalam analisis korelasi.</p>
-                <button id="korelasi-final-start-btn" style="padding: 15px 30px; font-size: 1.1em; font-weight: bold; color: white; border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%; text-decoration: none; background: linear-gradient(45deg, #007bff, #0056b3);">Mulai Kuis!</button>
-            </div>
-        </div>
-        <div id="korelasi-final-quiz-screen" style="display: none;">
-            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em; font-weight: 700; color: #000000; border-bottom: 3px solid #007bff; padding-bottom: 15px;">Kuis Korelasi Pearson</h2>
-            <div id="korelasi-final-questions-wrapper"></div>
-            <p id="korelasi-final-validation-msg" style="color: #dc3545; font-weight: 500; margin-top: 15px; display: none;"><i class="fas fa-exclamation-circle"></i> Mohon jawab semua pertanyaan.</p>
-            <button id="korelasi-final-submit-btn" style="padding: 15px 30px; font-size: 1.1em; font-weight: bold; color: white; border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%; text-decoration: none; margin-top: 25px; background: linear-gradient(45deg, #007bff, #0056b3);">Cek Jawaban</button>
-        </div>
-        <div id="korelasi-final-results-screen" style="display: none;">
-            </div>
+<div id="kuis-korelasi-widget-final" style="width: 100%; max-width: 700px; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 12px; padding: 40px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); text-align: center; margin: 25px auto; font-family: 'Inter', sans-serif; box-sizing: border-box;">
+    <div id="korelasi-final-start-screen" style="display: block;">
+        <i class="fas fa-chart-line" style="font-size: 4em; margin-bottom: 20px; color: #007bff;"></i>
+        <h2 style="font-size: 1.8em; margin-bottom: 10px; color: #000000;">Siap Uji Pemahaman Korelasi?</h2>
+        <p style="font-size: 1.1em; margin-bottom: 30px; line-height: 1.6;">Jawab 5 soal acak untuk menguji pemahaman Anda tentang jebakan-jebakan dalam analisis korelasi.</p>
+        <button id="korelasi-final-start-btn" style="padding: 15px 30px; font-size: 1.1em; font-weight: bold; color: white; border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%; text-decoration: none; background: linear-gradient(45deg, #007bff, #0056b3);">Mulai Kuis!</button>
     </div>
+    <div id="korelasi-final-quiz-screen" style="display: none;">
+        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em; font-weight: 700; color: #000000; border-bottom: 3px solid #007bff; padding-bottom: 15px;">Kuis Korelasi Pearson</h2>
+        <div id="korelasi-final-questions-wrapper"></div>
+        <p id="korelasi-final-validation-msg" style="color: #dc3545; font-weight: 500; margin-top: 15px; display: none;"><i class="fas fa-exclamation-circle"></i> Mohon jawab semua pertanyaan.</p>
+        <button id="korelasi-final-submit-btn" style="padding: 15px 30px; font-size: 1.1em; font-weight: bold; color: white; border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%; text-decoration: none; margin-top: 25px; background: linear-gradient(45deg, #007bff, #0056b3);">Cek Jawaban</button>
+    </div>
+    <div id="korelasi-final-results-screen" style="display: none;">
+        </div>
 </div>
   
 <script>
@@ -485,9 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const widget = document.getElementById('kuis-korelasi-widget-final');
     if (!widget) return;
 
-    // Definisikan semua style sebagai variabel agar mudah dikelola
     const styles = {
-        card: "background-color: #f8f9fa; border-radius: 8px; padding: 20px 25px; margin-bottom: 20px; border: 1px solid #dee2e6; text-align: left;",
+        card: "background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 1px solid #dee2e6; text-align: left;",
         questionText: "margin: 0 0 15px 0; font-size: 1.1em; font-weight: 500; line-height: 1.5;",
         optionsList: "list-style: none; padding: 0; margin: 0;",
         optionItem: "margin: 0 0 10px 0; padding: 0;",
@@ -541,14 +556,14 @@ document.addEventListener('DOMContentLoaded', () => {
             shuffleArray(q.options).forEach(option => {
                 optionsHTML += `<li style="${styles.optionItem}"><label style="${styles.optionLabel}" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#ffffff'"><input type="${inputType}" name="korelasi-final-q-${index}" value="${option}" style="margin-right: 12px; transform: scale(1.2); accent-color: #007bff;">${option}</label></li>`;
             });
-            questionsWrapper.innerHTML += `<div style="${styles.card}"><p style="${styles.questionText}">${index + 1}. ${q.question}</p><ul style="${styles.optionsList}">${optionsHTML}</ul></div>`;
+            questionsWrapper.innerHTML += `<div class="korelasi-final-question-card" style="${styles.card}"><p style="${styles.questionText}">${index + 1}. ${q.question}</p><ul style="${styles.optionsList}">${optionsHTML}</ul></div>`;
         });
         showScreen('korelasi-final-quiz-screen');
     }
 
     function submitAnswers() {
         let allAnswered = true;
-        widget.querySelectorAll('#korelasi-final-questions-wrapper > div').forEach(card => {
+        questionsWrapper.querySelectorAll('.korelasi-final-question-card').forEach(card => {
             if (!card.querySelector('input:checked')) { allAnswered = false; }
         });
         validationMsg.style.display = allAnswered ? 'none' : 'block';
@@ -583,7 +598,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
 
 
 ## Kesimpulan: Dari Perhitungan ke Pemahaman Kritis
