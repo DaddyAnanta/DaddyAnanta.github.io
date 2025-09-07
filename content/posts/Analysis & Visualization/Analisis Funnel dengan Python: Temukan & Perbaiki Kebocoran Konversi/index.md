@@ -21,7 +21,7 @@ Kita melihat dashboard traffic dan tersenyum: ribuan pengguna mengunjungi situs 
 
 Sebelum kita menyelam ke dalam analisis, kita perlu menyiapkan dua hal: data dan *tools*. Data kita harus mencatat setiap kali seorang pengguna mencapai tahapan kunci. Struktur paling sederhana yang kita butuhkan adalah `user_id` untuk mengidentifikasi pengguna secara unik dan `stage` untuk mencatat tahapan yang mereka capai.
 
-Untuk tutorial ini, kita akan menggunakan dataset `user_data.csv`. Penting untuk dicatat bahwa ini adalah data sintetis yang kami buat khusus untuk meniru skenario e-commerce yang umum, memungkinkan kita untuk fokus pada teknik analisisnya tanpa terganggu oleh kerumitan data dunia nyata.
+Untuk tutorial ini, kita akan menggunakan dataset `user_data.csv` yang dapat diunduh <a href="user_data.csv" download>di sini</a>. Penting untuk dicatat bahwa ini adalah data sintetis yang kami buat khusus untuk meniru skenario e-commerce yang umum, memungkinkan kita untuk fokus pada teknik analisisnya tanpa terganggu oleh kerumitan data dunia nyata.
 
 ```python
 # Mengimpor pustaka yang diperlukan
