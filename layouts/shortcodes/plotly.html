@@ -1,0 +1,3 @@
+{{ $filepath := .Get 0 }}
+{{ $htmlContent := readFile (print "static/" $filepath) }}
+{{ $htmlContent | safeHTML }}
