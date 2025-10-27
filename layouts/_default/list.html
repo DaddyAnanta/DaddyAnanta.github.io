@@ -20,8 +20,8 @@
 {{/* ================================================================ */}}
 <section id="category-showcase" class="main-wrapper" data-aos="fade-up">
   <div class="container">
-    <h2 class="section-title">Jelajahi Modul Riset</h2>
-    <p class="section-subtitle"></p>
+    <h2 class="section-title">Jelajahi Kategori Analisis & Portofolio</h2>
+    <p class="section-subtitle">Studi kasus, konsep teknis, dan wawasan perilaku.</p>
 
     <div class="category-grid-container">
 
@@ -29,7 +29,7 @@
       <div class="info-box-card">
         <i class="fas fa-info-circle info-icon"></i>
         <h3 id="info-title">PROJECT.LOG</h3>
-        <p id="info-description">Deskripsi akan muncul di sini saat Anda mengarahkan kursor ke modul.</p>
+        <p id="info-description">Arahkan kursor ke sebuah modul untuk melihat deskripsinya. Mulai jelajahi!</p>
       </div>
 
       {{/* --- Kartu Kategori --- */}}
@@ -39,12 +39,26 @@
             {{- $category_slug := .Name | urlize -}}
             {{- $color_class := "" -}}
             {{- $icon_class := "" -}}
-            {{- if eq $category_slug "analysis-and-visualization" -}}{{- $color_class = "cat-color--analysis" -}}{{- $icon_class = "fas fa-chart-pie" -}}
-            {{- else if eq $category_slug "quantitative" -}}{{- $color_class = "cat-color--quantitative" -}}{{- $icon_class = "fas fa-calculator" -}}
-            {{- else if eq $category_slug "qualitative" -}}{{- $color_class = "cat-color--qualitative" -}}{{- $icon_class = "fas fa-comments" -}}
-            {{- else if eq $category_slug "insight-psychology" -}}{{- $color_class = "cat-color--psychology" -}}{{- $icon_class = "fas fa-brain" -}}
-            {{- else -}}{{- $color_class = "cat-color--default" -}}{{- $icon_class = "fas fa-tag" -}}
+
+            {{/* --- PENYESUAIAN BARU DIMULAI DI SINI --- */}}
+            {{- if eq $category_slug "projects" -}}
+                {{- $color_class = "cat-color--projects" -}}
+                {{- $icon_class = "fas fa-briefcase" -}}
+            {{- else if eq $category_slug "data-analysis-concepts" -}}
+                {{- $color_class = "cat-color--concepts" -}}
+                {{- $icon_class = "fas fa-calculator" -}}
+            {{- else if eq $category_slug "behavioral-insights" -}}
+                {{- $color_class = "cat-color--psychology" -}}
+                {{- $icon_class = "fas fa-brain" -}}
+            {{- else if eq $category_slug "marketing" -}}
+                {{- $color_class = "cat-color--marketing" -}}
+                {{- $icon_class = "fas fa-chart-line" -}}
+            {{/* --- AKHIR PENYESUAIAN --- */}}
+            {{- else -}}
+                {{- $color_class = "cat-color--default" -}}
+                {{- $icon_class = "fas fa-tag" -}}
             {{- end -}}
+            
             <a href="{{ .Page.Permalink }}" class="category-card {{ $color_class }}" data-key="{{ $category_slug }}">
                 <div class="card-icon"><i class="{{ $icon_class }}"></i></div>
                 <div class="card-content">
@@ -153,7 +167,10 @@
 
     {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar) --- */}}
     <div class="actual-content">
-        {{ $categoriesToShow := slice "Analysis and Visualization" "Qualitative" "Insight Psychology" "Quantitative" }}
+        {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
+        {{ $categoriesToShow := slice "Projects" "Data Analysis Concepts" "Behavioral Insights" "Marketing" }}
+        {{/* --- AKHIR PENYESUAIAN --- */}}
+        
         {{ range $index, $categoryName := $categoriesToShow }}
             {{ $categorySlug := . | urlize }}
             {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
@@ -253,14 +270,13 @@
 
       {{/* --- Kategori 3: UX & Consumer Research --- */}}
       <div class="tool-category">
-        <h3 class="category-title">UX & Consumer Research</h3>
+        <h3 class="category-title">Marketing Tools</h3>
         <div class="tool-items">
-          <div class="tool-card"><i class="fab fa-regular fa-object-group tool-icon xd"></i><span>Adobe XD</span></div>
-          <div class="tool-card"><i class="fas fa-chalkboard tool-icon miro"></i><span>Miro</span></div>
-          <div class="tool-card"><i class="fas fa-tags tool-icon nvivo"></i><span>NVivo</span></div>
-          <div class="tool-card"><i class="fas fa-poll tool-icon gforms"></i><span>Google Forms</span></div>
           <div class="tool-card"><i class="fab fa-brands fa-google tool-icon ga"></i><span>Google Analytics</span></div>
-          <div class="tool-card"><i class="fas fa-sitemap tool-icon maze"></i><span>Maze</span></div>
+          <div class="tool-card"><i class="fab fa-brands fa-google tool-icon gads"></i><span>Google Ads</span></div>
+          <div class="tool-card"><i class="fab fa-brands fa-google tool-icon gsc"></i><span>Google Search Console</span></div>
+          <div class="tool-card"><i class="fab fa-hubspot tool-icon hubspot"></i><span>HubSpot</span></div>
+          <div class="tool-card"><i class="fas fa-search tool-icon semrush"></i><span>Semrush</span></div>
         </div>
       </div>
 
@@ -288,32 +304,31 @@
                 <div class="title">
                     <h1>Hi, My Name is <span>Daddy Ananta S.</span></h1>
                     <h3 class="typing-text">I'm a <span></span></h3>
-                </div>
+                    </div>
 
-                <p>Saya adalah seorang profesional yang berfokus pada persimpangan antara <strong>psikologi</strong> dan <strong>data</strong> untuk memahami pertanyaan fundamental: <strong>mengapa orang melakukan apa yang mereka lakukan?</strong> Saya percaya bahwa empati dan analisis adalah dua sisi dari mata uang yang sama untuk menciptakan produk dan pengalaman yang luar biasa.</p>
+                <p>Saya adalah seorang <i>freshgraduates</i> yang berfokus pada persimpangan antara <strong>psikologi</strong> dan <strong>analitik data</strong> untuk memahami pertanyaan fundamental: <strong>mengapa konsumen membuat keputusan?</strong> Saya percaya bahwa pemahaman perilaku dan analisis kuantitatif adalah fondasi untuk mendorong <strong>strategi pemasaran</strong> dan <strong>keputusan bisnis</strong> yang cerdas.</p>
                 
                 <p>Misi saya adalah mengubah data mentah menjadi <i>consumer insight</i> yang dapat ditindaklanjuti. Saya melakukannya dengan:</p>
 
-                {{/* --- PERBAIKAN UI/UX DIMULAI DI SINI --- */}}
+                {{/* --- PERBAIKAN DATA/MARKETING ANALYTICS DIMULAI DI SINI --- */}}
                 <ul class="skills-list">
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span><strong>Mendengarkan cerita pengguna</strong> melalui Riset UX Kualitatif.</span>
+                        <span><strong>Menganalisis performa kampanye</strong> dan <i>user journey</i> melalui Web Analytics.</span>
                     </li>
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span><strong>Mengungkap pola tersembunyi</strong> melalui Riset UX Kuantitatif dan Analisis Data.</span>
+                        <span><strong>Mengungkap pola tersembunyi</strong> dalam <i>dataset</i> besar melalui Analisis Statistik.</span>
                     </li>
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span><strong>Mengkomunikasikan temuan</strong> secara efektif melalui Visualisasi Data dan penulisan.</span>
+                        <span><strong>Menyajikan insight</strong> yang kompleks secara efektif melalui Visualisasi Data dan <i>storytelling</i>.</span>
                     </li>
                 </ul>
-                {{/* --- AKHIR PERBAIKAN --- */}}
 
-                <p>Saya memahami bagaimana menerjemahkan data menjadi pemahaman yang mendalam tentang pengguna, dan saya selalu bersemangat untuk berkontribusi pada proyek yang menempatkan pengguna sebagai pusatnya.</p>
+                <p>Saya memahami bagaimana menerjemahkan metrik dan tren menjadi pemahaman yang mendalam tentang pasar. Saya selalu bersemangat untuk berkontribusi pada proyek yang <strong>didorong oleh data (data-driven)</strong> untuk mencapai <strong>target bisnis</strong>.</p>
                 
-                <p><strong>Keahlian:</strong> Pemahaman Perilaku, Riset Pengguna (Kualitatif & Kuantitatif), Analisis Data (SQL, Python), Visualisasi Data (Tableau), Komunikasi Insight.</p>
+                <p><strong>Keahlian:</strong> Analisis Data (SQL, Python), Marketing Analytics (Google Analytics, A/B Testing), Visualisasi Data (Tableau, Power BI), Pemahaman Perilaku Konsumen, Komunikasi Insight.</p>
             </div>
         </div>
     </div>
@@ -323,12 +338,27 @@
 <script>
     // InfoBox Logic
     document.addEventListener('DOMContentLoaded', function() {
+        /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
         const infoData = {
-            'analysis-and-visualization': { title: 'Analysis & Visualization', description: 'Membahas teknik dan metode untuk menganalisis data dan menyajikannya dalam bentuk visual yang mudah dipahami, seperti grafik, dasbor, dan peta.', },
-            'quantitative': { title: 'Quantitative', description: 'Fokus pada metode penelitian kuantitatif, analisis statistik, dan penggunaan angka untuk menguji hipotesis dan mengukur fenomena.', },
-            'qualitative': { title: 'Qualitative', description: 'Menjelajahi metode penelitian kualitatif seperti wawancara, observasi, dan analisis teks untuk mendapatkan pemahaman mendalam tentang perilaku manusia.', },
-            'insight-psychology': { title: 'Insight Psychology', description: 'Menggali wawasan dari persimpangan antara psikologi dan data, memahami "mengapa" di balik perilaku konsumen dan pengguna.', },
+            'projects': { 
+                title: 'Projects', 
+                description: 'Studi kasus end-to-end dan portofolio analisis data, dari pembersihan data, analisis, hingga visualisasi.' 
+            },
+            'data-analysis-concepts': { 
+                title: 'Data Analysis Concepts', 
+                description: 'Fondasi teknis, metode statistik, dan tutorial pengkodean (Python, SQL) untuk analisis data yang mendalam.' 
+            },
+            'behavioral-insights': { 
+                title: 'Behavioral Insights', 
+                description: 'Menggali "mengapa" di balik data. Menghubungkan psikologi, ekonomi perilaku, dan metode kualitatif (JTBD, Mom Test).' 
+            },
+            'marketing': { 
+                title: 'Marketing Analytics', 
+                description: 'Penerapan analisis data dalam domain bisnis dan pemasaran, seperti A/B testing, analisis pelanggan, dan pengukuran ROI.' 
+            }
         };
+        /* --- AKHIR PENYESUAIAN SCRIPT --- */
+        
         const cards = document.querySelectorAll('.category-card');
         const gridContainer = document.querySelector('.category-grid-container');
         const infoTitle = document.getElementById('info-title');
@@ -346,15 +376,19 @@
                     if (data) {
                         infoTitle.textContent = data.title.toUpperCase();
                         infoDescription.textContent = data.description;
-                        infoLink.href = linkUrl;
-                        infoLinkWrapper.style.display = 'block';
+                        if(infoLink && infoLinkWrapper) { // Safety check
+                            infoLink.href = linkUrl;
+                            infoLinkWrapper.style.display = 'block';
+                        }
                     }
                 });
             });
             gridContainer.addEventListener('mouseleave', function() {
                 infoTitle.textContent = defaultTitle;
                 infoDescription.textContent = defaultDescription;
-                infoLinkWrapper.style.display = 'none';
+                if(infoLinkWrapper) { // Safety check
+                   infoLinkWrapper.style.display = 'none';
+                }
             });
         }
     });
