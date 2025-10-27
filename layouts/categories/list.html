@@ -97,15 +97,16 @@
       </div>
       <div class="category-grid">
         {{ range .Data.Terms.ByCount }}
+          {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
           {{ $category_name := .Name | lower }}
           {{ $icon_class := "fa-solid fa-tag" }}
           {{ $color_class := "color-default" }}
-          {{ if eq $category_name "insight psychology" }}{{ $icon_class = "fa-solid fa-brain" }}{{ $color_class = "color-psychology" }}{{ end }}
-          {{ if eq $category_name "analysis and visualization" }}{{ $icon_class = "fa-solid fa-chart-pie" }}{{ $color_class = "color-analysis" }}{{ end }}
-          {{ if eq $category_name "case studies" }}{{ $icon_class = "fa-solid fa-book-open" }}{{ $color_class = "color-case-studies" }}{{ end }}
-          {{ if eq $category_name "qualitative" }}{{ $icon_class = "fa-solid fa-comments" }}{{ $color_class = "color-qualitative" }}{{ end }}
-          {{ if eq $category_name "quantitative" }}{{ $icon_class = "fa-solid fa-calculator" }}{{ $color_class = "color-quantitative" }}{{ end }}
-          {{ if eq $category_name "tools and strategy" }}{{ $icon_class = "fa-solid fa-gears" }}{{ $color_class = "color-tools" }}{{ end }}
+          {{ if eq $category_name "projects" }}{{ $icon_class = "fa-solid fa-briefcase" }}{{ $color_class = "color-projects" }}{{ end }}
+          {{ if eq $category_name "data analysis concepts" }}{{ $icon_class = "fa-solid fa-calculator" }}{{ $color_class = "color-concepts" }}{{ end }}
+          {{ if eq $category_name "behavioral insights" }}{{ $icon_class = "fa-solid fa-brain" }}{{ $color_class = "color-psychology" }}{{ end }}
+          {{ if eq $category_name "marketing" }}{{ $icon_class = "fa-solid fa-chart-line" }}{{ $color_class = "color-marketing" }}{{ end }}
+          {{/* --- AKHIR PENYESUAIAN KATEGORI --- */}}
+          
           <a class="category-card {{ $color_class }}" href="{{ .Page.Permalink }}">
             <div class="card-icon"><i class="{{ $icon_class }}"></i></div>
             <div class="card-content">
@@ -135,7 +136,7 @@
           <article class="post-card">
             <a href="{{ .Permalink }}" class="post-card-link">
               
-              {{/* BLOK YANG DIPERBAIKI DIMULAI DI SINI */}}
+              {{/* BLOK YANG DIMULAI DI SINI */}}
               {{ $imageResource := .Resources.GetMatch .Params.image }}
               {{ if $imageResource }}
                 <div class="post-card-image-wrapper">
