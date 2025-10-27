@@ -1,0 +1,26 @@
+{{/* Ambil nama file dari parameter shortcode */}}
+{{ $file := .Get "file" }}
+
+{{/* Cari file tersebut di dalam Page Resources */}}
+{{ $pdf := .Page.Resources.GetMatch $file }}
+
+{{ if $pdf }}
+  {{/* Jika ketemu:
+    1. Gunakan .Permalink untuk URL.
+    2. Tambahkan #scrollMode=3 untuk mode "Page" (satu halaman per satu waktu).
+    3. Tambahkan &toolbar=false untuk menyembunyikan menu atas.
+  */}}
+  <iframe 
+    src="/pdfjs/web/viewer.html?file={{ $pdf.Permalink }}#scrollMode=3&toolbar=false" 
+    width="100%" 
+    height="800px" 
+    style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </iframe>
+{{ else }}
+  {{/* Jika tidak ketemu, tampilkan pesan error */}}
+  <p style="padding: 1rem; background-color: #ffebeb; color: #d90000; border: 1px solid #d90000; border-radius: 8px;">
+    <strong>Error:</strong> File PDF "<strong>{{ $file }}</strong>" tidak ditemukan.
+    <br>
+    Pastikan file tersebut ada di dalam folder '{{ .Page.File.Dir | replace "content/" "" }}'.
+  </p>
+{{ end }}
