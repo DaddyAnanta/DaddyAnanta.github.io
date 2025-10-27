@@ -34,19 +34,17 @@
     --blog-card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
     --blog-border-radius: 12px;
 
-    /* PERBAIKAN: Warna Latar Lebih Berani (Bold Colors) */
-    --cat-bg-analysis-and-visualization: #dbeafe; /* Biru lebih pekat */
-    --cat-bg-qualitative: #fef3c7; /* Kuning lebih pekat */
-    --cat-bg-insight-psychology: #f3e8ff; /* Ungu lebih pekat */
-    --cat-bg-quantitative: #d1fae5; /* Mint lebih pekat */
+/* Warna Latar Belakang (untuk bagian Blog) */
+    --cat-bg-projects: #dbeafe; /* Biru muda */
+    --cat-bg-concepts: #fef3c7; /* Kuning muda */
+    --cat-bg-behavioral-insights: #f3e8ff; /* Ungu muda */
+    --cat-bg-marketing: #d1fae5; /* Hijau muda */
 
-    /* Warna Ikon Kategori */
-    --color-cat-analysis: #2563eb;
-    --color-cat-case-studies: #3498DB;
-    --color-cat-quantitative: #f59e0b;
-    --color-cat-qualitative: #d97706;
-    --color-cat-psychology: #9333ea;
-    --color-cat-tools: #34495E;
+    /* Warna Ikon Kategori (untuk Showcase) */
+    --color-cat-projects: #2563eb;       /* Biru (Briefcase) */
+    --color-cat-concepts: #f59e0b;       /* Oranye (Calculator) */
+    --color-cat-psychology: #9333ea;     /* Ungu (Brain) */
+    --color-cat-marketing: #10b981;      /* Hijau (Chart Line) */
     --color-cat-default: #7F8C8D;
 }
 
@@ -227,11 +225,11 @@
 .category-count { font-size: 0.85rem; color: #6c757d; margin: 0; }
 
 /* Warna ikon spesifik */
-.cat-color--analysis .card-icon { color: #2563eb; }
-.cat-color--quantitative .card-icon { color: #f59e0b; }
-.cat-color--qualitative .card-icon { color: #d97706; }
-.cat-color--psychology .card-icon { color: #9333ea; }
-.cat-color--default .card-icon { color: #6c757d; }
+.cat-color--projects .card-icon { color: var(--color-cat-projects); }
+.cat-color--concepts .card-icon { color: var(--color-cat-concepts); }
+.cat-color--psychology .card-icon { color: var(--color-cat-psychology); }
+.cat-color--marketing .card-icon { color: var(--color-cat-marketing); }
+.cat-color--default .card-icon { color: var(--color-cat-default); }
 
 /* ================================================================== */
 /* === BLOG POST SECTIONS (NEW LAYOUT) === */
@@ -521,10 +519,10 @@
 .portofolio .typing-text span { position: relative; }
 .portofolio .typing-text span::before { content: "Software Developer"; color: #ff6b6b; animation: words 20s infinite; }
 @keyframes words {
-    0%, 25% { content: "UX Research Enthusiast"; }
+    0%, 25% { content: "Data Analyst"; }
     26%, 50% { content: "Data Storyteller"; }
-    51%, 75% { content: "Psychology Student"; }
-    76%, 100% { content: "Analytics & Content Writer"; }
+    51%, 75% { content: "Consumer Insight Analyst"; }
+    76%, 100% { content: "Marketing Analyst"; }
 }
 
 

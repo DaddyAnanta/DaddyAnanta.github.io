@@ -818,13 +818,46 @@ a {
     font-size: 0.9rem; font-weight: 400; margin-top: 5px;
     background-color: rgba(0, 0, 0, 0.1); color: #0e2135; padding: 3px 8px; border-radius: 20px; display: inline-block;
 }
-.color-psychology { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
-.color-analysis { background: linear-gradient(135deg, #2980b9, #3498db); }
-.color-case-studies { background: linear-gradient(135deg, #27ae60, #2ecc71); }
-.color-qualitative { background: linear-gradient(135deg, #f39c12, #f1c40f); }
-.color-quantitative { background: linear-gradient(135deg, #d35400, #e67e22); }
-.color-tools { background: linear-gradient(135deg, #c0392b, #e74c3c); }
-.color-default { background: linear-gradient(135deg, #7f8c8d, #95a5a6); }
+
+
+/* --- PENYESUAIAN GRADIENT KATEGORI --- */
+
+/* 1. Behavioral Insights (Tetap Ungu) */
+.color-psychology { 
+    background: linear-gradient(135deg, #8e44ad, #9b59b6); 
+    color: white; /* Menambahkan warna teks agar terbaca */
+}
+.color-psychology .category-count { color: #f0d9ff; } /* Menerangkan teks count */
+
+/* 2. Projects (Menggunakan gradien Biru) */
+.color-projects { 
+    background: linear-gradient(135deg, #2980b9, #3498db); 
+    color: white;
+}
+.color-projects .category-count { color: #d6eaf8; }
+
+/* 3. Marketing (Menggunakan gradien Hijau) */
+.color-marketing { 
+    background: linear-gradient(135deg, #27ae60, #2ecc71);  
+    color: white;
+}
+.color-marketing .category-count { color: #d4efdf; }
+
+/* 4. Data Analysis Concepts (Menggunakan gradien Oranye) */
+.color-concepts { 
+    background: linear-gradient(135deg, #d35400, #e67e22); 
+    color: white;
+}
+.color-concepts .category-count { color: #fadbc0; }
+
+/* 5. Default (Tetap Abu-abu) */
+.color-default { 
+    background: linear-gradient(135deg, #7f8c8d, #95a5a6); 
+    color: white;
+}
+.color-default .category-count { color: #e5e8e8; }
+
+
 
 .tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 15px; padding: 20px 0; }
 .tag-pill {
