@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["uji-korelasi"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/point-biserial-vs-biserial-panduan-memilih-korelasi-yang-tepat-untuk-data-biner/"
+aliases = [
+    "/posts/quantitative/point-biserial-vs-biserial-panduan-memilih-korelasi-yang-tepat-untuk-data-biner/"
+]
 +++
 
 ## Kesalahan Umum dalam Analisis Data Biner
