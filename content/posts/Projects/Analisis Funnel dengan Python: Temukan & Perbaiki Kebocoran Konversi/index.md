@@ -10,6 +10,10 @@ categories= ["Projects"]
 tags= ["Python"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/projects/analisis-funnel-dengan-python-temukan--perbaiki-kebocoran-konversi/"
+aliases = [
+    "/posts/analysis--visualization/analisis-funnel-dengan-python-temukan--perbaiki-kebocoran-konversi/"
+]
 +++
 
 
