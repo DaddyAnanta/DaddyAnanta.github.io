@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["asumsi-statistik"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/checklist-robust-a-b-testing-untuk-revenue-yang-skew-transformasi-log-welchs-t-test-dan-bootstrap/"
+aliases = [
+    "/posts/quantitative/checklist-robust-a-b-testing-untuk-revenue-yang-skew-transformasi-log-welchs-t-test-dan-bootstrap/"
+]
 +++
 
 

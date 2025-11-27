@@ -11,6 +11,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["reliabilitas", "Python", "analisis faktor", "skala survei"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/analisis_faktor_bagian_3_mengaudit_reliabilitas_pilar_ux_anda_dengan_cronbachs_alpha_di_python/"
+aliases = [
+    "/posts/quantitative/analisis_faktor_bagian_3_mengaudit_reliabilitas_pilar_ux_anda_dengan_cronbachs_alpha_di_python/"
+]
 +++
 
 

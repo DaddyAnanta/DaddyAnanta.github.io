@@ -11,6 +11,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["asumsi-statistik", "uji-parametrik"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/fondasi-analisis-yang-benar-panduan-memvalidasi-asumsi-statistik/"
+aliases = [
+    "/posts/quantitative/fondasi-analisis-yang-benar-panduan-memvalidasi-asumsi-statistik/"
+]
 +++
 
 Anda baru saja menyelesaikan A/B test yang penting. Hasilnya masuk: p-value 0.02. Tim produk bersorak, dan Anda siap merekomendasikan peluncuran fitur baru. Namun, ada pembunuh senyap yang mengintai di dalam data Anda, siap mengubah kemenangan ini menjadi bencana bisnis. Pembunuh itu adalah **pelanggaran asumsi statistik**—sebuah detail teknis yang sering diabaikan namun memiliki kekuatan untuk membatalkan seluruh analisis kita.

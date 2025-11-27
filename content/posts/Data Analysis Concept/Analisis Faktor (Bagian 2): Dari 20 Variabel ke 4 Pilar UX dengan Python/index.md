@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags = ["Python", "Statistic"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/analisis-faktor-bagian-2-dari-20-variabel-ke-4-pilar-ux-dengan-python/"
+aliases = [
+    "/posts/quantitative/analisis-faktor-bagian-2-dari-20-variabel-ke-4-pilar-ux-dengan-python/"
+]
 +++
 
 

@@ -10,9 +10,13 @@ categories= ["Data Analysis Concepts"]
 tags =  ["asumsi-statistik"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/analisis-varian-a-b-test-saat-kenaikan-rata-rata-adalah-sinyal-bahaya/"
+aliases = [
+    "/posts/quantitative/analisis-varian-a-b-test-saat-kenaikan-rata-rata-adalah-sinyal-bahaya/"
+]
 +++
 
-
+	
 Tim Anda baru saja menyelesaikan A/B test selama dua minggu. Hasilnya masuk, dan ada kabar baik: varian desain B yang baru menunjukkan kenaikan rata-rata *engagement* sebesar 8% dibandingkan kontrol. Secara naluriah, ini adalah lampu hijau untuk peluncuran. Tetapi, bagaimana jika saya katakan bahwa di dalam "kemenangan" ini tersembunyi sinyal bahaya yang bisa merusak pengalaman sebagian besar pengguna Anda? Metrik rata-rata seringkali menyembunyikan kebenaran yang tidak nyaman tentang variabilitas.
 
 Artikel ini akan membedah dua studi kasus A/B test secara berdampingan: satu yang merupakan kemenangan sejati, dan satu lagi di mana kenaikan rata-rata sebenarnya adalah pertanda buruk. Anda akan belajar cara menggunakan analisis varian sebagai "kacamata x-ray" untuk melihat di balik rata-rata dan membuat keputusan produk yang benar-benar aman dan cerdas.
