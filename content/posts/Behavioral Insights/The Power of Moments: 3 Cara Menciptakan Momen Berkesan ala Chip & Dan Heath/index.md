@@ -8,6 +8,10 @@ imageBig= "1.webp"
 categories= [ "Behavioral Insights" ]
 tags= [ "The Power of Moments", "Customer Experience"]
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/the-power-of-moments-3-cara-menciptakan-momen-berkesan-ala-chip--dan-heath/"
+aliases = [
+    "/posts/insight-psychology/the-power-of-moments-3-cara-menciptakan-momen-berkesan-ala-chip--dan-heath/"
+]
 +++
 
 

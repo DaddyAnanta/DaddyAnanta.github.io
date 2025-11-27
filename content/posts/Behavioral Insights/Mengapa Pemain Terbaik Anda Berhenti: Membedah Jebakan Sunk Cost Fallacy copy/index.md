@@ -10,6 +10,10 @@ categories= ["Behavioral Insights"]
 tags=["Behavioral Economics"]
 authors= ["Daddy Ananta"]   
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/mengapa-pemain-terbaik-anda-berhenti-membedah-jebakan-sunk-cost-fallacy-copy/"
+aliases = [
+    "/posts/insight-psychology/mengapa-pemain-terbaik-anda-berhenti-membedah-jebakan-sunk-cost-fallacy-copy/"
+]
 +++
 
 Dalam dunia e-commerce, ada satu strategi yang tampaknya diikuti oleh semua orang: **menunjukkan popularitas.**

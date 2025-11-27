@@ -10,6 +10,11 @@ categories= ["Behavioral Insights"]
 tags=["Behavioral Economics"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/psikologi-monetisasi-etis-mengapa-kita-membeli-aset-digital-tak-berguna/"
+aliases = [
+    "/posts/insight-psychology/psikologi-monetisasi-etis-mengapa-kita-membeli-aset-digital-tak-berguna/"
+]
+
 +++
 
 Di masa lalu, saya merupakan seorang pemain game MOBA yang cukup populer pada masanya, yaitu **Dota 2**. Permainan ini menampilkan pertarungan **5 vs 5 hero** dengan misi utama: tim kita harus menghancurkan wilayah kekuasaan tim lawan. Selama permainan berlangsung, setiap pemain menggunakan hero mereka masing-masing yang dapat dikustomisasi dengan berbagai skin atau kostum menarik. Tak jarang, saya melihat biaya yang dihabiskan untuk kostum tersebut mendekati, bahkan melebihi, jutaan rupiah.

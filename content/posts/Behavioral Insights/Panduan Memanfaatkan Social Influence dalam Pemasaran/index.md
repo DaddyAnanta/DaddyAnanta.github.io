@@ -10,6 +10,10 @@ categories= ["Behavioral Insights"]
 tags=["Social Influence"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/dari-pengguna-menjadi-pemilik-psikologi-desain-produk-yang-menciptakan-loyalitas/"
+aliases = [
+    "/posts/insight-psychology/dari-pengguna-menjadi-pemilik-psikologi-desain-produk-yang-menciptakan-loyalitas/"
+]
 +++
 
 

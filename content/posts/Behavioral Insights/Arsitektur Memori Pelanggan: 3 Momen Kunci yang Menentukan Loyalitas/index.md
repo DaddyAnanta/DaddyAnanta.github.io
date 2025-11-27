@@ -10,6 +10,10 @@ categories= ["Behavioral Insights"]
 tags=["Behavioral Economics"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/arsitektur-memori-pelanggan-3-momen-kunci-yang-menentukan-loyalitas/"
+aliases = [
+    "/posts/insight-psychology/arsitektur-memori-pelanggan-3-momen-kunci-yang-menentukan-loyalitas/"
+]
 +++
 
 
