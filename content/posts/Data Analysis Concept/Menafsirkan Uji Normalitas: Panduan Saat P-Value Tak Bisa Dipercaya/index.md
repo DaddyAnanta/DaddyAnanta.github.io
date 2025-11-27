@@ -11,6 +11,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["asumsi-statistik"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/menafsirkan-uji-normalitas-panduan-saat-p-value-tak-bisa-dipercaya/"
+aliases = [
+    "/posts/quantitative/menafsirkan-uji-normalitas-panduan-saat-p-value-tak-bisa-dipercaya/"
+]
 +++
 
 
