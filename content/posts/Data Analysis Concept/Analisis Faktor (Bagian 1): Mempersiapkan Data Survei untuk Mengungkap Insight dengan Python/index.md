@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags= ["Analisis Faktor", "Python", "Statistik", "Survei UX", "Data Preparation"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/analisis-faktor-bagian-1-mempersiapkan-data-survei-untuk-mengungkap-insight-dengan-python/"
+aliases = [
+    "/posts/quantitative/analisis-faktor-bagian-1-mempersiapkan-data-survei-untuk-mengungkap-insight-dengan-python/"
+]
 +++
 
 
