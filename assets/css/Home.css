@@ -520,10 +520,11 @@
 .portofolio .typing-text span::before { content: "Software Developer"; color: #ff6b6b; animation: words 20s infinite; }
 @keyframes words {
     0%, 25% { content: "Data Analyst"; }
-    26%, 50% { content: "Data Storyteller"; }
-    51%, 75% { content: "Consumer Insight Analyst"; }
-    76%, 100% { content: "Marketing Analyst"; }
+    26%, 50% { content: "SEO Specialist"; }
+    51%, 75% { content: "Technical SEO Audit"; }
+    76%, 100% { content: "User Intent Analyst"; }
 }
+
 
 
 
