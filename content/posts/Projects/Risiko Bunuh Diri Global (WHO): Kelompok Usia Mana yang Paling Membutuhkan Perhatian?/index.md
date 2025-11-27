@@ -10,6 +10,10 @@ categories= ["Projects"]
 tags = ["WHO"]
 authors= ["Daddy Ananta"]
 avatar="/images/Analysis_and_Visualization/profil.jpeg"
+url = "/posts/projects//risiko-bunuh-diri-global-who-kelompok-usia-mana-yang-paling-membutuhkan-perhatian/"
+aliases = [
+    "/posts/analysis--visualization/risiko-bunuh-diri-global-who-kelompok-usia-mana-yang-paling-membutuhkan-perhatian/
+"
 +++
 
 Fokus media pada isu kesehatan mental remaja seringkali membuat kita berpikir seolah-olah itu satu-satunya krisis usia. Namun, data WHO 2021 menunjukkan bahwa risiko bunuh diri tidaklah seragam; ia berubah bentuk secara dramatis tergantung **di mana Anda tinggal dan pada tahap kehidupan mana Anda berada**. Mengidentifikasi pola-pola ini adalah kunci untuk menentukan di mana kita harus memprioritaskan bantuan.
