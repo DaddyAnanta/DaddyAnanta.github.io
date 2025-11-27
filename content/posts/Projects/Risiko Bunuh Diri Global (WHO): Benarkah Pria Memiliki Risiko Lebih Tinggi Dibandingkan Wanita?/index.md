@@ -12,8 +12,7 @@ authors= ["Daddy Ananta"]
 avatar="/images/Analysis_and_Visualization/profil.jpeg"
 url = "/posts/projects/risiko-bunuh-diri-global-who-kelompok-usia-mana-yang-paling-membutuhkan-perhatian/"
 aliases = [
-    "/posts/analysis--visualization/risiko-bunuh-diri-global-who-kelompok-usia-mana-yang-paling-membutuhkan-perhatian/
-"
+    "/posts/analysis--visualization/risiko-bunuh-diri-global-who-kelompok-usia-mana-yang-paling-membutuhkan-perhatian/"
 ]
 +++
 Konstruksi sosial yang menuntut pria untuk "selalu kuat" berdampak tragis: data WHO secara konsisten menunjukkan pria memiliki tingkat bunuh diri yang jauh lebih tinggi. Namun, sebagai masyarakat, kita perlu bergerak melampaui pernyataan umum ini untuk memahami di mana masalah ini paling parah.
