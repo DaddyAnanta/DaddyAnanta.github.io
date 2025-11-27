@@ -14,6 +14,10 @@ tags=["ekonomi-perilaku"
 , "e-commerce"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/behavioral-insights/kenapa-pembayaran-tunai-saya-ditolak-dan-justru-dompet-digital-diutamakan/"
+aliases = [
+    "/posts/insight-psychology/kenapa-pembayaran-tunai-saya-ditolak-dan-justru-dompet-digital-diutamakan/"
+]
 +++
 
 
