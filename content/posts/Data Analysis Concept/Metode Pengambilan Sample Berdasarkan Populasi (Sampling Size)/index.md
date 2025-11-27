@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags = ["Python", "Statistic"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/metode-pengambilan-sample-berdasarkan-populasi-sampling-size/"
+aliases = [
+    "/posts/quantitative/metode-pengambilan-sample-berdasarkan-populasi-sampling-size/"
+]
 +++
 
 
