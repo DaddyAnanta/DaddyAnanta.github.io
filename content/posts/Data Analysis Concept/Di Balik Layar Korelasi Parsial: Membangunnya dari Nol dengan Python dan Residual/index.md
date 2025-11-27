@@ -10,6 +10,10 @@ categories= ["Data Analysis Concepts"]
 tags =  ["uji-korelasi"]
 authors= ["Daddy Ananta"]
 avatar="/images/profil.jpeg"
+url = "/posts/data-analysis-concept/di-balik-layar-korelasi-parsial-membangunnya-dari-nol-dengan-python-dan-residual/"
+aliases = [
+    "/posts/quantitative/di-balik-layar-korelasi-parsial-membangunnya-dari-nol-dengan-python-dan-residual/"
+]
 +++
 
 
