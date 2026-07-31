@@ -1,229 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ or .Params.description .Site.Params.description }}">
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NMNV6PDV');</script>
-<!-- End Google Tag Manager -->
-    <meta name="google-site-verification" content="PJywcDTexSl5II3uB9zQl7_H_GpDnOrCjiSLpa2Qsi4" />
-    {{/* Preconnect untuk mempercepat koneksi ke domain eksternal */}}
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ or .Params.description .Site.Params.description }}">
+  
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NMNV6PDV');
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  <meta name="google-site-verification" content="PJywcDTexSl5II3uB9zQl7_H_GpDnOrCjiSLpa2Qsi4" />
+  
+  {{/* Preconnect untuk mempercepat koneksi ke domain eksternal */}}
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- Canonical URL: Mencegah masalah konten ganda -->
+  <link rel="canonical" href="{{ .Permalink }}" />
 
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <!-- Robots Meta Tag: Memberi izin Google untuk mengindeks halaman ini -->
+  {{- if eq hugo.Environment "development" -}}
+    <meta name="robots" content="noindex, nofollow" />
+  {{- else -}}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  {{- end -}}
+  <title>
+    {{- if .IsHome -}}
+      Home | {{ .Site.Title }}
+    {{- else -}}
+      {{ .Title }} | {{ .Site.Title }}
+    {{- end -}}
+  </title>
+  <link rel="icon" href="/images/icon.png" type="image/png">
 
-    {{/* 1. Buat daftar path CSS sebagai string */}}
-    {{ $cssPaths := slice
-        "css/style.css"
-        "css/infinite-scroll.css"
-        "css/loading-screen.css"
-        "css/toc.css"
-        "css/Home.css"
-    }}
+  {{/* 1. Buat daftar path CSS sebagai string */}}
+  {{ $cssPaths := slice
+      "css/style.css"
+      "css/infinite-scroll.css"
+      "css/loading-screen.css"
+      "css/toc.css"
+      "css/Home.css"
+  }}
 
-    {{/* 2. Buat sebuah slice kosong untuk menampung Objek Resource */}}
-    {{ $cssResources := slice }}
+  {{/* 2. Buat sebuah slice kosong untuk menampung Objek Resource */}}
+  {{ $cssResources := slice }}
 
-    {{/* 3. Loop melalui setiap path, dapatkan Resource-nya, dan tambahkan ke slice penampung */}}
-    {{ range $cssPaths }}
-        {{ $cssResources = $cssResources | append (resources.Get .) }}
-    {{ end }}
+  {{/* 3. Loop melalui setiap path, dapatkan Resource-nya, dan tambahkan ke slice penampung */}}
+  {{ range $cssPaths }}
+      {{ $cssResources = $cssResources | append (resources.Get .) }}
+  {{ end }}
 
-    {{/* 4. SEKARANG, gabungkan slice yang sudah berisi Objek Resource */}}
-    {{ $cssBundle := $cssResources | resources.Concat "css/bundle.css" | minify | fingerprint }}
+  {{/* 4. SEKARANG, gabungkan slice yang sudah berisi Objek Resource */}}
+  {{ $cssBundle := $cssResources | resources.Concat "css/bundle.css" | minify | fingerprint }}
 
-    <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
+  <!-- CSS External & Bundled -->
+  <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="/images/icon2.png" type="image/png">
-    {{ partialCached "analytics.html" . }}
+  {{ partialCached "analytics.html" . }}
+  {{ partial "schema.html" . }}
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMNV6PDV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    {{ partial "navbar" . }}
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMNV6PDV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  {{ partial "navbar" . }}
 
-        {{ block "main" . }} {{ end }}
+  {{ block "main" . }} {{ end }}
 
-    {{ partial "footer" . }}
-    <script src="/js/coding_template.js" class="coding" defer></script>
-    <script src="/js/accordion-panel.js"defer></script>
-    <script src="/js/infinite-scroll.js"defer></script>
-    <script src="/js/connection-dots.js"defer></script>
-    <script src="/js/toc-scroll.js"defer></script>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function() {
-          const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination'); // Pilih berdasarkan ID atau class
-      
-          if (!paginationContainer) {
-            console.log('Kontainer paginasi tidak ditemukan. Pastikan ID atau class paginasi sudah benar.');
-            return;
-          }
-      
-          const paginationLinks = paginationContainer.querySelectorAll('a');
-      
-          paginationLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-              event.preventDefault(); // Mencegah link membuka halaman baru
-              const targetUrl = this.getAttribute('href');
-      
-              fetch(targetUrl)
-                .then(response => response.text())
-                .then(html => {
-                  const dummyElement = document.createElement('div');
-                  dummyElement.innerHTML = html;
-      
-                  const newListContainer = dummyElement.querySelector('#listContainer'); // Target kontainer daftar item
-                  if (newListContainer) {
-                    document.getElementById('listContainer').innerHTML = newListContainer.innerHTML; // Perbarui konten daftar
-      
-                    // Perbarui tampilan paginasi (opsional, jika Anda ingin paginasi juga diperbarui tanpa reload penuh)
-                    const newPaginationContainer = dummyElement.querySelector('#customPagination') || dummyElement.querySelector('.pagination');
-                    if (newPaginationContainer) {
-                        paginationContainer.innerHTML = newPaginationContainer.innerHTML;
-                        attachPaginationListeners(); // Pasang ulang event listener ke link paginasi yang baru
-                    } else {
-                        console.log('Kontainer paginasi baru tidak ditemukan dalam respons.');
-                    }
-      
-      
-                    // Scroll ke atas listContainer setelah konten diperbarui (opsional)
-                    document.getElementById('listContainer').scrollIntoView({ behavior: 'smooth' });
-      
-      
-                  } else {
-                    console.error('Kontainer daftar item baru tidak ditemukan dalam respons AJAX.');
-                    // Jika gagal, redirect ke URL asli (fallback untuk navigasi normal)
-                    window.location.href = targetUrl;
-                  }
-                })
-                .catch(error => {
-                  console.error('Error fetching page:', error);
-                  // Jika gagal fetch, redirect ke URL asli (fallback untuk navigasi normal)
-                  window.location.href = targetUrl;
-                });
-            });
-          });
-        });
-      
-        function attachPaginationListeners() {
-          const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination');
-          if (!paginationContainer) return; // Kontainer paginasi mungkin tidak ada di halaman pertama
-      
-          const paginationLinks = paginationContainer.querySelectorAll('a');
-          paginationLinks.forEach(link => {
-            if (!link.dataset.listenerAttached) { // Cek agar event listener tidak dipasang ganda
-              link.addEventListener('click', handlePaginationClick);
-              link.dataset.listenerAttached = 'true'; // Tandai bahwa listener sudah dipasang
-            }
-          });
-        }
-      
-        function handlePaginationClick(event) {
-            event.preventDefault();
-            const targetUrl = this.getAttribute('href');
-      
-            fetch(targetUrl)
-                .then(response => response.text())
-                .then(html => {
-                    const dummyElement = document.createElement('div');
-                    dummyElement.innerHTML = html;
-      
-                    const newListContainer = dummyElement.querySelector('#listContainer');
-                    if (newListContainer) {
-                        document.getElementById('listContainer').innerHTML = newListContainer.innerHTML;
-      
-                        const newPaginationContainer = dummyElement.querySelector('#customPagination') || dummyElement.querySelector('.pagination');
-                        if (newPaginationContainer) {
-                            const oldPaginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination');
-                            oldPaginationContainer.innerHTML = newPaginationContainer.innerHTML;
-                            attachPaginationListeners(); // Pasang ulang event listener
-                        }
-      
-                        document.getElementById('listContainer').scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        console.error('Kontainer daftar item baru tidak ditemukan dalam respons AJAX.');
-                        window.location.href = targetUrl;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching page:', error);
-                    window.location.href = targetUrl;
-                });
-        }
-      
-        // Panggil pertama kali setelah DOMContentLoaded untuk inisialisasi event listener
-        document.addEventListener('DOMContentLoaded', attachPaginationListeners);
-      
-      
-      </script>
+  {{ partial "footer" . }}
 
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"> defer</script>
-<script src="{{ "js/search.js" | absURL }}" defer></script>
+  <!-- Internal Scripts -->
 
-<script  src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" defer></script>
-<script class="single-code" type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
-  onload="renderMathInElement(document.body, {
+  <script src="/js/coding_template.js" class="coding" defer></script>
+  <script src="/js/accordion-panel.js" defer></script>
+  <script src="/js/infinite-scroll.js" defer></script>
+  <script src="/js/connection-dots.js" defer></script>
+  <script src="/js/toc-scroll.js" defer></script>
+  <script src='{{ "js/search.js" | absURL }}' defer></script>
+
+  <!-- External Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" defer></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  
+  <script class="single-code" type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},
       {left: '$', right: '$', display: false}
     ]
   });"></script>
-<script data-goatcounter="https://{{ .Site.Params.goatcounter }}.goatcounter.com/count" async
-  src="//gc.zgo.at/count.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true 
-  });
-</script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVR1FLD1GE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  
+  <script data-goatcounter="https://{{ .Site.Params.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-  gtag('config', 'G-VVR1FLD1GE');
-</script>
+  <!-- Pagination AJAX Script -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination'); 
+  
+      if (!paginationContainer) {
+        console.log('Kontainer paginasi tidak ditemukan. Pastikan ID atau class paginasi sudah benar.');
+        return;
+      }
+  
+      const paginationLinks = paginationContainer.querySelectorAll('a');
+  
+      paginationLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault(); 
+          const targetUrl = this.getAttribute('href');
+  
+          fetch(targetUrl)
+            .then(response => response.text())
+            .then(html => {
+              const dummyElement = document.createElement('div');
+              dummyElement.innerHTML = html;
+  
+              const newListContainer = dummyElement.querySelector('#listContainer'); 
+              if (newListContainer) {
+                document.getElementById('listContainer').innerHTML = newListContainer.innerHTML; 
+  
+                const newPaginationContainer = dummyElement.querySelector('#customPagination') || dummyElement.querySelector('.pagination');
+                if (newPaginationContainer) {
+                  paginationContainer.innerHTML = newPaginationContainer.innerHTML;
+                  attachPaginationListeners(); 
+                } else {
+                  console.log('Kontainer paginasi baru tidak ditemukan dalam respons.');
+                }
+  
+                document.getElementById('listContainer').scrollIntoView({ behavior: 'smooth' });
+  
+              } else {
+                console.error('Kontainer daftar item baru tidak ditemukan dalam respons AJAX.');
+                window.location.href = targetUrl;
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching page:', error);
+              window.location.href = targetUrl;
+            });
+        });
+      });
+    });
+  
+    function attachPaginationListeners() {
+      const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination');
+      if (!paginationContainer) return; 
+  
+      const paginationLinks = paginationContainer.querySelectorAll('a');
+      paginationLinks.forEach(link => {
+        if (!link.dataset.listenerAttached) { 
+          link.addEventListener('click', handlePaginationClick);
+          link.dataset.listenerAttached = 'true'; 
+        }
+      });
+    }
+  
+    function handlePaginationClick(event) {
+      event.preventDefault();
+      const targetUrl = this.getAttribute('href');
+  
+      fetch(targetUrl)
+        .then(response => response.text())
+        .then(html => {
+          const dummyElement = document.createElement('div');
+          dummyElement.innerHTML = html;
+  
+          const newListContainer = dummyElement.querySelector('#listContainer');
+          if (newListContainer) {
+            document.getElementById('listContainer').innerHTML = newListContainer.innerHTML;
+  
+            const newPaginationContainer = dummyElement.querySelector('#customPagination') || dummyElement.querySelector('.pagination');
+            if (newPaginationContainer) {
+              const oldPaginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination');
+              oldPaginationContainer.innerHTML = newPaginationContainer.innerHTML;
+              attachPaginationListeners(); 
+            }
+  
+            document.getElementById('listContainer').scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.error('Kontainer daftar item baru tidak ditemukan dalam respons AJAX.');
+            window.location.href = targetUrl;
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching page:', error);
+          window.location.href = targetUrl;
+        });
+    }
+  
+    document.addEventListener('DOMContentLoaded', attachPaginationListeners);
+  </script>
 
-{{/*  Katex menghindari default Katex.css.min  */}}
-    <style>
-  .katex {
-    font: inherit !important;
-  }
+  <!-- Initialization Scripts -->
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true 
+    });
+  </script>
 
-  .katex-display {    
-    display: flex;              
-    justify-content: center;    
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 1.5em;
-    margin: 2em 0;
-    overflow-x: auto;
-  }
-          </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVR1FLD1GE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VVR1FLD1GE');
+  </script>
+
+  {{/* KaTeX menghindari default Katex.css.min */}}
+  <style>
+    .katex {
+      font: inherit !important;
+    }
+
+    .katex-display {    
+      display: flex;              
+      justify-content: center;    
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5em;
+      margin: 2em 0;
+      overflow-x: auto;
+    }
+  </style>
+  {{ partial "consent.html" . }}
 </body>
-
 </html>

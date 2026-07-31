@@ -2,17 +2,17 @@
 
 {{/* HERO HEADER: Menggunakan warna solid untuk efek Color Blocking */}}
 <header class="header">
-    <div class="header-content">
-        <h1>Selamat Datang!</h1>
-        <p>Jelajahi insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan pemahaman Anda.</p>
-        <div class="header-start">
-            <a href="#category-showcase" class="accordion-link">Mulai Jelajahi <i class="fas fa-arrow-right"></i></a>
-        </div>
+  <div class="header-content">
+    <h1>Selamat Datang!</h1>
+    <p>Jelajahi insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan pemahaman Anda.</p>
+    <div class="header-start">
+      <a href="#category-showcase" class="accordion-link">Mulai Jelajahi <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="connected-dot-container">
-        <canvas id="canvas"></canvas>
-    </div>
-    {{/* Gelombang dihapus untuk tampilan color block yang lebih bersih */}}
+  </div>
+  <div class="connected-dot-container">
+    <canvas id="canvas"></canvas>
+  </div>
+  {{/* Gelombang dihapus untuk tampilan color block yang lebih bersih */}}
 </header>
 
 {{/* ================================================================ */}}
@@ -36,36 +36,42 @@
       {{- $kategori := first 6 .Site.Taxonomies.categories.ByCount -}}
       {{- if ge (len $kategori) 1 -}}
         {{- range $kategori -}}
-            {{- $category_slug := .Name | urlize -}}
-            {{- $color_class := "" -}}
-            {{- $icon_class := "" -}}
+          {{- $category_slug := .Name | urlize -}}
+          {{- $color_class := "" -}}
+          {{- $icon_class := "" -}}
 
-            {{/* --- PENYESUAIAN BARU DIMULAI DI SINI --- */}}
-            {{- if eq $category_slug "projects" -}}
-                {{- $color_class = "cat-color--projects" -}}
-                {{- $icon_class = "fas fa-briefcase" -}}
-            {{- else if eq $category_slug "data-analysis-concepts" -}}
-                {{- $color_class = "cat-color--concepts" -}}
-                {{- $icon_class = "fas fa-calculator" -}}
-            {{- else if eq $category_slug "behavioral-insights" -}}
-                {{- $color_class = "cat-color--psychology" -}}
-                {{- $icon_class = "fas fa-brain" -}}
-            {{- else if eq $category_slug "marketing" -}}
-                {{- $color_class = "cat-color--marketing" -}}
-                {{- $icon_class = "fas fa-chart-line" -}}
-            {{/* --- AKHIR PENYESUAIAN --- */}}
-            {{- else -}}
-                {{- $color_class = "cat-color--default" -}}
-                {{- $icon_class = "fas fa-tag" -}}
-            {{- end -}}
-            
-            <a href="{{ .Page.Permalink }}" class="category-card {{ $color_class }}" data-key="{{ $category_slug }}">
-                <div class="card-icon"><i class="{{ $icon_class }}"></i></div>
-                <div class="card-content">
-                    <h3 class="category-name">{{ .Name | title }}</h3>
-                    <p class="category-count">{{ .Count }} {{ if gt .Count 1 }}Posts{{ else }}Post{{ end }}</p>
-                </div>
-            </a>
+          {{/* --- PENYESUAIAN BARU DIMULAI DI SINI --- */}}
+         {{- if eq $category_slug "civil-engineering" -}}
+            {{- $color_class = "cat-bg--civil-engineering" -}}
+            {{- $icon_class = "fas fa-hard-hat" -}} {{/* Topi proyek/bangunan */}}
+          {{- else if eq $category_slug "electrical-engineering" -}}
+            {{- $color_class = "cat-bg--electrical-engineering" -}}
+            {{- $icon_class = "fas fa-bolt" -}} {{/* Petir/Listrik */}}
+          {{- else if eq $category_slug "mechanical-engineering" -}}
+            {{- $color_class = "cat-bg--mechanical-engineering" -}}
+            {{- $icon_class = "fas fa-cogs" -}} {{/* Roda gigi/Mesin */}}
+          {{- else if eq $category_slug "plumbing-engineering" -}}
+            {{- $color_class = "cat-bg--plumbing-engineering" -}}
+            {{- $icon_class = "fas fa-faucet" -}} {{/* Keran air / Pipa */}}
+          {{- else if eq $category_slug "physics" -}}
+            {{- $color_class = "cat-bg--physics" -}}
+            {{- $icon_class = "fas fa-atom" -}} {{/* Atom/Fisika */}}
+          {{- else if eq $category_slug "math" -}}
+            {{- $color_class = "cat-bg--math" -}}
+            {{- $icon_class = "fas fa-square-root-alt" -}} {{/* Akar kuadrat/Matematika */}}
+          {{/* --- AKHIR PENYESUAIAN --- */}}
+          {{- else -}}
+            {{- $color_class = "cat-color--default" -}}
+            {{- $icon_class = "fas fa-tag" -}} {{/* Label umum */}}
+          {{- end -}}
+          
+          <a href="{{ .Page.Permalink }}" class="category-card {{ $color_class }}" data-key="{{ $category_slug }}">
+            <div class="card-icon"><i class="{{ $icon_class }}"></i></div>
+            <div class="card-content">
+              <h3 class="category-name">{{ .Name | title }}</h3>
+              <p class="category-count">{{ .Count }} {{ if gt .Count 1 }}Posts{{ else }}Post{{ end }}</p>
+            </div>
+          </a>
         {{- end -}}
       {{- end -}}
     </div>
@@ -100,136 +106,147 @@
 
   {{/* --- Dropdown Kategori --- */}}
   <button class="accordion-button" onclick="togglePanel(this)">
-    <span ><i class="fas fa-folder icon"></i> Kategori</span>
+    <span><i class="fas fa-folder icon"></i> Kategori</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
       {{ range $.Site.Taxonomies.categories.ByCount }}
-      <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
 
   {{/* --- Dropdown Tag --- */}}
- <button class="accordion-button" onclick="togglePanel(this)">
+  <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-tags icon"></i> Tags</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
-       {{ range $.Site.Taxonomies.tags.ByCount }}
-      <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
 
 </div>
 
-
-
 {{/* ================================================================ */}}
 {{/* === BAGIAN DAFTAR POSTINGAN (DENGAN SKELETON SCREEN) === */}}
 {{/* ================================================================ */}}
 <div class="post-sections-wrapper is-loading">
 
-    {{/* --- SKELETON SCREEN STRUCTURE (Tidak ada perubahan) --- */}}
-    <div class="skeleton-wrapper">
-        {{ range seq 2 }}
-        <section class="category-post-list skeleton-section">
-            <div class="container">
-                <header class="category-header">
-                    <h2 class="skeleton skeleton-title"></h2>
-                    <div class="skeleton skeleton-button"></div>
-                </header>
-                <div class="featured-post-layout">
-                    <article class="featured-post skeleton-card">
-                        <div class="skeleton skeleton-image"></div>
-                        <div class="post-card-content">
-                            <h3 class="skeleton skeleton-text"></h3>
-                            <p class="skeleton skeleton-text"></p>
-                            <p class="skeleton skeleton-text"></p>
-                        </div>
-                    </article>
-                    <div class="secondary-post-grid">
-                        <div class="post-card-secondary skeleton-card"><div class="skeleton skeleton-image-sm"></div><div class="skeleton skeleton-text-sm"></div></div>
-                        <div class="post-card-secondary skeleton-card"><div class="skeleton skeleton-image-sm"></div><div class="skeleton skeleton-text-sm"></div></div>
-                    </div>
-                </div>
+  {{/* --- SKELETON SCREEN STRUCTURE --- */}}
+  <div class="skeleton-wrapper">
+    {{ range seq 2 }}
+      <section class="category-post-list skeleton-section">
+        <div class="container">
+          <header class="category-header">
+            <h2 class="skeleton skeleton-title"></h2>
+            <div class="skeleton skeleton-button"></div>
+          </header>
+          <div class="featured-post-layout">
+            <article class="featured-post skeleton-card">
+              <div class="skeleton skeleton-image"></div>
+              <div class="post-card-content">
+                <h3 class="skeleton skeleton-text"></h3>
+                <p class="skeleton skeleton-text"></p>
+                <p class="skeleton skeleton-text"></p>
+              </div>
+            </article>
+            <div class="secondary-post-grid">
+              <div class="post-card-secondary skeleton-card">
+                <div class="skeleton skeleton-image-sm"></div>
+                <div class="skeleton skeleton-text-sm"></div>
+              </div>
+              <div class="post-card-secondary skeleton-card">
+                <div class="skeleton skeleton-image-sm"></div>
+                <div class="skeleton skeleton-text-sm"></div>
+              </div>
             </div>
-        </section>
-        {{ end }}
-    </div>
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  </div>
 
-    {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar) --- */}}
-    <div class="actual-content">
-        {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
-        {{ $categoriesToShow := slice "Projects" "Data Analysis Concepts" "Behavioral Insights" "Marketing" }}
-        {{/* --- AKHIR PENYESUAIAN --- */}}
+  {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar) --- */}}
+  <div class="actual-content">
+    {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
+    {{ $categoriesToShow := slice "Civil Engineering" "Electrical Engineering" "Mechanical Engineering" "Plumbing Engineering" "Physics" "Math" }}
+    {{/* --- AKHIR PENYESUAIAN --- */}}
+    
+    {{ range $index, $categoryName := $categoriesToShow }}
+      {{ $categorySlug := . | urlize }}
+      {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
+      {{ if gt (len $pagesInCategory) 0 }}
+        {{ $bgColorClass := printf "cat-bg--%s" $categorySlug }}
+        {{ $layoutClass := "layout--featured-left" }}
+        {{ if modBool $index 2 }}{{ $layoutClass = "layout--featured-right" }}{{ end }}
         
-        {{ range $index, $categoryName := $categoriesToShow }}
-            {{ $categorySlug := . | urlize }}
-            {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
-            {{ if gt (len $pagesInCategory) 0 }}
-                {{ $bgColorClass := printf "cat-bg--%s" $categorySlug }}
-                {{ $layoutClass := "layout--featured-left" }}
-                {{ if modBool $index 2 }}{{ $layoutClass = "layout--featured-right" }}{{ end }}
-
-                <section class="category-post-list {{ $bgColorClass }} {{ $layoutClass }}" data-aos="fade-up">
-                    <div class="container">
-                        <header class="category-header">
-                            <h2 class="category-title">{{ $categoryName }}</h2>
-                            <a href="{{ printf "/categories/%s/" $categorySlug | relLangURL }}" class="category-see-all"> Jelajahi Semua <i class="fa-sharp-duotone fa-solid fa-person-walking-arrow-right"></i></i></a>
-                        </header>
-                        <div class="featured-post-layout">
-                            {{ $featuredPost := index $pagesInCategory 0 }}
-                            <article class="featured-post">
-                                <a href="{{ $featuredPost.Permalink }}" class="post-card-link">
-                                    
-                                    {{/* --- PERBAIKAN 1: BAGIAN FEATURED POST --- */}}
-                                    {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
-                                    {{ if $imageResource }}
-                                        <div class="post-card-image-wrapper"><img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ $featuredPost.Title }}" class="post-card-image" loading="lazy"></div>
-                                    {{ end }}
-                                    
-                                    <div class="post-card-content">
-                                        <h3 class="post-card-title">{{ $featuredPost.Title }}</h3>
-                                        <p class="post-card-description">{{ $featuredPost.Summary | plainify | truncate 150 "..." }}</p>
-                                        <div class="post-card-tags">
-                                            {{ with $featuredPost.Params.tags }}{{ range first 3 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            {{ $otherPosts := after 1 $pagesInCategory }}
-                            {{ if gt (len $otherPosts) 0 }}
-                                <div class="secondary-post-grid">
-                                    {{ range first 4 $otherPosts }}
-                                        <article class="post-card-secondary">
-                                            <a href="{{ .Permalink }}" class="post-card-link">
-                                                
-                                                {{/* --- PERBAIKAN 2: BAGIAN SECONDARY POST --- */}}
-                                                {{ $imageResource := .Resources.GetMatch .Params.image }}
-                                                {{ if $imageResource }}
-                                                    <div class="post-card-image-wrapper-secondary"><img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy"></div>
-                                                {{ end }}
-                                                
-                                                <div class="post-card-content-secondary"><h4 class="post-card-title-secondary">{{ .Title }}</h4></div>
-                                            </a>
-                                        </article>
-                                    {{ end }}
-                                </div>
-                            {{ end }}
-                        </div>
+        <section class="category-post-list  {{ $layoutClass }}" data-aos="fade-up"> {{/*  {{ $bgColorClass }}  */}}
+          <div class="container">
+            <header class="category-header">
+              <h2 class="category-title">{{ $categoryName }}</h2>
+              <a href="{{ printf "/categories/%s/" $categorySlug | relLangURL }}" class="category-see-all"> Jelajahi Semua <i class="fa-sharp-duotone fa-solid fa-person-walking-arrow-right"></i></a>
+            </header>
+            <div class="featured-post-layout">
+              {{ $featuredPost := index $pagesInCategory 0 }}
+              <article class="featured-post">
+                <a href="{{ $featuredPost.Permalink }}" class="post-card-link">
+                  
+                  {{/* --- PERBAIKAN 1: BAGIAN FEATURED POST --- */}}
+                  {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
+                  {{ if $imageResource }}
+                    <div class="post-card-image-wrapper">
+                      <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ $featuredPost.Title }}" class="post-card-image" loading="lazy">
                     </div>
-                </section>
-            {{ end }}
-        {{ end }}
-    </div>
+                  {{ end }}
+                  
+                  <div class="post-card-content">
+                    <h3 class="post-card-title">{{ $featuredPost.Title }}</h3>
+                    <p class="post-card-description">{{ $featuredPost.Summary | plainify | truncate 150 "..." }}</p>
+                    <div class="post-card-tags">
+                      {{ with $featuredPost.Params.tags }}{{ range first 3 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
+                    </div>
+                  </div>
+                </a>
+              </article>
+              
+              {{ $otherPosts := after 1 $pagesInCategory }}
+              {{ if gt (len $otherPosts) 0 }}
+                <div class="secondary-post-grid">
+                  {{ range first 4 $otherPosts }}
+                    <article class="post-card-secondary">
+                      <a href="{{ .Permalink }}" class="post-card-link">
+                        
+                        {{/* --- PERBAIKAN 2: BAGIAN SECONDARY POST --- */}}
+                        {{ $imageResource := .Resources.GetMatch .Params.image }}
+                        {{ if $imageResource }}
+                          <div class="post-card-image-wrapper-secondary">
+                            <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
+                          </div>
+                        {{ end }}
+                        
+                        <div class="post-card-content-secondary">
+                          <h4 class="post-card-title-secondary">{{ .Title }}</h4>
+                        </div>
+                      </a>
+                    </article>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </section>
+      {{ end }}
+    {{ end }}
+  </div>
 </div>
 
 {{/* ================================================================ */}}
@@ -238,45 +255,39 @@
 <section id="tools-showcase" class="tools-section" data-aos="fade-up">
   <div class="container">
     <h2 class="section-title">Tech Stack & Tools</h2>
-    <p class="section-subtitle">Berikut adalah beberapa teknologi dan platform yang saya gunakan untuk mengubah data menjadi insight yang bermakna.</p>
+    <p class="section-subtitle">Berikut adalah perangkat keras, lunak, dan analitik yang saya operasikan untuk mendukung operasional MEP dan pemeliharaan fasilitas.</p>
 
     <div class="tools-grid">
 
-      {{/* --- Kategori 1: Data Visualization --- */}}
+      {{/* --- Kategori 1: Mechanical & Electrical --- */}}
       <div class="tool-category">
-        <h3 class="category-title">Data Visualization</h3>
+        <h3 class="category-title">Mechanical & Electrical</h3>
         <div class="tool-items">
-          <div class="tool-card"><i class="fas fa-chart-bar tool-icon powerbi"></i><span>Power BI</span></div>
-          <div class="tool-card"><i class="fas fa-chart-line tool-icon looker"></i><span>Looker Studio</span></div>
-          <div class="tool-card"><i class="fas fa-project-diagram tool-icon d3js"></i><span>D3.js</span></div>
-          <div class="tool-card"><i class="fas fa-chart-area tool-icon python-viz"></i><span>Seaborn/Matplotlib</span></div>
+          <div class="tool-card"><i class="fas fa-tools tool-icon welding"></i><span>Power Tools & Welding</span></div>
+          <div class="tool-card"><i class="fas fa-fire tool-icon soldering"></i><span>Soldering & Flux</span></div>
+          <div class="tool-card"><i class="fas fa-bolt tool-icon multimeter"></i><span>Multimeter</span></div>
+          <div class="tool-card"><i class="fas fa-microchip tool-icon bios"></i><span>BIOS Programmer</span></div>
         </div>
       </div>
 
-      {{/* --- Kategori 2: Analysis & Programming --- */}}
+      {{/* --- Kategori 2: IT & Data Processing --- */}}
       <div class="tool-category">
-        <h3 class="category-title">Analysis & Programming</h3>
+        <h3 class="category-title">IT & Data Processing</h3>
         <div class="tool-items">
+          <div class="tool-card"><i class="fas fa-file-excel tool-icon excel"></i><span>Excel & Spreadsheet</span></div>
           <div class="tool-card"><i class="fas fa-database tool-icon sql"></i><span>SQL</span></div>
           <div class="tool-card"><i class="fab fa-python tool-icon python"></i><span>Python</span></div>
-          <div class="tool-card"><i class="fab fa-r-project tool-icon r-lang"></i><span>R</span></div>
-          <div class="tool-card"><i class="fas fa-calculator tool-icon sas"></i><span>SAS</span></div>
-          <div class="tool-card"><i class="fas fa-square-root-alt tool-icon spss"></i><span>SPSS</span></div>
-          <div class="tool-card"><i class="fas fa-file-excel tool-icon excel"></i><span>Excel</span></div>
-          <div class="tool-card"><i class="fas fa-solid fa-sheet-plastic tool-icon gsheets"></i><span>Google Sheets</span></div>
-          <div class="tool-card"><i class="fab fa-github tool-icon github"></i><span>Git/GitHub</span></div>
+          <div class="tool-card"><i class="fab fa-cuttlefish tool-icon c-lang"></i><span>C Programming</span></div>
         </div>
       </div>
 
-      {{/* --- Kategori 3: UX & Consumer Research --- */}}
+      {{/* --- Kategori 3: System Audit & Maintenance --- */}}
       <div class="tool-category">
-        <h3 class="category-title">Marketing Tools</h3>
+        <h3 class="category-title">System Audit & Maintenance</h3>
         <div class="tool-items">
-          <div class="tool-card"><i class="fab fa-brands fa-google tool-icon ga"></i><span>Google Analytics</span></div>
-          <div class="tool-card"><i class="fab fa-brands fa-google tool-icon gads"></i><span>Google Ads</span></div>
-          <div class="tool-card"><i class="fab fa-brands fa-google tool-icon gsc"></i><span>Google Search Console</span></div>
-          <div class="tool-card"><i class="fab fa-hubspot tool-icon hubspot"></i><span>HubSpot</span></div>
-          <div class="tool-card"><i class="fas fa-search tool-icon semrush"></i><span>Semrush</span></div>
+          <div class="tool-card"><i class="fas fa-desktop tool-icon os-install"></i><span>OS & Printer Install</span></div>
+          <div class="tool-card"><i class="fas fa-chart-line tool-icon eda"></i><span>EDA & Data Viz</span></div>
+          <div class="tool-card"><i class="fas fa-brain tool-icon machine-learning"></i><span>Machine Learning</span></div>
         </div>
       </div>
 
@@ -288,114 +299,127 @@
 {{/* === BAGIAN ABOUT ME / PORTOFOLIO === */}}
 {{/* ================================================================ */}}
 <section id="about-me" class="portofolio" data-aos="fade-up">
-    <div class="about-me-container">
-        <h2 class="section-title">ABOUT ME</h2>
-        <div class="home">
-            <div class="home-img">
-                <img src="/images/profil.webp" alt="Profil Daddy">
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/DaddyAnanta/" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/daddyananta/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-                <a href="mailto:daddyananta123@yahoo.com?subject=Halo" class="btn">Email</a>
-            </div>
-            <div class="home-content">
-                <div class="title">
-                    <h1>Hi, My Name is <span>Daddy Ananta S.</span></h1>
-                    <h3 class="typing-text">I'm a <span></span></h3>
-                </div>
-                <p>Saya adalah seorang <strong>Data Analyst</strong> dan praktisi <strong>SEO Specialist</strong> yang fokus pada eksekusi berbasis data. Saya membantu bisnis memahami performa digital mereka melalui angka yang akurat dan struktur website yang sehat.</p>
-                <p>Fokus utama saya adalah mengubah data mentah menjadi rekomendasi yang praktis. Saya mengerjakannya dengan:</p>
-                <ul class="skills-list">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Melakukan audit teknis</strong> menggunakan <strong>Screaming Frog</strong> untuk mendeteksi isu crawling dan indexing pada website.</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Mengolah data</strong> secara efisien menggunakan <strong>Spreadsheet</strong> dan SQL untuk kebutuhan analisis harian dan pelaporan.</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Menyusun strategi konten</strong> berbasis riset volume pencarian via <strong>Google Keyword Planner</strong> dan menerjemahkannya ke dalam <strong>Content Brief</strong> yang terstruktur.</span>
-                    </li>
-                </ul>
-
-                <p>Dengan latar belakang psikologi, saya memiliki pendekatan unik dalam menganalisis <strong>User Intent</strong>—memahami <i>mengapa</i> user mencari kata kunci tertentu, lalu mengoptimalkannya agar relevan dengan target audiens.</p>
-                <p><strong>Keahlian Utama:</strong> Data Analysis (Excel/Sheets, SQL, Python), SEO Tools (Screaming Frog, GKP, GSC), Web Analytics (GA4), Data Visualization (Looker Studio).</p>
-            </div>
+  <div class="about-me-container">
+    <h2 class="section-title">ABOUT ME</h2>
+    <div class="home">
+      <div class="home-img">
+        <img src="/images/profil.png" alt="Profil Daddy">
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/DaddyAnanta/" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/daddyananta/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
+        <a href="mailto:daddyananta123@yahoo.com?subject=Halo" class="btn">Email</a>
+      </div>
+      <div class="home-content">
+        <div class="title">
+          <h1>Hi, My Name is <span>Daddy Ananta S.</span></h1>
+          <h3 class="typing-text">I'm Passionate About <span></span></h3>
+        </div>
+        <p>Saya adalah seorang teknisi dengan keahlian pemecahan masalah mekanikal dan elektronika secara <i>hands-on</i>. Saya siap mengaplikasikan ketelitian dalam inspeksi data, audit sistem, dan <i>preventive maintenance</i> untuk mendukung operasional MEP serta pemeliharaan fasilitas.</p>
+        <p>Saya memadukan ketelitian teknis lapangan dengan pendekatan analitis melalui pengerjaan berikut:</p>
+        <ul class="skills-list">
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Hardware & Electronics:</strong> Melakukan <i>troubleshooting</i> elektronika arus lemah, perbaikan presisi dengan komponen <i>soldering</i>, serta pengoperasian perangkat <i>programmer</i> BIOS & EEPROM.</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Mechanical & Fabrication:</strong> Membuat, merakit, dan memperbaiki struktur menggunakan <i>power tools</i> (gerinda, bor, <i>basic welding</i>) dengan menerapkan standar K3.</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>System Audit & Data Processing:</strong> Memanfaatkan kemampuan Matematika/Statistika, Python, SQL, serta Excel untuk eksplorasi data (EDA).</span>
+          </li>
+        </ul>
+
+        <p>Ditunjang oleh latar belakang Sarjana Psikologi dan predikat baik di program Data Science & AI (Skor: 93/100), saya memiliki pola pikir logis yang relevan untuk pelaporan teknis yang akurat dan penyelesaian masalah di lapangan.</p>
+        <p><strong>Keahlian Utama:</strong> Sistem Elektronika Arus Lemah, Pengoperasian Power Tools, Soldering & Flashing BIOS, Hardware Troubleshooting, Instalasi OS & Printer, dan Pengolahan Data.</p>
+      </div>
     </div>
+  </div>
 </section>
+
 
 
 {{/* --- SCRIPT UNTUK INFOBOX & SKELETON --- */}}
 <script>
-    // InfoBox Logic
-    document.addEventListener('DOMContentLoaded', function() {
-        /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
-        const infoData = {
-            'projects': { 
-                title: 'Projects', 
-                description: 'Studi kasus end-to-end dan portofolio analisis data, dari pembersihan data, analisis, hingga visualisasi.' 
-            },
-            'data-analysis-concepts': { 
-                title: 'Data Analysis Concepts', 
-                description: 'Fondasi teknis, metode statistik, dan tutorial pengkodean (Python, SQL) untuk analisis data yang mendalam.' 
-            },
-            'behavioral-insights': { 
-                title: 'Behavioral Insights', 
-                description: 'Menggali "mengapa" di balik data. Menghubungkan psikologi, ekonomi perilaku, dan metode kualitatif (JTBD, Mom Test).' 
-            },
-            'marketing': { 
-                title: 'Marketing Analytics', 
-                description: 'Penerapan analisis data dalam domain bisnis dan pemasaran, seperti A/B testing, analisis pelanggan, dan pengukuran ROI.' 
+  // InfoBox Logic
+  document.addEventListener('DOMContentLoaded', function() {
+    /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
+    const infoData = {
+      'civil-engineering': { 
+        title: 'Civil Engineering', 
+        description: 'Pembahasan mengenai perancangan struktur, material konstruksi, infrastruktur, dan manajemen proyek sipil.' 
+      },
+      'electrical-engineering': { 
+        title: 'Electrical Engineering', 
+        description: 'Konsep kelistrikan, sistem kontrol, elektronika, hingga distribusi dan manajemen energi listrik.' 
+      },
+      'mechanical-engineering': { 
+        title: 'Mechanical Engineering', 
+        description: 'Prinsip dasar mekanika, termodinamika, ilmu material, dan perancangan sistem mekanis atau mesin.' 
+      },
+      'plumbing-engineering': { 
+        title: 'Plumbing Engineering', 
+        description: 'Perancangan sistem perpipaan, instalasi sanitasi, distribusi air bersih, dan tata kelola fluida dalam bangunan.' 
+      },
+      'physics': { 
+        title: 'Physics', 
+        description: 'Eksplorasi hukum dasar alam, kinematika, mekanika kuantum, dan berbagai konsep fisika teoritis maupun terapan.' 
+      },
+      'math': { 
+        title: 'Math', 
+        description: 'Fondasi matematika, mulai dari kalkulus, aljabar linier, hingga penerapan logika presisi dalam pemecahan masalah.' 
+      }
+    };
+    /* --- AKHIR PENYESUAIAN SCRIPT --- */
+    
+    const cards = document.querySelectorAll('.category-card');
+    const gridContainer = document.querySelector('.category-grid-container');
+    const infoTitle = document.getElementById('info-title');
+    const infoDescription = document.getElementById('info-description');
+    const infoLinkWrapper = document.getElementById('info-link-wrapper');
+    const infoLink = document.getElementById('info-link');
+    
+    const defaultTitle = 'PROJECT.LOG';
+    const defaultDescription = 'Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.';
+    
+    if (gridContainer) {
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          const key = this.dataset.key;
+          const data = infoData[key];
+          const linkUrl = this.href;
+          
+          if (data) {
+            infoTitle.textContent = data.title.toUpperCase();
+            infoDescription.textContent = data.description;
+            if (infoLink && infoLinkWrapper) { // Safety check
+              infoLink.href = linkUrl;
+              infoLinkWrapper.style.display = 'block';
             }
-        };
-        /* --- AKHIR PENYESUAIAN SCRIPT --- */
-        
-        const cards = document.querySelectorAll('.category-card');
-        const gridContainer = document.querySelector('.category-grid-container');
-        const infoTitle = document.getElementById('info-title');
-        const infoDescription = document.getElementById('info-description');
-        const infoLinkWrapper = document.getElementById('info-link-wrapper');
-        const infoLink = document.getElementById('info-link');
-        const defaultTitle = 'PROJECT.LOG';
-        const defaultDescription = 'Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.';
-        if (gridContainer) {
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    const key = this.dataset.key;
-                    const data = infoData[key];
-                    const linkUrl = this.href;
-                    if (data) {
-                        infoTitle.textContent = data.title.toUpperCase();
-                        infoDescription.textContent = data.description;
-                        if(infoLink && infoLinkWrapper) { // Safety check
-                            infoLink.href = linkUrl;
-                            infoLinkWrapper.style.display = 'block';
-                        }
-                    }
-                });
-            });
-            gridContainer.addEventListener('mouseleave', function() {
-                infoTitle.textContent = defaultTitle;
-                infoDescription.textContent = defaultDescription;
-                if(infoLinkWrapper) { // Safety check
-                   infoLinkWrapper.style.display = 'none';
-                }
-            });
+          }
+        });
+      });
+      
+      gridContainer.addEventListener('mouseleave', function() {
+        infoTitle.textContent = defaultTitle;
+        infoDescription.textContent = defaultDescription;
+        if (infoLinkWrapper) { // Safety check
+           infoLinkWrapper.style.display = 'none';
         }
-    });
+      });
+    }
+  });
 
-    // Skeleton Screen Logic
-    window.addEventListener('load', function() {
-        const wrapper = document.querySelector('.post-sections-wrapper');
-        if (wrapper) {
-            wrapper.classList.remove('is-loading');
-        }
-    });
+  // Skeleton Screen Logic
+  window.addEventListener('load', function() {
+    const wrapper = document.querySelector('.post-sections-wrapper');
+    if (wrapper) {
+      wrapper.classList.remove('is-loading');
+    }
+  });
 </script>
 
 {{ end }}

@@ -95,16 +95,19 @@
         <h1>Semua Kategori</h1>
         <p>Telusuri konten berdasarkan topik yang paling Anda minati.</p>
       </div>
-      <div class="category-grid">
+<div class="category-grid">
         {{ range .Data.Terms.ByCount }}
           {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
           {{ $category_name := .Name | lower }}
           {{ $icon_class := "fa-solid fa-tag" }}
-          {{ $color_class := "color-default" }}
-          {{ if eq $category_name "projects" }}{{ $icon_class = "fa-solid fa-briefcase" }}{{ $color_class = "color-projects" }}{{ end }}
-          {{ if eq $category_name "data analysis concepts" }}{{ $icon_class = "fa-solid fa-calculator" }}{{ $color_class = "color-concepts" }}{{ end }}
-          {{ if eq $category_name "behavioral insights" }}{{ $icon_class = "fa-solid fa-brain" }}{{ $color_class = "color-psychology" }}{{ end }}
-          {{ if eq $category_name "marketing" }}{{ $icon_class = "fa-solid fa-chart-line" }}{{ $color_class = "color-marketing" }}{{ end }}
+          {{ $color_class := "cat-color--default" }}
+          
+          {{ if eq $category_name "civil engineering" }}{{ $icon_class = "fa-solid fa-hard-hat" }}{{ $color_class = "cat-bg--civil-engineering" }}{{ end }}
+          {{ if eq $category_name "electrical engineering" }}{{ $icon_class = "fa-solid fa-bolt" }}{{ $color_class = "cat-bg--electrical-engineering" }}{{ end }}
+          {{ if eq $category_name "mechanical engineering" }}{{ $icon_class = "fa-solid fa-cogs" }}{{ $color_class = "cat-bg--mechanical-engineering" }}{{ end }}
+          {{ if eq $category_name "plumbing engineering" }}{{ $icon_class = "fa-solid fa-faucet" }}{{ $color_class = "cat-bg--plumbing-engineering" }}{{ end }}
+          {{ if eq $category_name "physics" }}{{ $icon_class = "fa-solid fa-atom" }}{{ $color_class = "cat-bg--physics" }}{{ end }}
+          {{ if eq $category_name "math" }}{{ $icon_class = "fa-solid fa-square-root-alt" }}{{ $color_class = "cat-bg--math" }}{{ end }}
           {{/* --- AKHIR PENYESUAIAN KATEGORI --- */}}
           
           <a class="category-card {{ $color_class }}" href="{{ .Page.Permalink }}">

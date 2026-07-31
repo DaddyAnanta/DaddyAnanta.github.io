@@ -32,30 +32,30 @@
 
   {{/* --- Dropdown Kategori --- */}}
   <button class="accordion-button" onclick="togglePanel(this)">
-    <span ><i class="fas fa-folder icon"></i> Kategori</span>
+    <span><i class="fas fa-folder icon"></i> Kategori</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
       {{ range $.Site.Taxonomies.categories.ByCount }}
-      <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
 
   {{/* --- Dropdown Tag --- */}}
- <button class="accordion-button" onclick="togglePanel(this)">
+  <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-tags icon"></i> Tags</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
-       {{ range $.Site.Taxonomies.tags.ByCount }}
-      <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
@@ -68,14 +68,14 @@
 
   {{/* --- Sidebar Table of Contents (Desktop) --- */}}
   {{ if .TableOfContents }}
-  <aside class="post-toc-sidebar">
-    <div class="toc-sticky">
-      <h3 class="toc-title">Daftar Isi</h3>
-      <nav id="TableOfContents">
-        {{ .TableOfContents }}
-      </nav>
-    </div>
-  </aside>
+    <aside class="post-toc-sidebar">
+      <div class="toc-sticky">
+        <div class="toc-title">Daftar Isi</div>
+        <nav id="TableOfContents">
+          {{ .TableOfContents }}
+        </nav>
+      </div>
+    </aside>
   {{ end }}
 
   {{/* --- Kolom Utama Artikel --- */}}
@@ -115,22 +115,22 @@
         </div>
       </header>
 
-      {{ with .Params.imageBig }}
-      <figure class="post-featured-image">
-        <img src="{{ . }}" alt="{{ $.Title }}">
-      </figure>
+      {{ with .Params.image }}
+        <figure class="post-featured-image">
+          <img src="{{ . }}" alt="{{ $.Title }}">
+        </figure>
       {{ end }}
 
       {{ if and (gt .WordCount 400) .TableOfContents }}
-      <nav class="post-toc-mobile">
-        <button class="toc-toggle" id="toc-toggle-mobile">
-          <span>Daftar Isi</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="toc-content-mobile" id="toc-content-mobile">
-          {{ .TableOfContents }}
-        </div>
-      </nav>
+        <nav class="post-toc-mobile">
+          <button class="toc-toggle" id="toc-toggle-mobile">
+            <span>Daftar Isi</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="toc-content-mobile" id="toc-content-mobile">
+            {{ .TableOfContents }}
+          </div>
+        </nav>
       {{ end }}
 
       <section class="post-content">
@@ -139,50 +139,52 @@
 
       <footer class="post-footer">
         {{ if .Params.tags }}
-        <div class="post-tags">
-          {{ range .Params.tags }}
-            <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . | title }}</a>
-          {{ end }}
-        </div>
+          <div class="post-tags">
+            {{ range .Params.tags }}
+              <a href="{{ "tags" | absLangURL }}/{{ . | urlize }}/" class="tag">{{ . | title }}</a>
+            {{ end }}
+          </div>
         {{ end }}
         {{ partial "socialshare.html" . }}
       </footer>
     </article>
 
-{{/* --- BAGIAN RELATED POSTS DENGAN CAROUSEL --- */}}
-{{ $related := .Site.RegularPages.Related . | first 8 }}
-{{ with $related }}
-<aside class="related-posts">
-  <div class="related-posts-container">
-    <h3 class="related-title">Artikel Terkait <span style="color: grey;">(Swipe <i class="fa-solid fa-arrow-left"></i>)</span></h3>
-    <div class="swiper swiper-carousel">
-      <div class="swiper-wrapper">
-        {{ range . }}
-          <div class="swiper-slide">
-            <article class="related-post-card">
-              <a href="{{ .Permalink }}">
+    {{/* --- BAGIAN RELATED POSTS DENGAN CAROUSEL --- */}}
+    {{ $related := .Site.RegularPages.Related . | first 8 }}
+    {{ with $related }}
+      <aside class="related-posts">
+        <div class="related-posts-container">
+          <h3 class="related-title">Artikel Terkait <span style="color: grey;">(Swipe <i class="fa-solid fa-arrow-left"></i>)</span></h3>
+          <div class="swiper swiper-carousel">
+            <div class="swiper-wrapper">
+              {{ range . }}
+                <div class="swiper-slide">
+                  <article class="related-post-card">
+                    <a href="{{ .Permalink }}">
 
-                {{/* --- BLOK YANG TELAH DIPERBAIKI DIMULAI DI SINI --- */}}
-                {{ $imageResource := .Resources.GetMatch .Params.image }}
-                {{ if $imageResource }}
-                  <div class="related-card-image-wrapper"><img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" loading="lazy"></div>
-                {{ else }}
-                  <div class="related-card-image-wrapper placeholder"></div>
-                {{ end }}
-                {{/* --- BLOK YANG TELAH DIPERBAIKI BERAKHIR DI SINI --- */}}
+                      {{/* --- BLOK YANG TELAH DIPERBAIKI DIMULAI DI SINI --- */}}
+                      {{ $imageResource := .Resources.GetMatch .Params.image }}
+                      {{ if $imageResource }}
+                        <div class="related-card-image-wrapper">
+                          <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" loading="lazy">
+                        </div>
+                      {{ else }}
+                        <div class="related-card-image-wrapper placeholder"></div>
+                      {{ end }}
+                      {{/* --- BLOK YANG TELAH DIPERBAIKI BERAKHIR DI SINI --- */}}
 
-                <div class="related-card-content">
-                  <h4>{{ .Title }}</h4>
+                      <div class="related-card-content">
+                        <h4>{{ .Title }}</h4>
+                      </div>
+                    </a>
+                  </article>
                 </div>
-              </a>
-            </article>
+              {{ end }}
+            </div>
           </div>
-        {{ end }}
-      </div>
-    </div>
-  </div>
-</aside>
-{{ end }}
+        </div>
+      </aside>
+    {{ end }}
 
     {{/* --- Paginasi Postingan --- */}}
     <nav class="post-pagination">
@@ -211,54 +213,54 @@
 
 {{/* --- JavaScript --- */}}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. Tombol Back to Top
-  const backToTopBtn = document.getElementById("backToTopBtn");
-  if (backToTopBtn) {
-    window.onscroll = function() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopBtn.style.display = "block";
-      } else {
-        backToTopBtn.style.display = "none";
-      }
-    };
-    backToTopBtn.onclick = function() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }
-
-  // 2. Toggle TOC Mobile
-  const tocToggleMobile = document.getElementById('toc-toggle-mobile');
-  const tocContentMobile = document.getElementById('toc-content-mobile');
-  if (tocToggleMobile && tocContentMobile) {
-    tocToggleMobile.addEventListener('click', function() {
-      tocContentMobile.classList.toggle('open');
-      this.classList.toggle('open');
-    });
-  }
-
-  // 3. Active link highlighting for Desktop TOC
-  const tocLinks = document.querySelectorAll('.post-toc-sidebar #TableOfContents a');
-  const headings = Array.from(tocLinks).map(link => {
-    const id = link.getAttribute('href').substring(1);
-    return document.getElementById(id);
-  }).filter(Boolean);
-
-  if (tocLinks.length > 0 && headings.length > 0) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const correspondingLink = document.querySelector(`.post-toc-sidebar #TableOfContents a[href="#${id}"]`);
-        if (correspondingLink && entry.isIntersecting) {
-          tocLinks.forEach(link => link.classList.remove('active'));
-          correspondingLink.classList.add('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Tombol Back to Top
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    if (backToTopBtn) {
+      window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
         }
-      });
-    }, { rootMargin: "0px 0px -80% 0px" });
+      };
+      backToTopBtn.onclick = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
 
-    headings.forEach(heading => observer.observe(heading));
-  }
-});
+    // 2. Toggle TOC Mobile
+    const tocToggleMobile = document.getElementById('toc-toggle-mobile');
+    const tocContentMobile = document.getElementById('toc-content-mobile');
+    if (tocToggleMobile && tocContentMobile) {
+      tocToggleMobile.addEventListener('click', function() {
+        tocContentMobile.classList.toggle('open');
+        this.classList.toggle('open');
+      });
+    }
+
+    // 3. Active link highlighting for Desktop TOC
+    const tocLinks = document.querySelectorAll('.post-toc-sidebar #TableOfContents a');
+    const headings = Array.from(tocLinks).map(link => {
+      const id = link.getAttribute('href').substring(1);
+      return document.getElementById(id);
+    }).filter(Boolean);
+
+    if (tocLinks.length > 0 && headings.length > 0) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute('id');
+          const correspondingLink = document.querySelector(`.post-toc-sidebar #TableOfContents a[href="#${id}"]`);
+          if (correspondingLink && entry.isIntersecting) {
+            tocLinks.forEach(link => link.classList.remove('active'));
+            correspondingLink.classList.add('active');
+          }
+        });
+      }, { rootMargin: "0px 0px -80% 0px" });
+
+      headings.forEach(heading => observer.observe(heading));
+    }
+  });
 </script>
 
 {{/* --- Swiper JS --- */}}

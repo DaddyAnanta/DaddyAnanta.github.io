@@ -1,8 +1,9 @@
 {{ define "footerfiles" }}
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
 {{ end }}
+
 {{ define "main" }}
 <div class="accordion" id="cart-accordion">
-  
   {{/* --- Bagian Pencarian --- */}}
   <div class="searchButton_accordeon">
     <form action="/search/" method="GET">
@@ -29,44 +30,38 @@
 
   {{/* --- Dropdown Kategori --- */}}
   <button class="accordion-button" onclick="togglePanel(this)">
-    <span ><i class="fas fa-folder icon"></i> Kategori</span>
+    <span><i class="fas fa-folder icon"></i> Kategori</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
       {{ range $.Site.Taxonomies.categories.ByCount }}
-      <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
 
   {{/* --- Dropdown Tag --- */}}
- <button class="accordion-button" onclick="togglePanel(this)">
+  <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-tags icon"></i> Tags</span>
     <span class="accordion-icon">&#9660;</span>
   </button>
   <div class="panel">
     <div class="accordion-category_page">
-       {{ range $.Site.Taxonomies.tags.ByCount }}
-      <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
-        <span class="accordion-category-name">{{ .Name | title }}</span>
-      </a>
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
       {{ end }}
     </div>
   </div>
-
 </div>
 
-
-
-{{/* --- KONTEN UTAMA HALAMAN PENCARIAN --- */}}
 {{/* --- KONTEN UTAMA HALAMAN PENCARIAN --- */}}
 <main class="main-content search-page-content">
   <div class="container">
-
-    {{/* --- Header Halaman Pencarian --- */}}
     <header class="search-header">
       <h1 class="page-title">Hasil Pencarian</h1>
       <p class="page-subtitle">Temukan artikel yang Anda cari di bawah ini.</p>
@@ -78,18 +73,15 @@
       </form>
     </header>
 
-    {{/* --- Kontainer untuk Hasil Pencarian (sekarang menggunakan grid) --- */}}
-    <div id="search-results" class="search-results-grid">
-      {{/* Hasil akan dimasukkan di sini oleh JavaScript */}}
-    </div>
+    {{/* --- Kontainer Hasil Pencarian --- */}}
+    <div id="search-results" class="search-results-grid"></div>
 
-    {{/* --- Kontainer untuk Paginasi --- */}}
+    {{/* --- Kontainer Paginasi --- */}}
     <div id="pagination-container"></div>
-
   </div>
 </main>
 
-{{/* --- TEMPLATE BARU UNTUK KARTU HASIL PENCARIAN --- */}}
+{{/* --- TEMPLATE KARTU HASIL PENCARIAN --- */}}
 <script id="search-result-template" type="text/x-js-template">
   <article class="search-result-card">
     <a href="${link}" class="card-link">
@@ -111,20 +103,9 @@
   </article>
 </script>
 
-{{/* --- SCRIPT UNTUK MENGISI INPUT DARI URL --- */}}
+{{/* --- Memberikan URL JSON absolut ke search.js --- */}}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const searchQuery = urlParams.get('s');
-    const searchInput = document.getElementById('search-query');
-
-    if (searchQuery && searchInput) {
-      searchInput.value = searchQuery;
-      searchInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
-    }
-  });
+  window.searchIndexUrl = '{{ "index.json" | absURL }}';
 </script>
-
 
 {{ end }}

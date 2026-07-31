@@ -1,0 +1,105 @@
+{{/* =================================================================== */}}
+{{/* 1. SCHEMA IDENTITAS PEMILIK (MUNCUL DI SEMUA HALAMAN)               */}}
+{{/* =================================================================== */}}
+<script type='application/ld+json'> 
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "mainEntity": {
+        "@type": "ProfessionalService",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "logo": "{{ .Site.Params.logo | absURL }}",
+        "founder": "{{ .Site.Params.founder | default "Daddy Ananta S." }}",
+        "description": "{{ .Site.Params.description }}",
+        "image": {
+            "@type": "imageObject",
+            "url": "{{ if .Params.image }}{{ .Site.BaseURL }}{{ .Params.image }}{{ else }}{{ .Site.Params.logo | absURL }}{{ end }}"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{{ .Site.Params.location | default "Jakarta" }}",
+            "addressCountry": "{{ .Site.Params.country | default "Indonesia" }}"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/daddy-ananta-468141253/",
+            "https://github.com/DaddyAnanta/",
+            "https://www.instagram.com/daddyananta/"
+        ]
+    }
+}
+</script>
+
+{{/* =================================================================== */}}
+{{/* 2. SCHEMA WEBSITE (HANYA MUNCUL DI HALAMAN UTAMA / BERANDA)         */}}
+{{/* =================================================================== */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}"
+}
+</script>
+{{ end }}
+
+{{/* =================================================================== */}}
+{{/* 3. SCHEMA BREADCRUMB (HANYA MUNCUL DI ARTIKEL & KATEGORI)           */}}
+{{/* =================================================================== */}}
+{{ if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+  ]
+}
+</script>
+{{ end }}
+
+{{/* =================================================================== */}}
+{{/* 4. SCHEMA ARTIKEL / BLOG POSTING (HANYA MUNCUL DI HALAMAN ARTIKEL)  */}}
+{{/* =================================================================== */}}
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "headline": "{{ .Title }}",
+  "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
+  "image": "{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.logo | absURL }}{{ end }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Params.author | default .Site.Params.founder | default "Daddy Ananta S." }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.Params.logo | absURL }}"
+    }
+  },
+  "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}"
+}
+</script>
+{{ end }}

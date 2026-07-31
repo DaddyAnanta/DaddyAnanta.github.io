@@ -1,36 +1,40 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
 {{- printf "<?xml-stylesheet type=\"text/xsl\" href=\"%s\"?>" ( "sitemap.xsl" | absURL ) | safeHTML }}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
   {{- $pages := where .Site.RegularPages "Params.sitemap.exclude" "!=" true -}}
+  
   {{- range $pages -}}
-  {{- if not .Draft -}}
-  <url>
-    <loc>{{ .Permalink }}</loc>
-    <lastmod>{{ with .Lastmod }}{{ .Format "2006-01-02T15:04:05-07:00" }}{{ else }}{{ .Date.Format "2006-01-02T15:04:05-07:00" }}{{ end }}</lastmod>
-    {{- $homePriority := 1.0 -}}
-    {{- $pagePriority := 0.8 -}}
-    {{- $sectionPriority := 0.7 -}}
-    {{- $defaultPriority := 0.5 -}}
-    <priority>
-      {{- if .IsHome -}}
-        {{ $homePriority }}
-      {{- else if .IsPage -}}
-        {{ $pagePriority }}
-      {{- else if .IsSection -}}
-        {{ $sectionPriority }}
-      {{- else -}}
-        {{ $defaultPriority }}
-      {{- end -}}
-    </priority>
-    {{- with .Resources.ByType "image" -}}
-      {{- range . -}}
-    <image:image>
-      <image:loc>{{ .Permalink }}</image:loc>
-    </image:image>
-      {{- end -}}
+    {{- if not .Draft -}}
+      <url>
+        <loc>{{ .Permalink }}</loc>
+        <lastmod>{{ with .Lastmod }}{{ .Format "2006-01-02T15:04:05-07:00" }}{{ else }}{{ .Date.Format "2006-01-02T15:04:05-07:00" }}{{ end }}</lastmod>
+        
+        {{- $homePriority := 1.0 -}}
+        {{- $pagePriority := 0.8 -}}
+        {{- $sectionPriority := 0.7 -}}
+        {{- $defaultPriority := 0.5 -}}
+        <priority>
+          {{- if .IsHome -}}
+            {{ $homePriority }}
+          {{- else if .IsPage -}}
+            {{ $pagePriority }}
+          {{- else if .IsSection -}}
+            {{ $sectionPriority }}
+          {{- else -}}
+            {{ $defaultPriority }}
+          {{- end -}}
+        </priority>
+
+        {{- with .Resources.ByType "image" -}}
+          {{- range . -}}
+            <image:image>
+              <image:loc>{{ .Permalink }}</image:loc>
+            </image:image>
+          {{- end -}}
+        {{- end -}}
+      </url>
     {{- end -}}
-  </url>
   {{- end -}}
-  {{- end -}}
-</urlset> 
+
+</urlset>

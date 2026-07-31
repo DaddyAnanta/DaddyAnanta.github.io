@@ -1,22 +1,30 @@
-{{- $.Scratch.Add "index" slice -}}
+{{- $index := slice -}}
+{{- $seenPermalinks := dict -}}
+
 {{- range .Site.RegularPages -}}
+    {{- if not (index $seenPermalinks .RelPermalink) -}}
+        {{- $image_resource := .Resources.GetMatch .Params.image -}}
+        {{- $image_permalink := "" -}}
+        {{- if $image_resource -}}
+            {{- $image_permalink = $image_resource.Permalink -}}
+        {{- else if .Params.image -}}
+            {{- $image_permalink = .Params.image | absURL -}}
+        {{- end -}}
 
-    {{/* --- LOGIKA BARU UNTUK MENDAPATKAN URL GAMBAR YANG LENGKAP --- */}}
-    {{- $image_resource := .Resources.GetMatch .Params.image -}}
-    {{- $image_permalink := "" -}}
-    {{- if $image_resource -}}
-        {{- $image_permalink = $image_resource.Permalink -}}
+        {{- $index = $index | append (dict
+            "title" .Title
+            "tags" .Params.tags
+            "categories" .Params.categories
+            "contents" .Plain
+            "content" .Content
+            "summary" .Summary
+            "permalink" .Permalink
+            "relpermalink" .RelPermalink
+            "image" $image_permalink
+          )
+        -}}
+        {{- $seenPermalinks = merge $seenPermalinks (dict .RelPermalink true) -}}
     {{- end -}}
-    {{/* --- AKHIR DARI LOGIKA BARU --- */}}
-
-    {{- $.Scratch.Add "index" (dict
-        "title" .Title
-        "tags" .Params.tags
-        "categories" .Params.categories
-        "contents" .Plain
-        "permalink" .Permalink
-        "image" $image_permalink
-      )
-    -}}
 {{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}
+
+{{- $index | jsonify -}}

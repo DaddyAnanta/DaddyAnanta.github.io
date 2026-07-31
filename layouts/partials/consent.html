@@ -1,0 +1,358 @@
+<style>
+  /* --- Reset Box Model --- */
+  #consent-notice, #consent-overlay * {
+    box-sizing: border-box;
+  }
+
+  /* ========================================================= */
+  /* 1. BANNER STYLES (Sesuai image_20cd3b.png)                  */
+  /* ========================================================= */
+  #consent-notice {
+    display: none; /* Dikelola oleh JS */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2b2b2b; /* Latar belakang abu-abu sangat gelap */
+    color: #e0e0e0;
+    padding: 15px 25px;
+    z-index: 9999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+    
+    /* Layout menggunakan Flexbox agar sejajar (inline) */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  #consent-notice span {
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  #consent-notice a.manage-consent {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px; /* Jarak garis bawah agar lebih rapi */
+  }
+
+  /* ========================================================= */
+  /* 2. GENERAL BUTTON STYLES                                  */
+  /* ========================================================= */
+  .btn {
+    border: none;
+    border-radius: 4px; /* Sudut sedikit melengkung seperti referensi */
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn:hover { opacity: 0.85; }
+  .btn:active { transform: scale(0.97); }
+
+  /* Warna Tombol Spesifik */
+  .btn.manage-consent {
+    background-color: #4a4a4a; /* Abu-abu gelap */
+    color: #ffffff;
+  }
+
+  .btn.deny-consent, 
+  .btn.approve-consent {
+    background-color: #f72c68; /* Warna Pink/Magenta khas */
+    color: #ffffff;
+  }
+
+  /* ========================================================= */
+  /* 3. OVERLAY / POP-UP STYLES (Sesuai image_20cd5b.png)      */
+  /* ========================================================= */
+  #consent-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: none; /* Dikelola oleh JS */
+    background: rgba(0, 0, 0, 0.6); /* Efek gelap di belakang modal */
+    z-index: 999999;
+    overflow: auto;
+    align-items: center; /* Posisi di tengah layar (vertikal) */
+    justify-content: center; /* Posisi di tengah layar (horizontal) */
+    padding: 20px;
+  }
+
+  #consent-overlay.active {
+    display: flex !important;
+  }
+
+  /* Kotak Pop-up Utama */
+  #consent-overlay > div {
+    background: #ffffff;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    cursor: initial;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* Item Preferensi (Checkbox + Teks) */
+  #consent-overlay > div > div:not(:last-child) {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+  }
+
+  #consent-overlay input[type="checkbox"] {
+    margin-top: 5px;
+    margin-right: 15px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0; /* Mencegah checkbox mengecil */
+  }
+
+  #consent-overlay label {
+    display: block;
+    cursor: pointer;
+  }
+
+  #consent-overlay h3 {
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: #333333;
+  }
+
+  #consent-overlay p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #666666;
+  }
+
+  /* Area Tombol di dalam Pop-up */
+  #consent-overlay > div > div:last-child {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee; /* Garis pemisah tipis */
+  }
+
+  /* Membuat tombol di pop-up mengisi ruang 50:50 */
+  #consent-overlay > div > div:last-child .btn {
+    flex: 1; 
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  button.btn.save-consent {
+    background-color: #6c6c6c; /* Abu-abu medium */
+    color: #ffffff;
+  }
+
+  /* ========================================================= */
+  /* 4. RESPONSIVE MOBILE STYLES                               */
+  /* ========================================================= */
+  @media (max-width: 768px) {
+    /* Banner berubah menjadi tumpukan vertikal di HP */
+    #consent-notice {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 15px;
+      gap: 10px;
+    }
+
+    #consent-notice span {
+      margin-right: 0;
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    /* Tombol banner menjadi layar penuh */
+    #consent-notice .btn {
+      width: 100%; 
+    }
+
+    #consent-overlay > div {
+      padding: 25px 20px;
+    }
+
+    /* Tombol pop-up menjadi tumpukan vertikal */
+    #consent-overlay > div > div:last-child {
+      flex-direction: column; 
+      gap: 10px;
+    }
+  }
+</style>
+
+<div id="consent-notice">
+  <span>We would like to use <a class="manage-consent" href="#manage-consent">third party code</a> to improve the functionality of this website.</span>
+  <button class="btn manage-consent">Manage preferences</button>
+  <button class="btn deny-consent">Deny</button>
+  <button class="btn approve-consent">Allow</button>
+</div>
+
+<div id="consent-overlay">
+  <div>
+    {{ range $index, $item := hugo.Data.consent.items }}
+      <div>
+        <input type="checkbox" id="item{{ $index }}" value="1" name="item{{ $index }}" {{ if $item.is_functional }}checked disabled{{ end }} />
+        <label for="item{{ $index }}">
+          <h3>{{ $item.title }}</h3>
+          <p>{{ $item.description }}</p>
+        </label>
+      </div>
+    {{ end }}
+    <div>
+      <button id="save-consent" class="btn save-consent" data-consentvalue="{{ range $index, $item := hugo.Data.consent.items }}{{ if $item.is_functional }}1{{ else }}0{{ end }}{{ end }}">Save preferences</button>
+      <button class="btn approve-consent">Allow all</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const scripts = [];
+  {{ range $index, $item := (where hugo.Data.consent.items "is_functional" false) }}
+    scripts[{{ $index }}] = "/js/{{ $item.script_file }}";
+  {{ end }}
+
+  function createCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  function eraseCookie(name) {
+    createCookie(name, "", -1);
+  }
+
+  function denyAllConsentScripts() {
+    var consentValue = "";
+    scripts.forEach(function() {
+      consentValue = consentValue + "0";
+    });
+    acceptSomeConsentScripts(consentValue);
+  }
+
+  function acceptAllConsentScripts() {
+    var consentValue = "";
+    scripts.forEach(function() {
+      consentValue = consentValue + "1";
+    });
+    acceptSomeConsentScripts(consentValue);
+  }
+
+  function acceptSomeConsentScripts(consentValue) {
+    setConsentInputs(consentValue);
+    createCookie('consent-settings', consentValue, 31);
+    document.getElementById('consent-notice').style.display = 'none';
+    document.getElementById('consent-overlay').classList.remove('active');
+    loadConsentScripts(consentValue);
+  }
+
+  function loadConsentScripts(consentValue) {
+    scripts.forEach(function(value, key) {
+      if(consentValue[key] == "1") {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = value;
+        document.body.appendChild(s);
+      }
+    });
+  }
+
+  function setConsentInputs(consentValue) {
+    var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
+    elements.forEach(function(el, index) {
+      if(consentValue[index] == "1") el.checked = true;
+      else el.checked = false;
+    });
+  }
+
+  function setConsentValue() {
+    var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
+    var consentValue = "";
+    elements.forEach(function(el) {
+      if(el.checked) consentValue = consentValue + "1";
+      else consentValue = consentValue + "0";
+    });
+    document.getElementById("save-consent").dataset.consentvalue = consentValue;
+  }
+
+  var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
+  elements.forEach(function(el) {
+    el.checked = false;
+  });
+
+  if(readCookie('consent-settings')) {
+    var consentValue = readCookie('consent-settings').toString();
+    setConsentInputs(consentValue);
+    loadConsentScripts(consentValue);
+  } else {
+    document.getElementById('consent-notice').style.display = 'block';
+  }
+
+  var manageConsentElements = document.querySelectorAll('.manage-consent');
+  manageConsentElements.forEach(function(el) {
+    el.addEventListener("click", function(e) {
+      e.preventDefault(); // Mencegah link meloncat jika berupa tag <a>
+      document.getElementById('consent-overlay').classList.toggle('active');
+    });
+  });
+
+  var denyConsentElements = document.querySelectorAll('.deny-consent');
+  denyConsentElements.forEach(function(el) {
+    el.addEventListener("click", function() {
+      denyAllConsentScripts();
+    });
+  });
+
+  var approveConsentElements = document.querySelectorAll('.approve-consent');
+  approveConsentElements.forEach(function(el) {
+    el.addEventListener("click", function() {
+      acceptAllConsentScripts();
+    });
+  });
+
+  document.getElementById("save-consent").addEventListener("click", function() {
+    setConsentValue();
+    acceptSomeConsentScripts(this.dataset.consentvalue);
+  });
+
+  document.getElementById("consent-overlay").addEventListener("click", function(e) {
+    if (!document.querySelector("#consent-overlay > div").contains(e.target)) {
+      this.classList.toggle('active');
+    }
+  });
+</script>
+
+{{/* --- Memuat Skrip Fungsional (Wajib) Secara Langsung --- */}}
+{{ range $index, $item := hugo.Data.consent.items }}
+  {{ if $item.is_functional }}
+    <script type="text/javascript" src="/js/{{ $item.script_file }}"></script>
+  {{ end }}
+{{ end }}
