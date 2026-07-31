@@ -336,11 +336,29 @@
   transform: translateY(-2px);
 }
 
-.featured-post-layout {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+
+/* ================================================================== */
+/* === PERBAIKAN LAYOUT ACTUAL CONTENT & SINGLE POST === */
+/* ================================================================== */
+
+/* 1. Mencegah kebocoran layar ke arah kanan (Horizontal Overflow) */
+.actual-content {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; 
+  box-sizing: border-box;
 }
+
+/* 2. Membatasi ukuran jika hanya ada 1 konten (Featured Post berdiri sendiri) */
+.featured-post-layout .featured-post:only-child {
+  max-width: 750px; 
+  margin: 0 auto;  
+  width: 100%;
+}
+
+
+
+
 
 .layout--featured-right { 
   flex-direction: row-reverse; 
@@ -367,14 +385,16 @@
 
 .featured-post .post-card-image-wrapper {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background-color: inherit; 
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: inherit;
 }
 
 .featured-post .post-card-image { 
   width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .featured-post .post-card-content { 
@@ -444,8 +464,16 @@
 
 .post-card-image-wrapper-secondary {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   background-color: inherit;
+}
+
+.post-card-secondary .post-card-image {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
 }
 
 .post-card-content-secondary { 
@@ -737,11 +765,15 @@
 /* ================================================================== */
 /* === RESPONSIVE DESIGN === */
 /* ================================================================== */
-
 @media (max-width: 992px) {
   .featured-post-layout, 
   .layout--featured-right {
     flex-direction: column;
+  }
+  
+  /* --- TAMBAHKAN BARIS INI --- */
+  .featured-post-layout .featured-post:only-child {
+    max-width: 100%; /* Lepaskan batas lebar maksimal pada layar yang lebih kecil */
   }
   
   .main-wrapper .container {
@@ -753,9 +785,9 @@
     grid-template-columns: repeat(2, 1fr); 
   }
   
-    .info-box-card {
-        display: none !important;
-      }
+  .info-box-card {
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {
