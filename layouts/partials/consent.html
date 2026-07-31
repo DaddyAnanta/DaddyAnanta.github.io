@@ -158,40 +158,99 @@
     background-color: #6c6c6c; /* Abu-abu medium */
     color: #ffffff;
   }
+/* ========================================================= */
+/* 4. RESPONSIVE STYLES (TABLET & MOBILE) */
+/* ========================================================= */
 
-  /* ========================================================= */
-  /* 4. RESPONSIVE MOBILE STYLES                               */
-  /* ========================================================= */
-  @media (max-width: 768px) {
-    /* Banner berubah menjadi tumpukan vertikal di HP */
-    #consent-notice {
-      flex-direction: column;
-      text-align: center;
-      padding: 20px 15px;
-      gap: 10px;
-    }
-
-    #consent-notice span {
-      margin-right: 0;
-      margin-bottom: 5px;
-      line-height: 1.5;
-    }
-
-    /* Tombol banner menjadi layar penuh */
-    #consent-notice .btn {
-      width: 100%; 
-    }
-
-    #consent-overlay > div {
-      padding: 25px 20px;
-    }
-
-    /* Tombol pop-up menjadi tumpukan vertikal */
-    #consent-overlay > div > div:last-child {
-      flex-direction: column; 
-      gap: 10px;
-    }
+/* --- Tablet (max-width: 991px) --- */
+@media (max-width: 991px) {
+  #consent-notice {
+    padding: 15px 20px;
   }
+  
+  /* Memaksa teks naik ke baris sendiri, tombol berjejer di bawahnya */
+  #consent-notice span {
+    flex: 1 1 100%; 
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  
+  #consent-overlay > div {
+    max-width: 85%; /* Pop-up tidak terlalu lebar di layar tablet */
+    padding: 30px;
+  }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+  #consent-notice {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  #consent-notice span {
+    font-size: 13px; /* Mengecilkan teks agar tidak memenuhi layar */
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  /* Area klik tombol diperbesar agar mudah disentuh jari */
+  #consent-notice .btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  #consent-overlay {
+    padding: 15px;
+  }
+
+  #consent-overlay > div {
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  #consent-overlay h3 {
+    font-size: 16px;
+  }
+
+  #consent-overlay p {
+    font-size: 12px;
+  }
+
+  /* Tombol pop-up menjadi tumpukan vertikal */
+  #consent-overlay > div > div:last-child {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  #consent-overlay > div > div:last-child .btn {
+    width: 100%;
+  }
+}
+
+/* --- Small Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  #consent-notice {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  #consent-notice .btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+  
+  #consent-overlay > div > div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  #consent-overlay input[type="checkbox"] {
+    margin-right: 12px; /* Merapatkan jarak checkbox dengan teks */
+  }
+}
 </style>
 
 <div id="consent-notice">
