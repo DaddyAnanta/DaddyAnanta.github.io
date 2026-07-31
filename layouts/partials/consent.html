@@ -203,7 +203,7 @@
 
 <div id="consent-overlay">
   <div>
-    {{ range $index, $item := hugo.Data.consent.items }}
+    {{ range $index, $item := site.Data.consent.items }}
       <div>
         <input type="checkbox" id="item{{ $index }}" value="1" name="item{{ $index }}" {{ if $item.is_functional }}checked disabled{{ end }} />
         <label for="item{{ $index }}">
@@ -213,7 +213,7 @@
       </div>
     {{ end }}
     <div>
-      <button id="save-consent" class="btn save-consent" data-consentvalue="{{ range $index, $item := hugo.Data.consent.items }}{{ if $item.is_functional }}1{{ else }}0{{ end }}{{ end }}">Save preferences</button>
+      <button id="save-consent" class="btn save-consent" data-consentvalue="{{ range $index, $item := site.Data.consent.items }}{{ if $item.is_functional }}1{{ else }}0{{ end }}{{ end }}">Save preferences</button>
       <button class="btn approve-consent">Allow all</button>
     </div>
   </div>
@@ -221,7 +221,7 @@
 
 <script>
   const scripts = [];
-  {{ range $index, $item := (where hugo.Data.consent.items "is_functional" false) }}
+  {{ range $index, $item := (where site.Data.consent.items "is_functional" false) }}
     scripts[{{ $index }}] = "/js/{{ $item.script_file }}";
   {{ end }}
 
@@ -351,7 +351,7 @@
 </script>
 
 {{/* --- Memuat Skrip Fungsional (Wajib) Secara Langsung --- */}}
-{{ range $index, $item := hugo.Data.consent.items }}
+{{ range $index, $item := site.Data.consent.items }}
   {{ if $item.is_functional }}
     <script type="text/javascript" src="/js/{{ $item.script_file }}"></script>
   {{ end }}
