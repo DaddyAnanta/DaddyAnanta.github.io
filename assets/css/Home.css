@@ -699,6 +699,7 @@
   box-shadow: 0 0 25px #e84118; 
 }
 
+
 .portofolio .typing-text { 
   font-size: 2rem; 
   font-weight: 600; 
@@ -706,33 +707,33 @@
   min-width: 280px; 
   margin-bottom: 50px; 
   color: #444; 
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.portofolio .typing-text span { 
-  position: relative; 
-}
-
-.portofolio .typing-text span::before { 
-  content: "Software Developer"; 
+.word-slider {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.5em;
+  line-height: 1.5em;
+  overflow: hidden;
   color: #ff6b6b; 
-  animation: words 20s infinite; 
 }
 
-@keyframes words {
-  0%, 25% { 
-    content: "Electronics Technician"; 
-  }
-  26%, 50% { 
-    content: "Mechanical & Fabrication"; 
-  }
-  51%, 75% { 
-    content: "System Auditor"; 
-  }
-  76%, 100% { 
-    content: "Technical Support"; 
-  }
+.word-slider .word {
+  display: block;
+  animation: slideWords 10s infinite;
 }
 
+@keyframes slideWords {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-100%); }
+  50%, 70% { transform: translateY(-200%); }
+  75%, 95% { transform: translateY(-300%); }
+  100% { transform: translateY(0); }
+}
 
 
 
