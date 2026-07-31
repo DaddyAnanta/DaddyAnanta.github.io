@@ -1,6 +1,11 @@
 ---
 title: "Search"
-date : 2025-03-14T21:37:16+07:00
+description: "Temukan artikel dan insight  menarik di sini."
 layout: "search"
+outputs:
+  - HTML
+  - JSON
+build:
+  render: "always"
+  list: "never"
 ---
-
