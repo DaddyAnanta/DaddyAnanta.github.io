@@ -54,7 +54,7 @@
 
   <!-- CSS External & Bundled -->
   <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" media="print" onload="this.media='all'">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -86,19 +86,24 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" defer></script>
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   
-  <script class="single-code" type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ]
-  });"></script>
+  {{ if .IsPage }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" media="print" onload="this.media='all'">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" defer></script>
+    <script class="single-code" type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  {{ end }}
   
   <script data-goatcounter="https://{{ .Site.Params.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <!-- Pagination AJAX Script -->
+  {{ if not .IsHome }}
   <script defer>
     document.addEventListener('DOMContentLoaded', function() {
       const paginationContainer = document.getElementById('customPagination') || document.querySelector('.pagination'); 
@@ -196,14 +201,8 @@
   
     document.addEventListener('DOMContentLoaded', attachPaginationListeners);
   </script>
+  {{ end }}
 
-  <!-- Initialization Scripts -->
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true 
-    });
-  </script>
 
   <!-- Google tag (gtag.js) -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VVR1FLD1GE"></script>
@@ -232,5 +231,12 @@
     }
   </style>
   {{ partial "consent.html" . }}
+    <!-- Initialization Scripts -->
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true 
+    });
+  </script>
 </body>
 </html>
