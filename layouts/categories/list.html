@@ -60,30 +60,8 @@
 </div>
 
 
-
-{{/* --- MULAI PERBAIKAN --- */}}
-
 {{/* Wrapper utama dengan class loading */}}
 <div class="main-content category-page-content is-loading">
-
-    {{/* --- SKELETON SCREEN STRUCTURE --- */}}
-    <div class="skeleton-wrapper">
-        <header class="breadcrumb-header">
-            <div class="skeleton skeleton-text" style="width: 40%; height: 20px; margin-bottom: 20px;"></div>
-            <div class="skeleton skeleton-title" style="width: 60%; height: 40px;"></div>
-        </header>
-        <div class="post-list-container">
-            {{ range seq 6 }}
-            <article class="post-card skeleton-card">
-                <div class="skeleton skeleton-image"></div>
-                <div class="post-card-content">
-                    <h3 class="skeleton skeleton-text"></h3>
-                    <p class="skeleton skeleton-text" style="width: 70%;"></p>
-                </div>
-            </article>
-            {{ end }}
-        </div>
-    </div>
 
 {{/* --- KONTEN UTAMA HALAMAN --- */}}
 <main class="main-content category-page-content">
@@ -92,74 +70,442 @@
     {{ if eq .RelPermalink "/categories/"}}
       {{/* Tampilan untuk halaman indeks /categories/ */}}
       <div class="category_page_title">
-        <h1>Semua Kategori</h1>
-        <p>Telusuri konten berdasarkan topik yang paling Anda minati.</p>
+        <h1>Eksplorasi Kategori</h1>
+        <p>Telusuri wawasan teknis berdasarkan topik yang paling Anda minati.</p>
       </div>
-<div class="category-grid">
-        {{ range .Data.Terms.ByCount }}
-          {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
-          {{ $category_name := .Name | lower }}
-          {{ $icon_class := "fa-solid fa-tag" }}
-          {{ $color_class := "cat-color--default" }}
-          
-          {{ if eq $category_name "civil engineering" }}{{ $icon_class = "fa-solid fa-hard-hat" }}{{ $color_class = "cat-bg--civil-engineering" }}{{ end }}
-          {{ if eq $category_name "electrical engineering" }}{{ $icon_class = "fa-solid fa-bolt" }}{{ $color_class = "cat-bg--electrical-engineering" }}{{ end }}
-          {{ if eq $category_name "mechanical engineering" }}{{ $icon_class = "fa-solid fa-cogs" }}{{ $color_class = "cat-bg--mechanical-engineering" }}{{ end }}
-          {{ if eq $category_name "plumbing engineering" }}{{ $icon_class = "fa-solid fa-faucet" }}{{ $color_class = "cat-bg--plumbing-engineering" }}{{ end }}
-          {{ if eq $category_name "physics" }}{{ $icon_class = "fa-solid fa-atom" }}{{ $color_class = "cat-bg--physics" }}{{ end }}
-          {{ if eq $category_name "math" }}{{ $icon_class = "fa-solid fa-square-root-alt" }}{{ $color_class = "cat-bg--math" }}{{ end }}
-          {{/* --- AKHIR PENYESUAIAN KATEGORI --- */}}
-          
-          <a class="category-card {{ $color_class }}" href="{{ .Page.Permalink }}">
-            <div class="card-icon"><i class="{{ $icon_class }}"></i></div>
-            <div class="card-content">
-              <h3 class="category-name">{{ .Name | title}}</h3>
-              <span class="category-count">{{ .Count }} Posts</span>
+
+      {{/* ================================================================ */}}
+      {{/* === CSS KHUSUS HALAMAN KATEGORI (DISEMATKAN) === */}}
+      {{/* ================================================================ */}}
+      <style>
+        .category-post-list {
+          padding: 40px 20px; 
+          border-radius: 16px;
+          margin-bottom: 40px;
+          transition: background-color 0.5s ease;
+          width: 100%;
+        }
+
+        .category-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          padding: 20px 30px; 
+          border-radius: 16px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+        }
+
+        .category-header .category-title {
+          text-align: left;
+          margin: 0;
+          font-size: clamp(1.8rem, 3vw, 2.2rem);
+          font-weight: 800;
+          color: #ffffff;
+        }
+
+        .category-see-all {
+          font-size: 0.95rem;
+          color: #0f172a;
+          text-decoration: none;
+          font-weight: 600;
+          padding: 10px 24px;
+          border-radius: 50px;
+          background-color: rgba(255, 255, 255, 0.9);
+          transition: all 0.3s ease;
+          white-space: nowrap;
+        }
+
+        .category-see-all:hover {
+          background-color: #ffffff;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+          transform: translateY(-2px);
+        }
+
+        .featured-post-layout {
+          display: flex;
+          gap: 30px;
+        }
+
+        .layout--featured-right .featured-post-layout {
+          flex-direction: row-reverse;
+        }
+
+        /* --- Featured Post (Kiri/Kanan) --- */
+        .featured-post {
+          flex: 1.2;
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          overflow: hidden;
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .featured-post:hover { 
+          transform: translateY(-5px); 
+          box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+
+        .featured-post .post-card-link { 
+          text-decoration: none; 
+          color: inherit; 
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .featured-post .post-card-image-wrapper {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          background-color: #f1f5f9;
+        }
+
+        .featured-post .post-card-image { 
+          width: 100%; 
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .featured-post:hover .post-card-image {
+          transform: scale(1.05);
+        }
+
+        .featured-post .post-card-content { 
+          padding: 25px; 
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .featured-post .post-card-title {
+          font-size: clamp(1.3rem, 2vw, 1.6rem);
+          font-weight: 700;
+          line-height: 1.3;
+          margin: 0 0 15px 0;
+          color: #0f172a;
+        }
+
+        .featured-post .post-card-description {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: #475569;
+          margin-bottom: 20px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;  
+          overflow: hidden;
+          flex-grow: 1;
+        }
+
+        .featured-post .post-card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .featured-post .post-card-tag {
+          background-color: #f8f9fa;
+          color: #007bff;
+          padding: 4px 12px;
+          border-radius: 50px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          border: 1px solid #e2e8f0;
+        }
+
+        /* --- Secondary Post Grid (Grid Kanan/Kiri) --- */
+        .secondary-post-grid {
+          flex: 1;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .post-card-secondary {
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          overflow: hidden;
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .post-card-secondary:hover { 
+          transform: translateY(-5px); 
+          box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+        }
+
+        .post-card-secondary .post-card-link { 
+          text-decoration: none; 
+          color: inherit; 
+          display: flex; 
+          flex-direction: column; 
+          height: 100%; 
+        }
+
+        .post-card-image-wrapper-secondary {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          background-color: #f1f5f9;
+        }
+
+        .post-card-secondary .post-card-image {
+          width: 100%;
+          height: 100%; 
+          object-fit: cover; 
+          display: block; 
+          transition: transform 0.5s ease;
+        }
+
+        .post-card-secondary:hover .post-card-image {
+          transform: scale(1.05);
+        }
+
+        .post-card-content-secondary { 
+          padding: 15px; 
+          flex-grow: 1; 
+          display: flex;
+          align-items: center;
+        }
+
+        .post-card-title-secondary {
+          font-size: 0.95rem;
+          font-weight: 700;
+          line-height: 1.4;
+          margin: 0;
+          color: #0f172a;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;  
+          overflow: hidden;
+        }
+
+        /* --- Warna Background Tiap Kategori --- */
+        .cat-bg--civil-engineering { background-color: #2563eb; }
+        .cat-bg--electrical-engineering { background-color: #d97706; }
+        .cat-bg--mechanical-engineering { background-color: #dc2626; }
+        .cat-bg--plumbing-engineering { background-color: #0d9488; }
+        .cat-bg--physics { background-color: #9333ea; }
+        .cat-bg--math { background-color: #10b981; }
+
+        /* --- SKELETON & RESPONSIVITAS --- */
+        .skeleton-wrapper { display: none !important; }
+.is-loading .skeleton-wrapper { display: block !important; }
+.is-loading .actual-content { display: none !important; }
+
+@media (max-width: 992px) {
+  .featured-post-layout { flex-direction: column !important; }
+}
+
+@media (max-width: 768px) {
+  .category-post-list { padding: 30px 0; }
+  .category-header { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 15px; 
+    padding: 20px; 
+  }
+  .category-see-all { align-self: stretch; text-align: center; }
+  
+  /* Menyesuaikan jarak di dalam kartu agar gambar maksimal */
+  .featured-post .post-card-content { padding: 20px 15px; }
+  .post-card-content-secondary { padding: 20px 15px; }
+}
+
+@media (max-width: 480px) {
+  .secondary-post-grid { grid-template-columns: 1fr; }
+  .featured-post .post-card-content { padding: 15px; }
+  
+  /* Mempersempit batas luar kontainer di layar HP */
+  .category-page-content .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+      </style>
+
+      {{/* ================================================================ */}}
+      {{/* === BAGIAN DAFTAR POSTINGAN (DENGAN SKELETON SCREEN) === */}}
+      {{/* ================================================================ */}}
+      <div class="post-sections-wrapper is-loading">
+
+        {{/* --- SKELETON SCREEN STRUCTURE --- */}}
+        <div class="skeleton-wrapper">
+          {{ range seq 2 }}
+          <section class="category-post-list skeleton-section" style="background: rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+            <div class="container">
+              <header class="category-header" style="border-bottom: none;">
+                <h2 class="skeleton skeleton-title"></h2>
+                <div class="skeleton skeleton-button"></div>
+              </header>
+              <div class="featured-post-layout">
+                <article class="featured-post skeleton-card">
+                  <div class="skeleton skeleton-image"></div>
+                  <div class="post-card-content">
+                    <h3 class="skeleton skeleton-text"></h3>
+                    <p class="skeleton skeleton-text"></p>
+                    <p class="skeleton skeleton-text" style="width: 60%;"></p>
+                  </div>
+                </article>
+                <div class="secondary-post-grid">
+                  <div class="post-card-secondary skeleton-card">
+                    <div class="skeleton skeleton-image-sm" style="width: 100%; aspect-ratio: 16/9;"></div>
+                    <div class="skeleton skeleton-text-sm" style="margin: 15px;"></div>
+                  </div>
+                  <div class="post-card-secondary skeleton-card">
+                    <div class="skeleton skeleton-image-sm" style="width: 100%; aspect-ratio: 16/9;"></div>
+                    <div class="skeleton skeleton-text-sm" style="margin: 15px;"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </a>
-        {{ end }}
+          </section>
+          {{ end }}
+        </div>
+
+        {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar PageSpeed) --- */}}
+        <div class="actual-content">
+          
+          {{/* --- DAFTAR KATEGORI YANG AKAN DITAMPILKAN --- */}}
+          {{ $categoriesToShow := slice "Civil Engineering" "Electrical Engineering" "Mechanical Engineering" "Plumbing Engineering" "Physics" "Math" }}
+          
+          {{ range $index, $categoryName := $categoriesToShow }}
+            {{ $categorySlug := . | urlize }}
+            {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
+            
+            {{ if gt (len $pagesInCategory) 0 }}
+              {{ $bgColorClass := printf "cat-bg--%s" $categorySlug }}
+              {{ $layoutClass := "layout--featured-left" }}
+              {{ if modBool $index 2 }}{{ $layoutClass = "layout--featured-right" }}{{ end }}
+              
+              <section class="category-post-list {{ $layoutClass }} " data-aos="fade-up"> 
+                <div class="container">
+                  <header class="category-header {{ $bgColorClass }}">
+                    <h2 class="category-title">{{ $categoryName }}</h2>
+                    <a href="{{ printf "/categories/%s/" $categorySlug | relLangURL }}" class="category-see-all"> Jelajahi Semua <i class="fa-sharp-duotone fa-solid fa-person-walking-arrow-right"></i></a>
+                  </header>
+                  
+                  <div class="featured-post-layout">
+                    {{ $featuredPost := index $pagesInCategory 0 }}
+                    <article class="featured-post">
+                      <a href="{{ $featuredPost.Permalink }}" class="post-card-link">
+                        
+                        {{/* --- PERBAIKAN 1: GAMBAR FEATURED POST (PAGESPEED) --- */}}
+                        {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
+                        {{ if $imageResource }}
+                          <div class="post-card-image-wrapper">
+                            {{ $resizedImg := $imageResource.Fill "720x405 webp Center" }}
+                            <img src="{{ $resizedImg.Permalink }}" width="{{ $resizedImg.Width }}" height="{{ $resizedImg.Height }}" class="post-card-image" alt="{{ $featuredPost.Title }}" loading="lazy">
+                          </div>
+                        {{ end }}
+                        
+                        <div class="post-card-content">
+                          <h3 class="post-card-title">{{ $featuredPost.Title }}</h3>
+                          <p class="post-card-description">{{ $featuredPost.Summary | plainify | truncate 150 "..." }}</p>
+                          <div class="post-card-tags">
+                            {{ with $featuredPost.Params.tags }}{{ range first 3 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
+                          </div>
+                        </div>
+                      </a>
+                    </article>
+                    
+                    {{ $otherPosts := after 1 $pagesInCategory }}
+                    {{ if gt (len $otherPosts) 0 }}
+                      <div class="secondary-post-grid">
+                        {{ range first 4 $otherPosts }}
+                          <article class="post-card-secondary">
+                            <a href="{{ .Permalink }}" class="post-card-link">
+                              
+                              {{/* --- PERBAIKAN 2: GAMBAR SECONDARY POST (PAGESPEED) --- */}}
+                              {{ $imageResource := .Resources.GetMatch .Params.image }}
+                              {{ if $imageResource }}
+                                <div class="post-card-image-wrapper-secondary">
+                                  {{ $resizedImgSec := $imageResource.Fill "350x197 webp Center" }}
+                                  <img src="{{ $resizedImgSec.Permalink }}" width="{{ $resizedImgSec.Width }}" height="{{ $resizedImgSec.Height }}" alt="{{ .Title }}" class="post-card-image" loading="lazy">
+                                </div>
+                              {{ end }}
+                              
+                              <div class="post-card-content-secondary">
+                                <h4 class="post-card-title-secondary">{{ .Title }}</h4>
+                              </div>
+                            </a>
+                          </article>
+                        {{ end }}
+                      </div>
+                    {{ end }}
+                  </div>
+                </div>
+              </section>
+            {{ end }}
+          {{ end }}
+        </div>
       </div>
 
     {{ else }}
 
-      {{/* Tampilan untuk halaman kategori individual */}}
-      <header class="breadcrumb-header">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ .Site.BaseURL | relLangURL }}"><i class="fas fa-home-alt"></i> Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ "/categories/" | relLangURL }}">Kategori</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
-          </ol>
-        </nav>
-        <h1 class="page-title">{{ .Title }}</h1>
-      </header>
-
-      <div class="post-list-container">
-        {{ range .Paginator.Pages }}
-          <article class="post-card">
-            <a href="{{ .Permalink }}" class="post-card-link">
-              
-              {{/* BLOK YANG DIMULAI DI SINI */}}
-              {{ $imageResource := .Resources.GetMatch .Params.image }}
-              {{ if $imageResource }}
-                <div class="post-card-image-wrapper">
-                  <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
-                </div>
+      {{/* ================================================================ */}}
+      {{/* === TAMPILAN UNTUK HALAMAN KATEGORI INDIVIDUAL (/categories/nama-kategori) === */}}
+      {{/* ================================================================ */}}
+      
+      {{/* --- SKELETON SCREEN STRUCTURE UNTUK INDIVIDUAL KATEGORI --- */}}
+      <div class="skeleton-wrapper">
+          <header class="breadcrumb-header">
+              <div class="skeleton skeleton-text" style="width: 40%; height: 20px; margin-bottom: 20px;"></div>
+              <div class="skeleton skeleton-title" style="width: 60%; height: 40px;"></div>
+          </header>
+          <div class="post-list-container">
+              {{ range seq 6 }}
+              <article class="post-card skeleton-card">
+                  <div class="skeleton skeleton-image"></div>
+                  <div class="post-card-content">
+                      <h3 class="skeleton skeleton-text"></h3>
+                      <p class="skeleton skeleton-text" style="width: 70%;"></p>
+                  </div>
+              </article>
               {{ end }}
-              {{/* BLOK YANG DIPERBAIKI BERAKHIR DI SINI */}}
-
-              <div class="post-card-content">
-                <h3 class="post-card-title">{{ .Title }}</h3>
-                <div class="post-card-tags">
-                  {{ with .Params.tags }}{{ range first 2 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
-                </div>
-              </div>
-            </a>
-          </article>
-        {{ end }}
+          </div>
       </div>
+      
+      <div class="actual-content">
+        <header class="breadcrumb-header">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{{ .Site.BaseURL | relLangURL }}"><i class="fas fa-home-alt"></i> Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ "/categories/" | relLangURL }}">Kategori</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+            </ol>
+          </nav>
+          <h1 class="page-title">{{ .Title }}</h1>
+        </header>
 
-      {{ partial "custom_pagination.html" . }}
+        <div class="post-list-container">
+          {{ range .Paginator.Pages }}
+            <article class="post-card">
+              <a href="{{ .Permalink }}" class="post-card-link">
+                
+                {{ $imageResource := .Resources.GetMatch .Params.image }}
+                {{ if $imageResource }}
+                  <div class="post-card-image-wrapper">
+                    {{ $resizedImg := $imageResource.Fill "400x225 webp Center" }}
+                    <img src="{{ $resizedImg.Permalink }}" width="{{ $resizedImg.Width }}" height="{{ $resizedImg.Height }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
+                  </div>
+                {{ end }}
+
+                <div class="post-card-content">
+                  <h3 class="post-card-title">{{ .Title }}</h3>
+                  <div class="post-card-tags">
+                    {{ with .Params.tags }}{{ range first 2 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
+                  </div>
+                </div>
+              </a>
+            </article>
+          {{ end }}
+        </div>
+
+        {{ partial "custom_pagination.html" . }}
+      </div>
 
     {{end}}
   </div>
@@ -167,11 +513,17 @@
 
 </div>
 </div>
+
 <script>
     window.addEventListener('load', function() {
-        const wrapper = document.querySelector('.category-page-content');
-        if (wrapper) {
-            wrapper.classList.remove('is-loading');
+        const categoryWrapper = document.querySelector('.category-page-content');
+        if (categoryWrapper) {
+            categoryWrapper.classList.remove('is-loading');
+        }
+        
+        const postSectionsWrapper = document.querySelector('.post-sections-wrapper');
+        if (postSectionsWrapper) {
+            postSectionsWrapper.classList.remove('is-loading');
         }
     });
 </script>
