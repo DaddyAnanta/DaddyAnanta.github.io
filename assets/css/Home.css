@@ -449,6 +449,10 @@
     padding-top: 80px; 
   }
 
+ .recent-grid {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+
   .recent-articles-section {
     padding: 50px 15px;
   }
