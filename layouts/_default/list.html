@@ -1,34 +1,30 @@
 {{ define "main" }}
 
-{{/* HERO HEADER: Menggunakan warna solid untuk efek Color Blocking */}}
+{{ $paginator := .Paginate site.RegularPages 9 }}
+
+{{ if eq $paginator.PageNumber 1 }}
 <header class="header">
   <div class="header-content">
-    <h1>Selamat Datang!</h1>
-    <p>Jelajahi insight berbasis data, analisis mendalam, dan tips praktis untuk mengembangkan pemahaman Anda.</p>
+    <h1>Catatan Teknis MEP & Rekayasa Sistem</h1>
+    <p>Eksplorasi mendalam tempat bertemunya ilmu teknik mekanikal, elektrikal, dan keahlian pemeliharaan fasilitas untuk mendukung efisiensi operasional.</p>
     <div class="header-start">
-      <a href="#category-showcase" class="accordion-link" aria-label="Kunjungi profil Instagram">Mulai Jelajahi <i class="fas fa-arrow-right"></i></a>
+      <a href="#category-showcase" aria-label="Mulai eksplorasi wawasan teknis">Mulai Jelajahi <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </header>
 
-{{/* ================================================================ */}}
-{{/* === BAGIAN KATEGORI INTERAKTIF (Color Blocking) === */}}
-{{/* ================================================================ */}}
 <section id="category-showcase" class="main-wrapper" data-aos="fade-up">
   <div class="container">
-    <h2 class="section-title">Jelajahi Kategori Analisis & Portofolio</h2>
-    <p class="section-subtitle">Studi kasus, konsep teknis, dan wawasan perilaku.</p>
+    <h2 class="section-title">Jelajahi Modul Teknis & Rekayasa</h2>
+    <p class="section-subtitle">Studi kasus MEP, pemecahan masalah sistem, dan konsep dasar sains.</p>
 
     <div class="category-grid-container">
-
-      {{/* --- Kotak Informasi yang Terintegrasi --- */}}
       <div class="info-box-card">
         <i class="fas fa-info-circle info-icon"></i>
         <h3 id="info-title">PROJECT.LOG</h3>
         <p id="info-description">Arahkan kursor ke sebuah modul untuk melihat deskripsinya. Mulai jelajahi!</p>
       </div>
 
-	{{/* --- Kartu Kategori --- */}}
       {{- $kategori := first 4 .Site.Taxonomies.categories.ByCount -}}
       {{- if ge (len $kategori) 1 -}}
         {{- range $kategori -}}
@@ -36,29 +32,27 @@
           {{- $color_class := "" -}}
           {{- $icon_class := "" -}}
 
-          {{/* --- PENYESUAIAN BARU DIMULAI DI SINI --- */}}
-         {{- if eq $category_slug "civil-engineering" -}}
+          {{- if eq $category_slug "civil-engineering" -}}
             {{- $color_class = "cat-bg--civil-engineering" -}}
-            {{- $icon_class = "fas fa-hard-hat" -}} {{/* Topi proyek/bangunan */}}
+            {{- $icon_class = "fas fa-hard-hat" -}}
           {{- else if eq $category_slug "electrical-engineering" -}}
             {{- $color_class = "cat-bg--electrical-engineering" -}}
-            {{- $icon_class = "fas fa-bolt" -}} {{/* Petir/Listrik */}}
+            {{- $icon_class = "fas fa-bolt" -}}
           {{- else if eq $category_slug "mechanical-engineering" -}}
             {{- $color_class = "cat-bg--mechanical-engineering" -}}
-            {{- $icon_class = "fas fa-cogs" -}} {{/* Roda gigi/Mesin */}}
+            {{- $icon_class = "fas fa-cogs" -}}
           {{- else if eq $category_slug "plumbing-engineering" -}}
             {{- $color_class = "cat-bg--plumbing-engineering" -}}
-            {{- $icon_class = "fas fa-faucet" -}} {{/* Keran air / Pipa */}}
+            {{- $icon_class = "fas fa-faucet" -}}
           {{- else if eq $category_slug "physics" -}}
             {{- $color_class = "cat-bg--physics" -}}
-            {{- $icon_class = "fas fa-atom" -}} {{/* Atom/Fisika */}}
+            {{- $icon_class = "fas fa-atom" -}}
           {{- else if eq $category_slug "math" -}}
             {{- $color_class = "cat-bg--math" -}}
-            {{- $icon_class = "fas fa-square-root-alt" -}} {{/* Akar kuadrat/Matematika */}}
-          {{/* --- AKHIR PENYESUAIAN --- */}}
+            {{- $icon_class = "fas fa-square-root-alt" -}}
           {{- else -}}
             {{- $color_class = "cat-color--default" -}}
-            {{- $icon_class = "fas fa-tag" -}} {{/* Label umum */}}
+            {{- $icon_class = "fas fa-tag" -}}
           {{- end -}}
           
           <a href="{{ .Page.Permalink }}" class="category-card {{ $color_class }}" data-key="{{ $category_slug }}">
@@ -73,10 +67,11 @@
     </div>
   </div>
 </section>
+{{ else }}
+<div class="page-offset"></div>
+{{ end }}
 
 <div class="accordion" id="cart-accordion">
-  
-  {{/* --- Bagian Pencarian --- */}}
   <div class="searchButton_accordeon">
     <form action="/search/" method="GET">
       <i class="fas fa-search search-icon"></i>
@@ -84,7 +79,6 @@
     </form>
   </div>
 
-  {{/* --- Tautan Navigasi Utama --- */}}
   <div class="accordion-item">
     <a href="/#about-me" class="accordion-link">
       <i class="fas fa-user-circle icon"></i>
@@ -100,7 +94,6 @@
     </a>
   </div>
 
-  {{/* --- Dropdown Kategori --- */}}
   <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-folder icon"></i> Kategori</span>
     <span class="accordion-icon">&#9660;</span>
@@ -115,7 +108,6 @@
     </div>
   </div>
 
-  {{/* --- Dropdown Tag --- */}}
   <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-tags icon"></i> Tags</span>
     <span class="accordion-icon">&#9660;</span>
@@ -129,135 +121,88 @@
       {{ end }}
     </div>
   </div>
-
 </div>
 
-{{/* ================================================================ */}}
-{{/* === BAGIAN DAFTAR POSTINGAN (DENGAN SKELETON SCREEN) === */}}
-{{/* ================================================================ */}}
-<div class="post-sections-wrapper is-loading">
+<section id="recent-articles" class="recent-articles-section" data-aos="fade-up">
+  <div class="container">
+    <header class="recent-header">
+      {{ if eq $paginator.PageNumber 1 }}
+        <h2 class="section-title text-center" style="text-align: center;">Artikel Terbaru</h2>
+        <p class="section-subtitle text-center" style="text-align: center; margin-bottom: 40px; color: #6c757d;">Kumpulan catatan teknis, studi kasus, dan wawasan terbaru.</p>
+      {{ else }}
+        <h2 class="section-title text-center" style="text-align: center;">Halaman {{ $paginator.PageNumber }}</h2>
+        <p class="section-subtitle text-center" style="text-align: center; margin-bottom: 40px; color: #6c757d;">Melanjutkan daftar artikel dan catatan teknis.</p>
+      {{ end }}
+    </header>
 
-  {{/* --- SKELETON SCREEN STRUCTURE --- */}}
-  <div class="skeleton-wrapper">
-    {{ range seq 2 }}
-      <section class="category-post-list skeleton-section">
-        <div class="container">
-          <header class="category-header">
-            <h2 class="skeleton skeleton-title"></h2>
-            <div class="skeleton skeleton-button"></div>
-          </header>
-          <div class="featured-post-layout">
-            <article class="featured-post skeleton-card">
-              <div class="skeleton skeleton-image"></div>
-              <div class="post-card-content">
-                <h3 class="skeleton skeleton-text"></h3>
-                <p class="skeleton skeleton-text"></p>
-                <p class="skeleton skeleton-text"></p>
-              </div>
-            </article>
-            <div class="secondary-post-grid">
-              <div class="post-card-secondary skeleton-card">
-                <div class="skeleton skeleton-image-sm"></div>
-                <div class="skeleton skeleton-text-sm"></div>
-              </div>
-              <div class="post-card-secondary skeleton-card">
-                <div class="skeleton skeleton-image-sm"></div>
-                <div class="skeleton skeleton-text-sm"></div>
-              </div>
+    <div class="post-sections-wrapper is-loading">
+      <div class="skeleton-wrapper recent-grid">
+        {{ range seq 3 }}
+          <article class="recent-post-card skeleton-card">
+            <div class="skeleton skeleton-image"></div>
+            <div class="recent-post-content">
+              <h3 class="skeleton skeleton-text" style="height: 24px; margin-bottom: 15px;"></h3>
+              <p class="skeleton skeleton-text"></p>
+              <p class="skeleton skeleton-text" style="width: 70%;"></p>
             </div>
-          </div>
-        </div>
-      </section>
-    {{ end }}
-  </div>
+          </article>
+        {{ end }}
+      </div>
 
-  {{/* --- ACTUAL CONTENT (Dengan perbaikan gambar) --- */}}
-  <div class="actual-content">
-    {{/* --- PENYESUAIAN KATEGORI DIMULAI DI SINI --- */}}
-    {{ $categoriesToShow := slice "Civil Engineering" "Electrical Engineering" "Mechanical Engineering" "Plumbing Engineering" "Physics" "Math" }}
-    {{/* --- AKHIR PENYESUAIAN --- */}}
-    
-    {{ range $index, $categoryName := $categoriesToShow }}
-      {{ $categorySlug := . | urlize }}
-      {{ $pagesInCategory := where site.RegularPages "Params.categories" "intersect" (slice $categoryName) }}
-      {{ if gt (len $pagesInCategory) 0 }}
-        {{ $bgColorClass := printf "cat-bg--%s" $categorySlug }}
-        {{ $layoutClass := "layout--featured-left" }}
-        {{ if modBool $index 2 }}{{ $layoutClass = "layout--featured-right" }}{{ end }}
-        
-        <section class="category-post-list  {{ $layoutClass }}" data-aos="fade-up"> {{/*  {{ $bgColorClass }}  */}}
-          <div class="container">
-            <header class="category-header">
-              <h2 class="category-title">{{ $categoryName }}</h2>
-              <a href="{{ printf "/categories/%s/" $categorySlug | relLangURL }}" class="category-see-all"> Jelajahi Semua <i class="fa-sharp-duotone fa-solid fa-person-walking-arrow-right"></i></a>
-            </header>
-            <div class="featured-post-layout">
-              {{ $featuredPost := index $pagesInCategory 0 }}
-              <article class="featured-post">
-                <a href="{{ $featuredPost.Permalink }}" class="post-card-link">
-                  
-                  {{/* --- PERBAIKAN 1: BAGIAN FEATURED POST --- */}}
-                  {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
-                  {{ if $imageResource }}
-                    <div class="post-card-image-wrapper">
-                    {{ $resizedImg := $imageResource.Fill "720x405 Center" }}
-  		      <img src="{{ $resizedImg.Permalink }}" class="post-card-image" alt="{{ $featuredPost.Title }}" loading="lazy">
-                    </div>
-                  {{ end }}
-                  
-                  <div class="post-card-content">
-                    <h3 class="post-card-title">{{ $featuredPost.Title }}</h3>
-                    <p class="post-card-description">{{ $featuredPost.Summary | plainify | truncate 150 "..." }}</p>
-                    <div class="post-card-tags">
-                      {{ with $featuredPost.Params.tags }}{{ range first 3 . }}<span class="post-card-tag">{{ . }}</span>{{ end }}{{ end }}
-                    </div>
-                  </div>
-                </a>
-              </article>
+      <div class="actual-content recent-grid">
+        {{ range $paginator.Pages }}
+          <article class="recent-post-card">
+            <a href="{{ .Permalink }}" class="post-card-link">
               
-              {{ $otherPosts := after 1 $pagesInCategory }}
-              {{ if gt (len $otherPosts) 0 }}
-                <div class="secondary-post-grid">
-                  {{ range first 4 $otherPosts }}
-                    <article class="post-card-secondary">
-                      <a href="{{ .Permalink }}" class="post-card-link">
-                        
-                        {{/* --- PERBAIKAN 2: BAGIAN SECONDARY POST --- */}}
-		{{ $imageResource := .Resources.GetMatch .Params.image }}
-		{{ if $imageResource }}
-		  <div class="post-card-image-wrapper-secondary">
-		    {{ $resizedImgSec := $imageResource.Resize "300x" }}
-		    <img src="{{ $resizedImgSec.Permalink }}" width="{{ $resizedImgSec.Width }}" height="{{ $resizedImgSec.Height }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
-		  </div>
-		{{ end }}
-                        
-                        <div class="post-card-content-secondary">
-                          <h4 class="post-card-title-secondary">{{ .Title }}</h4>
-                        </div>
-                      </a>
-                    </article>
+              {{ $imageResource := .Resources.GetMatch .Params.image }}
+              {{ if $imageResource }}
+                <div class="recent-post-image-wrapper">
+                  {{ $resizedImg := $imageResource.Fill "600x338 webp Center" }}
+                  <img src="{{ $resizedImg.Permalink }}" width="{{ $resizedImg.Width }}" height="{{ $resizedImg.Height }}" class="recent-post-image" alt="{{ .Title }}" loading="lazy">
+                </div>
+              {{ else }}
+                 <div class="recent-post-image-wrapper" style="background-color: #f1f5f9;"></div>
+              {{ end }}
+              
+              <div class="recent-post-content">
+                <div class="post-meta">
+                  <span class="post-date"><i class="far fa-calendar-alt"></i> {{ .Date.Format "02 Jan 2006" }}</span>
+                </div>
+                
+                <h3 class="recent-post-title">{{ .Title }}</h3>
+                
+                {{ $firstP := index (findRE "(?s)<p>.*?</p>" .Content 1) 0 | default .Summary | plainify }}
+                {{ $cleanDesc := replaceRE "^(?i)(hierki|hierarki)\\W*" "" $firstP }}
+                
+                <p class="recent-post-description">{{ $cleanDesc }}</p>
+                
+                <div class="recent-post-tags">
+                  {{ with .Params.categories }}
+                    {{ range first 2 . }}
+                      <span class="recent-post-tag">{{ . }}</span>
+                    {{ end }}
                   {{ end }}
                 </div>
-              {{ end }}
-            </div>
-          </div>
-        </section>
-      {{ end }}
-    {{ end }}
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+      
+      <div style="margin-top: 50px;">
+         {{ partial "custom_pagination.html" . }}
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-{{/* ================================================================ */}}
-{{/* === BAGIAN TOOLS === */}}
-{{/* ================================================================ */}}
+{{ if eq $paginator.PageNumber 1 }}
 <section id="tools-showcase" class="tools-section" data-aos="fade-up">
   <div class="container">
     <h2 class="section-title">Tech Stack & Tools</h2>
     <p class="section-subtitle">Berikut adalah perangkat keras, lunak, dan analitik yang saya operasikan untuk mendukung operasional MEP dan pemeliharaan fasilitas.</p>
 
     <div class="tools-grid">
-
-      {{/* --- Kategori 1: Mechanical & Electrical --- */}}
       <div class="tool-category">
         <h3 class="category-title">Mechanical & Electrical</h3>
         <div class="tool-items">
@@ -268,7 +213,6 @@
         </div>
       </div>
 
-      {{/* --- Kategori 2: IT & Data Processing --- */}}
       <div class="tool-category">
         <h3 class="category-title">IT & Data Processing</h3>
         <div class="tool-items">
@@ -279,7 +223,6 @@
         </div>
       </div>
 
-      {{/* --- Kategori 3: System Audit & Maintenance --- */}}
       <div class="tool-category">
         <h3 class="category-title">System Audit & Maintenance</h3>
         <div class="tool-items">
@@ -288,38 +231,34 @@
           <div class="tool-card"><i class="fas fa-brain tool-icon machine-learning"></i><span>Machine Learning</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
     
-{{/* ================================================================ */}}
-{{/* === BAGIAN ABOUT ME / PORTOFOLIO === */}}
-{{/* ================================================================ */}}
 <section id="about-me" class="portofolio" data-aos="fade-up">
   <div class="about-me-container">
     <h2 class="section-title">ABOUT ME</h2>
     <div class="home">
       <div class="home-img">
         <img src="/images/profil.png" alt="Profil Daddy" width="336" height="336" loading="lazy">
-	<div class="social-icons">
-	  <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank" aria-label="Kunjungi profil LinkedIn"><i class="fab fa-linkedin"></i></a>
-	  <a href="https://github.com/DaddyAnanta/" target="_blank" aria-label="Kunjungi profil GitHub"><i class="fab fa-github"></i></a>
-	  <a href="https://www.instagram.com/daddyananta/" target="_blank" aria-label="Kunjungi profil Instagram"><i class="fab fa-instagram"></i></a>
-	</div>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank" aria-label="Kunjungi profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/DaddyAnanta/" target="_blank" aria-label="Kunjungi profil GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/daddyananta/" target="_blank" aria-label="Kunjungi profil Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
         <a href="mailto:daddyananta123@yahoo.com?subject=Halo" class="btn" target="_blank" aria-label="Kunjungi Email">Email</a>
       </div>
       <div class="home-content">
         <div class="title">
           <h1>Hi, My Name is <span>Daddy Ananta S.</span></h1>
           <h3 class="typing-text">I'm Passionate About 
-		  <span class="word-slider">
-		    <span class="word">Electronics Technician</span>
-		    <span class="word">Mechanical & Fabrication</span>
-		    <span class="word">System Auditor</span>
-		    <span class="word">Technical Support</span>
-		  </span>
-	  </h3>	
+            <span class="word-slider">
+              <span class="word">Electronics Technician</span>
+              <span class="word">Mechanical & Fabrication</span>
+              <span class="word">System Auditor</span>
+              <span class="word">Technical Support</span>
+            </span>
+          </h3> 
         </div>
         <p>Saya adalah seorang teknisi dengan keahlian pemecahan masalah mekanikal dan elektronika secara <i>hands-on</i>. Saya siap mengaplikasikan ketelitian dalam inspeksi data, audit sistem, dan <i>preventive maintenance</i> untuk mendukung operasional MEP serta pemeliharaan fasilitas.</p>
         <p>Saya memadukan ketelitian teknis lapangan dengan pendekatan analitis melalui pengerjaan berikut:</p>
@@ -337,25 +276,17 @@
             <span><strong>System Audit & Data Processing:</strong> Memanfaatkan kemampuan Matematika/Statistika, Python, SQL, serta Excel untuk eksplorasi data (EDA).</span>
           </li>
         </ul>
-
         <p>Ditunjang oleh latar belakang Sarjana Psikologi dan predikat baik di program Data Science & AI (Skor: 93/100), saya memiliki pola pikir logis yang relevan untuk pelaporan teknis yang akurat dan penyelesaian masalah di lapangan.</p>
         <p><strong>Keahlian Utama:</strong> Sistem Elektronika Arus Lemah, Pengoperasian Power Tools, Soldering & Flashing BIOS, Hardware Troubleshooting, Instalasi OS & Printer, dan Pengolahan Data.</p>
       </div>
     </div>
   </div>
 </section>
+{{ end }}
 
-
-
-{{/* --- SCRIPT UNTUK INFOBOX & SKELETON --- */}}
 <script>
-  // InfoBox Logic (Hanya berjalan di Desktop)
   document.addEventListener('DOMContentLoaded', function() {
-    
-    // Cek apakah lebar layar lebih besar dari 991px (Desktop)
     if (window.innerWidth > 991) {
-      
-      /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
       const infoData = {
         'civil-engineering': { 
           title: 'Civil Engineering', 
@@ -382,7 +313,6 @@
           description: 'Fondasi matematika, mulai dari kalkulus, aljabar linier, hingga penerapan logika presisi dalam pemecahan masalah.' 
         }
       };
-      /* --- AKHIR PENYESUAIAN SCRIPT --- */
       
       const cards = document.querySelectorAll('.category-card');
       const gridContainer = document.querySelector('.category-grid-container');
@@ -420,10 +350,9 @@
           }
         });
       }
-    } // Akhir dari kondisi pendeteksi layar desktop
+    } 
   });
 
-  // Skeleton Screen Logic (Tetap berjalan di semua perangkat)
   window.addEventListener('load', function() {
     const wrapper = document.querySelector('.post-sections-wrapper');
     if (wrapper) {
