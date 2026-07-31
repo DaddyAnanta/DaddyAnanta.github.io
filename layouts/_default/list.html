@@ -204,7 +204,8 @@
                   {{ $imageResource := $featuredPost.Resources.GetMatch $featuredPost.Params.image }}
                   {{ if $imageResource }}
                     <div class="post-card-image-wrapper">
-                      <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ $featuredPost.Title }}" class="post-card-image" loading="lazy">
+                    {{ $resizedImg := $imageResource.Resize "650x" }}
+  		      <img src="{{ $resizedImg.Permalink }}" width="{{ $resizedImg.Width }}" height="{{ $resizedImg.Height }}" alt="{{ $featuredPost.Title }}" loading="lazy">
                     </div>
                   {{ end }}
                   
