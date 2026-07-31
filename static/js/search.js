@@ -5,7 +5,7 @@ var currentPage = 1;
 var searchResults = [];
 var fuse;
 
-// Opsi Fuse.js - disederhanakan untuk menghindari duplikasi
+// Opsi Fuse.js
 var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
@@ -25,30 +25,45 @@ var fuseOptions = {
 };
 
 function initSearchFromURL() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get('s');
-  const searchInput = $("#search-query");
+  var urlParams = new URLSearchParams(window.location.search);
+  var searchQuery = urlParams.get('s');
+  
+  // Baca parameter halaman dari URL. Jika tidak ada, tetapkan 1
+  var pageQuery = parseInt(urlParams.get('page')) || 1; 
+  var searchInput = $("#search-query");
 
   if (searchQuery && searchInput.length) {
     searchInput.val(searchQuery);
-    executeSearch(searchQuery);
+    // Panggil pencarian dan berikan info halaman dari URL
+    executeSearch(searchQuery, pageQuery); 
   } else {
     $('#search-results').html("<p style='grid-column: 1 / -1; text-align: center; color: #666;'>Ketikkan sesuatu untuk mulai mencari...</p>");
   }
 }
 
-function executeSearch(searchQuery) {
+// Tambahkan argumen targetPage (default: 1)
+function executeSearch(searchQuery, targetPage = 1) { 
   if (!fuse) {
     console.warn("Fuse belum diinisialisasi");
     return;
   }
+  
   var result = fuse.search(searchQuery);
   searchResults = result;
+
   if (searchResults.length > 0) {
-    currentPage = 1;
+    // Atur halaman aktif sesuai target (dari URL atau reset)
+    currentPage = targetPage; 
+
+    // Validasi agar halaman tidak melebihi total yang ada
+    var totalPages = Math.ceil(searchResults.length / resultsPerPage);
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
     displayPage(currentPage);
   } else {
     $('#search-results').html("<p style='grid-column: 1 / -1; text-align: center; color: #666;'>Hasil tidak ditemukan. Coba kata kunci lain.</p>");
+    $('#pagination-container').empty();
   }
 }
 
@@ -120,7 +135,6 @@ function renderPagination() {
     if (page > lastPage + 1) {
       paginationHtml += '<span class="page-ellipsis">...</span>';
     }
-    
     paginationHtml += `<button class="page-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
     lastPage = page;
   });
@@ -132,9 +146,20 @@ function renderPagination() {
   paginationHtml += '</div>';
   $('#pagination-container').html(paginationHtml);
 
+  // Aksi ketika tombol paginasi ditekan
   $('.page-btn').click(function () {
-    currentPage = parseInt($(this).attr('data-page'));
+    var newPage = parseInt($(this).attr('data-page'));
+    currentPage = newPage;
+    
+    // Ubah URL secara instan tanpa me-refresh halaman
+    var urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('s', $('#search-query').val());
+    urlParams.set('page', currentPage);
+    var newUrl = window.location.pathname + '?' + urlParams.toString();
+    window.history.pushState({path:newUrl}, '', newUrl);
+
     displayPage(currentPage);
+    
     if (document.querySelector('.search-header')) {
       document.querySelector('.search-header').scrollIntoView({ behavior: 'smooth' });
     }
@@ -163,7 +188,7 @@ function render(templateString, data) {
   return copy;
 }
 
-// Eksekusi setelah DOM siap
+// Eksekusi ketika halaman siap dimuat
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof jQuery === 'undefined') {
     console.error("Error: jQuery belum dimuat oleh browser.");
@@ -177,15 +202,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearchFromURL();
   }).fail(function(jqxhr, textStatus, error) {
     console.error("Gagal memuat index.json: ", textStatus, error);
-    $('#search-results').html("<p style='grid-column: 1 / -1; text-align: center; color: #d1211b;'>Terjadi kesalahan: Gagal memuat data pencarian (index.json). Pastikan file tersebut tersedia.</p>");
+    $('#search-results').html("<p style='grid-column: 1 / -1; text-align: center; color: #d1211b;'>Terjadi kesalahan: Gagal memuat data pencarian (index.json).</p>");
   });
 
+  // Aksi ketika pengunjung mengetik di kotak pencarian
   $("#search-query").on("input", function () {
     var searchQuery = $(this).val().trim();
     if (searchQuery.length > 0) {
-      executeSearch(searchQuery);
+      // Jika mengetik kata kunci baru, ubah URL dan paksa reset ke halaman 1
+      var newUrl = window.location.pathname + '?s=' + encodeURIComponent(searchQuery) + '&page=1';
+      window.history.replaceState({path:newUrl}, '', newUrl);
+      
+      executeSearch(searchQuery, 1);
     } else {
+      window.history.replaceState({path:window.location.pathname}, '', window.location.pathname);
       $('#search-results').html("<p style='grid-column: 1 / -1; text-align: center; color: #666;'>Ketikkan sesuatu untuk mulai mencari...</p>");
+      $('#pagination-container').empty();
     }
+  });
+  
+  // Memastikan fungsi navigasi browser (Tombol Back/Forward) bekerja normal
+  window.addEventListener('popstate', function() {
+    initSearchFromURL();
   });
 });
