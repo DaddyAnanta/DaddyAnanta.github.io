@@ -1,0 +1,811 @@
+/* ================================================================== */
+/* === ROOT VARIABLES (VARIABEL UTAMA) === */
+/* ================================================================== */
+
+:root {
+  /* Font & Transisi */
+  --font-primary: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-monospace: 'IBM Plex Mono', 'Courier New', monospace;
+  --transition-speed: 0.3s;
+  --blog-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Warna Dasar */
+  --color-text-light: #f9f9f9;
+  --color-text-dark: #212529;
+  --color-text-secondary: #5a6a7b; /* Sedikit lebih gelap untuk kontras */
+
+  /* Tema Header (Color Block) */
+  --header-bg: #1a202c; /* Warna solid gelap untuk header */
+  --button-bg: #ffba08; /* Warna kuning sebagai aksen */
+  --button-text: #1a202c;
+  --button-hover-bg: #f48c06;
+  --button-hover-text: var(--color-text-light);
+
+  /* Tema Category Showcase (Color Block) */
+  --showcase-bg: #ffffff; /* Latar putih bersih */
+  --showcase-card-bg: #f8f9fa;
+  --showcase-card-border: #e9ecef;
+  --showcase-info-bg: #1a202c;
+  --showcase-info-text: #a0aec0;
+  --showcase-info-accent: #4299e1;
+
+  /* Tema Blog Section */
+  --blog-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  --blog-card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --blog-border-radius: 12px;
+
+/* Warna Latar Belakang (Sekarang menggunakan warna solid/tegas) */
+  --cat-bg-civil-engineering: #2563eb;       /* Biru */
+  --cat-bg-electrical-engineering: #d97706;  /* Oranye */
+  --cat-bg-mechanical-engineering: #dc2626;  /* Merah */
+  --cat-bg-plumbing-engineering: #0d9488;    /* Teal/Cyan */
+  --cat-bg-physics: #9333ea;                 /* Ungu */
+  --cat-bg-math: #10b981;                    /* Hijau */
+  --cat-bg-default: #7F8C8D;                 /* Abu-abu */
+
+  /* Warna Ikon & Teks (Semuanya Putih Polos) */
+  --color-white-pure: #ffffff;
+}
+
+
+/* ================================================================== */
+/* === HEADER (FULL-WIDTH STYLE) === */
+/* ================================================================== */
+
+.header {
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-light);
+  padding: 100px 20px; 
+  min-height: 80vh;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-content {
+  max-width: 700px;
+  z-index: 2;
+}
+
+.header-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+
+
+.header-content p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.header-start {
+  background-color: var(--button-bg);
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.header-start a {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--button-text);
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-start:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.header-start:hover a {
+  color: var(--button-hover-text);
+}
+
+.connected-dot-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ================================================================== */
+/* === CATEGORY SHOWCASE (FULL-WIDTH STYLE) === */
+/* ================================================================== */
+
+.main-wrapper {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.main-wrapper .section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto 40px auto;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.category-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+
+}
+
+.info-box-card {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background-color: #1a202c;
+  color: #a0aec0;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-box-card .info-icon {
+  font-size: 2rem;
+  color: #4299e1;
+  margin-bottom: 15px;
+}
+
+.info-box-card #info-title {
+  font-family: var(--font-monospace, monospace);
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.info-box-card #info-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  transition: opacity 0.3s ease;
+}
+
+.category-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 25px;
+  text-decoration: none;
+  color: #212529;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-color: #007bff;
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  width: 45px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.card-content { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.category-name { 
+  color: #fff;
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  margin: 0 0 4px 0; 
+}
+
+.category-count { 
+  font-size: 0.85rem; 
+  color: #fff; 
+  margin: 0; 
+}
+
+
+/* ================================================================== */
+/* === WARNA IKON & TEKS SPESIFIK (PUTIH POLOS) === */
+/* ================================================================== */
+
+/* Mengubah warna teks judul kategori menjadi putih */
+.cat-color--civil-engineering .category-name,
+.cat-color--electrical-engineering .category-name,
+.cat-color--mechanical-engineering .category-name,
+.cat-color--plumbing-engineering .category-name,
+.cat-color--physics .category-name,
+.cat-color--math .category-name,
+.cat-color--default .category-name {
+  color: var(--color-white-pure) !important;
+}
+
+/* Mengubah warna ikon menjadi putih */
+.cat-color--civil-engineering .card-icon,
+.cat-color--electrical-engineering .card-icon,
+.cat-color--mechanical-engineering .card-icon,
+.cat-color--plumbing-engineering .card-icon,
+.cat-color--physics .card-icon,
+.cat-color--math .card-icon,
+.cat-color--default .card-icon { 
+  color: var(--color-white-pure) !important; 
+}
+
+/* ================================================================== */
+/* === BLOG POST SECTIONS (NEW LAYOUT) === */
+/* ================================================================== */
+
+/* Warna Latar Belakang untuk Setiap Kategori Blog */
+.cat-bg--civil-engineering { 
+  background-color: var(--cat-bg-civil-engineering); 
+}
+
+.cat-bg--electrical-engineering { 
+  background-color: var(--cat-bg-electrical-engineering); 
+}
+
+.cat-bg--mechanical-engineering { 
+  background-color: var(--cat-bg-mechanical-engineering); 
+}
+
+.cat-bg--plumbing-engineering { 
+  background-color: var(--cat-bg-plumbing-engineering); 
+}
+
+.cat-bg--physics { 
+  background-color: var(--cat-bg-physics); 
+}
+
+.cat-bg--math { 
+  background-color: var(--cat-bg-math); 
+}
+
+.cat-bg--default { 
+  background-color: var(--cat-bg-default); 
+}
+
+
+
+.category-post-list {
+  padding: 60px 20px; 
+  transition: background-color 0.5s ease;
+  width: 100%;
+}
+
+.category-post-list .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.category-header .category-title {
+  text-align: left;
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 700;
+}
+
+.category-see-all {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: var(--blog-transition);
+  white-space: nowrap;
+}
+
+.category-see-all:hover {
+  background-color: #fff;
+  box-shadow: var(--blog-card-shadow);
+  transform: translateY(-2px);
+}
+
+.featured-post-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.layout--featured-right { 
+  flex-direction: row-reverse; 
+}
+
+.featured-post {
+  flex: 2;
+  background-color: #fff;
+  border-radius: var(--blog-border-radius);
+  box-shadow: var(--blog-card-shadow);
+  overflow: hidden;
+  transition: var(--blog-transition);
+}
+
+.featured-post:hover { 
+  transform: translateY(-5px); 
+  box-shadow: var(--blog-card-shadow-hover); 
+}
+
+.featured-post .post-card-link { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.featured-post .post-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: inherit; 
+}
+
+.featured-post .post-card-image { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.featured-post .post-card-content { 
+  padding: 25px; 
+}
+
+.featured-post .post-card-title {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 15px 0;
+}
+
+.featured-post .post-card-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.featured-post .post-card-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
+
+.featured-post .post-card-tag {
+  background-color: rgba(0,0,0,0.05);
+  color: var(--color-text-secondary);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.secondary-post-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.post-card-secondary {
+  background-color: #fff;
+  border-radius: var(--blog-border-radius);
+  box-shadow: var(--blog-card-shadow);
+  overflow: hidden;
+  transition: var(--blog-transition);
+}
+
+.post-card-secondary:hover { 
+  transform: translateY(-5px); 
+  box-shadow: var(--blog-card-shadow-hover); 
+}
+
+.post-card-secondary .post-card-link { 
+  text-decoration: none; 
+  color: inherit; 
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; 
+}
+
+.post-card-image-wrapper-secondary {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: inherit;
+}
+
+.post-card-content-secondary { 
+  padding: 15px; 
+  flex-grow: 1; 
+}
+
+.post-card-title-secondary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+/* ================================================================== */
+/* === PROFESSIONAL TOOLS SECTION STYLES === */
+/* ================================================================== */
+
+.tools-section {
+  padding: 60px 0;
+  background-color: #f8f9fa; 
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tools-section .section-title {
+  margin-bottom: 10px;
+}
+
+.tools-section .section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.tool-category {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.tool-category .category-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tool-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 50px; 
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #495057;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-color: #ced4da;
+}
+
+.tool-icon {
+  font-size: 1.1rem;
+}
+
+/* ================================================================== */
+/* === WARNA IKON TOOLS & TECH STACK === */
+/* ================================================================== */
+
+/* --- Kategori 1: Mechanical & Electrical --- */
+.tool-icon.welding { color: #E67E22; }      /* Oranye Metalik */
+.tool-icon.soldering { color: #E74C3C; }    /* Merah Api */
+.tool-icon.multimeter { color: #F1C40F; }   /* Kuning Listrik */
+.tool-icon.bios { color: #27AE60; }         /* Hijau Papan Sirkuit (PCB) */
+
+/* --- Kategori 2: IT & Data Processing --- */
+.tool-icon.excel { color: #217346; }        /* Hijau Khas Microsoft Excel */
+.tool-icon.sql { color: #00758F; }          /* Biru SQL Server/MySQL */
+.tool-icon.python { color: #3776AB; }       /* Biru Khas Python */
+.tool-icon.c-lang { color: #00599C; }       /* Biru Gelap C Programming */
+
+/* --- Kategori 3: System Audit & Maintenance --- */
+.tool-icon.os-install { color: #3498DB; }   /* Biru Windows/Sistem */
+.tool-icon.eda { color: #9B59B6; }          /* Ungu Analitik Data */
+.tool-icon.machine-learning { color: #FF9800; } /* Oranye AI/Logika */s
+
+#tools-showcase, 
+.portofolio { 
+  padding: 60px 20px; 
+}
+
+.portofolio { 
+  background: #f8f9fa; 
+}
+
+.about-me-container {
+  padding: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 15px;
+  background: #ffffff; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.portofolio .home {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 4rem; 
+  flex-wrap: wrap;
+}
+
+.portofolio .home-content { 
+  flex: 1; 
+  min-width: 300px; 
+}
+
+.portofolio .home-content p {
+  text-align: justify; 
+  padding: 2px; 
+  margin-bottom: 1rem; 
+  line-height: 1.8; 
+  color: #555;
+}
+
+.portofolio .home-content h1 {
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  line-height: 1.3;
+  font-family: 'Poppins', sans-serif; 
+  color: #333;
+}
+
+.portofolio .home-content h1 span { 
+  color: #ff6b6b; 
+  font-weight: bold; 
+}
+
+.portofolio .home-content .title { 
+  margin-bottom: 10px; 
+}
+
+.portofolio .home-content h3 { 
+  font-size: 1.5rem; 
+  font-family: 'Poppins', sans-serif; 
+  color: #444; 
+}
+
+.portofolio .home-img { 
+  text-align: center; 
+  flex-shrink: 0; 
+}
+
+.portofolio .home-img img {
+  position: relative; 
+  width: 200px; 
+  border-radius: 50%;
+  border: 0.3rem solid #ff6b6b; 
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portofolio .home-img img:hover { 
+  transform: scale(1.05); 
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4); 
+}
+
+.portofolio .social-icons { 
+  display: flex; 
+  justify-content: center; 
+  gap: 1rem; 
+  margin: 1rem 0; 
+}
+
+.portofolio .social-icons a {
+  display: flex; 
+  padding: 10px; 
+  justify-content: center; 
+  align-items: center;
+  width: 3rem; 
+  height: 3rem; 
+  background-color: transparent; 
+  border: 0.2rem solid #b74b4b;
+  font-size: 1.5rem; 
+  border-radius: 50%; 
+  transition: 0.3s ease; 
+  color: #b74b4b;
+}
+
+.portofolio .social-icons a:hover {
+  color: white; 
+  transform: scale(1.2) translateY(-5px);
+  background-color: #b74b4b; 
+  box-shadow: 0 0 25px #b74b4b;
+}
+
+.portofolio .btn {
+  display: inline-block; 
+  padding: 0.8rem 2rem; 
+  background-color: #ff6b6b;
+  border-radius: 4rem; 
+  font-size: 1.2rem; 
+  font-family: 'Poppins', sans-serif;
+  color: white; 
+  font-weight: 600; 
+  border: 2px solid #ff6b6b; 
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portofolio .btn:hover { 
+  transform: scale(1.05); 
+  background-color: #e84118; 
+  box-shadow: 0 0 25px #e84118; 
+}
+
+.portofolio .typing-text { 
+  font-size: 2rem; 
+  font-weight: 600; 
+  font-family: 'Poppins', sans-serif; 
+  min-width: 280px; 
+  margin-bottom: 50px; 
+  color: #444; 
+}
+
+.portofolio .typing-text span { 
+  position: relative; 
+}
+
+.portofolio .typing-text span::before { 
+  content: "Software Developer"; 
+  color: #ff6b6b; 
+  animation: words 20s infinite; 
+}
+
+@keyframes words {
+  0%, 25% { 
+    content: "Electronics Technician"; 
+  }
+  26%, 50% { 
+    content: "Mechanical & Fabrication"; 
+  }
+  51%, 75% { 
+    content: "System Auditor"; 
+  }
+  76%, 100% { 
+    content: "Technical Support"; 
+  }
+}
+
+
+
+
+
+
+
+
+/* ================================================================== */
+/* === RESPONSIVE DESIGN === */
+/* ================================================================== */
+
+@media (max-width: 992px) {
+  .featured-post-layout, 
+  .layout--featured-right {
+    flex-direction: column;
+  }
+  
+  .main-wrapper .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category-grid-container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .info-box-card {
+    grid-column: span 2; 
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header { 
+    min-height: 60vh; 
+  }
+  
+  .header-content {
+    max-width: 100%;
+  }
+  
+  /* .connected-dot-container { display: none; } */
+  
+  .secondary-post-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .category-grid-container {
+    grid-template-columns: 1fr; 
+  }
+  
+  .info-box-card {
+    grid-column: span 1; 
+  }
+}
+
+@media (max-width: 480px) {
+  .secondary-post-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-post .post-card-content { 
+    padding: 20px; 
+  }
+  
+  .featured-post .post-card-title { 
+    font-size: 1.2rem; 
+  }
+  
+  .category-header { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 15px; 
+  }
+}

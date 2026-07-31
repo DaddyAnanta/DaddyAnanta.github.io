@@ -1,0 +1,1763 @@
+/* ================================================================== */
+/* === SINGLE POST & TOC STYLES (PROFESSIONAL) === */
+/* ================================================================== */
+
+/* --- Variabel Lokal --- */
+:root {
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-primary: #007bff;
+  --color-text: #343a40;
+  --color-text-muted: #6c757d;
+  --color-border: #e9ecef;
+  --color-bg-light: #f8f9fa;
+}
+
+/* --- Layout Utama --- */
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.single {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+}
+
+/* Single Head Section */
+.singleHead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: -40px;
+}
+
+.singleHeadTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.singleHeadImg {
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  align-items: center;
+}
+
+.singleHeadDetail {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 10px;
+  color: #888888;
+}
+
+.single-meta-item span {
+  font-size: 16px;
+}
+
+/* SINGLE TAGS START*/
+.single-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 15px 0; /* Hanya padding atas-bawah */
+  gap: 8px 12px;
+  border-top: 1px solid #eee;
+  margin-bottom: 50px;
+}
+
+.single-icon-tag {
+  /* Ikon tanpa background, hanya border */
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid #d1211b; /* Border warna merah */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-tag {
+  width: 18px;
+  height: 18px;
+  fill: #d1211b; /* Warna ikon menjadi merah */
+}
+
+.single-tags .tag {
+  background-color: transparent; /* Background transparan */
+  color: #333; /* Warna teks gelap */
+  border: 1px solid #ccc; /* Border abu-abu netral */
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.single-tags .tag:hover {
+  background-color: #d1211b; /* Saat hover, background menjadi merah */
+  border-color: #d1211b; /* Border juga merah */
+  color: #ffffff; /* Teks menjadi putih */
+}
+
+/* Youtube */
+/* 1. Kontainer Pembungkus Video */
+.youtube-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Batas lebar maksimal di desktop */
+  overflow: hidden;
+  padding-bottom: 56.25%; /* KUNCI UTAMA: Inilah rasio aspek 16:9 (9 / 16 = 0.5625) */
+  height: 0; /* Tinggi diatur oleh padding-bottom */
+  margin: 0 auto 1em auto; /* Membuat video rata tengah dan memberi jarak bawah */
+}
+
+/* 2. Styling untuk Iframe di Dalam Kontainer */
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Menghilangkan border bawaan */
+}
+
+/* 3. (Opsional) Styling untuk Caption Video */
+.video-caption {
+  font-size: 0.9rem; /* Ukuran yang pas, tidak terlalu besar */
+  color: #6c757d; /* Warna abu-abu yang soft */
+  text-align: center;
+  margin-top: -10px; /* Sedikit lebih dekat ke video */
+  padding: 0 10px;
+}
+/* Youtube end */
+/* SINGLE TAGS END*/
+
+.single-code {
+  font: inherit;
+  font-size: 100%;
+  background: blue;
+  border: inherit;
+  color: #515151;
+  text-align: center;
+  align-items: center;
+}
+
+.singleRelatedPosts {
+  margin-top: 60px;
+}
+
+.singleRelatedPosts a {
+  font-size: 18px;
+}
+
+.singleRelatedPosts a:hover {
+  color: rgb(89, 89, 192);
+}
+
+.singleHeadDetail :hover {
+  color: #888888;
+  color: var(--highlight-dark);
+}
+
+.singleHeadDesc {
+  font-size: 16px;
+  color: #444444;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+/* Content Section */
+.singleContent {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #333333;
+}
+
+/* TABLE OF CONTENT START */
+#TableOfContents {
+  background: #ffffff; 
+  color: #333; 
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.toc-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.toc-toggle {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff; 
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transition: background 0.3s;
+}
+
+.toc-toggle:hover {
+  background: #0056b3; 
+  color: #dee4eb;
+}
+
+#toc-content {
+  display: none; 
+  margin-top: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+#TableOfContents ul {
+  padding-left: 15px;
+}
+
+#TableOfContents li {
+  margin-bottom: 5px;
+}
+
+#TableOfContents a {
+  text-decoration: none;
+  color: #007bff; 
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+#TableOfContents a:hover {
+  color: #000000; 
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin-top: -80px; 
+}
+/* TABLE OF CONTENT END */
+
+.singleContent table {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  max-height: 450px;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.singleContent thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.singleContent th,
+.singleContent td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.9em;
+}
+
+.singleContent th {
+  background-color: #4A5568;
+  color: #FFFFFF;
+}
+
+.singleContent tbody tr:nth-child(odd) {
+  background-color: #F7FAFC;
+}
+
+.singleContent tbody tr:nth-child(even) {
+  background-color: #EDF2F7;
+}
+
+.singleContent tbody tr:hover {
+  background-color: #E2E8F0;
+  cursor: default;
+}
+
+.singleContent p {
+  margin-top: 0;
+  margin-bottom: 1rem; 
+  text-align: justify; 
+  text-indent: 2em; 
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6; 
+}
+
+.singleContent a {
+  color: #0056b3;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.singleContent a:hover {
+  color: #003d82;
+  border-bottom-color: transparent; 
+}
+
+/* Base style untuk semua heading */
+.singleContent h1,
+.singleContent h2,
+.singleContent h3,
+.singleContent h4 {
+  color: black;
+  text-align: left;
+  font-family: 'Roboto', sans-serif; 
+  line-height: 1.3;
+}
+
+.singleContent h1 {
+  font-size: 2.2rem; 
+  font-weight: bold;
+  margin: 2.5rem 0 0.8rem 0; 
+}
+
+.singleContent h2 {
+  font-size: 1.8rem;
+  margin: 2.5rem 0 0.8rem 0; 
+}
+
+.singleContent h3 {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.singleContent h4 {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.singleContent ul, 
+.singleContent ol {
+  padding-left: 20px; 
+  margin-bottom: 1rem;
+}
+
+.singleContent li {
+  text-align: justify; 
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.singleContent li p {
+  margin-bottom: 0;
+  text-indent: 0;
+}
+
+.singleContent blockquote {
+  font-size: 22px;
+  font-style: italic;
+  color: #555555;
+  border-left: 4px solid #ccc;
+  margin: 20px 0;
+  padding-left: 15px;
+}
+
+.singleContent img {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source img.size-small {
+  max-width: 35%;
+}
+
+.single-image-source img.size-medium {
+  max-width: 55%;
+}
+
+.single-image-source img.size-large {
+  max-width: 75%;
+}
+
+.singleContent pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+.singleContent code {
+  background-color: #b36464;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  color: #ffffff;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Footer Section */
+.singleBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.singleAuthor {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding: 15px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.singleAuthor img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.singleAuthorName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.singleAuthorBio {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Swipper js start */
+
+/* Bagian pembungkus utama */
+/* 2. Pembungkus Seluruh Bagian */
+.related-posts-section {
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+
+/* 3. Container Utama Swiper (Menggunakan Class Baru) */
+.post-carousel {
+  width: 100%;
+  overflow: hidden; /* Penting untuk memotong slide yang tidak terlihat */
+  padding: 10px 0 30px 0 !important; /* Ruang untuk bayangan kartu dan scrollbar */
+  cursor: grab;
+}
+
+.post-carousel:active {
+  cursor: grabbing;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+/* 4. Elemen Slide (Dibiarkan "Bersih") */
+.swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+/* 5. Kartu Postingan (Di sinilah semua gaya visual berada) */
+.swiper-post-card {
+  display: flex;
+  flex-direction: column;
+  width: 600px; /* Kartu mengisi penuh ruang slide */
+  height: 400px;
+  background-color: var(--card-bg-color);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 4px 12px var(--card-shadow-color);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 19 / 12;
+  background-color: #f0f0f0;
+}
+
+.post-card-image {
+  width: 100%;
+  margin: 0 0px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 30px;
+}
+
+.post-card-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background-color: var(--card-tag-bg-color);
+  color: var(--card-tag-text-color);
+}
+
+.singleContent .post-card-title h5 {
+  font-size: 0.4rem;
+  line-height: 1.4;
+  color: var(--card-text-color);
+  margin-top: 10px;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 6. Elemen UI Swiper (Scrollbar & Panah) */
+.post-carousel .swiper-scrollbar {
+  background: #f0f0f0;
+  bottom: 0 !important;
+  height: 5px !important;
+}
+
+.post-carousel .swiper-scrollbar-drag {
+  background: var(--swiper-theme-color);
+}
+
+.post-carousel .swiper-button-prev,
+.post-carousel .swiper-button-next {
+  display: none; /* Sembunyikan panah di mobile */
+}
+/* swipper end */
+
+/* ================================================================== */
+/* === SOCIAL MEDIA SHARE STYLES (PROFESSIONAL) === */
+/* ================================================================== */
+
+.social-share {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid var(--color-border, #e9ecef);
+}
+
+.share-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text, #343a40);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul.share-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+}
+
+ul.share-icons li {
+  position: relative;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* Tombol bulat */
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff; /* Warna ikon default */
+}
+
+.share-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Mengatur ukuran SVG di dalam tombol */
+.share-icon-svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* Tooltip (teks yang muncul saat hover) */
+.tooltip {
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #212529;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Tampilkan tooltip saat list item di-hover */
+ul.share-icons li:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Warna Latar Belakang Spesifik */
+.share-btn.twitter     { background: #1DA1F2; }
+.share-btn.facebook    { background: #1877F2; }
+.share-btn.linkedin    { background: #0A66C2; }
+.share-btn.whatsapp    { background: #25D366; }
+.share-btn.email       { background: #7f8c8d; }
+.share-btn.copy-link   { background: #34495e; }
+
+/* Feedback visual untuk tombol Copy Link */
+.share-btn.copy-link.copied {
+  background-color: #28a745; /* Warna hijau sukses */
+}
+
+/* SOCIAL MEDIA SHARE END */
+
+/* 1. Gaya Dasar (Desktop) */
+.post-content {
+  font-family: var(--font-serif);
+  font-size: 1.1rem; /* Ukuran 17.6px, sangat nyaman untuk membaca di layar besar */
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 2.5em 0 0.8em 0;
+}
+
+/* Skala tipografi yang jelas untuk desktop */
+.post-content h1 { font-size: 2.5rem; }
+.post-content h2 { font-size: 2.0rem; }
+.post-content h3 { font-size: 1.6rem; }
+.post-content h4 { font-size: 1.3rem; } /* Sedikit lebih besar untuk hierarki yang lebih baik */
+
+.post-content p { 
+  margin-bottom: 1.5em;
+  text-align: justify; /* Membuat teks rata kiri-kanan untuk tampilan rapi */
+}
+
+/* Single Pagination START*/
+.singlePagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px 0;
+  border-top: 1px solid;
+}
+
+.singlePagination .pagination-link {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ff6b6b;
+  transition: color 0.3s;
+}
+
+.singlePagination .pagination-link:hover {
+  color: #e84118;
+}
+
+.singlePagination .prev {
+  text-align: left;
+}
+
+.singlePagination .next {
+  text-align: right;
+}
+
+/* Layout dengan sidebar di desktop */
+@media (min-width: 1024px) {
+  .post-layout {
+    grid-template-columns: 280px 1fr; /* Sidebar diperlebar menjadi 280px */
+  }
+}
+
+/* --- Sidebar Table of Contents (Desktop) --- */
+.post-toc-sidebar {
+  display: none; /* Sembunyi di mobile */
+}
+
+@media (min-width: 1024px) {
+  .singleHeadImg {
+    display: flex;
+  }
+
+  .singleBottom {
+    flex-direction: column-reverse;
+  }
+
+  /* swipper start*/
+  .related-posts-section {
+    padding: 0 40px; /* Ruang untuk panah di sisi kiri-kanan */
+  }
+
+  .swiper-nav-wrapper {
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: center; /* Opsional: menengahkan tombol jika perlu */
+    align-items: center;
+    gap: 16px; 
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Menata ulang tombol navigasi */
+  .post-carousel .swiper-button-prev,
+  .post-carousel .swiper-button-next {
+    display: inline-flex;
+    position: static; 
+    width: 48px;  
+    height: 48px; 
+    margin: 0;
+    background-color: #bb0a0a;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Menyesuaikan ukuran ikon Font Awesome */
+  .swiper-button-prev i,
+  .swiper-button-next i {
+    font-size: 18px; 
+    color: #ffffff;
+  }
+  /* swipper end */
+
+  .post-toc-sidebar {
+    display: block;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 85px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto; /* Konten tetap bisa di-scroll */
+    padding-right: 20px;
+    
+    /* --- Kode untuk menyembunyikan scrollbar --- */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+  .toc-sticky::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.toc-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.post-toc-sidebar #TableOfContents ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-toc-sidebar #TableOfContents ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-sidebar #TableOfContents li {
+  margin-bottom: 8px;
+}
+
+.post-toc-sidebar #TableOfContents a {
+  font-family: var(--font-sans);
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  display: block;
+  padding: 4px 10px;
+  border-left: 2px solid var(--color-border);
+  transition: all 0.2s ease;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.post-toc-sidebar #TableOfContents a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-light);
+}
+
+.post-toc-sidebar #TableOfContents a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left-color: var(--color-primary);
+}
+
+/* --- Kolom Artikel Utama --- */
+.post-main {
+  min-width: 0; /* Mencegah overflow */
+}
+
+.post-article {
+  max-width: 750px; /* Lebar optimal untuk membaca */
+  margin: 0 auto;
+}
+
+/* --- Header Artikel --- */
+.post-header {
+  margin-bottom: 30px;
+}
+
+.post-categories a {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.post-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.post-meta .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Gambar Utama --- */
+.post-featured-image {
+  margin: 0 0 30px 0;
+}
+
+.post-featured-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* --- Table of Contents (Mobile) --- */
+.post-toc-mobile {
+  display: none; /* Tampil hanya di mobile */
+  margin-bottom: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.toc-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--color-bg-light);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toc-toggle .fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.toc-toggle.open .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.toc-content-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  padding: 0 15px;
+}
+
+.toc-content-mobile.open {
+  max-height: 1000px; /* Tinggi maksimum */
+  padding: 15px;
+}
+
+.toc-content-mobile #TableOfContents ul { 
+  list-style: none; 
+  padding-left: 0; 
+}
+
+.toc-content-mobile #TableOfContents ul ul { 
+  padding-left: 15px; 
+}
+
+.toc-content-mobile #TableOfContents a { 
+  text-decoration: none; 
+  color: var(--color-text); 
+  display: block; 
+  padding: 5px 0; 
+}
+
+.toc-content-mobile #TableOfContents a:hover { 
+  color: var(--color-primary); 
+}
+
+@media (max-width: 1023px) {
+  .post-toc-mobile {
+    display: block;
+  }
+}
+
+/* --- Konten Blog Utama (Typography & UX Writing) --- */
+.post-content {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.post-content h2, 
+.post-content h3, 
+.post-content h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 2.5em 0 0.8em 0; /* Jarak lebih besar di atas, lebih kecil di bawah */
+}
+
+.post-content h1 { font-size: 2.2rem; }
+.post-content h2 { font-size: 1.8rem; }
+.post-content h3 { font-size: 1.5rem; }
+.post-content h4 { font-size: 1.25rem; }
+
+.post-content p { 
+  margin-bottom: 1.5em; 
+}
+
+.post-content a { 
+  color: var(--color-primary); 
+  text-decoration: none; 
+  transition: all 0.2s ease-in-out;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 20px;
+  margin: 30px 0;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.post-content ul, 
+.post-content ol { 
+  padding-left: 25px; 
+  margin-bottom: 25px; 
+}
+
+.post-content li { 
+  margin-bottom: 10px; 
+}
+
+.post-content img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 8px; 
+  margin-bottom: 20px; 
+}
+
+/* Images start */
+.single-image-source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2.5em 0;
+}
+
+.single-image-source img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-source .image-caption {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.single-image-source .image-caption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.single-image-source img.size-small {
+  max-width: 50%;
+}
+
+.single-image-source img.size-medium {
+  max-width: 70%;
+}
+
+.single-image-source img.size-large {
+  max-width: 90%;
+}
+/* Images end */
+
+/* PERBAIKAN: Styling untuk blok kode <pre> */
+.post-content pre {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  overflow-x: auto; /* Scroll horizontal jika masih terlalu panjang */
+  white-space: pre-wrap; /* Memaksa wrap */
+  word-wrap: break-word; /* Memaksa wrap untuk kata yang panjang */
+}
+
+/* TABEL START */
+
+/* --- Modern Table Styling --- */
+
+/* 1. Kontainer Pembungkus Tabel untuk Scroll */
+.post-content .table-container {
+  overflow: auto; /* KUNCI UTAMA: Mengaktifkan scroll jika konten melebihi ukuran */
+  max-width: 100%;
+  max-height: 450px; /* Batas tinggi maksimal tabel sebelum scroll vertikal muncul */
+  border: 1px solid #dfe2e5; /* Border halus di sekeliling kontainer */
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+/* 2. Styling Tabel Utama */
+.post-content .table-container table {
+  width: 100%;
+  min-width: 600px; /* Batas lebar minimal tabel sebelum scroll horizontal muncul */
+  border-collapse: collapse; /* Menyatukan border sel */
+  font-size: 0.95em;
+}
+
+/* 3. Styling Header Tabel (<th>) */
+.post-content th {
+  background-color: #f6f8fa; /* Warna latar header yang soft */
+  font-weight: 600; /* Sedikit lebih tebal */
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid #dfe2e5;
+  
+  /* Membuat header tetap terlihat saat scroll vertikal */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  /* Ukuran minimal dan maksimal untuk kolom header */
+  min-width: 150px;
+  max-width: 400px;
+}
+
+/* 4. Styling Sel Tabel (<td>) */
+.post-content td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dfe2e5; /* Garis pemisah antar baris */
+  color: #333;
+  vertical-align: middle;
+
+  /* Ukuran minimal dan maksimal untuk kolom data */
+  min-width: 150px;
+  max-width: 400px;
+}
+
+/* 5. Efek Zebra-Striping untuk Keterbacaan */
+.post-content tbody tr:nth-of-type(even) {
+  background-color: #f6f8fa; /* Warna latar baris genap */
+}
+
+/* 6. Efek Hover pada Baris */
+.post-content tbody tr:hover {
+  background-color: #eef0f2; /* Warna latar saat cursor di atas baris */
+}
+
+/* Menghilangkan border bawah pada baris terakhir */
+.post-content tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+/* 7. Desain Scrollbar (Sama seperti blok kode) */
+.post-content .table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.post-content .table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.post-content .table-container::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+  border: 2px solid #f1f1f1;
+}
+
+.post-content .table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* TABEL END */
+
+/* Coding Template Start */
+
+.post-content pre {
+  background-color: #272822; 
+  border-radius: 8px;
+  border: 1px solid #444;
+  padding: 0; 
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.post-content pre code {
+  padding: 15px;
+  display: block;
+  white-space: pre;
+}
+
+/* 2. Header yang berisi label bahasa dan tombol copy */
+.post-content pre > div {
+  display: flex;
+  justify-content: space-between; /* Mendorong label ke kiri dan tombol ke kanan */
+  align-items: center;
+  background-color: #383a3e; /* Warna header sedikit beda untuk hierarki */
+  padding: 8px 15px;
+  border-bottom: 1px solid #444;
+}
+
+/* 3. Label Bahasa (misal: Python) */
+.language-label {
+  color: #ccc;
+  font-family: sans-serif;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Output Block Styling (Light Theme) --- */
+
+/* Target utama: Pilih elemen <pre> yang memiliki anak <code>
+ * dengan class 'language-Output'.
+*/
+.post-content pre:has(> code.language-Output) {
+  background-color: #f7f9fa; /* Latar belakang abu-abu terang, mendekati putih */
+  border: 1px solid #e0e0e0; /* Border halus, lebih terang */
+  color: #333; /* Warna teks default yang lebih gelap */
+}
+
+/* Menyesuaikan header-nya agar senada */
+.post-content pre:has(> code.language-Output) > div {
+  background-color: #ebeef0; /* Warna header sedikit lebih gelap dari background utama */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Mengubah warna teks label bahasa */
+.post-content pre:has(> code.language-Output) .language-label {
+  color: #555; /* Warna teks label agak gelap */
+  text-transform: none; /* Biarkan 'Output' apa adanya */
+  font-weight: 500; /* Sedikit lebih ringan dari bold */
+}
+
+/* Tombol 'Copy' disembunyikan untuk blok Output */
+.post-content pre:has(> code.language-Output) .copy-button {
+  display: none;
+}
+
+/* Hal terpenting: Mengatur teks di dalam blok Output.
+ * Kita buat warnanya seragam (hitam pudar) untuk meniru konsol.
+*/
+.post-content pre:has(> code.language-Output) code {
+  color: #333; /* Warna teks gelap yang mudah dibaca */
+}
+
+/* Override warna dari syntax highlighter.
+ * Memaksa semua teks di dalam blok Output menjadi seragam.
+*/
+.post-content pre:has(> code.language-Output) code span {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* 4. Tombol "Copy" */
+.copy-button {
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Transisi halus */
+}
+
+.copy-button:hover {
+  background-color: #4e5055;
+  color: #fff;
+}
+
+/* State setelah tombol diklik (opsional, perlu JS) */
+.copy-button.copied {
+  background-color: #28a745; /* Warna hijau sebagai feedback */
+  color: #fff;
+  border-color: #28a745;
+}
+
+/* 5. Area Kode (<code>) dengan Scroll Horizontal */
+.post-content code {
+  display: block; /* Pastikan tag <code> memenuhi kontainer */
+  padding: 15px;
+  font-family: 'Fira Code', 'Courier New', monospace; /* Fira Code adalah font populer untuk coding */
+  white-space: pre; /* Mencegah wrap dan mempertahankan spasi */
+  overflow-x: auto; /* MENGAKTIFKAN SCROLL HORIZONTAL */
+}
+
+/* 6. (Opsional) Styling Scrollbar agar sesuai tema */
+.post-content code::-webkit-scrollbar {
+  height: 8px;
+}
+
+.post-content code::-webkit-scrollbar-track {
+  background: #272822;
+}
+
+.post-content code::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+  border: 2px solid #272822;
+}
+
+.post-content code::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+.post-content :not(pre) > code {
+  display: inline-block;
+  background-color: #eef0f2;
+  color: #c7254e; 
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em; 
+  vertical-align: middle;
+}
+
+/* Coding Template END */
+
+/* MERMAID START */
+
+/* 1. Kontainer Utama (pre.mermaid) */
+pre.mermaid {
+  background-color: #ffffff; /* Latar belakang putih bersih */
+  border: 1px solid #e5e7eb;   /* Border yang sangat halus dan terang */
+  border-radius: 10px;         /* Sudut yang sedikit lebih bulat */
+  padding: 0;
+  margin: 2.5em 0;
+  overflow: hidden;
+  /* Bayangan halus untuk efek 'terangkat' yang modern */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+}
+
+/* 2. Header Diagram yang Disempurnakan */
+pre.mermaid::before {
+  content: 'Flowchart Diagram';
+  display: block;
+  background-color: #f9fafb; /* Latar belakang header yang sangat sedikit berbeda */
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 18px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9em;
+  font-weight: 600; /* Sedikit lebih tebal (semibold) */
+  color: #374151;  /* Warna abu-abu kebiruan yang profesional */
+  letter-spacing: 0.3px; /* Jarak antar huruf agar lebih rapi */
+}
+
+/* 3. Penyesuaian SVG di Dalam Kontainer */
+pre.mermaid svg {
+  display: block;
+  margin: 2rem auto; /* Padding vertikal & menengahkan diagram */
+  max-width: 95%;
+}
+
+/* 4. Palet Warna Diagram yang Diperbarui (Tema Terang) */
+
+/* Style umum untuk semua node */
+pre.mermaid .node rect,
+pre.mermaid .node path {
+  fill: #f5f3ff;   /* Warna isi (Ungu sangat terang) */
+  stroke: #8b5cf6;  /* Warna garis tepi (Ungu modern/Vibrant) */
+  stroke-width: 2px;
+}
+
+/* Style teks di dalam node */
+pre.mermaid .node .label {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-weight: 500;
+  fill: #1f2937; /* Warna teks hitam pekat agar kontras */
+}
+
+/* Style untuk garis dan kepala panah */
+pre.mermaid .edgePath .path {
+  stroke: #6b7280; /* Abu-abu medium untuk panah */
+}
+
+pre.mermaid .arrowheadPath {
+  fill: #6b7280;
+}
+
+/* MERMAID END */
+
+/* --- Footer Artikel --- */
+.post-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.post-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  margin-bottom: 20px; 
+}
+
+.post-tags .tag {
+  background-color: var(--color-bg-light);
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+}
+
+.post-tags .tag:hover { 
+  background-color: var(--color-primary); 
+  color: #fff; 
+}
+
+/* --- Artikel Terkait (Carousel) --- */
+.related-posts {
+  margin-top: 60px;
+  padding: 40px 0;
+  background-color: #fff;
+  /* Trik untuk membuat background full-width */
+  width: 60vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -30vw;
+  margin-right: -50vw;
+}
+
+.related-posts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.related-title {
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.swiper-carousel {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* Penting untuk efek "peek" */
+}
+
+.swiper-slide {
+  height: auto; /* Biarkan tinggi slide menyesuaikan konten */
+}
+
+.related-post-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  transition: all 0.3s ease;
+}
+
+.related-post-card a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.related-card-image-wrapper { 
+  width: 100%; 
+  aspect-ratio: 16/9; 
+}
+
+.related-card-image-wrapper img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.related-card-content { 
+  padding: 15px; 
+}
+
+.related-card-content h4 {
+  font-family: var(--font-sans); 
+  font-size: 1rem;
+  font-weight: 600; 
+  line-height: 1.4; 
+  margin: 0;
+  /* Batasi judul menjadi 2 baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+/* --- Paginasi Postingan --- */
+.post-pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pagination-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pagination-link:hover { 
+  background-color: var(--color-bg-light); 
+  border-color: var(--color-primary); 
+}
+
+.pagination-link.next { 
+  justify-content: flex-end; 
+  text-align: right; 
+}
+
+/* --- Tombol Back to Top --- */
+#backToTopBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px;
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: var(--color-text);
+  color: white; 
+  cursor: pointer; 
+  padding: 12px; 
+  border-radius: 50%;
+  font-size: 18px; 
+  width: 45px; 
+  height: 45px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#backToTopBtn:hover { 
+  background-color: var(--color-primary); 
+}
+
+/* ================================================================== */
+/* === RESPONSIVE MEDIA QUERIES === */
+/* ================================================================== */
+
+@media (max-width: 768px) {
+
+  /* --- HALAMAN POSTINGAN TUNGGAL (SINGLE.HTML) --- */
+  .single {
+    max-width: 100%;
+    padding: 0 15px; /* Beri sedikit padding agar tidak menempel */
+  }
+
+  .singleHeadTitle {
+    font-size: 1.8rem; /* Sesuaikan ukuran font agar lebih pas */
+    font-family: 'Georgia', serif; /* Gunakan font yang konsisten */
+    color: #212529;
+  }
+
+  .singleContent {
+    font-size: 1rem; /* Ukuran font yang lebih nyaman dibaca di mobile */
+    line-height: 1.7;
+    font-family: 'Georgia', serif;
+  }
+
+  .post-content {
+    font-size: 1rem; /* Ukuran standar 16px, ideal untuk mobile */
+    line-height: 1.7;
+  }
+
+  .post-content h1 { font-size: 1.8rem; }
+  .post-content h2 { font-size: 1.5rem; }
+  .post-content h3 { font-size: 1.3rem; }
+  .post-content h4 { font-size: 1.15rem; }
+  
+  .singleContent p {
+    text-indent: 1.5em;
+    text-align: justify;
+  }
+
+  .singleContent img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .single-image-source img.size-small {
+    max-width: 85%;
+  }
+
+  .single-image-source img.size-medium {
+    max-width: 100%;
+  }
+
+  .single-image-source img.size-large {
+    max-width: 100%;
+  }
+
+  .single-tags {
+    align-items: flex-start; 
+    margin-bottom: 40px;
+    gap: 8px; 
+  }
+
+  .single-tags .tag {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-border-title {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-social-list {
+    justify-content: center;
+  }
+
+  /* Code & Table Start */
+  
+  /* Mengurangi spasi vertikal antar elemen */
+  .post-content pre,
+  .post-content .table-container {
+    margin-bottom: 20px;
+  }
+
+  /* Membuat padding sel tabel lebih ringkas */
+  .post-content th,
+  .post-content td {
+    padding: 10px 12px;
+  }
+
+  /* Mengurangi padding pada header blok kode */
+  .post-content pre > div {
+    padding: 6px 12px;
+  }
+  
+  /* Mengurangi padding di dalam area kode */
+  .post-content pre code {
+    padding: 12px;
+  }
+  
+  /* Code & Tabel End */
+
+  /* Mermaid  */
+  .mermaid-container .node .label {
+    font-size: 12px; /* Perkecil ukuran font pada tablet */
+  }
+  /* Mermaid */
+
+}
+
+
+@media (max-width: 480px) {
+
+  /* --- HALAMAN POSTINGAN TUNGGAL (SINGLE.HTML) --- */
+  .post-content {
+    font-size: 1rem;
+  }
+
+  .post-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.45rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Code & Tabel Start */
+
+  /* Membuat padding sel tabel lebih kecil untuk memaksimalkan ruang */
+  .post-content th,
+  .post-content td {
+    padding: 8px 10px;
+  }
+
+  /* Mengurangi padding pada header blok kode */
+  .post-content pre > div {
+    padding: 5px 10px;
+    /* Memungkinkan tombol 'Copy' turun ke bawah jika tidak cukup ruang */
+    flex-wrap: wrap; 
+  }
+
+  /* Membuat tombol 'Copy' sedikit lebih kecil agar pas */
+  .post-content .copy-button {
+    padding: 4px 8px;
+  }
+
+  /* Mengurangi padding di dalam area kode agar lebih banyak kode terlihat */
+  .post-content pre code {
+    padding: 10px;
+  }
+
+  /* Mengurangi lebar minimal tabel agar tidak terlalu memaksa scroll */
+  .post-content .table-container table {
+    min-width: 400px; 
+  }
+
+  /* Code & Tabel End */
+
+  /* Mermaid  */
+  .mermaid-container {
+    padding: 1rem; /* Kurangi padding pada layar kecil */
+  }
+  
+  .mermaid-container .node .label {
+    font-size: 11px; /* Perkecil lagi ukuran font pada ponsel */
+  }
+  /* Mermaid */
+
+}
