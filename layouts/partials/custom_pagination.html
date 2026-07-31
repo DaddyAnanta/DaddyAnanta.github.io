@@ -1,125 +1,113 @@
-{{ if or .Paginator.HasPrev .Paginator.HasNext }}
-
+{{ if gt .Paginator.TotalPages 1 }}
 <style>
-  /* ===== Styling untuk Container Paginasi (pagination) ===== */
-  .pagination {
+  /* ===== Styling Paginasi Kotak Angka ===== */
+  .custom-hugo-pagination {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    /* Pusatkan paginasi */
-    align-items: center;
-    /* Pusatkan item vertikal */
-    padding: 1.5em 2em;
-    background-color: #fff;
-    /* Latar belakang putih atau warna terang lain */
-    color: black;
-    border-top: 1px solid #eee;
-    /* Garis pemisah di atas paginasi */
-    margin-top: 2em;
-    /* Spasi atas dari konten di atasnya */
-    border-radius: 0 0 8px 8px;
-    /* Rounded bottom corners jika container daftar juga rounded top corners */
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
+    gap: 8px;
   }
 
-  /* ===== Styling untuk Item Paginasi (pagination-item & pagination-number) ===== */
-  .pagination-item,
-  .pagination-number {
-    display: inline-flex;
-    /* Agar bisa diatur tinggi dan lebarnya */
-    justify-content: center;
+  .custom-hugo-pagination .page-btn {
+    display: flex;
     align-items: center;
-    min-width: 40px;
-    /* Lebar minimum item paginasi */
-    height: 40px;
-    /* Tinggi item paginasi */
-    margin: 0 0.5em;
-    /* Spasi horizontal antar item */
-    border-radius: 6px;
-    /* Sudut membulat */
-    font-size: 1em;
-    font-weight: 500;
-    /* Sedikit bold */
-    color: white;
-    /* Warna teks item paginasi */
-    background-color: grey;
-    /* Latar belakang item paginasi */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Transisi hover effect */
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    color: #495057;
+    background-color: #ffffff;
     text-decoration: none;
-    /* Pastikan tidak ada garis bawah dari link */
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.95rem;
   }
 
-  .pagination-item:hover {
-    background-color: #e0e0e0;
-    /* Warna latar belakang saat hover */
-    color: black;
-    /* Warna teks saat hover */
+  .custom-hugo-pagination .page-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 42px;
+    padding: 0 5px;
+    color: #6c757d;
+    font-weight: 500;
   }
 
-  /* Styling khusus untuk link 'Newer' dan 'Older' */
-  .pagination-newer,
-  .pagination-older {
-    padding: 0 1.2em;
-    /* Padding horizontal lebih lebar untuk teks 'Newer'/'Older' */
+  .custom-hugo-pagination .page-btn:not(.active):hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    color: #000000;
   }
 
-  /* Styling untuk angka halaman saat ini (pagination-number) */
-  .pagination-number {
-    background-color: transparent;
-    /* Hilangkan latar belakang untuk angka halaman saat ini */
-    color: black;
-    /* Warna teks angka halaman saat ini */
-    font-weight: normal;
-    /* Berat font normal untuk angka halaman */
-    pointer-events: none;
-    /* Non-interactive, bukan link */
+  /* Warna Biru untuk Halaman Aktif (Menyesuaikan gambar) */
+  .custom-hugo-pagination .page-btn.active {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+    transform: translateY(-2px);
+    pointer-events: none; /* Mencegah klik ulang pada halaman aktif */
   }
 
-
-  /* ===== Styling untuk Simbol Panah (opsional, jika Anda ingin mengganti simbol default) ===== */
-  .pagination-item span[aria-hidden="true"] {
-    display: inline-block;
-    margin: 0;
-    /* Hilangkan margin default */
-    font-size: 1em;
-    /* Ukuran simbol panah */
-    line-height: 1;
-    /* Pastikan simbol panah sejajar vertikal */
-  }
-
-  @media (max-width: 728px) {
-    .pagination {
-      flex-direction: column;
-      /* Mengubah arah flex menjadi kolom */
-      align-items: center;
-      z-index: 5;
-      /* Memastikan item di tengah secara horizontal */
+  /* Responsivitas untuk layar HP */
+  @media (max-width: 480px) {
+    .custom-hugo-pagination {
+      gap: 6px;
     }
-
-    .pagination-item,
-    .pagination-number {
-      width: 100%;
-      /* Membuat item mengisi lebar penuh */
-      text-align: center;
-      /* Menengahkan teks */
+    .custom-hugo-pagination .page-btn {
+      min-width: 36px;
+      height: 38px;
+      padding: 0 12px;
+      font-size: 0.85rem;
     }
-
-    .pagination-item {
-      margin: 5px 0;
+    .custom-hugo-pagination .page-ellipsis {
+      height: 38px;
     }
   }
 </style>
 
-<div class="pagination" id="customPagination">
+<div class="custom-hugo-pagination" id="customPagination">
+  
+  {{/* Tombol Previous */}}
   {{ if .Paginator.HasPrev }}
-  <a class="pagination-item pagination-newer" href="{{ .Paginator.Prev.URL }}">
-    <span class="fas fa-arrow-left"></span>Newer
-  </a>
+  <a class="page-btn" href="{{ .Paginator.Prev.URL }}">Previous</a>
   {{ end }}
-  <span class="pagination-number">Halaman {{ .Paginator.PageNumber }} dari {{ .Paginator.TotalPages }}</span>
+
+  {{/* Logika Angka Halaman dan Titik-titik (Ellipsis) */}}
+  {{ range .Paginator.Pagers }}
+    {{ $.Scratch.Set "page_number_flag" false }}
+
+    {{/* Tampilkan Halaman 1, Halaman Terakhir, dan Halaman di sekitar Current Page */}}
+    {{ if eq .PageNumber 1 }}
+      {{ $.Scratch.Set "page_number_flag" true }}
+    {{ else if eq .PageNumber $.Paginator.TotalPages }}
+      {{ $.Scratch.Set "page_number_flag" true }}
+    {{ else if and (ge .PageNumber (sub $.Paginator.PageNumber 1)) (le .PageNumber (add $.Paginator.PageNumber 1)) }}
+      {{ $.Scratch.Set "page_number_flag" true }}
+    {{ end }}
+
+    {{/* Render Tombol Angka atau Titik-titik */}}
+    {{ if eq ($.Scratch.Get "page_number_flag") true }}
+      <a class="page-btn {{ if eq . $.Paginator }}active{{ end }}" href="{{ .URL }}">
+        {{ .PageNumber }}
+      </a>
+    {{ else if or (eq .PageNumber (sub $.Paginator.PageNumber 2)) (eq .PageNumber (add $.Paginator.PageNumber 2)) }}
+      <span class="page-ellipsis">...</span>
+    {{ end }}
+  {{ end }}
+
+  {{/* Tombol Next */}}
   {{ if .Paginator.HasNext }}
-  <a class="pagination-item pagination-older" href="{{ .Paginator.Next.URL }}">
-    Older <span class="fas fa-arrow-right"></span>
-  </a>
+  <a class="page-btn" href="{{ .Paginator.Next.URL }}">Next</a>
   {{ end }}
+
 </div>
 {{ end }}

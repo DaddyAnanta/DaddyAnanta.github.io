@@ -9,7 +9,7 @@
         <span class="line"></span>
         <span class="line"></span>
       </button>
-      <a href="/" class="navbar-logo">Daddy Ananta</a>
+      <a href="/" class="navbar-logo">PEPURU</a>
     </div>
 
     {{/* --- Bagian Tengah: Link Navigasi (Desktop) --- */}}
@@ -19,9 +19,10 @@
 
       {{/* Dropdown Kategori */}}
       <div class="navbar-dropdown">
-        <button class="navbar-link dropdown-toggle">
+        {{/* Mengganti <button> menjadi <a> dan menambahkan href */}}
+        <a href="/categories/" class="navbar-link dropdown-toggle">
           <i class="fas fa-folder"></i> Category <span class="dropdown-icon">&#9660;</span>
-        </button>
+        </a>
         <div class="dropdown-menu">
           {{ range $.Site.Taxonomies.categories.ByCount }}
             <a class="dropdown-item" href="/categories/{{ .Name | urlize }}/">{{ .Name | title }}</a>
@@ -31,16 +32,16 @@
 
       {{/* Dropdown Tag */}}
       <div class="navbar-dropdown" id="tags-dropdown">
-        <button class="navbar-link dropdown-toggle">
+        {{/* Mengganti <button> menjadi <a> dan menambahkan href */}}
+        <a href="/tags/" class="navbar-link dropdown-toggle">
           <i class="fas fa-tag"></i> Tags <span class="dropdown-icon">&#9660;</span>
-        </button>
+        </a>
         <div class="dropdown-menu">
           {{ range first 15 $.Site.Taxonomies.tags.ByCount }}
             <a class="dropdown-item" href="/tags/{{ .Name | urlize }}/">{{ .Name | title }}</a>
           {{ end }}
         </div>
       </div>
-    </div>
 
     {{/* --- Bagian Kanan: Pencarian --- */}}
     <div class="navbar-right">
@@ -56,6 +57,7 @@
 </nav>
 
 {{/* --- JavaScript untuk Fungsionalitas Navbar (INI BAGIAN PENTING) --- */}}
+{{/* --- JavaScript untuk Fungsionalitas Navbar --- */}}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.getElementById('main-navbar');
@@ -76,13 +78,30 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
 
-  // 2. Logika untuk Tombol Hamburger
+  // 2. Logika untuk Tombol Hamburger & Tutup Otomatis
   if (hamburger && accordion) {
-    hamburger.addEventListener('click', function() {
-      // Toggle class 'active' pada hamburger dan accordion
+    
+    // Membuka/menutup saat tombol hamburger diklik
+    hamburger.addEventListener('click', function(event) {
       hamburger.classList.toggle('active');
       accordion.classList.toggle('active');
+      // Mencegah event klik diteruskan ke document saat kita mengklik hamburger
+      event.stopPropagation(); 
     });
+
+    // Menutup accordion saat klik sembarangan di luar elemen
+    document.addEventListener('click', function(event) {
+      // Cek apakah elemen yang diklik ada di dalam accordion atau hamburger
+      const isClickInsideAccordion = accordion.contains(event.target);
+      const isClickInsideHamburger = hamburger.contains(event.target);
+      
+      // Jika yang diklik bukan accordion, bukan hamburger, dan menu sedang terbuka
+      if (!isClickInsideAccordion && !isClickInsideHamburger && accordion.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        accordion.classList.remove('active');
+      }
+    });
+    
   }
 });
 </script>
