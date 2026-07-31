@@ -227,12 +227,13 @@
                       <a href="{{ .Permalink }}" class="post-card-link">
                         
                         {{/* --- PERBAIKAN 2: BAGIAN SECONDARY POST --- */}}
-                        {{ $imageResource := .Resources.GetMatch .Params.image }}
-                        {{ if $imageResource }}
-                          <div class="post-card-image-wrapper-secondary">
-                            <img src="{{ $imageResource.Permalink }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
-                          </div>
-                        {{ end }}
+		{{ $imageResource := .Resources.GetMatch .Params.image }}
+		{{ if $imageResource }}
+		  <div class="post-card-image-wrapper-secondary">
+		    {{ $resizedImgSec := $imageResource.Resize "300x" }}
+		    <img src="{{ $resizedImgSec.Permalink }}" width="{{ $resizedImgSec.Width }}" height="{{ $resizedImgSec.Height }}" alt="Gambar untuk {{ .Title }}" class="post-card-image" loading="lazy">
+		  </div>
+		{{ end }}
                         
                         <div class="post-card-content-secondary">
                           <h4 class="post-card-title-secondary">{{ .Title }}</h4>
@@ -305,17 +306,24 @@
     <div class="home">
       <div class="home-img">
         <img src="/images/profil.png" alt="Profil Daddy" width="336" height="336" loading="lazy">
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/DaddyAnanta/" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/daddyananta/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
+	<div class="social-icons">
+	  <a href="https://www.linkedin.com/in/daddy-ananta-468141253/" target="_blank" aria-label="Kunjungi profil LinkedIn"><i class="fab fa-linkedin"></i></a>
+	  <a href="https://github.com/DaddyAnanta/" target="_blank" aria-label="Kunjungi profil GitHub"><i class="fab fa-github"></i></a>
+	  <a href="https://www.instagram.com/daddyananta/" target="_blank" aria-label="Kunjungi profil Instagram"><i class="fab fa-instagram"></i></a>
+	</div>
         <a href="mailto:daddyananta123@yahoo.com?subject=Halo" class="btn">Email</a>
       </div>
       <div class="home-content">
         <div class="title">
           <h1>Hi, My Name is <span>Daddy Ananta S.</span></h1>
-          <h3 class="typing-text">I'm Passionate About <span></span></h3>
+          <h3 class="typing-text">I'm Passionate About 
+		  <span class="word-slider">
+		    <span class="word">Electronics Technician</span>
+		    <span class="word">Mechanical & Fabrication</span>
+		    <span class="word">System Auditor</span>
+		    <span class="word">Technical Support</span>
+		  </span>
+	  </h3>	
         </div>
         <p>Saya adalah seorang teknisi dengan keahlian pemecahan masalah mekanikal dan elektronika secara <i>hands-on</i>. Saya siap mengaplikasikan ketelitian dalam inspeksi data, audit sistem, dan <i>preventive maintenance</i> untuk mendukung operasional MEP serta pemeliharaan fasilitas.</p>
         <p>Saya memadukan ketelitian teknis lapangan dengan pendekatan analitis melalui pengerjaan berikut:</p>
