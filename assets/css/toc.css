@@ -34,8 +34,6 @@
   border-radius: 8px;
 }
 
-
-
 /* Single Head Section */
 .singleHead {
   display: flex;
@@ -59,7 +57,6 @@
   align-items: center;
 }
 
-
 .singleHeadDetail {
   display: flex;
   align-items: center;
@@ -68,9 +65,10 @@
   color: #888888;
 }
 
-.single-meta-item span{
+.single-meta-item span {
   font-size: 16px;
 }
+
 /* SINGLE TAGS START*/
 .single-tags {
   display: flex;
@@ -151,10 +149,8 @@
   padding: 0 10px;
 }
 /* Youtube end */
-
-
-
 /* SINGLE TAGS END*/
+
 .single-code {
   font: inherit;
   font-size: 100%;
@@ -177,13 +173,10 @@
   color: rgb(89, 89, 192);
 }
 
-
 .singleHeadDetail :hover {
   color: #888888;
   color: var(--highlight-dark);
 }
-
-
 
 .singleHeadDesc {
   font-size: 16px;
@@ -191,7 +184,6 @@
   margin-bottom: 18px;
   text-align: justify;
 }
-
 
 /* Content Section */
 .singleContent {
@@ -207,14 +199,12 @@
   padding: 15px;
   border-radius: 10px;
   width: 100%;
-  
 }
 
 .toc-title {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  
 }
 
 .toc-toggle {
@@ -268,7 +258,6 @@
   height: 80px;
   margin-top: -80px; 
 }
-
 /* TABLE OF CONTENT END */
 
 .singleContent table {
@@ -304,7 +293,6 @@
 .singleContent th {
   background-color: #4A5568;
   color: #FFFFFF;
-
 }
 
 .singleContent tbody tr:nth-child(odd) {
@@ -329,20 +317,16 @@
   line-height: 1.6; 
 }
 
-
 .singleContent a {
   color: #0056b3;
   text-decoration: none;
-  /* border-bottom: 1px solid #0056b3;  */
   transition: all 0.2s ease-in-out;
 }
 
 .singleContent a:hover {
   color: #003d82;
   border-bottom-color: transparent; 
-  
 }
-
 
 /* Base style untuk semua heading */
 .singleContent h1,
@@ -376,8 +360,8 @@
   margin: 2rem 0 0.5rem 0;
 }
 
-
-.singleContent ul, .singleContent ol {
+.singleContent ul, 
+.singleContent ol {
   padding-left: 20px; 
   margin-bottom: 1rem;
 }
@@ -432,14 +416,12 @@
   max-width: 75%;
 }
 
-
 .singleContent pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
   overflow-y: auto;
 }
-
 
 .singleContent code {
   background-color: #b36464;
@@ -475,25 +457,19 @@
   border-radius: 50%;
 }
 
-
-
 .singleAuthorName {
   font-size: 16px;
   font-weight: bold;
 }
 
-
-
 .singleAuthorBio {
   font-size: 14px;
-
   color: #555555;
 }
 
 /* Swipper js start */
 
 /* Bagian pembungkus utama */
-
 /* 2. Pembungkus Seluruh Bagian */
 .related-posts-section {
   width: 100%;
@@ -508,17 +484,19 @@
   padding: 10px 0 30px 0 !important; /* Ruang untuk bayangan kartu dan scrollbar */
   cursor: grab;
 }
+
 .post-carousel:active {
   cursor: grabbing;
 }
 
-.swiper-wrapper{display: flex;}
+.swiper-wrapper {
+  display: flex;
+}
 
 /* 4. Elemen Slide (Dibiarkan "Bersih") */
 .swiper-slide {
   height: auto;
   display: flex;
-  /* ❌ JANGAN tambahkan padding atau width di sini */
 }
 
 /* 5. Kartu Postingan (Di sinilah semua gaya visual berada) */
@@ -533,6 +511,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .post-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -543,24 +522,28 @@
   aspect-ratio: 19 / 12;
   background-color: #f0f0f0;
 }
-.post-card-image{
+
+.post-card-image {
   width: 100%;
   margin: 0 0px;
   height: 100%;
   object-fit: cover;
 }
+
 .post-card-content {
   padding: 12px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
+
 .post-card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 30px;
 }
+
 .post-card-tag {
   font-size: 0.7rem;
   font-weight: 500;
@@ -569,8 +552,9 @@
   background-color: var(--card-tag-bg-color);
   color: var(--card-tag-text-color);
 }
-.singleContent .post-card-title h5{
-    font-size: 0.4rem;
+
+.singleContent .post-card-title h5 {
+  font-size: 0.4rem;
   line-height: 1.4;
   color: var(--card-text-color);
   margin-top: 10px;
@@ -587,14 +571,17 @@
   bottom: 0 !important;
   height: 5px !important;
 }
+
 .post-carousel .swiper-scrollbar-drag {
   background: var(--swiper-theme-color);
 }
+
 .post-carousel .swiper-button-prev,
 .post-carousel .swiper-button-next {
   display: none; /* Sembunyikan panah di mobile */
 }
 /* swipper end */
+
 /* ================================================================== */
 /* === SOCIAL MEDIA SHARE STYLES (PROFESSIONAL) === */
 /* ================================================================== */
@@ -694,8 +681,7 @@ ul.share-icons li:hover .tooltip {
   background-color: #28a745; /* Warna hijau sukses */
 }
 
-/* SOCIAL MIDA SHARE END */
-
+/* SOCIAL MEDIA SHARE END */
 
 /* 1. Gaya Dasar (Desktop) */
 .post-content {
@@ -705,7 +691,10 @@ ul.share-icons li:hover .tooltip {
   color: var(--color-text);
 }
 
-.post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4 {
   font-family: var(--font-sans);
   font-weight: 700;
   line-height: 1.3;
@@ -764,8 +753,8 @@ ul.share-icons li:hover .tooltip {
 .post-toc-sidebar {
   display: none; /* Sembunyi di mobile */
 }
-@media (min-width: 1024px) {
 
+@media (min-width: 1024px) {
   .singleHeadImg {
     display: flex;
   }
@@ -778,62 +767,60 @@ ul.share-icons li:hover .tooltip {
   .related-posts-section {
     padding: 0 40px; /* Ruang untuk panah di sisi kiri-kanan */
   }
+
   .swiper-nav-wrapper {
-  display: flex; /* Mengaktifkan Flexbox */
-  justify-content: center; /* Opsional: menengahkan tombol jika perlu */
-  align-items: center;
-  gap: 16px; 
-  margin-top: 24px;
-  margin-bottom: 20px;
-}
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: center; /* Opsional: menengahkan tombol jika perlu */
+    align-items: center;
+    gap: 16px; 
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
 
-/* Menata ulang tombol navigasi */
-.post-carousel .swiper-button-prev,
-.post-carousel .swiper-button-next {
-  display: inline-flex;
-  position: static; 
-  width: 48px;  
-  height: 48px; 
-  margin: 0;
-  background-color: #bb0a0a;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease;
-}
+  /* Menata ulang tombol navigasi */
+  .post-carousel .swiper-button-prev,
+  .post-carousel .swiper-button-next {
+    display: inline-flex;
+    position: static; 
+    width: 48px;  
+    height: 48px; 
+    margin: 0;
+    background-color: #bb0a0a;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
 
-
-/* Menyesuaikan ukuran ikon Font Awesome */
-.swiper-button-prev i,
-.swiper-button-next i {
-  font-size: 18px; 
-  color: #ffffff;
-}
-
+  /* Menyesuaikan ukuran ikon Font Awesome */
+  .swiper-button-prev i,
+  .swiper-button-next i {
+    font-size: 18px; 
+    color: #ffffff;
+  }
   /* swipper end */
 
   .post-toc-sidebar {
     display: block;
   }
+
   .toc-sticky {
-  position: sticky;
-  top: 85px;
-  max-height: calc(100vh - 100px);
-  overflow-y: auto; /* Konten tetap bisa di-scroll */
-  padding-right: 20px;
-  
-  /* --- Kode untuk menyembunyikan scrollbar --- */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+    position: sticky;
+    top: 85px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto; /* Konten tetap bisa di-scroll */
+    padding-right: 20px;
+    
+    /* --- Kode untuk menyembunyikan scrollbar --- */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
-/* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
-.toc-sticky::-webkit-scrollbar {
-  display: none;
+  /* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+  .toc-sticky::-webkit-scrollbar {
+    display: none;
+  }
 }
-}
-
-
 
 .toc-title {
   font-family: var(--font-sans);
@@ -849,12 +836,15 @@ ul.share-icons li:hover .tooltip {
   list-style: none;
   padding-left: 0;
 }
+
 .post-toc-sidebar #TableOfContents ul ul {
   padding-left: 15px;
 }
+
 .post-toc-sidebar #TableOfContents li {
   margin-bottom: 8px;
 }
+
 .post-toc-sidebar #TableOfContents a {
   font-family: var(--font-sans);
   text-decoration: none;
@@ -864,15 +854,16 @@ ul.share-icons li:hover .tooltip {
   padding: 4px 10px;
   border-left: 2px solid var(--color-border);
   transition: all 0.2s ease;
-  /* PERBAIKAN: Memastikan teks bisa wrap */
   white-space: normal;
   word-break: break-word;
   line-height: 1.4;
 }
+
 .post-toc-sidebar #TableOfContents a:hover {
   color: var(--color-primary);
   background-color: var(--color-bg-light);
 }
+
 .post-toc-sidebar #TableOfContents a.active {
   color: var(--color-primary);
   font-weight: 600;
@@ -882,8 +873,8 @@ ul.share-icons li:hover .tooltip {
 /* --- Kolom Artikel Utama --- */
 .post-main {
   min-width: 0; /* Mencegah overflow */
-
 }
+
 .post-article {
   max-width: 750px; /* Lebar optimal untuk membaca */
   margin: 0 auto;
@@ -893,6 +884,7 @@ ul.share-icons li:hover .tooltip {
 .post-header {
   margin-bottom: 30px;
 }
+
 .post-categories a {
   font-family: var(--font-sans);
   font-size: 0.8rem;
@@ -904,6 +896,7 @@ ul.share-icons li:hover .tooltip {
   margin-bottom: 10px;
   display: inline-block;
 }
+
 .post-title {
   font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -912,6 +905,7 @@ ul.share-icons li:hover .tooltip {
   line-height: 1.2;
   margin: 0 0 15px 0;
 }
+
 .post-meta {
   display: flex;
   flex-wrap: wrap;
@@ -920,6 +914,7 @@ ul.share-icons li:hover .tooltip {
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
+
 .post-meta .meta-item {
   display: flex;
   align-items: center;
@@ -930,6 +925,7 @@ ul.share-icons li:hover .tooltip {
 .post-featured-image {
   margin: 0 0 30px 0;
 }
+
 .post-featured-image img {
   width: 100%;
   height: auto;
@@ -943,6 +939,7 @@ ul.share-icons li:hover .tooltip {
   border: 1px solid var(--color-border);
   border-radius: 8px;
 }
+
 .toc-toggle {
   display: flex;
   justify-content: space-between;
@@ -956,29 +953,46 @@ ul.share-icons li:hover .tooltip {
   font-weight: 600;
   cursor: pointer;
 }
+
 .toc-toggle .fa-chevron-down {
   transition: transform 0.3s ease;
 }
+
 .toc-toggle.open .fa-chevron-down {
   transform: rotate(180deg);
 }
+
 .toc-content-mobile {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
   padding: 0 15px;
 }
+
 .toc-content-mobile.open {
   max-height: 1000px; /* Tinggi maksimum */
   padding: 15px;
 }
-.toc-content-mobile #TableOfContents ul { list-style: none; padding-left: 0; }
-.toc-content-mobile #TableOfContents ul ul { padding-left: 15px; }
-.toc-content-mobile #TableOfContents a { text-decoration: none; color: var(--color-text); display: block; padding: 5px 0; }
-.toc-content-mobile #TableOfContents a:hover { color: var(--color-primary); }
 
+.toc-content-mobile #TableOfContents ul { 
+  list-style: none; 
+  padding-left: 0; 
+}
 
+.toc-content-mobile #TableOfContents ul ul { 
+  padding-left: 15px; 
+}
 
+.toc-content-mobile #TableOfContents a { 
+  text-decoration: none; 
+  color: var(--color-text); 
+  display: block; 
+  padding: 5px 0; 
+}
+
+.toc-content-mobile #TableOfContents a:hover { 
+  color: var(--color-primary); 
+}
 
 @media (max-width: 1023px) {
   .post-toc-mobile {
@@ -993,21 +1007,35 @@ ul.share-icons li:hover .tooltip {
   line-height: 1.8;
   color: var(--color-text);
 }
-.post-content h2, .post-content h3, .post-content h4 {
+
+.post-content h2, 
+.post-content h3, 
+.post-content h4 {
   font-family: var(--font-sans);
   font-weight: 700;
   line-height: 1.3;
   margin: 2.5em 0 0.8em 0; /* Jarak lebih besar di atas, lebih kecil di bawah */
 }
-  .post-content h1 { font-size: 2.2rem; }
-  .post-content h2 { font-size: 1.8rem; }
-  .post-content h3 { font-size: 1.5rem; }
-  .post-content h4 { font-size: 1.25rem; }
 
-.post-content p { margin-bottom: 1.5em; }
-.post-content a { color: var(--color-primary); text-decoration: none; transition: all 0.2s ease-in-out;}
+.post-content h1 { font-size: 2.2rem; }
+.post-content h2 { font-size: 1.8rem; }
+.post-content h3 { font-size: 1.5rem; }
+.post-content h4 { font-size: 1.25rem; }
 
-.post-content a:hover {text-decoration: underline;}
+.post-content p { 
+  margin-bottom: 1.5em; 
+}
+
+.post-content a { 
+  color: var(--color-primary); 
+  text-decoration: none; 
+  transition: all 0.2s ease-in-out;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
 .post-content blockquote {
   border-left: 4px solid var(--color-primary);
   padding-left: 20px;
@@ -1015,10 +1043,23 @@ ul.share-icons li:hover .tooltip {
   font-style: italic;
   color: var(--color-text-muted);
 }
-.post-content ul, .post-content ol { padding-left: 25px; margin-bottom: 25px; }
-.post-content li { margin-bottom: 10px; }
-.post-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
 
+.post-content ul, 
+.post-content ol { 
+  padding-left: 25px; 
+  margin-bottom: 25px; 
+}
+
+.post-content li { 
+  margin-bottom: 10px; 
+}
+
+.post-content img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 8px; 
+  margin-bottom: 20px; 
+}
 
 /* Images start */
 .single-image-source {
@@ -1050,19 +1091,18 @@ ul.share-icons li:hover .tooltip {
   text-decoration: underline;
 }
 
-  .single-image-source img.size-small {
-    max-width: 50%;
-  }
+.single-image-source img.size-small {
+  max-width: 50%;
+}
 
-  .single-image-source img.size-medium {
-    max-width: 70%;
-  }
+.single-image-source img.size-medium {
+  max-width: 70%;
+}
 
-  .single-image-source img.size-large {
-    max-width: 90%;
-  }
+.single-image-source img.size-large {
+  max-width: 90%;
+}
 /* Images end */
-
 
 /* PERBAIKAN: Styling untuk blok kode <pre> */
 .post-content pre {
@@ -1075,7 +1115,6 @@ ul.share-icons li:hover .tooltip {
   white-space: pre-wrap; /* Memaksa wrap */
   word-wrap: break-word; /* Memaksa wrap untuk kata yang panjang */
 }
-
 
 /* TABEL START */
 
@@ -1149,37 +1188,33 @@ ul.share-icons li:hover .tooltip {
   width: 8px;
   height: 8px;
 }
+
 .post-content .table-container::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 8px;
 }
+
 .post-content .table-container::-webkit-scrollbar-thumb {
   background-color: #555;
   border-radius: 4px;
   border: 2px solid #f1f1f1;
 }
+
 .post-content .table-container::-webkit-scrollbar-thumb:hover {
   background-color: #777;
 }
 
 /* TABEL END */
 
-
-
 /* Coding Template Start */
 
-/* .coding body {
-  color: rgb(241, 71, 99);
-} */
 .post-content pre {
-
   background-color: #272822; 
   border-radius: 8px;
   border: 1px solid #444;
   padding: 0; 
   margin-bottom: 24px;
   overflow-x: auto;
-
 }
 
 .post-content pre code {
@@ -1210,7 +1245,7 @@ ul.share-icons li:hover .tooltip {
 
 /* --- Output Block Styling (Light Theme) --- */
 
-/* * Target utama: Pilih elemen <pre> yang memiliki anak <code>
+/* Target utama: Pilih elemen <pre> yang memiliki anak <code>
  * dengan class 'language-Output'.
 */
 .post-content pre:has(> code.language-Output) {
@@ -1237,15 +1272,14 @@ ul.share-icons li:hover .tooltip {
   display: none;
 }
 
-/* * Hal terpenting: Mengatur teks di dalam blok Output.
+/* Hal terpenting: Mengatur teks di dalam blok Output.
  * Kita buat warnanya seragam (hitam pudar) untuk meniru konsol.
 */
 .post-content pre:has(> code.language-Output) code {
   color: #333; /* Warna teks gelap yang mudah dibaca */
 }
 
-/*
- * Override warna dari syntax highlighter.
+/* Override warna dari syntax highlighter.
  * Memaksa semua teks di dalam blok Output menjadi seragam.
 */
 .post-content pre:has(> code.language-Output) code span {
@@ -1291,14 +1325,17 @@ ul.share-icons li:hover .tooltip {
 .post-content code::-webkit-scrollbar {
   height: 8px;
 }
+
 .post-content code::-webkit-scrollbar-track {
   background: #272822;
 }
+
 .post-content code::-webkit-scrollbar-thumb {
   background-color: #555;
   border-radius: 4px;
   border: 2px solid #272822;
 }
+
 .post-content code::-webkit-scrollbar-thumb:hover {
   background-color: #777;
 }
@@ -1312,8 +1349,6 @@ ul.share-icons li:hover .tooltip {
   font-size: 0.9em; 
   vertical-align: middle;
 }
-
-
 
 /* Coding Template END */
 
@@ -1380,19 +1415,20 @@ pre.mermaid .arrowheadPath {
 
 /* MERMAID END */
 
-
-
-
-
-
-
 /* --- Footer Artikel --- */
 .post-footer {
   margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid var(--color-border);
 }
-.post-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+
+.post-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  margin-bottom: 20px; 
+}
+
 .post-tags .tag {
   background-color: var(--color-bg-light);
   padding: 6px 15px;
@@ -1403,7 +1439,11 @@ pre.mermaid .arrowheadPath {
   color: var(--color-text-muted);
   transition: all 0.2s ease;
 }
-.post-tags .tag:hover { background-color: var(--color-primary); color: #fff; }
+
+.post-tags .tag:hover { 
+  background-color: var(--color-primary); 
+  color: #fff; 
+}
 
 /* --- Artikel Terkait (Carousel) --- */
 .related-posts {
@@ -1418,25 +1458,30 @@ pre.mermaid .arrowheadPath {
   margin-left: -30vw;
   margin-right: -50vw;
 }
+
 .related-posts-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .related-title {
   font-family: var(--font-sans);
   font-size: 1.8rem;
   margin-bottom: 30px;
   text-align: center;
 }
+
 .swiper-carousel {
   width: 100%;
   height: 100%;
   overflow: visible; /* Penting untuk efek "peek" */
 }
+
 .swiper-slide {
   height: auto; /* Biarkan tinggi slide menyesuaikan konten */
 }
+
 .related-post-card a {
   text-decoration: none;
   color: inherit;
@@ -1447,16 +1492,33 @@ pre.mermaid .arrowheadPath {
   box-shadow: 0 4px 15px rgba(0,0,0,0.07);
   transition: all 0.3s ease;
 }
+
 .related-post-card a:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-.related-card-image-wrapper { width: 100%; aspect-ratio: 16/9; }
-.related-card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.related-card-content { padding: 15px; }
+
+.related-card-image-wrapper { 
+  width: 100%; 
+  aspect-ratio: 16/9; 
+}
+
+.related-card-image-wrapper img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.related-card-content { 
+  padding: 15px; 
+}
+
 .related-card-content h4 {
-  font-family: var(--font-sans); font-size: 1rem;
-  font-weight: 600; line-height: 1.4; margin: 0;
+  font-family: var(--font-sans); 
+  font-size: 1rem;
+  font-weight: 600; 
+  line-height: 1.4; 
+  margin: 0;
   /* Batasi judul menjadi 2 baris */
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -1473,6 +1535,7 @@ pre.mermaid .arrowheadPath {
   padding-top: 20px;
   border-top: 1px solid var(--color-border);
 }
+
 .pagination-link {
   display: flex;
   align-items: center;
@@ -1486,20 +1549,44 @@ pre.mermaid .arrowheadPath {
   font-weight: 600;
   transition: all 0.2s ease;
 }
-.pagination-link:hover { background-color: var(--color-bg-light); border-color: var(--color-primary); }
-.pagination-link.next { justify-content: flex-end; text-align: right; }
+
+.pagination-link:hover { 
+  background-color: var(--color-bg-light); 
+  border-color: var(--color-primary); 
+}
+
+.pagination-link.next { 
+  justify-content: flex-end; 
+  text-align: right; 
+}
 
 /* --- Tombol Back to Top --- */
 #backToTopBtn {
-  display: none; position: fixed; bottom: 20px; right: 20px;
-  z-index: 99; border: none; outline: none; background-color: var(--color-text);
-  color: white; cursor: pointer; padding: 12px; border-radius: 50%;
-  font-size: 18px; width: 45px; height: 45px;
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px;
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: var(--color-text);
+  color: white; 
+  cursor: pointer; 
+  padding: 12px; 
+  border-radius: 50%;
+  font-size: 18px; 
+  width: 45px; 
+  height: 45px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
-#backToTopBtn:hover { background-color: var(--color-primary); }
 
+#backToTopBtn:hover { 
+  background-color: var(--color-primary); 
+}
 
+/* ================================================================== */
+/* === RESPONSIVE MEDIA QUERIES === */
+/* ================================================================== */
 
 @media (max-width: 768px) {
 
@@ -1521,7 +1608,7 @@ pre.mermaid .arrowheadPath {
     font-family: 'Georgia', serif;
   }
 
-    .post-content {
+  .post-content {
     font-size: 1rem; /* Ukuran standar 16px, ideal untuk mobile */
     line-height: 1.7;
   }
@@ -1541,7 +1628,7 @@ pre.mermaid .arrowheadPath {
     object-fit: cover;
   }
 
-    .single-image-source img.size-small {
+  .single-image-source img.size-small {
     max-width: 85%;
   }
 
@@ -1564,19 +1651,22 @@ pre.mermaid .arrowheadPath {
     font-size: 12px;
   }
 
-   .footer-container {
+  .footer-container {
     text-align: center;
   }
+
   .footer-border-title {
     left: 50%;
     transform: translateX(-50%);
   }
+
   .footer-social-list {
     justify-content: center;
   }
 
   /* Code & Table Start */
-    /* Mengurangi spasi vertikal antar elemen */
+  
+  /* Mengurangi spasi vertikal antar elemen */
   .post-content pre,
   .post-content .table-container {
     margin-bottom: 20px;
@@ -1597,12 +1687,10 @@ pre.mermaid .arrowheadPath {
   .post-content pre code {
     padding: 12px;
   }
+  
+  /* Code & Tabel End */
 
-
-/* Code & Tabel End */
-
-
-/* Mermaid  */
+  /* Mermaid  */
   .mermaid-container .node .label {
     font-size: 12px; /* Perkecil ukuran font pada tablet */
   }
@@ -1614,24 +1702,25 @@ pre.mermaid .arrowheadPath {
 @media (max-width: 480px) {
 
   /* --- HALAMAN POSTINGAN TUNGGAL (SINGLE.HTML) --- */
- .post-content {
-  font-size: 1rem;
-}
+  .post-content {
+    font-size: 1rem;
+  }
 
-.post-content h1 {
-  font-size: 1.8rem;
-}
+  .post-content h1 {
+    font-size: 1.8rem;
+  }
 
-.post-content h2 {
-  font-size: 1.45rem;
-}
+  .post-content h2 {
+    font-size: 1.45rem;
+  }
 
-.post-content h3 {
-  font-size: 1.2rem;
-}
+  .post-content h3 {
+    font-size: 1.2rem;
+  }
+
   /* Code & Tabel Start */
 
-   /* Membuat padding sel tabel lebih kecil untuk memaksimalkan ruang */
+  /* Membuat padding sel tabel lebih kecil untuk memaksimalkan ruang */
   .post-content th,
   .post-content td {
     padding: 8px 10px;
@@ -1660,14 +1749,15 @@ pre.mermaid .arrowheadPath {
   }
 
   /* Code & Tabel End */
-/* Mermaid  */
+
+  /* Mermaid  */
   .mermaid-container {
     padding: 1rem; /* Kurangi padding pada layar kecil */
   }
+  
   .mermaid-container .node .label {
     font-size: 11px; /* Perkecil lagi ukuran font pada ponsel */
   }
   /* Mermaid */
-
 
 }
