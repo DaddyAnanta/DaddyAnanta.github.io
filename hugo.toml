@@ -1,5 +1,5 @@
-baseURL = "https://pepuru.com/"
-languageCode = 'id-ID'
+baseURL = 'https://pepuru.com/'
+locale = "id-id"
 defaultContentLanguage = "id"
 defaultContentLang = "id"
 title = 'Daddy Ananta'
