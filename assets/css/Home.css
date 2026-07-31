@@ -759,11 +759,9 @@
     grid-template-columns: repeat(2, 1fr); 
   }
   
-  .info-box-card {
-    grid-column: span 2; 
-    text-align: center;
-    align-items: center;
-  }
+    .info-box-card {
+        display: none !important;
+      }
 }
 
 @media (max-width: 768px) {
