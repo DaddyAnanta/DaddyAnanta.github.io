@@ -62,9 +62,9 @@
 
   <!-- CSS External & Bundled -->
   <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   {{ partialCached "analytics.html" . }}
@@ -80,7 +80,9 @@
   
   {{ partial "navbar" . }}
 
-  {{ block "main" . }} {{ end }}
+  <main id="main-content">
+    {{ block "main" . }} {{ end }}
+  </main>{{ block "main" . }} {{ end }}
 
   {{ partial "footer" . }}
 
@@ -94,7 +96,6 @@
   <script src='{{ "js/search.js" | absURL }}' defer></script>
 
   <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" defer></script>
