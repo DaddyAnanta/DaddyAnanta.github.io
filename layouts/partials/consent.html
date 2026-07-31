@@ -353,6 +353,6 @@
 {{/* --- Memuat Skrip Fungsional (Wajib) Secara Langsung --- */}}
 {{ range $index, $item := site.Data.consent.items }}
   {{ if $item.is_functional }}
-    <script type="text/javascript" src="/js/{{ $item.script_file }}"></script>
+    <script type="text/javascript" src="/js/{{ $item.script_file }}" defer></script>
   {{ end }}
 {{ end }}
