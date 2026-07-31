@@ -32,8 +32,8 @@
         <p id="info-description">Arahkan kursor ke sebuah modul untuk melihat deskripsinya. Mulai jelajahi!</p>
       </div>
 
-      {{/* --- Kartu Kategori --- */}}
-      {{- $kategori := first 6 .Site.Taxonomies.categories.ByCount -}}
+	{{/* --- Kartu Kategori --- */}}
+      {{- $kategori := first 4 .Site.Taxonomies.categories.ByCount -}}
       {{- if ge (len $kategori) 1 -}}
         {{- range $kategori -}}
           {{- $category_slug := .Name | urlize -}}
@@ -344,76 +344,81 @@
 
 {{/* --- SCRIPT UNTUK INFOBOX & SKELETON --- */}}
 <script>
-  // InfoBox Logic
+  // InfoBox Logic (Hanya berjalan di Desktop)
   document.addEventListener('DOMContentLoaded', function() {
-    /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
-    const infoData = {
-      'civil-engineering': { 
-        title: 'Civil Engineering', 
-        description: 'Pembahasan mengenai perancangan struktur, material konstruksi, infrastruktur, dan manajemen proyek sipil.' 
-      },
-      'electrical-engineering': { 
-        title: 'Electrical Engineering', 
-        description: 'Konsep kelistrikan, sistem kontrol, elektronika, hingga distribusi dan manajemen energi listrik.' 
-      },
-      'mechanical-engineering': { 
-        title: 'Mechanical Engineering', 
-        description: 'Prinsip dasar mekanika, termodinamika, ilmu material, dan perancangan sistem mekanis atau mesin.' 
-      },
-      'plumbing-engineering': { 
-        title: 'Plumbing Engineering', 
-        description: 'Perancangan sistem perpipaan, instalasi sanitasi, distribusi air bersih, dan tata kelola fluida dalam bangunan.' 
-      },
-      'physics': { 
-        title: 'Physics', 
-        description: 'Eksplorasi hukum dasar alam, kinematika, mekanika kuantum, dan berbagai konsep fisika teoritis maupun terapan.' 
-      },
-      'math': { 
-        title: 'Math', 
-        description: 'Fondasi matematika, mulai dari kalkulus, aljabar linier, hingga penerapan logika presisi dalam pemecahan masalah.' 
-      }
-    };
-    /* --- AKHIR PENYESUAIAN SCRIPT --- */
     
-    const cards = document.querySelectorAll('.category-card');
-    const gridContainer = document.querySelector('.category-grid-container');
-    const infoTitle = document.getElementById('info-title');
-    const infoDescription = document.getElementById('info-description');
-    const infoLinkWrapper = document.getElementById('info-link-wrapper');
-    const infoLink = document.getElementById('info-link');
-    
-    const defaultTitle = 'PROJECT.LOG';
-    const defaultDescription = 'Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.';
-    
-    if (gridContainer) {
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          const key = this.dataset.key;
-          const data = infoData[key];
-          const linkUrl = this.href;
-          
-          if (data) {
-            infoTitle.textContent = data.title.toUpperCase();
-            infoDescription.textContent = data.description;
-            if (infoLink && infoLinkWrapper) { // Safety check
-              infoLink.href = linkUrl;
-              infoLinkWrapper.style.display = 'block';
+    // Cek apakah lebar layar lebih besar dari 991px (Desktop)
+    if (window.innerWidth > 991) {
+      
+      /* --- PENYESUAIAN SCRIPT DIMULAI DI SINI --- */
+      const infoData = {
+        'civil-engineering': { 
+          title: 'Civil Engineering', 
+          description: 'Pembahasan mengenai perancangan struktur, material konstruksi, infrastruktur, dan manajemen proyek sipil.' 
+        },
+        'electrical-engineering': { 
+          title: 'Electrical Engineering', 
+          description: 'Konsep kelistrikan, sistem kontrol, elektronika, hingga distribusi dan manajemen energi listrik.' 
+        },
+        'mechanical-engineering': { 
+          title: 'Mechanical Engineering', 
+          description: 'Prinsip dasar mekanika, termodinamika, ilmu material, dan perancangan sistem mekanis atau mesin.' 
+        },
+        'plumbing-engineering': { 
+          title: 'Plumbing Engineering', 
+          description: 'Perancangan sistem perpipaan, instalasi sanitasi, distribusi air bersih, dan tata kelola fluida dalam bangunan.' 
+        },
+        'physics': { 
+          title: 'Physics', 
+          description: 'Eksplorasi hukum dasar alam, kinematika, mekanika kuantum, dan berbagai konsep fisika teoritis maupun terapan.' 
+        },
+        'math': { 
+          title: 'Math', 
+          description: 'Fondasi matematika, mulai dari kalkulus, aljabar linier, hingga penerapan logika presisi dalam pemecahan masalah.' 
+        }
+      };
+      /* --- AKHIR PENYESUAIAN SCRIPT --- */
+      
+      const cards = document.querySelectorAll('.category-card');
+      const gridContainer = document.querySelector('.category-grid-container');
+      const infoTitle = document.getElementById('info-title');
+      const infoDescription = document.getElementById('info-description');
+      const infoLinkWrapper = document.getElementById('info-link-wrapper');
+      const infoLink = document.getElementById('info-link');
+      
+      const defaultTitle = 'PROJECT.LOG';
+      const defaultDescription = 'Arahkan kursor ke salah satu modul kategori untuk melihat deskripsi data.';
+      
+      if (gridContainer) {
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            const key = this.dataset.key;
+            const data = infoData[key];
+            const linkUrl = this.href;
+            
+            if (data) {
+              infoTitle.textContent = data.title.toUpperCase();
+              infoDescription.textContent = data.description;
+              if (infoLink && infoLinkWrapper) { 
+                infoLink.href = linkUrl;
+                infoLinkWrapper.style.display = 'block';
+              }
             }
+          });
+        });
+        
+        gridContainer.addEventListener('mouseleave', function() {
+          infoTitle.textContent = defaultTitle;
+          infoDescription.textContent = defaultDescription;
+          if (infoLinkWrapper) { 
+             infoLinkWrapper.style.display = 'none';
           }
         });
-      });
-      
-      gridContainer.addEventListener('mouseleave', function() {
-        infoTitle.textContent = defaultTitle;
-        infoDescription.textContent = defaultDescription;
-        if (infoLinkWrapper) { // Safety check
-           infoLinkWrapper.style.display = 'none';
-        }
-      });
-    }
+      }
+    } // Akhir dari kondisi pendeteksi layar desktop
   });
 
-  // Skeleton Screen Logic
+  // Skeleton Screen Logic (Tetap berjalan di semua perangkat)
   window.addEventListener('load', function() {
     const wrapper = document.querySelector('.post-sections-wrapper');
     if (wrapper) {
