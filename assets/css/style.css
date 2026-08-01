@@ -258,6 +258,13 @@ a {
   align-items: center;
 }
 
+.navbar-link.active,
+.accordion-link.active,
+.accordion-button.active,
+.navbar-dropdown .dropdown-toggle.active {
+  color: #3D8BFD;
+}
+
 .navbar-left {
   display: flex;
   align-items: center;
