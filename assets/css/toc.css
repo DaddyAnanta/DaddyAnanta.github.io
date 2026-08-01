@@ -281,26 +281,29 @@
   z-index: 1;
 }
 
-.singleContent th,
-.singleContent td {
-  border: 1px solid #ddd;
-  padding: 10px 12px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 0.9em;
-}
-
+.post-content th,
 .singleContent th {
-  background-color: #4A5568;
-  color: #FFFFFF;
+  background-color: #1a365d !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-align: center; 
+  padding: 14px 16px !important;
+  border: none !important; 
 }
 
-.singleContent tbody tr:nth-child(odd) {
-  background-color: #F7FAFC;
+.post-content th:first-child,
+.singleContent th:first-child,
+.post-content td:first-child,
+.singleContent td:first-child {
+  text-align: left;
 }
 
-.singleContent tbody tr:nth-child(even) {
-  background-color: #EDF2F7;
+.post-content td,
+.singleContent td {
+  padding: 12px 16px !important;
+  border: none !important;
+  color: #333333 !important;
+  vertical-align: middle;
 }
 
 .singleContent tbody tr:hover {
@@ -308,13 +311,55 @@
   cursor: default;
 }
 
-.singleContent p {
-  margin-top: 0;
-  margin-bottom: 1rem; 
-  text-align: justify; 
-  text-indent: 2em; 
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6; 
+.post-content tbody tr,
+.singleContent tbody tr {
+  transition: background-color 0.2s ease !important; 
+}
+
+.post-content tbody tr:nth-child(odd),
+.singleContent tbody tr:nth-child(odd) {
+  background-color: #ffffff !important; 
+}
+.post-content tbody tr:nth-child(even),
+.singleContent tbody tr:nth-child(even) {
+  background-color: #f0f6fc !important; 
+}
+
+/* 6. Efek Hover pada Baris */
+.post-content tbody tr:hover,
+.singleContent tbody tr:hover {
+  background-color: #e1ebf5 !important; 
+}
+/* Menghilangkan border bawah pada baris terakhir */
+.post-content tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+
+.singleContent p, 
+.post-content p {
+  margin-top: 0 !important;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+  text-indent: 1.8em !important; 
+  line-height: 1.75 !important; 
+}
+
+.singleContent p + p,
+.post-content p + p {
+  text-indent: 1.8em !important;
+  margin-top: 0 !important;
+}
+
+.singleContent li p, 
+.post-content li p,
+.singleContent td p,
+.post-content td p,
+.post-content blockquote p,
+.singleContent blockquote p,
+.singleContent th p,
+.post-content th p {
+  text-indent: 0 !important;
 }
 
 .singleContent a {
@@ -387,22 +432,23 @@
   padding-left: 15px;
 }
 
-.singleContent img {
+.singleContent img,
+.post-content img {
   width: 100%;
-  margin: 30px 0;
+  margin: 1.5em 0 !important; 
   border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
 }
 
-.single-image-source img {
-  display: block;
+.single-image-source img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin: 1.5em 0 !important; /* Sebelumnya 2.5em */
 }
+
 
 .single-image-source img.size-small {
   max-width: 35%;
@@ -707,10 +753,6 @@ ul.share-icons li:hover .tooltip {
 .post-content h3 { font-size: 1.6rem; }
 .post-content h4 { font-size: 1.3rem; } /* Sedikit lebih besar untuk hierarki yang lebih baik */
 
-.post-content p { 
-  margin-bottom: 1.5em;
-  text-align: justify; /* Membuat teks rata kiri-kanan untuk tampilan rapi */
-}
 
 /* Single Pagination START*/
 .singlePagination {
@@ -923,7 +965,7 @@ ul.share-icons li:hover .tooltip {
 
 /* --- Gambar Utama --- */
 .post-featured-image {
-  margin: 0 0 30px 0;
+  margin: 0 0 1.5em 0 !important; 
 }
 
 .post-featured-image img {
@@ -1058,7 +1100,6 @@ ul.share-icons li:hover .tooltip {
   max-width: 100%; 
   height: auto; 
   border-radius: 8px; 
-  margin-bottom: 20px; 
 }
 
 /* Images start */
@@ -1168,20 +1209,7 @@ ul.share-icons li:hover .tooltip {
   max-width: 400px;
 }
 
-/* 5. Efek Zebra-Striping untuk Keterbacaan */
-.post-content tbody tr:nth-of-type(even) {
-  background-color: #f6f8fa; /* Warna latar baris genap */
-}
 
-/* 6. Efek Hover pada Baris */
-.post-content tbody tr:hover {
-  background-color: #eef0f2; /* Warna latar saat cursor di atas baris */
-}
-
-/* Menghilangkan border bawah pada baris terakhir */
-.post-content tbody tr:last-of-type td {
-  border-bottom: none;
-}
 
 /* 7. Desain Scrollbar (Sama seperti blok kode) */
 .post-content .table-container::-webkit-scrollbar {
@@ -1687,14 +1715,24 @@ pre.mermaid .arrowheadPath {
   .post-content pre code {
     padding: 12px;
   }
+  .post-content table,
+  .singleContent table {
+    font-size: 0.9rem !important;
+  }
   
+  /* Mengurangi jarak spasi (padding) agar tabel tidak terlalu lebar */
+  .post-content th,
+  .singleContent th,
+  .post-content td,
+  .singleContent td {
+    padding: 10px 12px !important; 
+  }  
   /* Code & Tabel End */
 
-  /* Mermaid  */
-  .mermaid-container .node .label {
-    font-size: 12px; /* Perkecil ukuran font pada tablet */
-  }
   /* Mermaid */
+  .mermaid-container .node .label {
+    font-size: 12px; 
+  }
 
 }
 
@@ -1721,9 +1759,16 @@ pre.mermaid .arrowheadPath {
   /* Code & Tabel Start */
 
   /* Membuat padding sel tabel lebih kecil untuk memaksimalkan ruang */
-  .post-content th,
-  .post-content td {
-    padding: 8px 10px;
+.post-content th,
+  .singleContent th,
+  .post-content td,
+  .singleContent td {
+    padding: 8px 8px !important; 
+  }
+
+.post-content th,
+  .singleContent th {
+    line-height: 1.3 !important;
   }
 
   /* Mengurangi padding pada header blok kode */
