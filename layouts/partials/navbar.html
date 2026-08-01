@@ -14,13 +14,15 @@
 
     {{/* --- Bagian Tengah: Link Navigasi (Desktop) --- */}}
     <div class="navbar-center">
-      <a href="/#list_h1" class="navbar-link"><i class="fas fa-home"></i> Home</a>
+      <a href="/" class='navbar-link {{ if eq .RelPermalink "/" }}active{{ end }}'><i class="fas fa-home"></i> Home</a>
       <a href="https://medium.com/@daddyananta" target="_blank" class="navbar-link"><i class="fab fa-medium"></i> Medium</a>
+      <a href="/archive/" class='navbar-link {{ if eq .RelPermalink "/archive/" }}active{{ end }}'><i class="fa-solid fa-box-archive"></i>Archive</a>
 
       {{/* Dropdown Kategori */}}
       <div class="navbar-dropdown">
         {{/* Mengganti <button> menjadi <a> dan menambahkan href */}}
-        <a href="/categories/" class="navbar-link dropdown-toggle">
+        {{/*  <a href="/categories/" class="navbar-link dropdown-toggle">  */}}
+        <a href="/categories/" class='navbar-link dropdown-toggle {{ if in .RelPermalink "/categories/" }}active{{ end }}'>
           <i class="fas fa-folder"></i> Category <span class="dropdown-icon">&#9660;</span>
         </a>
         <div class="dropdown-menu">
@@ -33,7 +35,8 @@
       {{/* Dropdown Tag */}}
       <div class="navbar-dropdown" id="tags-dropdown">
         {{/* Mengganti <button> menjadi <a> dan menambahkan href */}}
-        <a href="/tags/" class="navbar-link dropdown-toggle">
+        {{/*  <a href="/tags/" class="navbar-link dropdown-toggle">  */}}
+        <a href="/tags/" class='navbar-link dropdown-toggle {{ if in .RelPermalink "/tags/" }}active{{ end }}'></a>
           <i class="fas fa-tag"></i> Tags <span class="dropdown-icon">&#9660;</span>
         </a>
         <div class="dropdown-menu">
@@ -42,6 +45,8 @@
           {{ end }}
         </div>
       </div>
+
+
 
     {{/* --- Bagian Kanan: Pencarian --- */}}
     <div class="navbar-right">
@@ -55,6 +60,62 @@
 
   </div>
 </nav>
+
+<div class="accordion" id="cart-accordion">
+  <div class="searchButton_accordeon">
+    <form action="/search/" method="GET">
+      <i class="fas fa-search search-icon"></i>
+      <input type="search" id="search" name="s" placeholder="Cari di situs ini..." />
+    </form>
+  </div>
+
+  <div class="accordion-item">
+     <a href="/" class='accordion-link {{ if eq .RelPermalink "/" }}active{{ end }}'>
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-github icon"></i>
+      <span>Github</span>
+    </a>
+    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
+      <i class="fab fa-medium icon"></i>
+      <span>Medium</span>
+    </a>
+  </div>
+
+  <a href="/archive/" class='accordion-link {{ if eq .RelPermalink "/archive/" }}active{{ end }}'>
+    <i class="fa-solid fa-box-archive"></i><span>Archive</span>
+  </a>
+
+  <button class='accordion-button {{ if in .RelPermalink "/categories/" }}active{{ end }}' onclick="togglePanel(this)">
+    <a href="/categories/"><span><i class="fas fa-folder icon"></i> Kategori</span></a>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
+  <div class='panel'>
+    <div class="accordion-category_page">
+      {{ range $.Site.Taxonomies.categories.ByCount }}
+        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+
+  <button class='accordion-button {{ if in .RelPermalink "/tags/" }}active{{ end }}' onclick="togglePanel(this)">
+    <a href="/tags/"><span><i class="fas fa-tags icon"></i> Tags</span></a>
+    <span class="accordion-icon">&#9660;</span>
+  </button>
+  <div class='panel'>
+    <div class="accordion-category_page">
+      {{ range $.Site.Taxonomies.tags.ByCount }}
+        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
+          <span class="accordion-category-name">{{ .Name | title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
 
 {{/* --- JavaScript untuk Fungsionalitas Navbar (INI BAGIAN PENTING) --- */}}
 {{/* --- JavaScript untuk Fungsionalitas Navbar --- */}}
