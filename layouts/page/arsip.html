@@ -1,0 +1,252 @@
+{{ define "main" }}
+<div class="main-content" style="background-color: #f8fafc; padding: 60px 20px; min-height: 100vh;">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    
+    <header class="text-center" style="margin-bottom: 50px; animation: fadeInDown 0.5s ease-out; padding:20px;">
+      <h1 style="font-size: 2.75rem; color: #0f172a; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 15px;">
+        <i class="fa-solid fa-book-bookmark" style="color: #3b82f6; margin-right: 10px;"></i>{{ .Title }}
+      </h1>
+      <p style="color: #64748b; font-size: 1.1rem; max-width: 600px;">{{ .Description }}</p>
+    </header>
+
+
+
+    {{/* --- KONTROL FILTER KATEGORI & TAG --- */}}
+    <div class="controls-container">
+      <div class="filters">
+        <div class="modern-select-wrapper">
+          <i class="fa-solid fa-folder-open select-icon-left"></i>
+          <select id="filter-category" class="modern-select">
+            <option value="">Semua Kategori</option>
+            {{ range site.Taxonomies.categories.ByCount }}
+              <option value="{{ .Name }}">{{ .Name | title }}</option>
+            {{ end }}
+          </select>
+          <i class="fa-solid fa-chevron-down select-icon-right"></i>
+        </div>
+
+        <div class="modern-select-wrapper">
+          <i class="fa-solid fa-tags select-icon-left"></i>
+          <select id="filter-tag" class="modern-select">
+            <option value="">Semua Tag</option>
+            {{ range site.Taxonomies.tags.ByCount }}
+              <option value="{{ .Name }}">{{ .Name | title }}</option>
+            {{ end }}
+          </select>
+          <i class="fa-solid fa-chevron-down select-icon-right"></i>
+        </div>
+      </div>
+    </div>
+
+    {{/* --- FILTER NAVIGASI HURUF ALFABET --- */}}
+    <div id="alphabet-nav" class="alphabet-nav"></div>
+
+    {{/* --- KONTEN UTAMA (DAFTAR INDEKS 3 KOLOM) --- */}}
+    <div id="content-container" class="content-fade-in"></div>
+
+  </div>
+</div>
+
+<style>
+  /* Base Animations */
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .content-fade-in { animation: fadeIn 0.4s ease-in-out; }
+
+  /* Controls Container */
+  .controls-container { background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); margin-bottom: 35px; }
+  .filters { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+  /* Modern Select Style */
+  .modern-select-wrapper { position: relative; width: 100%; max-width: 280px; }
+  .modern-select { appearance: none; -webkit-appearance: none; width: 100%; background: #f1f5f9; border: 2px solid transparent; border-radius: 12px; padding: 14px 45px; color: #334155; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+  .modern-select:hover { background: #e2e8f0; }
+  .modern-select:focus { outline: none; border-color: #3b82f6; background: #ffffff; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+  .select-icon-left { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #64748b; pointer-events: none; }
+  .select-icon-right { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 0.8rem; pointer-events: none; transition: transform 0.3s; }
+  .modern-select:focus + .select-icon-right { transform: translateY(-50%) rotate(180deg); }
+
+  /* Alphabet Navigation */
+  .alphabet-nav { margin-bottom: 45px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .alpha-btn { font-weight: 700; color: #475569; border: none; padding: 8px 16px; border-radius: 50px; transition: all 0.25s ease; background: #fff; cursor: pointer; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
+  .alpha-btn:hover { background: #f8fafc; color: #0f172a; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .alpha-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3); }
+
+  /* Index Group & Cards */
+  .index-group { margin-bottom: 35px; background: #ffffff; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); border: 1px solid rgba(226, 232, 240, 0.8); }
+  .index-letter { display: inline-block; font-size: 1.8rem; font-weight: 800; color: #1e40af; background: #eff6ff; padding: 5px 20px; border-radius: 12px; margin-bottom: 25px; margin-top: 0; }
+  
+  /* Modern Grid List */
+  .index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; row-gap: 25px; }
+  .index-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .index-list li i { color: #3b82f6; font-size: 0.85rem; margin-top: 5px; transition: transform 0.2s ease; }
+  .index-list li a { color: #334155; text-decoration: none; font-weight: 500; font-size: 1.05rem; line-height: 1.5; transition: color 0.2s ease; }
+  
+  /* Interactive Hover Effect */
+  .index-list li:hover i { transform: translateX(4px); color: #2563eb; }
+  .index-list li a:hover { color: #2563eb; }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) { 
+    .index-list { grid-template-columns: repeat(2, 1fr); } 
+  }
+  @media (max-width: 768px) {
+    .modern-select-wrapper { max-width: 100%; }
+    .filters { flex-direction: column; width: 100%; gap: 15px; }
+    .controls-container { padding: 20px; }
+  }
+  @media (max-width: 576px) { 
+    .index-list { grid-template-columns: 1fr; } 
+    .index-group { padding: 25px 20px; }
+    .index-letter { font-size: 1.5rem; }
+    .alpha-btn { padding: 8px 14px; font-size: 0.9rem; }
+  }
+</style>
+
+{{/* --- 1. MEMBANGUN DATA JSON DENGAN CARA AMAN (SCRATCH + SAFEJS) --- */}}
+{{ $.Scratch.Set "arsipData" slice }}
+
+{{ range where site.RegularPages "Section" "posts" }}
+  {{ $concept := .Params.concept | default .Title }}
+  {{ $letter := substr $concept 0 1 | upper }}
+  
+  {{ $cats := .Params.categories | default slice }}
+  {{ $tags := .Params.tags | default slice }}
+  
+  {{/* Merakit data menggunakan Dictionary bawaan Hugo */}}
+  {{ $item := dict "concept" $concept "permalink" .Permalink "categories" $cats "tags" $tags "letter" $letter }}
+  {{ $.Scratch.Add "arsipData" (slice $item) }}
+{{ end }}
+
+{{/* --- 2. JAVASCRIPT LOGIC --- */}}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    // Hugo menyuntikkan data murni langsung ke dalam variabel JavaScript.[cite: 6]
+    let allArticles = {{ $.Scratch.Get "arsipData" | jsonify | safeJS }} || [];
+
+    // Otomatis urutkan dari A - Z[cite: 6]
+    allArticles.sort((a, b) => a.concept.localeCompare(b.concept));
+
+    // Deklarasi DOM[cite: 6]
+    const filterCat = document.getElementById('filter-category');
+    const filterTag = document.getElementById('filter-tag');
+    const contentContainer = document.getElementById('content-container');
+    const alphabetNav = document.getElementById('alphabet-nav');
+
+    let activeLetter = ""; 
+
+    function updateView() {
+      // Memicu ulang animasi CSS saat data diupdate
+      contentContainer.classList.remove('content-fade-in');
+      void contentContainer.offsetWidth; // Trigger DOM reflow
+      contentContainer.classList.add('content-fade-in');
+
+      const catValue = filterCat.value.toLowerCase();
+      const tagValue = filterTag.value.toLowerCase();
+
+      // Langkah A: Filter berdasarkan Kategori & Tag[cite: 6]
+      let baseFiltered = allArticles.filter(article => {
+        const articleCats = (article.categories || []).map(c => c.toLowerCase());
+        const articleTags = (article.tags || []).map(t => t.toLowerCase());
+        
+        const matchCat = catValue === "" || articleCats.includes(catValue);
+        const matchTag = tagValue === "" || articleTags.includes(tagValue);
+        
+        return matchCat && matchTag;
+      });
+
+      // Langkah B: Dapatkan huruf yang tersedia dari hasil pencarian[cite: 6]
+      const availableLetters = new Set();
+      baseFiltered.forEach(a => {
+        let l = a.letter;
+        if (!/[A-Z]/.test(l)) l = '#';
+        availableLetters.add(l);
+      });
+      const sortedLetters = Array.from(availableLetters).sort();
+
+      if (activeLetter !== "" && !sortedLetters.includes(activeLetter)) {
+        activeLetter = "";
+      }
+
+      // Langkah C: Render Tombol Navigasi Huruf[cite: 6]
+      alphabetNav.innerHTML = '';
+      
+      const btnAll = document.createElement('button');
+      btnAll.className = 'alpha-btn' + (activeLetter === "" ? ' active' : '');
+      btnAll.textContent = 'Semua';
+      btnAll.addEventListener('click', () => {
+        activeLetter = ""; 
+        updateView();
+      });
+      alphabetNav.appendChild(btnAll);
+
+      sortedLetters.forEach(letter => {
+        const btn = document.createElement('button');
+        btn.textContent = letter; 
+        btn.className = 'alpha-btn' + (activeLetter === letter ? ' active' : '');
+        
+        btn.addEventListener('click', () => {
+          activeLetter = letter; 
+          updateView();
+        });
+        alphabetNav.appendChild(btn);
+      });
+
+      // Langkah D: Filter berdasarkan Huruf yang diklik[cite: 6]
+      let finalFiltered = baseFiltered;
+      if (activeLetter !== "") {
+        finalFiltered = baseFiltered.filter(a => {
+          let l = a.letter;
+          if (!/[A-Z]/.test(l)) l = '#';
+          return l === activeLetter;
+        });
+      }
+
+      // Langkah E: Render Daftar Konsep ke Layar[cite: 6]
+      contentContainer.innerHTML = '';
+
+      if (finalFiltered.length === 0) {
+        contentContainer.innerHTML = `
+          <div style="text-align: center; padding: 60px 20px; background: #fff; border-radius: 16px; border: 1px dashed #cbd5e1;">
+            <i class="fa-solid fa-folder-open" style="font-size: 3rem; color: #94a3b8; margin-bottom: 15px;"></i>
+            <p style="color: #64748b; font-size: 1.1rem; margin: 0;">Tidak ada konsep yang sesuai dengan filter pencarian.</p>
+          </div>`;
+        return;
+      }
+
+      const grouped = {};
+      finalFiltered.forEach(article => {
+        let l = article.letter;
+        if (!/[A-Z]/.test(l)) l = '#';
+        if (!grouped[l]) grouped[l] = [];
+        grouped[l].push(article);
+      });
+
+      Object.keys(grouped).sort().forEach(letter => {
+        let listHtml = '<div class="index-group">';
+        listHtml += '<h2 class="index-letter">' + letter + '</h2>';
+        listHtml += '<ul class="index-list">';
+                          
+        grouped[letter].forEach(article => {
+          // Menambahkan Ikon Font Awesome ke dalam list item untuk memperkuat UX
+          listHtml += `<li>
+                        <i class="fa-solid fa-angle-right"></i>
+                        <a href="${article.permalink}">${article.concept}</a>
+                       </li>`;
+        });
+        
+        listHtml += '</ul></div>';
+        contentContainer.insertAdjacentHTML('beforeend', listHtml);
+      });
+    }
+
+    // Eksekusi filter secara real-time[cite: 6]
+    filterCat.addEventListener('change', () => { activeLetter = ""; updateView(); });
+    filterTag.addEventListener('change', () => { activeLetter = ""; updateView(); });
+
+    // Jalankan pertama kali[cite: 6]
+    updateView();
+  });
+</script>
+{{ end }}
