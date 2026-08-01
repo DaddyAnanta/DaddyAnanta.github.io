@@ -36,7 +36,7 @@
       <div class="navbar-dropdown" id="tags-dropdown">
         {{/* Mengganti <button> menjadi <a> dan menambahkan href */}}
         {{/*  <a href="/tags/" class="navbar-link dropdown-toggle">  */}}
-        <a href="/tags/" class='navbar-link dropdown-toggle {{ if in .RelPermalink "/tags/" }}active{{ end }}'></a>
+        <a href="/tags/" class='navbar-link dropdown-toggle {{ if in .RelPermalink "/tags/" }}active{{ end }}'>
           <i class="fas fa-tag"></i> Tags <span class="dropdown-icon">&#9660;</span>
         </a>
         <div class="dropdown-menu">
