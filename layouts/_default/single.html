@@ -3,64 +3,6 @@
 {{/* --- HEAD: Tambahkan link CSS untuk Swiper.js --- */}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-{{/* Accordion tidak berubah */}}
-<div class="accordion" id="cart-accordion">
-  
-  {{/* --- Bagian Pencarian --- */}}
-  <div class="searchButton_accordeon">
-    <form action="/search/" method="GET">
-      <i class="fas fa-search search-icon"></i>
-      <input type="search" id="search" name="s" placeholder="Cari di situs ini..." />
-    </form>
-  </div>
-
-  {{/* --- Tautan Navigasi Utama --- */}}
-  <div class="accordion-item">
-    <a href="/#about-me" class="accordion-link">
-      <i class="fas fa-user-circle icon"></i>
-      <span>Portofolio</span>
-    </a>
-    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-github icon"></i>
-      <span>Github</span>
-    </a>
-    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-medium icon"></i>
-      <span>Medium</span>
-    </a>
-  </div>
-
-  {{/* --- Dropdown Kategori --- */}}
-  <button class="accordion-button" onclick="togglePanel(this)">
-    <span><i class="fas fa-folder icon"></i> Kategori</span>
-    <span class="accordion-icon">&#9660;</span>
-  </button>
-  <div class="panel">
-    <div class="accordion-category_page">
-      {{ range $.Site.Taxonomies.categories.ByCount }}
-        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
-          <span class="accordion-category-name">{{ .Name | title }}</span>
-        </a>
-      {{ end }}
-    </div>
-  </div>
-
-  {{/* --- Dropdown Tag --- */}}
-  <button class="accordion-button" onclick="togglePanel(this)">
-    <span><i class="fas fa-tags icon"></i> Tags</span>
-    <span class="accordion-icon">&#9660;</span>
-  </button>
-  <div class="panel">
-    <div class="accordion-category_page">
-      {{ range $.Site.Taxonomies.tags.ByCount }}
-        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
-          <span class="accordion-category-name">{{ .Name | title }}</span>
-        </a>
-      {{ end }}
-    </div>
-  </div>
-
-</div>
 
 
 {{/* --- KONTEN UTAMA HALAMAN POSTINGAN --- */}}
@@ -107,9 +49,20 @@
             <li class="breadcrumb-item active" aria-current="page"><i class="fa-duotone fa-solid fa-arrow-down"></i></li>
           </ol>
         </nav>
+        
         <h1 class="post-title">{{ .Title }}</h1>
+        
         <div class="post-meta">
+          <!-- Menampilkan tanggal rilis awal -->
           <span class="meta-item"><i class="fas fa-calendar-alt"></i><time>{{ .Date.Format "2 January 2006" }}</time></span>
+          
+          <!-- Mengecek apakah artikel pernah di-update via Git -->
+          {{ if ne (.Date.Format "2 January 2006") (.Lastmod.Format "2 January 2006") }}
+            <span class="meta-item" style="color: #6c757d; font-style: italic;">
+              <i class="fas fa-history"></i><time>Diperbarui: {{ .Lastmod.Format "2 January 2006" }}</time>
+            </span>
+          {{ end }}
+
           <span class="meta-item"><i class="fas fa-clock"></i><span>{{ .ReadingTime }} min read</span></span>
           <span class="meta-item"><i class="fas fa-file-word"></i><span>{{ .WordCount }} words</span></span>
         </div>

@@ -3,61 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="accordion" id="cart-accordion">
-  {{/* --- Bagian Pencarian --- */}}
-  <div class="searchButton_accordeon">
-    <form action="/search/" method="GET">
-      <i class="fas fa-search search-icon"></i>
-      <input type="search" id="search" name="s" placeholder="Cari di situs ini..." />
-    </form>
-  </div>
 
-  {{/* --- Tautan Navigasi Utama --- */}}
-  <div class="accordion-item">
-    <a href="/#about-me" class="accordion-link">
-      <i class="fas fa-user-circle icon"></i>
-      <span>Portofolio</span>
-    </a>
-    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-github icon"></i>
-      <span>Github</span>
-    </a>
-    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-medium icon"></i>
-      <span>Medium</span>
-    </a>
-  </div>
-
-  {{/* --- Dropdown Kategori --- */}}
-  <button class="accordion-button" onclick="togglePanel(this)">
-    <span><i class="fas fa-folder icon"></i> Kategori</span>
-    <span class="accordion-icon">&#9660;</span>
-  </button>
-  <div class="panel">
-    <div class="accordion-category_page">
-      {{ range $.Site.Taxonomies.categories.ByCount }}
-        <a class="accordion-category-link" href="/categories/{{ .Name | urlize }}/">
-          <span class="accordion-category-name">{{ .Name | title }}</span>
-        </a>
-      {{ end }}
-    </div>
-  </div>
-
-  {{/* --- Dropdown Tag --- */}}
-  <button class="accordion-button" onclick="togglePanel(this)">
-    <span><i class="fas fa-tags icon"></i> Tags</span>
-    <span class="accordion-icon">&#9660;</span>
-  </button>
-  <div class="panel">
-    <div class="accordion-category_page">
-      {{ range $.Site.Taxonomies.tags.ByCount }}
-        <a class="accordion-category-link" href="/tags/{{ .Name | urlize }}/">
-          <span class="accordion-category-name">{{ .Name | title }}</span>
-        </a>
-      {{ end }}
-    </div>
-  </div>
-</div>
 
 {{/* --- KONTEN UTAMA HALAMAN PENCARIAN --- */}}
 <main class="main-content search-page-content">

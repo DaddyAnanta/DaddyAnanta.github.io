@@ -79,20 +79,11 @@
     </form>
   </div>
 
-  <div class="accordion-item">
-    <a href="/#about-me" class="accordion-link">
-      <i class="fas fa-user-circle icon"></i>
-      <span>Portofolio</span>
-    </a>
-    <a href="https://github.com/DaddyAnanta1/" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-github icon"></i>
-      <span>Github</span>
-    </a>
-    <a href="https://medium.com/@daddyananta" target="_blank" rel="noopener noreferrer" class="accordion-link">
-      <i class="fab fa-medium icon"></i>
-      <span>Medium</span>
-    </a>
-  </div>
+
+
+  <a href="/archive/" class='accordion-link {{ if eq .RelPermalink "/archive/" }}active{{ end }}'>
+    <i class="fa-solid fa-box-archive"></i><span>Archive</span>
+  </a>
 
   <button class="accordion-button" onclick="togglePanel(this)">
     <span><i class="fas fa-folder icon"></i> Kategori</span>
