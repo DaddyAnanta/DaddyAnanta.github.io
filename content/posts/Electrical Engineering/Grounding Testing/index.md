@@ -11,9 +11,9 @@ concept = "Grounding Testing"
 slug = "grounding-testing"
 +++
 
-Membangun sistem pembumian (grounding system) yang sesuai standar bukan berarti pekerjaan telah selesai. Seiring waktu, korosi pada sambungan logam, perubahan kelembapan tanah, hingga pergeseran kondisi lingkungan dapat menurunkan kinerja sistem tanpa terlihat dari permukaan. Akibatnya, sistem yang semula mampu mengalirkan arus gangguan dengan baik dapat kehilangan efektivitasnya sehingga meningkatkan risiko munculnya tegangan berbahaya di sekitar instalasi.
+Membangun sistem pembumian ([grounding system](https://pepuru.com/posts/electrical-engineering/grounding-system/)) yang sesuai standar bukan berarti pekerjaan telah selesai. Seiring waktu, korosi pada sambungan logam, perubahan kelembapan tanah, hingga pergeseran kondisi lingkungan dapat menurunkan kinerja sistem tanpa terlihat dari permukaan. Akibatnya, sistem yang semula mampu mengalirkan arus gangguan dengan baik dapat kehilangan efektivitasnya sehingga meningkatkan risiko munculnya tegangan berbahaya di sekitar instalasi.
 
-Dalam sistem kelistrikan, keandalan pembumian tidak hanya dinilai dari rendahnya nilai resistansi, tetapi juga dari kemampuannya menjaga keselamatan manusia ketika terjadi gangguan listrik. Itulah sebabnya sistem pembumian harus diuji dan dipelihara secara berkala untuk memastikan bahwa tegangan sentuh (touch voltage) dan tegangan langkah (step voltage) tetap berada dalam batas aman sesuai standar keselamatan.
+Dalam sistem kelistrikan, keandalan [pembumian](https://pepuru.com/posts/electrical-engineering/electrical-grounding/) tidak hanya dinilai dari rendahnya nilai resistansi, tetapi juga dari kemampuannya menjaga keselamatan manusia ketika terjadi gangguan listrik. Itulah sebabnya sistem pembumian harus diuji dan dipelihara secara berkala untuk memastikan bahwa tegangan sentuh (touch voltage) dan tegangan langkah (step voltage) tetap berada dalam batas aman sesuai standar keselamatan.
 
 ## Tegangan Langkah (Step Voltage), Tegangan Sentuh (Touch Voltage), dan Kriteria Keselamatan
 
@@ -100,7 +100,7 @@ Pengujian menggunakan **tiga elektroda**, yaitu:
 
 Kedua elektroda tambahan dipasang pada satu garis lurus dengan elektroda pembumian. **Elektroda arus** ditempatkan paling jauh, sedangkan **elektroda tegangan** berada di antara elektroda pembumian dan elektroda arus. Jarak antar-elektroda harus cukup jauh agar daerah pengaruh masing-masing tidak saling tumpang tindih. Apabila jaraknya terlalu dekat, hasil pengukuran dapat menjadi tidak akurat.
 
-Selanjutnya, earth ground tester mengalirkan arus bolak-balik berfrekuensi rendah dari elektroda pembumian menuju elektroda arus. Pada saat yang sama, alat mengukur beda potensial antara elektroda pembumian dan elektroda tegangan. Berdasarkan Hukum Ohm,
+Selanjutnya, earth ground tester mengalirkan arus bolak-balik berfrekuensi rendah dari elektroda pembumian menuju elektroda arus. Pada saat yang sama, alat mengukur beda potensial antara elektroda pembumian dan elektroda tegangan. Berdasarkan [Hukum Ohm](https://pepuru.com/posts/electrical-engineering/ohms-law/),
 $$R=\frac{V}{I}$$​
 alat kemudian menghitung nilai tahanan pembumian secara otomatis.
 
