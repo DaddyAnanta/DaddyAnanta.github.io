@@ -101,6 +101,7 @@ Pengujian menggunakan **tiga elektroda**, yaitu:
 Kedua elektroda tambahan dipasang pada satu garis lurus dengan elektroda pembumian. **Elektroda arus** ditempatkan paling jauh, sedangkan **elektroda tegangan** berada di antara elektroda pembumian dan elektroda arus. Jarak antar-elektroda harus cukup jauh agar daerah pengaruh masing-masing tidak saling tumpang tindih. Apabila jaraknya terlalu dekat, hasil pengukuran dapat menjadi tidak akurat.
 
 Selanjutnya, earth ground tester mengalirkan arus bolak-balik berfrekuensi rendah dari elektroda pembumian menuju elektroda arus. Pada saat yang sama, alat mengukur beda potensial antara elektroda pembumian dan elektroda tegangan. Berdasarkan [Hukum Ohm](https://pepuru.com/posts/electrical-engineering/ohms-law/),
+
 $$R=\frac{V}{I}$$​
 alat kemudian menghitung nilai tahanan pembumian secara otomatis.
 
