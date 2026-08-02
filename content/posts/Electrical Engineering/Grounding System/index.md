@@ -15,7 +15,7 @@ Memahami klasifikasi sistem kelistrikan berdasarkan standar keselamatan internas
 
 Sistem perlindungan kelistrikan ini tidak bisa dibangun hanya dengan menancapkan sebatang besi elektroda ke dalam tanah lalu menyambungkannya dengan kabel biasa tanpa memperhatikan aspek teknis yang mendasar.
 
-Anda memerlukan perancangan arsitektur yang sangat matang. Proses ini dimulai dari pemilihan jenis dan ukuran kabel pembumian utama atau _grounding electrode conductor_ serta kabel pelindung peralatan atau _equipment grounding conductor_ yang harus dipastikan ukurannya sesuai dengan tabel standar kelistrikan. Selain itu teknisi juga wajib memperhitungkan kondisi geologi tanah di lokasi bangunan melalui pengukuran kemampuan hantar atau resistivitas tanah menggunakan metode empat pin Wenner.
+Anda memerlukan perancangan arsitektur yang sangat matang. Proses ini dimulai dari pemilihan jenis dan ukuran kabel [pembumian](https://pepuru.com/posts/electrical-engineering/electrical-grounding/) utama atau _grounding electrode conductor_ serta kabel pelindung peralatan atau _equipment grounding conductor_ yang harus dipastikan ukurannya sesuai dengan tabel standar kelistrikan. Selain itu teknisi juga wajib memperhitungkan kondisi geologi tanah di lokasi bangunan melalui pengukuran kemampuan hantar atau resistivitas tanah menggunakan metode empat pin Wenner.
 
 Setiap sektor industri juga menuntut pendekatan desain pembumian yang sangat spesifik dan berbeda satu sama lain. Sebagai contoh fasilitas medis seperti rumah sakit memerlukan sistem pembumian IT yang diatur secara khusus. 
 
