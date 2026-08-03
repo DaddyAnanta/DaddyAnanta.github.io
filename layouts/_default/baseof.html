@@ -48,7 +48,11 @@
 
   {{/* 4. SEKARANG, gabungkan slice yang sudah berisi Objek Resource */}}
   {{ $cssBundle := $cssResources | resources.Concat "css/bundle.css" | minify | fingerprint }}
-
+  <!-- KODE OPEN GRAPH (Untuk Facebook, WhatsApp, LinkedIn, dll) -->
+  {{ template "_internal/opengraph.html" . }}
+  
+  <!-- KODE TWITTER CARDS (Untuk X / Twitter) -->
+  {{ template "_internal/twitter_cards.html" . }}
   <!-- CSS External & Bundled -->
   <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
 
