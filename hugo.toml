@@ -2,7 +2,7 @@ baseURL = 'https://pepuru.com/'
 locale = "id-id"
 defaultContentLanguage = "id"
 defaultContentLang = "id"
-title = 'Daddy Ananta'
+title = 'Pepuru'
 enableRobotsTXT = true
 tableOfContents = true
 
