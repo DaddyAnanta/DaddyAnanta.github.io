@@ -4,6 +4,7 @@ date = 2026-08-02T12:00:00+07:00
 draft = false
 description = "Menancapkan besi ke tanah saja tidak cukup! Pelajari rekayasa desain Grounding System untuk melindungi ruang operasi, kilang, dan pusat data."
 image = "grounding-system.webp"
+images = ["/posts/electrical-engineering/grounding-system/grounding-system.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Power System Protection", "Electrical Installation Standards"]
 socialshare = true

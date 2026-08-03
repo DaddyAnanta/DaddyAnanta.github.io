@@ -5,6 +5,7 @@ draft = false
 description = "Grounding instalasi industri bukan sekadar formalitas, melainkan perisai anti-ledakan tak kasat mata. Kuasai rahasia desain standar IEEE/IEC di sini untuk amankan nyawa dan aset miliaran Anda!"
 image = "electrical-grounding.webp"
 images = ["/posts/electrical-engineering/electrical-grounding/electrical-grounding.webp"]
+
 categories = ["Electrical Engineering"]
 tags = ["Power System Protection", "Electrical Installation Standards"]
 socialshare = true
@@ -12,11 +13,6 @@ concept = "Electrical Grounding"
 slug = "electrical-grounding"
 +++
 
-[Pada Desember 2024](https://news.abplive.com/states/tamil-nadu/tamil-nadu-two-tangedco-workers-electrocuted-while-repairing-power-lines-trichy-1738440/amp), dua pekerja di India tewas tersengat listrik saat memperbaiki menara tegangan tinggi. Investigasi menemukan bahwa listrik belum sepenuhnya padam dan sistem pembumian (_grounding_) di lokasi tersebut gagal berfungsi. Kegagalan ini memicu aliran listrik liar yang merenggut nyawa mereka berdua.
-
-Insiden tragis tersebut menunjukkan betapa bahayanya jika sebuah sistem listrik tidak memiliki jalur pengaman. Saat terjadi korsleting atau kebocoran arus, listrik akan mencari jalan keluar. Jika sistem pembumiannya rusak, listrik yang liar tersebut bisa merusak alat, memicu kebakaran, atau langsung menyengat tubuh manusia yang berada di dekatnya.
-
-Untuk mencegah bencana semacam itu, setiap jaringan listrik wajib memiliki _electrical grounding_ atau sistem pembumian. Sederhananya, sistem ini adalah kabel pengaman yang menghubungkan jaringan listrik langsung ke tanah. Bumi berfungsi seperti spons raksasa yang mampu menyerap dan menetralkan aliran listrik berbahaya tersebut dengan cepat.
 
 Tujuan utama pembumian adalah memastikan tubuh kita aman dari sengatan listrik, baik saat tidak sengaja menyentuh bodi alat elektronik yang bocor maupun saat melangkah di dekat area yang sedang korsleting. Pengamanan listrik ini dibagi menjadi dua kategori utama.
 

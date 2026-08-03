@@ -5,6 +5,7 @@ date = 2025-02-01T21:37:16+07:00
 draft = false
 socialshare = true
 image = "ohms-law.webp"
+images = ["/posts/electrical-engineering/ohms-law/ohms-law.webp"]
 concept = "Ohm's Law"
 slug = "ohms-law"
 categories = ["Electrical Engineering"]

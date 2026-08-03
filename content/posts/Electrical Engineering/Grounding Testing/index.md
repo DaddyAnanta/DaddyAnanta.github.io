@@ -4,12 +4,14 @@ date = 2026-08-02T12:00:00+07:00
 draft = false
 description = "Panduan komprehensif mengenai standar keselamatan, integrasi proteksi petir, serta metode pengujian dan pemeliharaan Grounding Testing untuk memastikan keandalan sistem pembumian pada fasilitas industri."
 image = "grounding-testing.webp"
+images = ["/posts/electrical-engineering/grounding-testing/grounding-testing.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Power System Protection", "Electrical Installation Standards"]
 socialshare = true
 concept = "Grounding Testing"
 slug = "grounding-testing"
 +++
+
 
 Membangun sistem pembumian ([grounding system](https://pepuru.com/posts/electrical-engineering/grounding-system/)) yang sesuai standar bukan berarti pekerjaan telah selesai. Seiring waktu, korosi pada sambungan logam, perubahan kelembapan tanah, hingga pergeseran kondisi lingkungan dapat menurunkan kinerja sistem tanpa terlihat dari permukaan. Akibatnya, sistem yang semula mampu mengalirkan arus gangguan dengan baik dapat kehilangan efektivitasnya sehingga meningkatkan risiko munculnya tegangan berbahaya di sekitar instalasi.
 
