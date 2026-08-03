@@ -3,8 +3,10 @@ title = 'Electrical Grounding: Arsitektur Nol Volt Anti-Ledakan untuk Industri K
 date = 2026-08-01T20:12:49+07:00
 draft = false
 description = "Grounding instalasi industri bukan sekadar formalitas, melainkan perisai anti-ledakan tak kasat mata. Kuasai rahasia desain standar IEEE/IEC di sini untuk amankan nyawa dan aset miliaran Anda!"
-image = "electrical-grounding.webp"
-images = ["electrical-grounding.webp"]
+image = ["/images/Electrical Grounding
+/electrical-grounding.webp"]
+images = ["/images/Electrical Grounding
+/electrical-grounding.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Power System Protection", "Electrical Installation Standards"]
 socialshare = true
