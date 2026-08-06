@@ -1,9 +1,6 @@
 items:
-  - title: Google Anaytics (functional)
-    description: This code gives us insight into the number of people that visit our website, where they are from and what they are clicking on.
-    is_functional: true
-    script_file: GA4.js
-  - title: Crisp chat
-    description: This code gives users the option to chat directly with us through a chat box in the bottom right corner.
+  - title: Google Analytics
+    description: We use these cookies to collect anonymized data on how visitors interact with our site. This helps us continuously improve our content and your browsing experience, without identifying you personally.
     is_functional: false
-    script_file: crisp.js
+    script_file: GA4.js
+    category: Analytics
