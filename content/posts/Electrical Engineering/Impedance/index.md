@@ -3,13 +3,13 @@ title = "Impedance: Jangan Berani Mendesain Rangkaian AC Sebelum Memahami Konsep
 date = 2026-08-04T19:09:08+07:00
 draft = false
 description = "Panduan komprehensif impedansi rangkaian AC: dari konsep dasar, reaktansi, resonansi, hingga aplikasi pencocokan impedansi dan metode pengukurannya."
-image = "impedance-ac-circuits.webp"
-images = ["impedance.webp"]
+image = "impedance.webp"
+images = ["/posts/electrical-engineering/impedance/impedance.webp"]
 categories = ["Electrical Engineering"]
-tags = ["ElectricCircuitAnalysis", "PowerDistributionArchitecture"]
+tags = ["Electric Circuit Analysis", "Power Distribution Architecture"]
 socialshare = true
 concept = "Impedance"
-slug = "impedansi"
+slug = "impedance"
 +++
 
 
