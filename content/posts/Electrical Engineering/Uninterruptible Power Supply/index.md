@@ -45,7 +45,7 @@ Fungsi tersebut menjadi penting pada fasilitas yang bergantung pada kontinuitas 
 UPS bekerja dengan mengubah dan mengatur energi listrik melalui beberapa komponen yang saling terhubung. Pada kondisi normal, listrik dari jaringan utilitas diubah menjadi arus searah untuk mengisi baterai dan menyuplai inverter, sedangkan saat terjadi gangguan, baterai mengambil alih pasokan energi agar beban tetap memperoleh listrik.
 
 1. **Penyearah dan Pengisi Baterai (Rectifier / Charger)**  
-   Komponen ini menerima arus bolak-balik (Alternating Current atau AC) dari sumber daya utilitas, kemudian mengubahnya secara kontinu menjadi arus searah (Direct Current atau DC). Proses tersebut menggunakan modul semikonduktor daya, baik berbasis **IGBT dengan koreksi faktor daya (power factor correction)** maupun **thyristor bridge terkontrol**, untuk mengisi baterai sekaligus menyuplai daya arus searah ke modul inverter internal UPS.
+   Komponen ini menerima arus bolak-balik ([Alternating Current](https://pepuru.com/posts/electrical-engineering/alternating-current/) atau AC) dari sumber daya utilitas, kemudian mengubahnya secara kontinu menjadi arus searah (Direct Current atau DC). Proses tersebut menggunakan modul semikonduktor daya, baik berbasis **IGBT dengan koreksi faktor daya (power factor correction)** maupun **thyristor bridge terkontrol**, untuk mengisi baterai sekaligus menyuplai daya arus searah ke modul inverter internal UPS.
 2. **Baterai (Battery)**  
    Baterai menyimpan energi cadangan secara kimiawi dalam bentuk arus searah (Direct Current atau DC). Ketika sistem sensor mendeteksi hilangnya tegangan pada fase utilitas, baterai secara otomatis melepaskan energi yang tersimpan dan menjadi sumber tegangan utama bagi inverter. Pada sistem yang menggunakan penyearah dan pengisi baterai terpisah, baterai dipertahankan dalam kondisi terisi penuh melalui proses _float charge_.
 3. **Inverter (Inverter)**  
@@ -411,18 +411,18 @@ Secara sederhana, proses seleksi UPS dapat dilakukan dengan urutan:
 Dengan pendekatan tersebut, UPS tidak hanya dipilih berdasarkan berapa besar dayanya, tetapi berdasarkan seberapa kritis beban yang dilindungi, berapa lama daya cadangan diperlukan, seberapa bersih daya yang dibutuhkan, dan seberapa besar tingkat keandalan yang harus dicapai.
 ### Perbandingan Baterai: VRLA vs Lithium-Ion
 
-| **Parameter**                         | **VRLA (Valve-Regulated Lead-Acid)**                                               | **Lithium-Ion**                                                                     |
-| ------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| **Umur Pakai**                        | 3–5 tahun                                                                          | 8–15 tahun (umumnya 10–15 tahun)                                                    |
-| **Suhu Operasi Optimal**              | 20–25°C                                                                            | 15–45°C (lebih toleran)                                                             |
-| **Dampak Suhu Tinggi**                | Setiap +10°C mengurangi umur 50%                                                   | Degradasi lebih lambat; toleransi suhu lebih luas                                   |
-| **Kepadatan Energi**                  | Rendah (~30–50 Wh/kg), membutuhkan lebih banyak ruang                              | Tinggi (150–200 Wh/kg), 3–5 kali lebih padat; volume 40–60% lebih kecil             |
-| **Perawatan**                         | *Periodic check*, *impedance testing*                                              | Minimal; BMS (*Battery Management System*) mengelola secara otomatis                |
-| **Waktu Pengisian Ulang**             | 8–12 jam                                                                           | 1–4 jam; hingga 4 kali lebih cepat dari VRLA                                        |
-| **Biaya Awal**                        | Rendah (1×)                                                                        | Tinggi (1,5–3× VRLA)                                                                |
-| **Biaya Siklus Hidup (10 Tahun)**     | Lebih tinggi; 3–4 kali penggantian                                                 | Lebih rendah; 0–1 kali penggantian; *10-year TCO* **53% lebih rendah** dari VRLA    |
-| **Siklus Hidup (*Charge-Discharge*)** | 200–400 siklus                                                                     | 2.000–5.000+ siklus                                                                 |
-| **Aplikasi Terbaik**                  | *Data center* dengan pendinginan baik, anggaran awal terbatas, aplikasi non-kritis | Lingkungan suhu tinggi, ruang terbatas, prioritas TCO jangka panjang, *remote site* |
+| **Parameter**                         | **VRLA (Valve-Regulated Lead-Acid)**                                                                | **Lithium-Ion**                                                                     |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **Umur Pakai**                        | 3–5 tahun                                                                                           | 8–15 tahun (umumnya 10–15 tahun)                                                    |
+| **Suhu Operasi Optimal**              | 20–25°C                                                                                             | 15–45°C (lebih toleran)                                                             |
+| **Dampak Suhu Tinggi**                | Setiap +10°C mengurangi umur 50%                                                                    | Degradasi lebih lambat; toleransi suhu lebih luas                                   |
+| **Kepadatan Energi**                  | Rendah (~30–50 Wh/kg), membutuhkan lebih banyak ruang                                               | Tinggi (150–200 Wh/kg), 3–5 kali lebih padat; volume 40–60% lebih kecil             |
+| **Perawatan**                         | *Periodic check*, *[impedance](https://pepuru.com/posts/electrical-engineering/impedance/) testing* | Minimal; BMS (*Battery Management System*) mengelola secara otomatis                |
+| **Waktu Pengisian Ulang**             | 8–12 jam                                                                                            | 1–4 jam; hingga 4 kali lebih cepat dari VRLA                                        |
+| **Biaya Awal**                        | Rendah (1×)                                                                                         | Tinggi (1,5–3× VRLA)                                                                |
+| **Biaya Siklus Hidup (10 Tahun)**     | Lebih tinggi; 3–4 kali penggantian                                                                  | Lebih rendah; 0–1 kali penggantian; *10-year TCO* **53% lebih rendah** dari VRLA    |
+| **Siklus Hidup (*Charge-Discharge*)** | 200–400 siklus                                                                                      | 2.000–5.000+ siklus                                                                 |
+| **Aplikasi Terbaik**                  | *Data center* dengan pendinginan baik, anggaran awal terbatas, aplikasi non-kritis                  | Lingkungan suhu tinggi, ruang terbatas, prioritas TCO jangka panjang, *remote site* |
 
 Baterai VRLA sebaiknya diganti pada tahun ke-3 atau ke-4 meskipun masih lolos *self-test*, karena setelah 3 tahun penggunaan telah memasuki zona risiko. Untuk beban kritis, rencanakan penggantian setiap 3–4 tahun.
 
