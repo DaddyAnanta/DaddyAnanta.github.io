@@ -47,12 +47,12 @@ Notasi matematika pada bagian ini mengikuti konvensi yang umum digunakan dalam a
 
 Identitas pangkat dua adalah bentuk yang paling sering ditemui dalam pembelajaran matematika. Rumus-rumus ini digunakan saat mengembangkan bentuk kuadrat, menyederhanakan ekspresi, maupun memfaktorkan persamaan kuadrat.
 
-|**Nama Identitas**|**Rumus Standar**|**Bentuk Alternatif / Aplikasi**|
-|---|---|---|
-|**Kuadrat Jumlah**|$(a+b)^2=a^2+2ab+b^2$|$a^2+b^2=(a+b)^2-2ab$|
-|**Kuadrat Selisih**|$(a-b)^2=a^2-2ab+b^2$|$a^2+b^2=(a-b)^2+2ab$|
-|**Selisih Dua Kuadrat**|$a^2-b^2=(a+b)(a-b)$|Digunakan untuk merasionalkan penyebut.|
-|**Hasil Kali Dua Binomial**|$(x+a)(x+b)=x^2+(a+b)x+ab$|Bentuk dasar faktorisasi persamaan kuadrat.|
+| **Nama Identitas**          | **Rumus Standar**          | **Bentuk Alternatif / Aplikasi**            |
+| --------------------------- | -------------------------- | ------------------------------------------- |
+| **Kuadrat Jumlah**          | $(a+b)^2=a^2+2ab+b^2$      | $a^2+b^2=(a+b)^2-2ab$                       |
+| **Kuadrat Selisih**         | $(a-b)^2=a^2-2ab+b^2$      | $a^2+b^2=(a-b)^2+2ab$                       |
+| **Selisih Dua Kuadrat**     | $a^2-b^2=(a+b)(a-b)$       | Digunakan untuk merasionalkan penyebut.     |
+| **Hasil Kali Dua Binomial** | $(x+a)(x+b)=x^2+(a+b)x+ab$ | Bentuk dasar faktorisasi persamaan kuadrat. |
 
 **Keterangan variabel:**
 
@@ -98,7 +98,6 @@ Beberapa bentuk aljabar melibatkan tiga variabel sekaligus, misalnya $a$, $b$, d
 
 **Contoh:**
 $$(x+y+1)^2=x^2+y^2+1+2xy+2x+2y$$
-
 
 ### Identitas Faktorisasi
 
@@ -299,14 +298,31 @@ Pada analisis struktur yang terdiri atas ribuan hingga jutaan elemen, penghemata
 
 Saat mempelajari identitas aljabar, kesalahan paling sering terjadi bukan karena rumusnya sulit, tetapi karena kurang teliti saat melakukan manipulasi aljabar. Kesalahan kecil, seperti tanda positif dan negatif yang tertukar atau suku yang terlewat, dapat membuat hasil akhir menjadi tidak benar.
 
-Tabel berikut merangkum beberapa kesalahan yang sering dilakukan beserta cara menghindarinya.
+Berikut merangkum beberapa kesalahan yang sering dilakukan beserta cara menghindarinya.
 
-|**Jenis Kesalahan**|**Ekspresi Salah**|**Ekspresi Benar**|**Penyebab**|**Cara Menghindari**|
-|---|---|---|---|---|
-|**Kehilangan suku tengah**|$(a+b)^2=a^2+b^2$|$(a+b)^2=a^2+2ab+b^2$|Menganggap kuadrat suatu penjumlahan sama dengan jumlah kuadrat masing-masing suku.|Biasakan mengembangkan bentuk kuadrat secara lengkap dan periksa kembali keberadaan suku $2ab$.|
-|**Keliru membedakan kuadrat selisih dan selisih kuadrat**|$(a-b)^2=a^2-b^2$|$(a-b)^2=a^2-2ab+b^2$|Menganggap kedua bentuk tersebut memiliki arti yang sama, padahal rumusnya berbeda.|Ingat bahwa $a^2-b^2$ dapat difaktorkan menjadi $(a+b)(a-b)$, sedangkan $(a-b)^2$ masih memiliki suku tengah $-2ab$.|
-|**Kesalahan tanda pada pangkat tiga**|$(a-b)^3=a^3-3a^2b-3ab^2-b^3$|$(a-b)^3=a^3-3a^2b+3ab^2-b^3$|Kurang teliti saat menentukan tanda positif dan negatif pada setiap suku.|Gunakan pola koefisien Segitiga Pascal dan periksa kembali urutan tanda sebelum menyelesaikan perhitungan.|
-|**Generalisasi yang salah**|$\frac{1}{x+y}=\frac{1}{x}+\frac{1}{y}$|Bukan identitas aljabar.|Menganggap semua operasi aljabar memiliki sifat yang sama seperti penjumlahan atau perkalian.|Uji terlebih dahulu menggunakan nilai sederhana, misalnya $x=1$ dan $y=1$, untuk melihat apakah kedua ruas menghasilkan nilai yang sama.|
+1. **Kehilangan Suku Tengah**
+	- **Ekspresi Salah:** $(a+b)^2=a^2+b^2$
+	- **Ekspresi Benar:** $(a+b)^2=a^2+2ab+b^2$
+	- **Penyebab:** Menganggap kuadrat suatu penjumlahan sama dengan jumlah kuadrat masing-masing suku.
+	- **Cara Menghindari:** Biasakan mengembangkan bentuk kuadrat secara lengkap dan periksa kembali keberadaan suku $2ab$.
+
+2. **Keliru Membedakan Kuadrat Selisih dan Selisih Kuadrat**
+	- **Ekspresi Salah:** $(a-b)^2=a^2-b^2$
+	- **Ekspresi Benar:** $(a-b)^2=a^2-2ab+b^2$
+	- **Penyebab:** Menganggap kedua bentuk tersebut memiliki arti yang sama, padahal rumusnya berbeda.
+	- **Cara Menghindari:** Ingat bahwa $a^2-b^2$ dapat difaktorkan menjadi $(a+b)(a-b)$, sedangkan $(a-b)^2$ masih memiliki suku tengah $-2ab$.
+
+3. **Kesalahan Tanda pada Pangkat Tiga**
+	- **Ekspresi Salah:** $(a-b)^3=a^3-3a^2b-3ab^2-b^3$
+	- **Ekspresi Benar:** $(a-b)^3=a^3-3a^2b+3ab^2-b^3$
+	- **Penyebab:** Kurang teliti saat menentukan tanda positif dan negatif pada setiap suku.
+	- **Cara Menghindari:** Gunakan pola koefisien Segitiga Pascal dan periksa kembali urutan tanda sebelum menyelesaikan perhitungan.
+
+4. **Generalisasi yang Salah**
+	- **Ekspresi Salah:** $\frac{1}{x+y}=\frac{1}{x}+\frac{1}{y}$
+	- **Ekspresi Benar:** Bukan identitas aljabar.
+	- **Penyebab:** Menganggap semua operasi aljabar memiliki sifat yang sama seperti penjumlahan atau perkalian.
+	- **Cara Menghindari:** Uji terlebih dahulu menggunakan nilai sederhana, misalnya $x=1$ dan $y=1$, untuk melihat apakah kedua ruas menghasilkan nilai yang sama.
 
 Beberapa kesalahan di atas dapat dideteksi dengan cepat menggunakan **substitusi numerik** (_numerical substitution_), yaitu mengganti variabel dengan angka sederhana, misalnya 1, 2, atau 3. Jika kedua ruas menghasilkan nilai yang berbeda, berarti terdapat kesalahan pada proses manipulasi aljabar.
 
