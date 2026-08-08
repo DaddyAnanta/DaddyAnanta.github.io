@@ -1720,12 +1720,19 @@ pre.mermaid .arrowheadPath {
     font-size: 0.9rem !important;
   }
   
+
+  .singleContent table,
+  .post-content .table-container table {
+    -webkit-overflow-scrolling: touch;
+    white-space: normal;}
+
   /* Mengurangi jarak spasi (padding) agar tabel tidak terlalu lebar */
   .post-content th,
   .singleContent th,
   .post-content td,
   .singleContent td {
     padding: 10px 12px !important; 
+    min-width: 120px;
   }  
   /* Code & Tabel End */
 
