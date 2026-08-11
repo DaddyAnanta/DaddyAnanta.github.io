@@ -3,4 +3,4 @@ Disallow: /search/
 Disallow: /posts/search/
 Disallow: /admin/
 
-Sitemap: https://daddyananta.github.io/sitemap.xml
+Sitemap: https://pepuru.com/sitemap.xml
