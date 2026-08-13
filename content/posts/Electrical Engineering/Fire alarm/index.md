@@ -8,7 +8,7 @@ images = ["/posts/electrical-engineering/fire-alarm/fire-alarm.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Fire Protection Engineering", "Building Automation"]
 socialshare = true
-concept = ["Fire Alarm"]
+concept = "Fire Alarm"
 slug = "fire-alarm"
 +++
 
