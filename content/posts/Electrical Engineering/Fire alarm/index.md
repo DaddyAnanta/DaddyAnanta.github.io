@@ -4,8 +4,7 @@ date = 2026-08-10T20:12:49+07:00
 draft = false
 description = "Jangan tunggu sampai aset hangus! Temukan panduan lengkap klasifikasi, komponen, dan seleksi sistem fire alarm untuk cegah kebakaran fatal di gedung Anda."
 image = "fire-alarm.webp"
-images = ["fire-alarm.webp"]
-["/posts/electrical-engineering/fire-alarm/fire-alarm.webp"]
+images = ["/posts/electrical-engineering/fire-alarm/fire-alarm.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Fire Protection Engineering", "Building Automation"]
 socialshare = true
