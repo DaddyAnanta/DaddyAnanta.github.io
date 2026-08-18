@@ -13,8 +13,6 @@ slug = "transformer"
 +++
 
 
-# Apa Itu Transformator dan Bagaimana Cara Kerjanya?
-
 Pernahkah Anda melihat kotak baja di pinggir jalan atau mendengar bunyi dengung dari dalamnya? Kotak tersebut dapat berupa gardu distribusi tipe kotak (_box-type substation_). Sederhananya, gardu ini bertugas menurunkan tegangan listrik yang terlalu tinggi dari jaringan agar sesuai untuk digunakan di rumah dan bangunan.
 
 Lalu, mengapa gardu tersebut mengeluarkan bunyi dengung? Salah satu penyebab utamanya adalah magnetostriksi (_magnetostriction_), yaitu perubahan bentuk yang sangat kecil pada inti transformator ketika terkena medan magnet yang berubah-ubah. Pada sistem listrik 60 Hz, getaran utamanya muncul sekitar $2 \times 60 = 120\text{ Hz}$, sedangkan pada sistem 50 Hz sekitar $2 \times 50 = 100\text{ Hz}$.
