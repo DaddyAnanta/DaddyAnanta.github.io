@@ -7,6 +7,9 @@ image = "electrical-distribution.webp"
 images = ["/posts/electrical-engineering/electrical-distribution/electrical-distribution.webp"]
 categories = ["Electrical Engineering"]
 tags = ["Power Distribution Architecture", "Power System Protection"]
+aliases = [
+    "/posts/electrical-distribution/"
+]
 socialshare = true
 concept = "Electrical Distribution"
 slug = "electrical-distribution"
