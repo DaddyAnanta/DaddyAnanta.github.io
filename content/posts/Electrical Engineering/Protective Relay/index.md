@@ -12,7 +12,6 @@ concept = "Protective Relay"
 slug = "protective-relay"
 +++
 
-
 Pada 9 November 1965, [pemadaman listrik](https://en.wikipedia.org/wiki/Northeast_blackout_of_1965) besar membuat sekitar 30 juta penduduk Amerika Utara kehilangan pasokan listrik. Wilayah yang terdampak mencapai sekitar 80.000 mil persegi atau 207.000 kilometer persegi, membentang dari Ontario di Kanada hingga sejumlah negara bagian di Amerika Serikat, termasuk New York, Connecticut, Massachusetts, Rhode Island, Vermont, New Hampshire, New Jersey, dan Pennsylvania.
 
 Akar masalahnya berawal dari satu **relai proteksi (protective relay)** pada saluran transmisi 230 kV di Pembangkit Listrik Tenaga Air Sir Adam Beck No. 2 di Queenston, Ontario. Relai tersebut seharusnya bekerja dan memerintahkan pemutusan ketika mendeteksi kondisi yang melampaui batas pengaman saluran, tetapi pengaturannya terlalu rendah dibandingkan kondisi operasi normal. [Batas pengaman](https://www.globalsecurity.org/wmd/ops/1965-blackout.htm) yang tidak sesuai ini kemudian menjadi salah satu pemicu awal gangguan.
@@ -25,7 +24,7 @@ Sisa aliran daya dari stasiun Beck kemudian bergerak ke arah timur menuju New Yo
 
 Peristiwa tersebut menunjukkan pentingnya **proteksi sistem tenaga (power system protection)** dalam menjaga keandalan jaringan listrik. Sistem ini berfungsi mendeteksi kondisi tidak normal dan secara otomatis [mengisolasi gangguan](https://technav.ieee.org/area/power-system-protection/) agar gangguan tidak merusak peralatan atau menyebar ke bagian jaringan yang masih beroperasi normal.
 
-Salah satu komponen penting dalam sistem tersebut adalah **relai proteksi (protective relay)**. Bergantung pada fungsi proteksinya, relai dapat memantau arus, tegangan, frekuensi, impedansi ([impedance](http://localhost:1313/posts/electrical-engineering/impedance/)), atau besaran listrik lainnya untuk mendeteksi kondisi abnormal.
+Salah satu komponen penting dalam sistem tersebut adalah **relai proteksi (protective relay)**. Bergantung pada fungsi proteksinya, relai dapat memantau arus, tegangan, frekuensi, impedansi ([impedance](https://pepuru.com/posts/electrical-engineering/impedance/)), atau besaran listrik lainnya untuk mendeteksi kondisi abnormal.
 
 Ketika gangguan terdeteksi, relai mengirimkan perintah pemutusan kepada **pemutus tenaga (circuit breaker)**. Pemutus tenaga kemudian membuka rangkaian untuk memisahkan bagian jaringan yang mengalami gangguan dari bagian jaringan yang masih normal.
 
@@ -37,7 +36,7 @@ IEEE mendefinisikan relai proteksi sebagai relai yang dirancang untuk mendeteksi
 
 Pada jaringan tegangan menengah dan tinggi, relai proteksi berperan sebagai elemen pengambil keputusan dalam sistem proteksi. Perangkat ini dapat mengukur besaran seperti **arus (current)**, **tegangan (voltage)**, dan **impedansi (impedance)**, kemudian membandingkannya dengan nilai pengaturan proteksi.
 
-Ketika kondisi gangguan terdeteksi, relai memberikan perintah **trip (pemutusan)** kepada **pemutus tenaga ([circuit breaker](http://localhost:1313/posts/electrical-engineering/miniature-circuit-breaker/))**. Relai bertugas menganalisis kondisi sistem berdasarkan besaran yang diukur, lalu memutuskan kapan pemutus tenaga harus membuka rangkaian fisik. Sistem proteksi harus bekerja dengan cepat dan presisi untuk mencegah kerusakan permanen pada infrastruktur.
+Ketika kondisi gangguan terdeteksi, relai memberikan perintah **trip (pemutusan)** kepada **pemutus tenaga ([circuit breaker](https://pepuru.com/posts/electrical-engineering/miniature-circuit-breaker/))**. Relai bertugas menganalisis kondisi sistem berdasarkan besaran yang diukur, lalu memutuskan kapan pemutus tenaga harus membuka rangkaian fisik. Sistem proteksi harus bekerja dengan cepat dan presisi untuk mencegah kerusakan permanen pada infrastruktur.
 
 ## Relai Proteksi (*Protective Relay*) vs. Pemutus Tenaga (*Circuit Breaker*): Perbedaan Peran
 
